@@ -36,6 +36,17 @@ def read_data():
     return rows  # Return the rows
 
 
+# Function to delete a record from the database
+def delete_data(file_name):
+    conn = get_connection()  # Get a connection to the database
+    c = conn.cursor()  # Create a cursor to execute queries
+    # Execute the DELETE query to remove the record with the matching file name
+    c.execute('DELETE FROM scontrini WHERE nome_file = ?', (file_name,))
+    conn.commit()  # Commit the changes
+    conn.close()  # Close the connection
+
+
+
 # Function to close the connection (if used)
 def close_connection(conn):
     conn.close()  # Close the given connection
