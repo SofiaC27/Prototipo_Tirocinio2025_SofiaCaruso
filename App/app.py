@@ -20,7 +20,7 @@ def save_image_to_folder(uploaded_file):
     return file_path  # Return the saved file path
 
 # Application title
-st.title("Document Management - Internship")
+st.title("Document Management")
 
 # File upload functionality
 uploaded_file = st.file_uploader("Upload a file (JPG, JPEG, PNG, PDF)", type=["jpg", "jpeg", "png", "pdf"])
@@ -48,3 +48,4 @@ else:
 # Button to start the processing
 if st.button("Process"):
     st.write("Processing the file...")  # Replace with OCR or other logic
+
