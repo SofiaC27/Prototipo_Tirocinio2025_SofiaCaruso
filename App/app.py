@@ -4,11 +4,16 @@ import os
 import time
 import pandas as pd
 import csv
+import pytesseract
+from PIL import Image
 
 # Add the project's root directory to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from Database.db_manager import insert_data, read_data, delete_data
+
+# Configure the path to the Tesseract executable
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # Function to save uploaded images into the Images folder
 def save_image_to_folder(uploaded_file):
@@ -21,6 +26,13 @@ def save_image_to_folder(uploaded_file):
     with open(file_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
     return file_path  # Return the saved file path
+
+
+# Function to extract text from an image using OCR
+def extract_text_from_image(image_path):
+    img = Image.open(image_path)
+    text = pytesseract.image_to_string(img, lang="ita")  # Change to the desired language
+    return text
 
 # Application title
 st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart Receipts</h1>", unsafe_allow_html=True)
@@ -52,6 +64,7 @@ if uploaded_files:
             insert_data(file_path)  # Function to insert the file path into the database
             st.success(f"File successfully saved to '{file_path}' and the database!")
 
+
         # Simulated progress bar for processing the file
         with st.spinner("Processing..."):
             progress = st.progress(0)
@@ -59,6 +72,14 @@ if uploaded_files:
                 time.sleep(0.01)
                 progress.progress(i + 1)
             st.success(f"{uploaded_file.name} processed successfully!")
+
+        # Button to process the file with OCR
+        if st.button(f"Process {uploaded_file.name} with OCR"):
+            file_path = save_image_to_folder(uploaded_file)
+            extracted_text = extract_text_from_image(file_path)
+            st.write(f"Extracted text from {uploaded_file.name}:")
+            st.text(extracted_text)
+
 else:
     # Warning message if no files are uploaded
     st.warning("Please upload a file to proceed.")
