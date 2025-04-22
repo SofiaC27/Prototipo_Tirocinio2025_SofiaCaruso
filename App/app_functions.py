@@ -57,7 +57,7 @@ def process_uploaded_file(uploaded_files):
 
             if st.button(f"Save {uploaded_file.name}"):
                 file_path = save_image_to_folder(uploaded_file)
-                insert_data("documents.db", "receipts", file_path)
+                insert_data("documents.db", "receipts", "File_path", uploaded_file.name)
                 st.success(f"File successfully saved to '{file_path}' and the database!")
     else:
         st.warning("Please upload a file to proceed.")
@@ -109,14 +109,13 @@ def delete_file_from_database(data):
     if data:
         file_to_delete = st.selectbox("Select file to delete", [row[1] for row in data])
 
-        if st.button("Delete selected file"):
-            confirm = st.checkbox(f"Confirm deletion of '{file_to_delete}'")
+        confirm = st.checkbox(f"Confirm deletion of '{file_to_delete}'")
+        st.warning("Please confirm before deleting the file.")
 
-            if confirm:
-                delete_data("documents.db", "receipts", file_to_delete)
+        if confirm:
+            if st.button("Delete selected file"):
+                delete_data("documents.db", "receipts", "File_path", file_to_delete)
                 st.success(f"File '{file_to_delete}' successfully deleted!")
-            else:
-                st.warning("Please confirm before deleting the file.")
     else:
         st.info("No data available in the database for deletion.")
 

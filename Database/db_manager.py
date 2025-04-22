@@ -27,22 +27,23 @@ def get_connection(db_name):
     return sqlite3.connect(db_name)  # Return a connection to the database
 
 
-def insert_data(db_name, table_name, file_name):
+def insert_data(db_name, table_name, column_name, file_name):
     """
     Funzione per inserire dati all'interno del database
     - Connessione al database
     - Creazione di un cursore per eseguire le query
-    - Query per inserire i dati nella tabella
+    - Query per inserire i dati nella tabella (se è un duplicato lo ignora)
     - Il ? è un segnaposto per valori da inserire in sicurezza tramite parametri, evitando SQL injection
     - La , alla fine indica che (file_name,) è una tupla con un singolo elemento
     - Salvataggio dei cambiamenti e chiusura della connessione
     :param: db_name: nome del database
     :param: table_name: nome della tabella
+    :param: column_name: nome della colonna
     :param file_name: file da inserire
     """
     conn = get_connection(db_name)
     c = conn.cursor()
-    query = f'INSERT INTO {table_name} (file_name) VALUES (?)'
+    query = f'INSERT OR IGNORE INTO {table_name} ({column_name}) VALUES (?)'
     c.execute(query, (file_name,))
     conn.commit()
     conn.close()
@@ -69,7 +70,7 @@ def read_data(db_name, table_name):
     return rows
 
 
-def delete_data(db_name, table_name, file_name):
+def delete_data(db_name, table_name, column_name, file_name):
     """
     Funzione per eliminare dati all'interno del database
     - Connessione al database
@@ -80,11 +81,12 @@ def delete_data(db_name, table_name, file_name):
     - Salvataggio dei cambiamenti e chiusura della connessione
     :param: db_name: nome del database
     :param: table_name: nome della tabella
+    :param: column_name: nome della colonna
     :param file_name: file da eliminare
     """
     conn = get_connection(db_name)
     c = conn.cursor()
-    query = f'DELETE FROM {table_name} WHERE file_name = ?'
+    query = f'DELETE FROM {table_name} WHERE {column_name} = ?'
     c.execute(query, (file_name,))
     conn.commit()
     conn.close()
@@ -101,7 +103,7 @@ def close_connection(conn):
 create_table("documents.db", '''
         CREATE TABLE IF NOT EXISTS receipts (
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
-            File_path TEXT,
+            File_path TEXT UNIQUE,
             Upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
