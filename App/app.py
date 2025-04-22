@@ -7,12 +7,15 @@ import csv
 import pytesseract
 from PIL import Image
 
-# Add the project's root directory to sys.path
+# NOTE: ottiene la directory del file attuale, risale alla cartella principale del progetto e
+# converte il percorso in assoluto. Infine, aggiunge la directory principale a sys.path,
+# consentendo l'importazione dei moduli Python senza percorsi espliciti
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from Database.db_manager import insert_data, read_data, delete_data
 
-# Configure the path to the Tesseract executable
+# NOTE: configura il percorso dell'eseguibile di Tesseract OCR, necessario per il corretto
+# funzionamento della libreria pytesseract per il riconoscimento ottico dei caratteri
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # Function to save uploaded images into the Images folder
