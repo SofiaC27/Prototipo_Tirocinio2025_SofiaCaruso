@@ -1,96 +1,107 @@
 import sqlite3
 
 
-def create_table():
+def create_table(db_name, table_query):
     """
-    Funzione per creare la tabella 'scontrini'
-    - Connessione al database 'documenti.db'
+    Funzione per creare una tabella
+    - Connessione al database
     - Creazione di un cursore per eseguire le query
-    - Query per creare (solo una volta) la tabella se non esiste già
+    - Query per creare la tabella se non esiste già
     - Salvataggio dei cambiamenti e chiusura della connessione
+    :param: db_name: nome del database
+    :param: table_query: query per creare una tabella
     """
-    conn = sqlite3.connect("documenti.db")
+    conn = sqlite3.connect(db_name)
     c = conn.cursor()
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS scontrini (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome_file TEXT,
-            data_caricamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    ''')
+    c.execute(table_query)
     conn.commit()
     conn.close()
 
 
-def get_connection():
+def get_connection(db_name):
     """
     Funzione per connettersi al database
-    :return: connessione al database 'documenti.db'
+    :param: db_name: nome del database
+    :return: connessione al database
     """
-    return sqlite3.connect("documenti.db")  # Return a connection to the database
+    return sqlite3.connect(db_name)  # Return a connection to the database
 
 
-def insert_data(file_name):
+def insert_data(db_name, table_name, file_name):
     """
     Funzione per inserire dati all'interno del database
-    - Connessione al database 'documenti.db'
+    - Connessione al database
     - Creazione di un cursore per eseguire le query
-    - Query per inserire i dati nella tabella 'scontrini'
+    - Query per inserire i dati nella tabella
     - Il ? è un segnaposto per valori da inserire in sicurezza tramite parametri, evitando SQL injection
     - La , alla fine indica che (file_name,) è una tupla con un singolo elemento
     - Salvataggio dei cambiamenti e chiusura della connessione
+    :param: db_name: nome del database
+    :param: table_name: nome della tabella
     :param file_name: file da inserire
     """
-    conn = get_connection()
+    conn = get_connection(db_name)
     c = conn.cursor()
-    c.execute('INSERT INTO scontrini (nome_file) VALUES (?)', (file_name,))
+    query = f'INSERT INTO {table_name} (file_name) VALUES (?)'
+    c.execute(query, (file_name,))
     conn.commit()
     conn.close()
 
 
-def read_data():
+def read_data(db_name, table_name):
     """
     Funzione per leggere dati all'interno del database
-    - Connessione al database 'documenti.db'
+    - Connessione al database
     - Creazione di un cursore per eseguire le query
-    - Query per leggere i dati dalla tabella 'scontrini'
+    - Query per leggere i dati dalla tabella
     - Recupera e memorizza in una variabile tutte le righe
     - Chiusura della connessione
+    :param: db_name: nome del database
+    :param: table_name: nome della tabella
     :return: righe della tabella
     """
-    conn = get_connection()
+    conn = get_connection(db_name)
     c = conn.cursor()
-    c.execute('SELECT * FROM scontrini')
+    query = f'SELECT * FROM {table_name}'
+    c.execute(query)
     rows = c.fetchall()
     conn.close()
     return rows
 
 
-def delete_data(file_name):
+def delete_data(db_name, table_name, file_name):
     """
     Funzione per eliminare dati all'interno del database
-    - Connessione al database 'documenti.db'
+    - Connessione al database
     - Creazione di un cursore per eseguire le query
-    - Query per eliminare i dati nella tabella 'scontrini'
+    - Query per eliminare i dati nella tabella
     - Il ? è un segnaposto per valori da eliminare in sicurezza tramite parametri, evitando SQL injection
     - La , alla fine indica che (file_name,) è una tupla con un singolo elemento
     - Salvataggio dei cambiamenti e chiusura della connessione
+    :param: db_name: nome del database
+    :param: table_name: nome della tabella
     :param file_name: file da eliminare
     """
-    conn = get_connection()
+    conn = get_connection(db_name)
     c = conn.cursor()
-    c.execute('DELETE FROM scontrini WHERE nome_file = ?', (file_name,))
+    query = f'DELETE FROM {table_name} WHERE file_name = ?'
+    c.execute(query, (file_name,))
     conn.commit()
     conn.close()
 
 
-# Function to close the connection (if used)
 def close_connection(conn):
     """
-    Funzione per chiudere la connessione al database 'documenti.db'
+    Funzione per chiudere la connessione al database (se usata)
     :param: conn: connessione da chiudere
     """
     conn.close()
 
 
-create_table()  # Chiama la funzione per inizializzare la tabella quando lo script viene eseguito
+create_table("documents.db", '''
+        CREATE TABLE IF NOT EXISTS receipts (
+            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+            File_path TEXT,
+            Upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')

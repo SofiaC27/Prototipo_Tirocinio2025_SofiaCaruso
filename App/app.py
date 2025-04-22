@@ -24,7 +24,7 @@ process_uploaded_file(uploaded_files)
 st.divider()
 st.subheader("Database Management")
 
-data = read_data()
+data = read_data("documents.db", "receipts")
 display_data_with_pagination(data)
 delete_file_from_database(data)
 

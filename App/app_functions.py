@@ -57,7 +57,7 @@ def process_uploaded_file(uploaded_files):
 
             if st.button(f"Save {uploaded_file.name}"):
                 file_path = save_image_to_folder(uploaded_file)
-                insert_data(file_path)
+                insert_data("documents.db", "receipts", file_path)
                 st.success(f"File successfully saved to '{file_path}' and the database!")
     else:
         st.warning("Please upload a file to proceed.")
@@ -78,7 +78,7 @@ def display_data_with_pagination(data):
     st.write("Saved data in the database:")
 
     if data:
-        df = pd.DataFrame(data, columns=["ID", "File Path", "Upload Date"])
+        df = pd.DataFrame(data, columns=["Id", "File_path", "Upload_date"])
         st.dataframe(df)
 
         items_per_page = 10
@@ -88,12 +88,12 @@ def display_data_with_pagination(data):
             start = (page - 1) * items_per_page
             end = start + items_per_page
             for row in data[start:end]:
-                st.write(f"ID: {row[0]} | File Path: {row[1]} | Upload Date: {row[2]}")
+                st.write(f"Id: {row[0]} | File_path: {row[1]} | Upload_date: {row[2]}")
         else:
             for row in data:
-                st.write(f"ID: {row[0]} | File Path: {row[1]} | Upload Date: {row[2]}")
+                st.write(f"Id: {row[0]} | File_path: {row[1]} | Upload_date: {row[2]}")
     else:
-        st.info("No data available in the database.")
+        st.info("No data available in the database for display.")
 
 
 def delete_file_from_database(data):
@@ -113,11 +113,11 @@ def delete_file_from_database(data):
             confirm = st.checkbox(f"Confirm deletion of '{file_to_delete}'")
 
             if confirm:
-                delete_data(file_to_delete)
+                delete_data("documents.db", "receipts", file_to_delete)
                 st.success(f"File '{file_to_delete}' successfully deleted!")
             else:
                 st.warning("Please confirm before deleting the file.")
     else:
-        st.info("No data available in the database.")
+        st.info("No data available in the database for deletion.")
 
 
