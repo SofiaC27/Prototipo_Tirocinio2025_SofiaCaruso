@@ -1,43 +1,10 @@
 import streamlit as st
-import sys
-import os
-import time
-import pandas as pd
+
 import csv
-import pytesseract
-from PIL import Image
 
-# NOTE: ottiene la directory del file attuale, risale alla cartella principale del progetto e
-# converte il percorso in assoluto. Infine, aggiunge la directory principale a sys.path,
-# consentendo l'importazione dei moduli Python senza percorsi espliciti
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from app_functions import *
 
-from Database.db_manager import insert_data, read_data, delete_data
-
-# NOTE: configura il percorso dell'eseguibile di Tesseract OCR, necessario per il corretto
-# funzionamento della libreria pytesseract per il riconoscimento ottico dei caratteri
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-
-# Function to save uploaded images into the Images folder
-def save_image_to_folder(uploaded_file):
-    folder_path = "Images"
-    # Create the folder if it does not exist
-    os.makedirs(folder_path, exist_ok=True)
-    # Construct the full file path
-    file_path = os.path.join(folder_path, uploaded_file.name)
-    # Save the file in binary format
-    with open(file_path, "wb") as f:
-        f.write(uploaded_file.getbuffer())
-    return file_path  # Return the saved file path
-
-
-# Function to extract text from an image using OCR
-def extract_text_from_image(image_path):
-    img = Image.open(image_path)
-    text = pytesseract.image_to_string(img, lang="ita")  # Change to the desired language
-    return text
-
-# Application title
+# Titolo dell'applicazione
 st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart Receipts</h1>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center; color: black; font-size: 25px;'>"
             "An advanced web application for uploading receipts and PDFs, extracting data with "
@@ -45,97 +12,33 @@ st.markdown("<h2 style='text-align: center; color: black; font-size: 25px;'>"
             " language interaction and advanced analysis</h2>", unsafe_allow_html=True)
 
 
+# Upload dei file
 st.divider()
 st.subheader("File Uploader")
 
-# File upload functionality for multiple files
 uploaded_files = st.file_uploader("Upload files (JPG, PNG)", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
-
-# Check if files have been uploaded
-if uploaded_files:
-    for uploaded_file in uploaded_files:
-        # Display the name of the uploaded file
-        st.write(f"File uploaded: {uploaded_file.name}")
-
-        # Display a preview of the uploaded image
-        if uploaded_file.type.startswith("image"):
-            st.image(uploaded_file, caption=f"Preview of {uploaded_file.name}", use_container_width=True)
-
-        # Button to save the file to the folder and database
-        if st.button(f"Save {uploaded_file.name} to database"):
-            file_path = save_image_to_folder(uploaded_file)  # Function to save the file to the folder Images
-            insert_data(file_path)  # Function to insert the file path into the database
-            st.success(f"File successfully saved to '{file_path}' and the database!")
+process_uploaded_file(uploaded_files)
 
 
-        # Simulated progress bar for processing the file
-        with st.spinner("Processing..."):
-            progress = st.progress(0)
-            for i in range(100):  # Simulate file processing
-                time.sleep(0.01)
-                progress.progress(i + 1)
-            st.success(f"{uploaded_file.name} processed successfully!")
-
-        # Button to process the file with OCR
-        if st.button(f"Process {uploaded_file.name} with OCR"):
-            file_path = save_image_to_folder(uploaded_file)
-            extracted_text = extract_text_from_image(file_path)
-            st.write(f"Extracted text from {uploaded_file.name}:")
-            st.text(extracted_text)
-
-else:
-    # Warning message if no files are uploaded
-    st.warning("Please upload a file to proceed.")
-
+# Gestione del database
 st.divider()
 st.subheader("Database Management")
 
-# Show saved data from the database
-st.subheader("Saved data in the database:")
-data = read_data()  # Retrieves data from the database
-
-# Check if there is data in the database
-if data:
-    # Enhanced visualization - Table
-    df = pd.DataFrame(data, columns=["ID", "File Path", "Upload Date"])
-    st.dataframe(df)  # Display the data in a table format for better readability
-
-    # Option to delete files
-    file_to_delete = st.selectbox("Select file to delete", [row[1] for row in data])  # Dropdown to select a file for deletion
-    if st.button("Delete file"):  # Button to confirm deletion
-        delete_data(file_to_delete)  # Replace with the actual function to delete the file from the database
-        st.success(f"File '{file_to_delete}' successfully deleted!")  # Success message after deletion
-
-    # Pagination
-    items_per_page = 10
-    total_pages = (len(data) + items_per_page - 1) // items_per_page  # Calculate the total number of pages
-
-    if total_pages > 1:  # Only display the slider if more than one page exists
-        page = st.slider("Page", 1, total_pages)  # Slider for page selection
-        start = (page - 1) * items_per_page
-        end = start + items_per_page
-        for row in data[start:end]:
-            st.write(f"ID: {row[0]} | File Path: {row[1]} | Upload Date: {row[2]}")
-    else:
-        # Display all data if only one page exists
-        for row in data:
-            st.write(f"ID: {row[0]} | File Path: {row[1]} | Upload Date: {row[2]}")
-
-    # Export data to CSV
-    if st.button("Export data to CSV"):  # Button to export data
-        with open("exported_data.csv", "w", newline="") as f:
-            writer = csv.writer(f)
-            writer.writerow(["ID", "File Path", "Upload Date"])  # Write column headers to the CSV
-            writer.writerows(data)  # Write rows of data to the CSV
-        st.success("Data successfully exported to 'exported_data.csv'!")  # Success message after export
-else:
-    # Inform the user if no data is available
-    st.info("No data available in the database.")  # Informational message when the database is empty
+data = read_data()
+display_data_with_pagination(data)
+delete_file_from_database(data)
 
 
 
-# Button to start the processing
-if st.button("Process"):
-    st.write("Processing the file...")  # Replace with OCR or other logic
+# Export data to CSV
+#if st.button("Export data to CSV"):  # Button to export data
+    #with open("exported_data.csv", "w", newline="") as f:
+        #writer = csv.writer(f)
+        #writer.writerow(["ID", "File Path", "Upload Date"])  # Write column headers to the CSV
+        #writer.writerows(data)  # Write rows of data to the CSV
+    #st.success("Data successfully exported to 'exported_data.csv'!")  # Success message after export
+
+
+
 
 
