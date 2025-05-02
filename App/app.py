@@ -3,6 +3,7 @@ import streamlit as st
 import csv
 
 from app_functions import *
+from ocr_functions import *
 
 # Titolo dell'applicazione
 st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart Receipts</h1>", unsafe_allow_html=True)
@@ -29,12 +30,20 @@ display_data_with_pagination(data)
 delete_file_from_database(data)
 
 
+# OCR
+st.divider()
+st.subheader("Process files with OCR")
+
+extract_text_from_image(data)
+
+
+
 
 # Export data to CSV
 #if st.button("Export data to CSV"):  # Button to export data
     #with open("exported_data.csv", "w", newline="") as f:
         #writer = csv.writer(f)
-        #writer.writerow(["ID", "File Path", "Upload Date"])  # Write column headers to the CSV
+        #writer.writerow(["Id", "File_path", "Upload_date"])  # Write column headers to the CSV
         #writer.writerows(data)  # Write rows of data to the CSV
     #st.success("Data successfully exported to 'exported_data.csv'!")  # Success message after export
 

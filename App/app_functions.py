@@ -105,7 +105,6 @@ def delete_file_from_database(data):
     - Prima della cancellazione chiede conferma, solo in caso affermativo procede a cancellare il file
     :param: data: dati presenti nel database
     """
-
     if data:
         file_to_delete = st.selectbox("Select file to delete", [row[1] for row in data])
 
