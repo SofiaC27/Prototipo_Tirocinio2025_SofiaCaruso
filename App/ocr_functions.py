@@ -3,6 +3,8 @@ import pytesseract
 from PIL import Image
 import time
 import os
+import cv2
+import numpy as np
 
 IMAGE_DIR = "Images/"  # Cartella delle immagini
 
@@ -11,11 +13,39 @@ IMAGE_DIR = "Images/"  # Cartella delle immagini
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 
+def analyze_image(file_path):
+    """
+    Funzione per analizzare un'immagine a cui applicare il pre-processing
+    - Converte l'immagine in scala di grigi
+    - Ricava l'istogramma dell'immagine
+    - Applica la treshold binaria per convertire l'immagine in bianco e nero
+    - Verifica il valore del contrasto e, se basso, applica l'equalizzazione
+    :param file_path: percorso dell'immagine da pre-processare
+    :return: immagine pre-processata
+    """
+    #img = cv2.imread(file_path)
+    img = Image.open(file_path)
+    img_np = np.array(img)
+
+    gray_img = cv2.cvtColor(img_np, cv2.COLOR_BGR2GRAY)
+    hist = cv2.calcHist([gray_img], [0], None, [256], [0, 256])
+
+    #binary_img = cv2.threshold(gray_img, 150, 255, cv2.THRESH_BINARY)[1]
+    binary_img = cv2.adaptiveThreshold(gray_img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
+
+    contrast_level = np.std(hist)
+    if contrast_level < 30:
+        binary_img = cv2.equalizeHist(binary_img)
+
+    return binary_img
+
+
 def extract_text_from_image(data):
     """
     Funzione per estrarre il testo da un'immagine attraverso l'OCR
     - Recupera i dati presenti nel database (in caso contrario, stampa un messaggio)
     - Seleziona il file da poter processare tra quelli presenti nel database ed estrae il percorso dell'immagine
+    - Permette di selezionare se applicare il pre-processing oppure no
     - Crea un bottone per eseguire l'OCR sul file utilizzando la libreria (permette di selezionare la lingua)
     - Crea due colonne per visualizzare l'immagine e il relativo testo
     :param data: dati presenti nel database
@@ -27,6 +57,10 @@ def extract_text_from_image(data):
         file_to_process = st.selectbox("Select file to process with OCR", [row[1] for row in data])
         file_path = os.path.join(IMAGE_DIR, file_to_process)
 
+        img_original = Image.open(file_path)
+        st.image(img_original, caption=f"Preview of {file_to_process}", use_container_width=True)
+        apply_preprocessing = st.checkbox("Apply Pre-processing")
+
         if st.button("Run OCR"):
             with st.spinner("Processing OCR..."):
                 progress = st.progress(0)
@@ -34,7 +68,11 @@ def extract_text_from_image(data):
                     time.sleep(0.01)
                     progress.progress(i + 1)
 
-            img = Image.open(file_path)
+            if apply_preprocessing:
+                img = analyze_image(file_path)
+            else:
+                img = img_original
+
             extracted_text = pytesseract.image_to_string(img, lang="eng")
 
             col1, col2 = st.columns([1, 1])

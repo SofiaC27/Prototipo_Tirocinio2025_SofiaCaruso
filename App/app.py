@@ -39,6 +39,7 @@ extract_text_from_image(data)
 
 
 
+
 # Export data to CSV
 #if st.button("Export data to CSV"):  # Button to export data
     #with open("exported_data.csv", "w", newline="") as f:
