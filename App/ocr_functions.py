@@ -45,27 +45,33 @@ def correct_text(text):
     """
     Funzione per correggere il testo estratto tramite OCR utilizzando la libreria pyspellchecker
     - Controlla il testo (permette di selezionare la lingua => tra cui it, en)
-    - Divide il testo, ogni volta che incontra uno spazio, in una lista di parole
+    - Divide il testo, per linee e poi in una lista di parole
     - Corregge, se c'è bisogno, le parole e le aggiugne alla lista delle parole corrette
     - Ricostruisce il testo corregendo gli errori
     :param text: testo estratto dall'immagine
     :return: testo corretto
     """
     spell = SpellChecker(language='it')
-    words = text.split()
-    corrected_words = []
 
-    for word in words:
-        if word:
-            corrected_word = spell.correction(word)
-            if corrected_word is None:
-                corrected_word = word
-            corrected_words.append(corrected_word)
-        else:
-            corrected_words.append(word)
+    lines = text.splitlines()
+    corrected_lines = []
 
-    corrected_text = " ".join(corrected_words)
+    for line in lines:
+        words = line.split()
+        corrected_words = []
 
+        for word in words:
+            if word:
+                corrected_word = spell.correction(word)
+                if corrected_word is None:
+                    corrected_word = word
+                corrected_words.append(corrected_word)
+            else:
+                corrected_words.append(word)
+
+        corrected_lines.append(" ".join(corrected_words))
+
+    corrected_text = "\n".join(corrected_lines)
     return corrected_text
 
 
@@ -77,7 +83,7 @@ def extract_text_from_image(data):
     - Permette di selezionare se applicare il pre-processing oppure no
     - Crea un bottone per eseguire l'OCR sul file utilizzando la libreria pytesseract
       (permette di selezionare la lingua => tra cui ita, eng)
-    - Crea due colonne per visualizzare l'immagine e il relativo testo
+    - Crea tre colonne per visualizzare l'immagine, il relativo testo e il testo corretto
     :param data: dati presenti nel database
     :return: testo estratto dall'immagine
     """
