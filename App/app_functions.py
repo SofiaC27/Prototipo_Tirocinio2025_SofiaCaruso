@@ -37,7 +37,7 @@ def process_uploaded_file(uploaded_files):
     - Per ogni file da caricare, scrive il nome
     - Se il file da caricare è un'immagine, ne mostra l'anteprima
     - Simula la barra di avanzamento per caricare i file
-    - Crea un bottone per salvare ogni file nel database e nella cartella 'Images'
+    - Crea un bottone per salvare i file nel database e nella cartella 'Images'
     - In caso contrario, mostra un warning che invita a fare l'upload per procedere
     :param uploaded_files: lista di file di cui fare l'upload (può essere anche solo uno)
     """
@@ -48,17 +48,19 @@ def process_uploaded_file(uploaded_files):
             if uploaded_file.type.startswith("image"):
                 st.image(uploaded_file, caption=f"Preview of {uploaded_file.name}", use_container_width=True)
 
-            with st.spinner("Processing..."):
+        if st.button("Save all uploaded files"):
+            with st.spinner("Saving files..."):
                 progress = st.progress(0)
                 for i in range(100):
                     time.sleep(0.01)
                     progress.progress(i + 1)
-                st.success(f"{uploaded_file.name} processed successfully!")
 
-            if st.button(f"Save {uploaded_file.name}"):
-                file_path = save_image_to_folder(uploaded_file)
-                insert_data("documents.db", "receipts", "File_path", uploaded_file.name)
-                st.success(f"File successfully saved to '{file_path}' and the database!")
+                for uploaded_file in uploaded_files:
+                    file_path = save_image_to_folder(uploaded_file)
+                    insert_data("documents.db", "receipts", "File_path", uploaded_file.name)
+
+                st.success(f"All {len(uploaded_files)} files successfully saved!")
+
     else:
         st.warning("Please upload a file to proceed.")
 

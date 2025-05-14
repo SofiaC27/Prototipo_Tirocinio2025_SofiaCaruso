@@ -107,3 +107,21 @@ create_table("documents.db", '''
             Upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
+
+create_table("documents.db", '''
+        CREATE TABLE IF NOT EXISTS extracted_data (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        receipt_id INTEGER, 
+        purchase_date TEXT,
+        purchase_time TEXT,
+        store_name TEXT,
+        address TEXT,
+        city TEXT,
+        country TEXT,
+        product_list TEXT,
+        total_price REAL,
+        payment_method TEXT,
+        receipt_number TEXT,
+        FOREIGN KEY(receipt_id) REFERENCES receipts(Id) ON DELETE CASCADE
+        )
+    ''')

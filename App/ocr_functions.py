@@ -1,29 +1,17 @@
-import easyocr
-import torch
+import streamlit as st
+import pytesseract
+from PIL import Image
 import time
 import os
 import cv2
 import numpy as np
 from spellchecker import SpellChecker
-import streamlit as st
-import asyncio
-
-# Questo aiuta Streamlit a gestire correttamente gli eventi asincroni e previene
-# l'errore "no running event loop"
-try:
-    asyncio.get_running_loop()
-except RuntimeError:
-    asyncio.run(asyncio.sleep(0))
-
-# Disabilita l'accesso ai moduli personalizzati di PyTorch, risolvendo alcuni errori
-# legati alla registrazione delle classi interne
-torch.classes.__path__ = []
-
 
 IMAGE_DIR = "Images/"  # Cartella delle immagini
 
-# Crea il lettore EasyOCR
-reader = easyocr.Reader(['it'])
+# NOTE: configura il percorso dell'eseguibile di Tesseract OCR, necessario per il corretto
+# funzionamento della libreria pytesseract per il riconoscimento ottico dei caratteri
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 
 def analyze_image(file_path):
@@ -36,9 +24,11 @@ def analyze_image(file_path):
     :param file_path: percorso dell'immagine da pre-processare
     :return: immagine pre-processata
     """
-    img = cv2.imread(file_path)
+    #img = cv2.imread(file_path)
+    img = Image.open(file_path)
+    img_np = np.array(img)
 
-    gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray_img = cv2.cvtColor(img_np, cv2.COLOR_BGR2GRAY)
     hist = cv2.calcHist([gray_img], [0], None, [256], [0, 256])
 
     #binary_img = cv2.threshold(gray_img, 150, 255, cv2.THRESH_BINARY)[1]
@@ -91,8 +81,8 @@ def extract_text_from_image(data):
     - Recupera i dati presenti nel database (in caso contrario, stampa un messaggio)
     - Seleziona il file da poter processare tra quelli presenti nel database ed estrae il percorso dell'immagine
     - Permette di selezionare se applicare il pre-processing oppure no
-    - Crea un bottone per eseguire l'OCR sul file utilizzando la libreria EasyOCR
-      (permette di selezionare la lingua => tra cui it, en)
+    - Crea un bottone per eseguire l'OCR sul file utilizzando la libreria pytesseract
+      (permette di selezionare la lingua => tra cui ita, eng)
     - Crea tre colonne per visualizzare l'immagine, il relativo testo e il testo corretto
     :param data: dati presenti nel database
     :return: testo estratto dall'immagine
@@ -104,7 +94,7 @@ def extract_text_from_image(data):
         file_to_process = st.selectbox("Select file to process with OCR", [row[1] for row in data])
         file_path = os.path.join(IMAGE_DIR, file_to_process)
 
-        img_original = cv2.imread(file_path)
+        img_original = Image.open(file_path)
         st.image(img_original, caption=f"Preview of {file_to_process}", use_container_width=True)
         apply_preprocessing = st.checkbox("Apply Pre-processing")
 
@@ -120,8 +110,8 @@ def extract_text_from_image(data):
             else:
                 img = img_original
 
-            results = reader.readtext(img, detail=0)
-            extracted_text = "\n".join(results)
+            config = r'--oem 3 --psm 4'
+            extracted_text = pytesseract.image_to_string(img, config=config, lang="eng")
             corrected_text = correct_text(extracted_text)
 
             col1, col2, col3 = st.columns([1, 1, 1])
@@ -138,3 +128,4 @@ def extract_text_from_image(data):
         st.info("No data available in the database for processing.")
 
     return corrected_text #extracted_text
+
