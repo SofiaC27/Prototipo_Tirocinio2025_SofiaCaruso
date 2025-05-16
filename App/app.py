@@ -39,16 +39,3 @@ extract_text_from_image(data)
 
 
 
-
-# Export data to CSV
-#if st.button("Export data to CSV"):  # Button to export data
-    #with open("exported_data.csv", "w", newline="") as f:
-        #writer = csv.writer(f)
-        #writer.writerow(["Id", "File_path", "Upload_date"])  # Write column headers to the CSV
-        #writer.writerows(data)  # Write rows of data to the CSV
-    #st.success("Data successfully exported to 'exported_data.csv'!")  # Success message after export
-
-
-
-
-
