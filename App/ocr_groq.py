@@ -34,6 +34,7 @@ if not os.path.exists(image_path):
 base64_image = encode_image(image_path)
 
 
+
 # Inizializza il client Groq
 client = Groq(api_key=api_key)
 
