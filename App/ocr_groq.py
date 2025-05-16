@@ -1,6 +1,6 @@
 import os
 import base64
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from groq import Groq
 
 
@@ -18,7 +18,7 @@ def encode_image(image_path):
 
 
 # Recupera la chiave API dall'ambiente
-load_dotenv()
+#load_dotenv()
 api_key = os.environ.get("GROQ_API_KEY")
 
 # Controlla se la chiave API è presente
