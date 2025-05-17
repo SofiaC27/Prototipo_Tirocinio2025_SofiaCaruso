@@ -1,24 +1,24 @@
 import os
 import base64
-#from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from groq import Groq
 
 
-def encode_image(image_path):
+def encode_image(img_path):
     """
     Funzione per codificare l'immagine in Base64
     - Apre il file in lettura binaria
     - Legge il contenuto e lo converte in una stringa in base 64
     - Decodifica in un formato leggibile "utf-8"
-    :param image_path: percorso dell'immagine da codificare
+    :param img_path: percorso dell'immagine da codificare
     :return: stringa in base 64 dell'immagine
     """
-    with open(image_path, "rb") as image_file:
+    with open(img_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")
 
 
 # Recupera la chiave API dall'ambiente
-#load_dotenv()
+# load_dotenv()
 api_key = os.environ.get("GROQ_API_KEY")
 
 # Controlla se la chiave API è presente
