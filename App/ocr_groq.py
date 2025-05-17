@@ -1,6 +1,6 @@
 import os
 import base64
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from groq import Groq
 
 
@@ -18,7 +18,7 @@ def encode_image(img_path):
 
 
 # Recupera la chiave API dall'ambiente
-# load_dotenv()
+load_dotenv("config.env")
 api_key = os.environ.get("GROQ_API_KEY")
 
 # Controlla se la chiave API è presente
@@ -27,7 +27,7 @@ if not api_key:
 
 
 # Recupera il percorso dell'immagine (se è presente) e ne ottiene la stringa in base 64 per passarla all'API
-image_name = "scontrino5.jpg"
+image_name = "scontrino1.jpg"
 image_path = os.path.join("..", "Images", image_name)
 if not os.path.exists(image_path):
     raise ValueError(f"File not found!: {image_path}")
