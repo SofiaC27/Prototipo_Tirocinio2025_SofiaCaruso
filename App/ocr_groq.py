@@ -2,6 +2,12 @@ import os
 import base64
 from dotenv import load_dotenv
 from groq import Groq
+import streamlit as st
+from PIL import Image
+import time
+
+
+IMAGE_DIR = "Images/"
 
 
 def encode_image(img_path):
@@ -30,43 +36,60 @@ def load_prompt(file_path):
         return file.read().strip()
 
 
-# Recupera la chiave API dall'ambiente
-load_dotenv("config.env")
-api_key = os.environ.get("GROQ_API_KEY")
+def extract_text_from_image(data, api_key):
+    """
+    Funzione per estrarre il testo da un'immagine attraverso l'OCR
+    - Recupera l'API Key dall'ambiente e controlla se è presente
+    - Inizializza il client Groq
+    - Recupera i dati presenti nel database (in caso contrario, stampa un messaggio)
+    - Seleziona il file da poter processare tra quelli presenti nel database ed estrae il percorso dell'immagine
+    - Crea un bottone per eseguire l'OCR sul file utilizzando Groq e llama4
+    - Crea due colonne per visualizzare l'immagine e il relativo testo sottoforma
+    :param data: dati presenti nel database
+    :param api_key: chiave per le chiamate API
+    :return: testo estratto dall'immagine
+    """
+    client = Groq(api_key=api_key)
 
-# Controlla se la chiave API è presente
-if not api_key:
-    raise ValueError("API Key not found!")
+    extracted_text = ""
 
+    if data:
+        file_to_process = st.selectbox("Select file to process with OCR", [row[1] for row in data])
+        file_path = os.path.join(IMAGE_DIR, file_to_process)
 
-# Recupera il percorso dell'immagine (se è presente) e ne ottiene la stringa in base 64 per passarla all'API
-image_name = "scontrino1.jpg"
-image_path = os.path.join("..", "Images", image_name)
-if not os.path.exists(image_path):
-    raise ValueError(f"File not found!: {image_path}")
-base64_image = encode_image(image_path)
+        img = Image.open(file_path)
+        st.image(img, caption=f"Preview of {file_to_process}", use_container_width=True)
 
+        if st.button("Run OCR"):
+            with st.spinner("Processing OCR..."):
+                progress = st.progress(0)
+                for i in range(100):
+                    time.sleep(0.01)
+                    progress.progress(i + 1)
 
-# Inizializza il client Groq
-client = Groq(api_key=api_key)
+            base64_image = encode_image(file_path)
+            prompt_text = load_prompt("prompt.txt")
 
-# Carica il prompt da file di testo
-prompt_text = load_prompt("prompt.txt")
-print("prompt:", prompt_text)
+            chat_completion = client.chat.completions.create(
+                model="meta-llama/llama-4-scout-17b-16e-instruct",
+                messages=[
+                    {"role": "user", "content": [
+                        {"type": "text", "text": prompt_text},
+                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}}
+                    ]}
+                ]
+            )
 
-# Esegue la richiesta di completamento
-chat_completion = client.chat.completions.create(
-    model="meta-llama/llama-4-scout-17b-16e-instruct",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {"type": "text", "text": prompt_text},
-                {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}}
-            ]
-        }
-    ]
-)
+            extracted_text = chat_completion.choices[0].message.content
 
-# Stampa la risposta del modello
-print(chat_completion.choices[0].message.content)
+            col1, col2 = st.columns([1, 1])
+            with col1:
+                st.image(img, caption=f"Selected Image: {file_to_process}", use_container_width=True)
+            with col2:
+                st.write(f"Extracted text from {file_to_process}:")
+                st.text(extracted_text)
+
+    else:
+        st.info("No data available in the database for processing.")
+
+    return extracted_text

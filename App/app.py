@@ -1,9 +1,16 @@
 import streamlit as st
-
-import csv
-
+from dotenv import load_dotenv
+from groq import Groq
 from app_functions import *
-from ocr_functions import *
+from ocr_groq import *
+
+
+load_dotenv("config.env")
+api_key = os.environ.get("GROQ_API_KEY")
+
+if not api_key:
+    raise ValueError("API Key not found!")
+
 
 # Titolo dell'applicazione
 st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart Receipts</h1>", unsafe_allow_html=True)
@@ -34,8 +41,4 @@ delete_file_from_database(data)
 st.divider()
 st.subheader("Process files with OCR")
 
-extract_text_from_image(data)
-
-
-
-
+extract_text_from_image(data, api_key)

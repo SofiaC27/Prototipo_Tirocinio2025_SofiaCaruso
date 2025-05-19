@@ -128,4 +128,3 @@ def extract_text_from_image(data):
         st.info("No data available in the database for processing.")
 
     return corrected_text #extracted_text
-
