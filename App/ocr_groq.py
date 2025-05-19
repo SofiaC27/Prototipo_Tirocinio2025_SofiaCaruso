@@ -17,6 +17,19 @@ def encode_image(img_path):
         return base64.b64encode(image_file.read()).decode("utf-8")
 
 
+def load_prompt(file_path):
+    """
+    Funzione per caricare il file di testo con il prompt da passare all'AI
+    - Apre il file in lettura
+    - Decodifica in un formato leggibile "utf-8"
+    - Rimuove eventuali spazi bianchi o caratteri di nuova riga all'inizio e alla fine del testo
+    :param file_path: percorso del file con il prompt da caricare
+    :return: stringa di testo corrispondente al prompt
+    """
+    with open(file_path, "r", encoding="utf-8") as file:
+        return file.read().strip()
+
+
 # Recupera la chiave API dall'ambiente
 load_dotenv("config.env")
 api_key = os.environ.get("GROQ_API_KEY")
@@ -34,9 +47,12 @@ if not os.path.exists(image_path):
 base64_image = encode_image(image_path)
 
 
-
 # Inizializza il client Groq
 client = Groq(api_key=api_key)
+
+# Carica il prompt da file di testo
+prompt_text = load_prompt("prompt.txt")
+print("prompt:", prompt_text)
 
 # Esegue la richiesta di completamento
 chat_completion = client.chat.completions.create(
@@ -45,7 +61,7 @@ chat_completion = client.chat.completions.create(
         {
             "role": "user",
             "content": [
-                {"type": "text", "text": "Estrai il testo da questa immagine"},
+                {"type": "text", "text": prompt_text},
                 {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}}
             ]
         }

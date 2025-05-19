@@ -1,0 +1,51 @@
+Analizza questa immagine ed estrai il testo seguendo questa struttura JSON:
+
+{
+  "data": "...",
+  "ora": "...",
+  "negozio": "…",
+  "luogo": "...",
+  "città": "…",
+  "paese": "...",
+  "lista_articoli": [
+    {
+      "nome": "...",
+      "prezzo": "...",
+     "valuta": "…",
+      "percentuale_sconto": ...,
+      "valore_scontato": ...
+    },
+    {
+      "nome": "...",
+      "prezzo": "...",
+     "valuta": "…",
+      "sconto_percentuale": ...,
+      "valore_scontato": ...
+    }
+  ],
+  "prezzo_totale":
+{
+    "valore": ...,
+    "valuta": "..."
+  },
+  "metodo_pagamento": "...",
+  "numero_scontrino": "..."
+}
+
+
+Regole per l'estrazione:
+-Data: Scrivi la data nel formato `YYYY-MM-DD` senza virgolette.
+-Ora: Scrivi l'ora nel formato `HH:mm:ss` senza virgolette.
+-Negozio: Scrivi il nome del negozio o del punto vendita
+-Luogo: Scrivi l'indirizzo preciso del negozio o punto vendita (via, piazza, numero civico), se indicato
+-Città: Scrivi la città come "Città - Provincia (Sigla)". Se la provincia o la sigla non sono indicate, prova a inferirli basandoti sul contesto.
+-Paese: Scrivi il paese. Se non è indicato, prova a inferirlo basandoti sul contesto.
+-Metodo di pagamento: Scrivi il metodo di pagamento se indicato
+-Numero di scontrino: Scrivi il numero di scontrino come testo, se indicato
+-Lista articoli:  Scrivi il nome dell'articolo come testo, i prezzi come numeri float, mentre le valute come testo (inferisci la sigla della valuta dal contesto). Se sono presenti sconti aggiungili nel campo "sconto_percentuale" come percentuale e nel campo "valore_scontato" come numero float
+-Prezzo totale: Scrivi i prezzi come numeri float, mentre le valute come testo (inferisci la sigla della valuta dal contesto).
+
+
+Dati mancanti: Se qualche campo non è presente, lascia il valore come null (senza virgolette) invece di ometterlo.
+In output scrivi solo il testo in formato JSON che hai estratto.
+
