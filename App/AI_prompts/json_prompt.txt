@@ -1,4 +1,5 @@
-Analizza questa immagine ed estrai il testo seguendo questa struttura JSON:
+Analizza il seguente testo estratto da un'immagine di uno scontrino e struttura le informazioni
+nel formato JSON indicato di seguito:
 
 {
   "data": "...",
@@ -47,5 +48,4 @@ Regole per l'estrazione:
 
 
 Dati mancanti: Se qualche campo non è presente, lascia il valore come null (senza virgolette) invece di ometterlo.
-In output scrivi solo il testo in formato JSON che hai estratto.
-
+In output restituisci solo il testo in formato JSON che hai estratto.

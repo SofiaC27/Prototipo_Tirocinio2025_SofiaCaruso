@@ -34,4 +34,5 @@ st.divider()
 st.subheader("Process files with OCR")
 
 api_key = st.secrets["general"]["GROQ_API_KEY"]
-extract_text_from_image(data, api_key)
+text_extracted, selected_image = extract_text_from_image(data, api_key)
+extract_data_to_json(text_extracted, selected_image, api_key)

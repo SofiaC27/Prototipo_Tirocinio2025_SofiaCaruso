@@ -1,0 +1,4 @@
+Estrai il testo da questa immagine utilizzando OCR.
+Mantieni esattamente la struttura originale, inclusi gli spazi, gli a capo e l'allineamento del testo.
+Non modificare il contenuto, non riformattare e non riorganizzare le informazioni.
+In output restituisci solo il testo che hai estratto.

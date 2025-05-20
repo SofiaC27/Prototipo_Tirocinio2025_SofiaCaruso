@@ -5,15 +5,19 @@ from groq import Groq
 import streamlit as st
 from PIL import Image
 import time
+import json
 
 
 IMAGE_DIR = "Images/"
+EXTRACTED_JSON_DIR = "Extracted_JSON/"
 
 
 def get_api_key():
     """
-    Funzione per
-    - A
+    Funzione per caricare l'API Key
+    - Carica il file con le variabili d'ambiente
+    - Estrae il valore dell'API Key e controlla che esista, altrimenti dà errore
+    :return: API Key
     """
     load_dotenv("config.env")
     api_key = os.environ.get("GROQ_API_KEY")
@@ -62,10 +66,12 @@ def extract_text_from_image(data, api_key):
     :param data: dati presenti nel database
     :param api_key: chiave per le chiamate API
     :return: testo estratto dall'immagine
+    :return: immagine selezionata
     """
     client = Groq(api_key=api_key)
 
     extracted_text = ""
+    file_to_process = None
 
     if data:
         file_to_process = st.selectbox("Select file to process with OCR", [row[1] for row in data])
@@ -82,7 +88,7 @@ def extract_text_from_image(data, api_key):
                     progress.progress(i + 1)
 
             base64_image = encode_image(file_path)
-            prompt_text = load_prompt("App/prompt.txt")
+            prompt_text = load_prompt("App/AI_prompts/ocr_prompt.txt")
 
             chat_completion = client.chat.completions.create(
                 model="meta-llama/llama-4-scout-17b-16e-instruct",
@@ -106,4 +112,47 @@ def extract_text_from_image(data, api_key):
     else:
         st.info("No data available in the database for processing.")
 
-    return extracted_text
+    return extracted_text, file_to_process
+
+
+def extract_data_to_json(extracted_text, image_name, api_key):
+    """
+    Funzione per convertire il testo estratto in formato JSON
+    - Crea il nome del file JSON basato sul nome dell'immagine corrispondente e genera il
+      percorso completo in cui verrà salvato, nella cartella Extracted_JSON
+    - Crea un bottone per visualizzare il JSON corrispondente al testo estratto dall'immaigne selezionata
+    :param extracted_text: testo estratto dall'immagine
+    :param image_name: immagine selezionata
+    :param api_key: chiave per le chiamate API
+    :return: dati estratti dal testo in formato JSON
+    """
+    client = Groq(api_key=api_key)
+
+    #json_filename = os.path.splitext(image_name)[0] + ".json"
+    #json_path = os.path.join(EXTRACTED_JSON_DIR, json_filename)
+
+    if st.button(f"Generate JSON for {image_name}"):
+        with st.spinner("Processing JSON..."):
+            progress = st.progress(0)
+            for i in range(100):
+                time.sleep(0.01)
+                progress.progress(i + 1)
+
+        prompt_text = load_prompt("App/AI_prompts/json_prompt.txt")
+
+        chat_completion = client.chat.completions.create(
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
+            messages=[
+                {"role": "user", "content": [
+                    {"type": "text", "text": prompt_text},
+                    {"type": "text", "text": extracted_text}
+                ]}
+            ]
+        )
+
+        extracted_data = chat_completion.choices[0].message.content
+
+        st.success(f"JSON generated for {image_name}")
+        st.text(extracted_data)
+
+        return extracted_data
