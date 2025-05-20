@@ -10,6 +10,20 @@ import time
 IMAGE_DIR = "Images/"
 
 
+def get_api_key():
+    """
+    Funzione per
+    - A
+    """
+    load_dotenv("config.env")
+    api_key = os.environ.get("GROQ_API_KEY")
+
+    if not api_key:
+        raise ValueError("API Key not found!")
+
+    return api_key
+
+
 def encode_image(img_path):
     """
     Funzione per codificare l'immagine in Base64

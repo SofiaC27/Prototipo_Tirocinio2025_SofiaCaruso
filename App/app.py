@@ -1,15 +1,7 @@
 import streamlit as st
-from dotenv import load_dotenv
-from groq import Groq
+
 from app_functions import *
 from ocr_groq import *
-
-
-load_dotenv("config.env")
-api_key = os.environ.get("GROQ_API_KEY")
-
-if not api_key:
-    raise ValueError("API Key not found!")
 
 
 # Titolo dell'applicazione
@@ -41,4 +33,5 @@ delete_file_from_database(data)
 st.divider()
 st.subheader("Process files with OCR")
 
+api_key = get_api_key()
 extract_text_from_image(data, api_key)
