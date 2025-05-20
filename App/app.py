@@ -33,5 +33,5 @@ delete_file_from_database(data)
 st.divider()
 st.subheader("Process files with OCR")
 
-api_key = get_api_key()
+api_key = st.secrets["general"]["GROQ_API_KEY"]
 extract_text_from_image(data, api_key)

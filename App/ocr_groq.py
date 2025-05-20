@@ -82,7 +82,7 @@ def extract_text_from_image(data, api_key):
                     progress.progress(i + 1)
 
             base64_image = encode_image(file_path)
-            prompt_text = load_prompt("prompt.txt")
+            prompt_text = load_prompt("App/prompt.txt")
 
             chat_completion = client.chat.completions.create(
                 model="meta-llama/llama-4-scout-17b-16e-instruct",
