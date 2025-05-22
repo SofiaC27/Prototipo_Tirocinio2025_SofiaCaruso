@@ -16,17 +16,27 @@ st.markdown("<h2 style='text-align: center; color: black; font-size: 25px;'>"
 st.divider()
 st.subheader("File Uploader")
 
-uploaded_files = st.file_uploader("Upload files (JPG, PNG)", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
-process_uploaded_file(uploaded_files)
+
+if "uploaded_files" not in st.session_state:
+    st.session_state.uploaded_files = []
+
+uploaded_files = st.file_uploader("Upload files (JPG, JPEG, PNG)", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
+
+if uploaded_files:
+    st.session_state.uploaded_files.extend(uploaded_files)
+
+process_uploaded_file(st.session_state.uploaded_files)
 
 
 # Gestione del database
 st.divider()
 st.subheader("Database Management")
 
-data = read_data("documents.db", "receipts")
-display_data_with_pagination(data)
-delete_file_from_database(data)
+if "database_data" not in st.session_state:
+    st.session_state.database_data = read_data("documents.db", "receipts")
+
+display_data_with_pagination(st.session_state.database_data)
+delete_file_from_database(st.session_state.database_data)
 
 
 # OCR
@@ -34,5 +44,16 @@ st.divider()
 st.subheader("Process files with OCR")
 
 api_key = st.secrets["general"]["GROQ_API_KEY"]
-text_extracted, selected_image = extract_text_from_image(data, api_key)
-extract_data_to_json(text_extracted, selected_image, api_key)
+
+if "extracted_text" not in st.session_state:
+    st.session_state.extracted_text = ""
+if "selected_image" not in st.session_state:
+    st.session_state.selected_image = None
+
+extracted_text, selected_image = extract_text_from_image(st.session_state.database_data, api_key)
+
+st.session_state.extracted_text = extracted_text
+st.session_state.selected_image = selected_image
+
+if st.session_state.extracted_text:
+    extract_data_to_json(api_key)

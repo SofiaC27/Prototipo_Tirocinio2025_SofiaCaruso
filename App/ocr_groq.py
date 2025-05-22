@@ -62,7 +62,7 @@ def extract_text_from_image(data, api_key):
     - Recupera i dati presenti nel database (in caso contrario, stampa un messaggio)
     - Seleziona il file da poter processare tra quelli presenti nel database ed estrae il percorso dell'immagine
     - Crea un bottone per eseguire l'OCR sul file utilizzando Groq e llama4
-    - Crea due colonne per visualizzare l'immagine e il relativo testo sottoforma
+    - Crea due colonne per visualizzare l'immagine e il relativo testo
     :param data: dati presenti nel database
     :param api_key: chiave per le chiamate API
     :return: testo estratto dall'immagine
@@ -71,7 +71,7 @@ def extract_text_from_image(data, api_key):
     client = Groq(api_key=api_key)
 
     extracted_text = ""
-    file_to_process = None
+    selected_image = None
 
     if data:
         file_to_process = st.selectbox("Select file to process with OCR", [row[1] for row in data])
@@ -100,59 +100,62 @@ def extract_text_from_image(data, api_key):
                 ]
             )
 
-            extracted_text = chat_completion.choices[0].message.content
+            st.session_state.extracted_text = chat_completion.choices[0].message.content
+            st.session_state.selected_image = file_to_process
 
             col1, col2 = st.columns([1, 1])
             with col1:
                 st.image(img, caption=f"Selected Image: {file_to_process}", use_container_width=True)
             with col2:
                 st.write(f"Extracted text from {file_to_process}:")
-                st.text(extracted_text)
+                st.text(st.session_state.extracted_text)
 
     else:
         st.info("No data available in the database for processing.")
 
-    return extracted_text, file_to_process
+    return extracted_text, selected_image
 
 
-def extract_data_to_json(extracted_text, image_name, api_key):
+def extract_data_to_json(api_key):
     """
     Funzione per convertire il testo estratto in formato JSON
     - Crea il nome del file JSON basato sul nome dell'immagine corrispondente e genera il
       percorso completo in cui verrà salvato, nella cartella Extracted_JSON
     - Crea un bottone per visualizzare il JSON corrispondente al testo estratto dall'immaigne selezionata
-    :param extracted_text: testo estratto dall'immagine
-    :param image_name: immagine selezionata
     :param api_key: chiave per le chiamate API
     :return: dati estratti dal testo in formato JSON
     """
     client = Groq(api_key=api_key)
 
-    #json_filename = os.path.splitext(image_name)[0] + ".json"
-    #json_path = os.path.join(EXTRACTED_JSON_DIR, json_filename)
+    # json_filename = os.path.splitext(image_name)[0] + ".json"
+    # json_path = os.path.join(EXTRACTED_JSON_DIR, json_filename)
 
-    if st.button(f"Generate JSON for {image_name}"):
-        with st.spinner("Processing JSON..."):
-            progress = st.progress(0)
-            for i in range(100):
-                time.sleep(0.01)
-                progress.progress(i + 1)
+    if st.session_state.extracted_text:
+        if st.button(f"Generate JSON for {st.session_state.selected_image}"):
+            with st.spinner("Processing JSON..."):
+                progress = st.progress(0)
+                for i in range(100):
+                    time.sleep(0.01)
+                    progress.progress(i + 1)
 
-        prompt_text = load_prompt("App/AI_prompts/json_prompt.txt")
+            prompt_text = load_prompt("App/AI_prompts/json_prompt.txt")
 
-        chat_completion = client.chat.completions.create(
-            model="meta-llama/llama-4-scout-17b-16e-instruct",
-            messages=[
-                {"role": "user", "content": [
-                    {"type": "text", "text": prompt_text},
-                    {"type": "text", "text": extracted_text}
-                ]}
-            ]
-        )
+            chat_completion = client.chat.completions.create(
+                model="meta-llama/llama-4-scout-17b-16e-instruct",
+                messages=[
+                    {"role": "user", "content": [
+                        {"type": "text", "text": prompt_text},
+                        {"type": "text", "text": st.session_state.extracted_text}
+                    ]}
+                ]
+            )
 
-        extracted_data = chat_completion.choices[0].message.content
+            extracted_data = chat_completion.choices[0].message.content
 
-        st.success(f"JSON generated for {image_name}")
-        st.text(extracted_data)
+            st.success(f"JSON generated for {st.session_state.selected_image}")
+            st.text(extracted_data)
 
-        return extracted_data
+            return extracted_data
+
+    else:
+        st.warning("No extracted text available for JSON conversion.")
