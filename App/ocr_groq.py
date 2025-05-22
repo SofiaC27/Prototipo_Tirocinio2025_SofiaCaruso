@@ -100,7 +100,8 @@ def extract_text_from_image(data, api_key):
                 ]
             )
 
-            st.session_state.extracted_text = chat_completion.choices[0].message.content
+            extracted_text = chat_completion.choices[0].message.content
+            st.session_state.extracted_text = extracted_text
             st.session_state.selected_image = file_to_process
 
             col1, col2 = st.columns([1, 1])
@@ -116,13 +117,15 @@ def extract_text_from_image(data, api_key):
     return extracted_text, selected_image
 
 
-def extract_data_to_json(api_key):
+def extract_data_to_json(api_key, extracted_text, selected_image):
     """
     Funzione per convertire il testo estratto in formato JSON
     - Crea il nome del file JSON basato sul nome dell'immagine corrispondente e genera il
       percorso completo in cui verrà salvato, nella cartella Extracted_JSON
     - Crea un bottone per visualizzare il JSON corrispondente al testo estratto dall'immaigne selezionata
     :param api_key: chiave per le chiamate API
+    :param extracted_text: testo estratto
+    :param selected_image: immagine selezionata
     :return: dati estratti dal testo in formato JSON
     """
     client = Groq(api_key=api_key)
@@ -130,32 +133,27 @@ def extract_data_to_json(api_key):
     # json_filename = os.path.splitext(image_name)[0] + ".json"
     # json_path = os.path.join(EXTRACTED_JSON_DIR, json_filename)
 
-    if st.session_state.extracted_text:
-        if st.button(f"Generate JSON for {st.session_state.selected_image}"):
-            with st.spinner("Processing JSON..."):
-                progress = st.progress(0)
-                for i in range(100):
-                    time.sleep(0.01)
-                    progress.progress(i + 1)
+    with st.spinner("Processing JSON..."):
+        progress = st.progress(0)
+        for i in range(100):
+            time.sleep(0.01)
+            progress.progress(i + 1)
 
-            prompt_text = load_prompt("App/AI_prompts/json_prompt.txt")
+    prompt_text = load_prompt("App/AI_prompts/json_prompt.txt")
 
-            chat_completion = client.chat.completions.create(
-                model="meta-llama/llama-4-scout-17b-16e-instruct",
-                messages=[
-                    {"role": "user", "content": [
-                        {"type": "text", "text": prompt_text},
-                        {"type": "text", "text": st.session_state.extracted_text}
-                    ]}
-                ]
-            )
+    chat_completion = client.chat.completions.create(
+        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        messages=[
+            {"role": "user", "content": [
+                {"type": "text", "text": prompt_text},
+                {"type": "text", "text": extracted_text}
+            ]}
+        ]
+    )
 
-            extracted_data = chat_completion.choices[0].message.content
+    extracted_data = chat_completion.choices[0].message.content
 
-            st.success(f"JSON generated for {st.session_state.selected_image}")
-            st.text(extracted_data)
+    st.success(f"JSON generated for {selected_image}")
+    st.text(extracted_data)
 
-            return extracted_data
-
-    else:
-        st.warning("No extracted text available for JSON conversion.")
+    return extracted_data

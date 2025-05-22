@@ -55,5 +55,12 @@ extracted_text, selected_image = extract_text_from_image(st.session_state.databa
 st.session_state.extracted_text = extracted_text
 st.session_state.selected_image = selected_image
 
-if st.session_state.extracted_text:
-    extract_data_to_json(api_key)
+#st.write("Selected Image in Session State:", st.session_state.selected_image)
+#st.write("Extracted Text in Session State:", st.session_state.extracted_text)
+
+
+if st.session_state.extracted_text: #and st.session_state.selected_image:
+    st.write(f"You can now generate the JSON for: {st.session_state.selected_image}")
+
+    if st.button(f"Generate JSON for {st.session_state.selected_image}", key="generate_json_button"):
+        extracted_data = extract_data_to_json(api_key, st.session_state.extracted_text, st.session_state.selected_image)
