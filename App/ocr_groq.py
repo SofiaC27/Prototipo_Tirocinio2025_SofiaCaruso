@@ -74,11 +74,11 @@ def extract_text_from_image(data, api_key):
     selected_image = None
 
     if data:
-        file_to_process = st.selectbox("Select file to process with OCR", [row[1] for row in data])
-        file_path = os.path.join(IMAGE_DIR, file_to_process)
+        selected_image = st.selectbox("Select file to process with OCR", [row[1] for row in data])
+        file_path = os.path.join(IMAGE_DIR, selected_image)
 
         img = Image.open(file_path)
-        st.image(img, caption=f"Preview of {file_to_process}", use_container_width=True)
+        st.image(img, caption=f"Preview of {selected_image}", use_container_width=True)
 
         if st.button("Run OCR"):
             with st.spinner("Processing OCR..."):
@@ -102,13 +102,13 @@ def extract_text_from_image(data, api_key):
 
             extracted_text = chat_completion.choices[0].message.content
             st.session_state.extracted_text = extracted_text
-            st.session_state.selected_image = file_to_process
+            st.session_state.selected_image = selected_image
 
             col1, col2 = st.columns([1, 1])
             with col1:
-                st.image(img, caption=f"Selected Image: {file_to_process}", use_container_width=True)
+                st.image(img, caption=f"Selected Image: {selected_image}", use_container_width=True)
             with col2:
-                st.write(f"Extracted text from {file_to_process}:")
+                st.write(f"Extracted text from {selected_image}:")
                 st.text(st.session_state.extracted_text)
 
     else:
@@ -117,43 +117,42 @@ def extract_text_from_image(data, api_key):
     return extracted_text, selected_image
 
 
-def extract_data_to_json(api_key, extracted_text, selected_image):
+def extract_data_to_json(api_key):
     """
     Funzione per convertire il testo estratto in formato JSON
-    - Crea il nome del file JSON basato sul nome dell'immagine corrispondente e genera il
-      percorso completo in cui verrà salvato, nella cartella Extracted_JSON
     - Crea un bottone per visualizzare il JSON corrispondente al testo estratto dall'immaigne selezionata
     :param api_key: chiave per le chiamate API
-    :param extracted_text: testo estratto
-    :param selected_image: immagine selezionata
     :return: dati estratti dal testo in formato JSON
     """
+    if not st.session_state.extracted_text or not st.session_state.selected_image:
+        st.warning("You must run OCR before generating JSON.")
+        return
+
     client = Groq(api_key=api_key)
 
-    # json_filename = os.path.splitext(image_name)[0] + ".json"
-    # json_path = os.path.join(EXTRACTED_JSON_DIR, json_filename)
+    if st.button(f"Generate JSON for {st.session_state.selected_image}"):
+        with st.spinner("Processing JSON..."):
+            progress = st.progress(0)
+            for i in range(100):
+                time.sleep(0.01)
+                progress.progress(i + 1)
 
-    with st.spinner("Processing JSON..."):
-        progress = st.progress(0)
-        for i in range(100):
-            time.sleep(0.01)
-            progress.progress(i + 1)
+        prompt_text = load_prompt("App/AI_prompts/json_prompt.txt")
 
-    prompt_text = load_prompt("App/AI_prompts/json_prompt.txt")
+        chat_completion = client.chat.completions.create(
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
+            messages=[
+                {"role": "user", "content": [
+                    {"type": "text", "text": prompt_text},
+                    {"type": "text", "text": st.session_state.extracted_text}
+                ]}
+            ]
+        )
 
-    chat_completion = client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
-        messages=[
-            {"role": "user", "content": [
-                {"type": "text", "text": prompt_text},
-                {"type": "text", "text": extracted_text}
-            ]}
-        ]
-    )
+        extracted_data = chat_completion.choices[0].message.content
+        st.session_state.extracted_data = extracted_data
 
-    extracted_data = chat_completion.choices[0].message.content
+        st.success(f"JSON generated for {st.session_state.selected_image}")
+        st.text(st.session_state.extracted_data)
 
-    st.success(f"JSON generated for {selected_image}")
-    st.text(extracted_data)
-
-    return extracted_data
+        return extracted_data
