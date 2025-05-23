@@ -52,11 +52,11 @@ if "selected_image" not in st.session_state:
 if "extracted_data" not in st.session_state:
     st.session_state.extracted_data = ""
 
-extracted_text, selected_image = extract_text_from_image(st.session_state.database_data, api_key)
+extracted_text, selected_image = perform_ocr_on_image(st.session_state.database_data, api_key)
 
 if extracted_text:
     st.session_state.extracted_text = extracted_text
 if selected_image:
     st.session_state.selected_image = selected_image
 
-extract_data_to_json(api_key)
+generate_and_save_json(api_key)

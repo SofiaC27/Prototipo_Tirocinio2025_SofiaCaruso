@@ -6,6 +6,7 @@ import streamlit as st
 from PIL import Image
 import time
 import json
+import re
 
 
 IMAGE_DIR = "Images"
@@ -75,7 +76,21 @@ def save_json_to_folder(json_content, filename):
     return file_path
 
 
-def extract_text_from_image(data, api_key):
+def parse_json_from_string(text):
+    """
+    Funzione per estrarre il primo oggetto JSON completo dal testo
+    - Utilizza regex per cercare un blocco JSON (tra parentesi graffe) nel testo
+    :param text: stringa del testo estratto contenente il JSON più eventuale testo extra
+    :return: stringa JSON estratta oppure None se non trovato
+    """
+    pattern = re.compile(r'\{.*\}', re.DOTALL)
+    match = pattern.search(text)
+    if match:
+        return match.group(0)
+    return None
+
+
+def perform_ocr_on_image(data, api_key):
     """
     Funzione per estrarre il testo da un'immagine attraverso l'OCR
     - Recupera l'API Key dall'ambiente e controlla se è presente
@@ -138,18 +153,23 @@ def extract_text_from_image(data, api_key):
     return extracted_text, selected_image
 
 
-def extract_data_to_json(api_key):
+def generate_and_save_json(api_key):
     """
-    Funzione per convertire il testo estratto in formato JSON
-    - Crea un bottone per visualizzare il JSON corrispondente al testo estratto dall'immaigne selezionata
+    Funzione per generare e salvare un file JSON a partire dal testo estratto con l'OCR
+    - Verifica che siano presenti il testo estratto e l'immagine selezionata nello session state
+    - Mostra un bottone per generare il JSON utilizzando un modello AI tramite l'API Groq
+    - Valida e trasforma il testo estratto in un JSON strutturato
+    - Se il JSON è valido, lo salva nella cartella 'Extracted_JSON' evitando duplicati
+    - Se il JSON generato non è valido, mostra un messaggio di errore e non salva il file
     :param api_key: chiave per le chiamate API
-    :return: dati estratti dal testo in formato JSON
+    :return: percorso del file JSON salvato, oppure None se non salvato
     """
     if not st.session_state.extracted_text or not st.session_state.selected_image:
         st.warning("You must run OCR before generating JSON.")
         return
 
     client = Groq(api_key=api_key)
+    json_filename = os.path.splitext(st.session_state.selected_image)[0] + ".json"
 
     if st.button(f"Generate JSON for {st.session_state.selected_image}"):
         with st.spinner("Processing JSON..."):
@@ -173,7 +193,19 @@ def extract_data_to_json(api_key):
         extracted_data = chat_completion.choices[0].message.content
         st.session_state.extracted_data = extracted_data
 
-        st.success(f"JSON generated for {st.session_state.selected_image}")
-        st.text(st.session_state.extracted_data)
+        json_str = parse_json_from_string(extracted_data.strip())
+        if not json_str:
+            st.error("No JSON object found in extracted data. File not saved.")
+            return None
 
-        return extracted_data
+        try:
+            extracted_data_dict = json.loads(json_str)
+            json_content = json.dumps(extracted_data_dict, ensure_ascii=False, indent=2)
+            saved_path = save_json_to_folder(json_content, json_filename)
+            if saved_path:
+                st.success(f"JSON file saved successfully at: {saved_path}")
+        except json.JSONDecodeError:
+            st.error("Generated data is not valid JSON. File not saved.")
+            saved_path = None
+
+        return saved_path
