@@ -12,20 +12,25 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from Database.db_manager import insert_data, read_data, delete_data
 
+IMAGE_DIR = "Images"
+
 
 def save_image_to_folder(uploaded_file):
     """
     Funzione per salvare le immagini inserite con l'upload dentro la cartella 'Images'
     - Crea la cartella 'Images' se non esiste già
     - Costruisce il path del file all'interno della cartella
+    - Se il file esiste già, non sovrascrive e mostra un warning
     - Salva il file in formato binario per preservarne l’integrità e gestire correttamente
       qualsiasi tipo di dato, inclusi immagini e documenti
     :param uploaded_file: file caricato da inserire nella cartella
-    :return: percorso del file salvato
+    :return: percorso del file salvato oppure None se il file esiste già
     """
-    folder_path = "Images"
-    os.makedirs(folder_path, exist_ok=True)
-    file_path = os.path.join(folder_path, uploaded_file.name)
+    os.makedirs(IMAGE_DIR, exist_ok=True)
+    file_path = os.path.join(IMAGE_DIR, uploaded_file.name)
+    if os.path.exists(file_path):
+        st.warning(f"Image file '{uploaded_file.name}' already exists in the folder. No action taken.")
+        return None
     with open(file_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
     return file_path

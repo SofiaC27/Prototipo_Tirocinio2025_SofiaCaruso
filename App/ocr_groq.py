@@ -8,8 +8,8 @@ import time
 import json
 
 
-IMAGE_DIR = "Images/"
-EXTRACTED_JSON_DIR = "Extracted_JSON/"
+IMAGE_DIR = "Images"
+EXTRACTED_JSON_DIR = "Extracted_JSON"
 
 
 def get_api_key():
@@ -52,6 +52,27 @@ def load_prompt(file_path):
     """
     with open(file_path, "r", encoding="utf-8") as file:
         return file.read().strip()
+
+
+def save_json_to_folder(json_content, filename):
+    """
+    Funzione per salvare un file JSON nella cartella 'Extracted_JSON'
+    - Crea la cartella 'Extracted_JSON' se non esiste già
+    - Costruisce il percorso completo del file JSON all’interno della cartella
+    - Salva il contenuto JSON in formato testo con codifica UTF-8
+    - Se il file esiste già, non sovrascrive
+    :param json_content: contenuto JSON da salvare (stringa)
+    :param filename: nome del file .json
+    :return: percorso del file salvato oppure None se il file esiste già
+    """
+    os.makedirs(EXTRACTED_JSON_DIR, exist_ok=True)
+    file_path = os.path.join(EXTRACTED_JSON_DIR, filename)
+    if os.path.exists(file_path):
+        st.warning(f"JSON file '{filename}' already exists in the folder. No action taken.")
+        return None
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(json_content)
+    return file_path
 
 
 def extract_text_from_image(data, api_key):
