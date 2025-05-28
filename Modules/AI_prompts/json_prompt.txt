@@ -35,8 +35,8 @@ nel formato JSON indicato di seguito:
 
 
 Regole per l'estrazione:
--Data: Scrivi la data nel formato `YYYY-MM-DD` senza virgolette.
--Ora: Scrivi l'ora nel formato `HH:mm:ss` senza virgolette.
+-Data: Scrivi la data nel formato `YYYY-MM-DD`.
+-Ora: Scrivi l'ora nel formato `HH:mm:ss`.
 -Negozio: Scrivi il nome del negozio o del punto vendita
 -Luogo: Scrivi l'indirizzo preciso del negozio o punto vendita (via, piazza, numero civico), se indicato
 -Città: Scrivi la città come "Città - Provincia (Sigla)". Se la provincia o la sigla non sono indicate, prova a inferirli basandoti sul contesto.
@@ -49,3 +49,4 @@ Regole per l'estrazione:
 
 Dati mancanti: Se qualche campo non è presente, lascia il valore come null (senza virgolette) invece di ometterlo.
 In output restituisci solo il testo in formato JSON che hai estratto.
+Stringhe: Tutte le stringhe devono essere rappresentate correttamente tra ""
