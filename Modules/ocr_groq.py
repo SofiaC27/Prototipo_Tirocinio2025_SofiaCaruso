@@ -1,12 +1,12 @@
-import os
-import base64
-from dotenv import load_dotenv
-from groq import Groq
 import streamlit as st
 from PIL import Image
+from dotenv import load_dotenv
+from groq import Groq
+import base64
 import time
 import json
 import re
+import os
 
 
 IMAGE_DIR = "Images"
@@ -124,7 +124,7 @@ def perform_ocr_on_image(data, api_key):
                     progress.progress(i + 1)
 
             base64_image = encode_image(file_path)
-            prompt_text = load_prompt("App/AI_prompts/ocr_prompt.txt")
+            prompt_text = load_prompt("Modules/AI_prompts/ocr_prompt.txt")
 
             chat_completion = client.chat.completions.create(
                 model="meta-llama/llama-4-scout-17b-16e-instruct",
@@ -178,7 +178,7 @@ def generate_and_save_json(api_key):
                 time.sleep(0.01)
                 progress.progress(i + 1)
 
-        prompt_text = load_prompt("App/AI_prompts/json_prompt.txt")
+        prompt_text = load_prompt("Modules/AI_prompts/json_prompt.txt")
 
         chat_completion = client.chat.completions.create(
             model="meta-llama/llama-4-scout-17b-16e-instruct",

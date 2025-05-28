@@ -1,7 +1,9 @@
 import streamlit as st
 
-from app_functions import *
-from ocr_groq import *
+from Database.db_manager import read_data
+from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
+                                   delete_file_from_database_and_folder)
+from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
 
 
 # Titolo dell'applicazione
@@ -36,7 +38,7 @@ if "database_data" not in st.session_state:
     st.session_state.database_data = read_data("documents.db", "receipts")
 
 display_data_with_pagination(st.session_state.database_data)
-delete_file_from_database(st.session_state.database_data)
+delete_file_from_database_and_folder(st.session_state.database_data)
 
 
 # OCR

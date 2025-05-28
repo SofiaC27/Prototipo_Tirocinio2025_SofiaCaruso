@@ -36,17 +36,22 @@ def insert_data(db_name, table_name, column_name, file_name):
     - Il ? è un segnaposto per valori da inserire in sicurezza tramite parametri, evitando SQL injection
     - La , alla fine indica che (file_name,) è una tupla con un singolo elemento
     - Salvataggio dei cambiamenti e chiusura della connessione
-    :param: db_name: nome del database
-    :param: table_name: nome della tabella
-    :param: column_name: nome della colonna
+    :param db_name: nome del database
+    :param table_name: nome della tabella
+    :param column_name: nome della colonna
     :param file_name: file da inserire
     """
     conn = get_connection(db_name)
     c = conn.cursor()
-    query = f'INSERT OR IGNORE INTO {table_name} ({column_name}) VALUES (?)'
-    c.execute(query, (file_name,))
-    conn.commit()
-    conn.close()
+    try:
+        query_insert = f"INSERT INTO {table_name} ({column_name}) VALUES (?)"
+        c.execute(query_insert, (file_name,))
+        conn.commit()
+        return "inserted"
+    except sqlite3.IntegrityError:
+        return "exists"
+    finally:
+        conn.close()
 
 
 def read_data(db_name, table_name):
@@ -79,9 +84,9 @@ def delete_data(db_name, table_name, column_name, file_name):
     - Il ? è un segnaposto per valori da eliminare in sicurezza tramite parametri, evitando SQL injection
     - La , alla fine indica che (file_name,) è una tupla con un singolo elemento
     - Salvataggio dei cambiamenti e chiusura della connessione
-    :param: db_name: nome del database
-    :param: table_name: nome della tabella
-    :param: column_name: nome della colonna
+    :param db_name: nome del database
+    :param table_name: nome della tabella
+    :param column_name: nome della colonna
     :param file_name: file da eliminare
     """
     conn = get_connection(db_name)

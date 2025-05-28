@@ -1,16 +1,10 @@
 import streamlit as st
-import sys
+import pandas as pd
 import os
 import time
-import pandas as pd
 
+from Database.db_manager import insert_data, delete_data
 
-# NOTE: ottiene la directory del file attuale, risale alla cartella principale del progetto e
-# converte il percorso in assoluto. Infine, aggiunge la directory principale a sys.path,
-# consentendo l'importazione dei moduli Python senza percorsi espliciti
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from Database.db_manager import insert_data, read_data, delete_data
 
 IMAGE_DIR = "Images"
 
@@ -33,6 +27,19 @@ def save_image_to_folder(uploaded_file):
     with open(file_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
     return file_path, False
+
+
+def delete_image_from_folder(filename):
+    """
+    Funzione per eliminare il file specificato dalla cartella se esiste
+    :param filename: nome del file da eliminare
+    :return: True se file eliminato, False se non trovato
+    """
+    file_path = os.path.join(IMAGE_DIR, filename)
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        return True
+    return False
 
 
 def process_uploaded_file(uploaded_files):
@@ -61,22 +68,33 @@ def process_uploaded_file(uploaded_files):
                     progress.progress(i + 1)
 
                 saved_count = 0
-                skipped_files = set()
+                skipped_files_folder = set()
+                skipped_files_db = set()
 
                 for uploaded_file in uploaded_files:
                     file_path, already_exists = save_image_to_folder(uploaded_file)
-                    if file_path:
-                        insert_data("documents.db", "receipts", "File_path", uploaded_file.name)
+                    if already_exists:
+                        skipped_files_folder.add(uploaded_file.name)
+                        continue
+
+                    result = insert_data("documents.db", "receipts", "File_path", uploaded_file.name)
+                    if result == "inserted":
                         saved_count += 1
-                    elif already_exists:
-                        skipped_files.add(uploaded_file.name)
+                    elif result == "exists":
+                        skipped_files_db.add(uploaded_file.name)
 
             if saved_count > 0:
                 st.success(f"{saved_count} file(s) successfully saved!")
 
-            if skipped_files:
-                skipped_list = ", ".join(skipped_files)
-                st.warning(f"The following file(s) already existed and were not saved: {skipped_list}")
+            if saved_count == 0:
+                if skipped_files_folder:
+                    skipped_list = ", ".join(skipped_files_folder)
+                    st.warning(f"The following file(s) already existed in folder and were not saved: {skipped_list}")
+
+                if skipped_files_db:
+                    skipped_db_list = ", ".join(skipped_files_db)
+                    st.warning(
+                        f"The following file(s) already existed in database and were not inserted: {skipped_db_list}")
 
     else:
         st.warning("Please upload a file to proceed.")
@@ -115,7 +133,7 @@ def display_data_with_pagination(data):
         st.info("No data available in the database for display.")
 
 
-def delete_file_from_database(data):
+def delete_file_from_database_and_folder(data):
     """
     Funzione che permette di selezionare ed eliminare un file dal database
     - Recupera i dati presenti nel database (in caso contrario, stampa un messaggio)
@@ -133,8 +151,10 @@ def delete_file_from_database(data):
         if confirm:
             if st.button("Delete selected file"):
                 delete_data("documents.db", "receipts", "File_path", file_to_delete)
-                st.success(f"File '{file_to_delete}' successfully deleted!")
+                deleted_from_folder = delete_image_from_folder(file_to_delete)
+
+                st.success(f"File '{file_to_delete}' successfully deleted from database!")
+                if deleted_from_folder:
+                    st.success(f"File '{file_to_delete}' successfully deleted from the folder!")
     else:
         st.info("No data available in the database for deletion.")
-
-
