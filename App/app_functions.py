@@ -20,20 +20,19 @@ def save_image_to_folder(uploaded_file):
     Funzione per salvare le immagini inserite con l'upload dentro la cartella 'Images'
     - Crea la cartella 'Images' se non esiste già
     - Costruisce il path del file all'interno della cartella
-    - Se il file esiste già, non sovrascrive e mostra un warning
+    - Se il file esiste già, non sovrascrive e imposta un flag
     - Salva il file in formato binario per preservarne l’integrità e gestire correttamente
       qualsiasi tipo di dato, inclusi immagini e documenti
     :param uploaded_file: file caricato da inserire nella cartella
-    :return: percorso del file salvato oppure None se il file esiste già
+    :return: percorso del file salvato oppure None se il file esiste già, flag
     """
     os.makedirs(IMAGE_DIR, exist_ok=True)
     file_path = os.path.join(IMAGE_DIR, uploaded_file.name)
     if os.path.exists(file_path):
-        st.warning(f"Image file '{uploaded_file.name}' already exists in the folder. No action taken.")
-        return None
+        return None, True
     with open(file_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
-    return file_path
+    return file_path, False
 
 
 def process_uploaded_file(uploaded_files):
@@ -44,6 +43,7 @@ def process_uploaded_file(uploaded_files):
     - Simula la barra di avanzamento per caricare i file
     - Crea un bottone per salvare i file nel database e nella cartella 'Images'
     - In caso contrario, mostra un warning che invita a fare l'upload per procedere
+    - Se il file era già stato caricato e il flag è attivo, mostra un warning e non lo carica nuovamente
     :param uploaded_files: lista di file di cui fare l'upload (può essere anche solo uno)
     """
     if uploaded_files:
@@ -60,11 +60,23 @@ def process_uploaded_file(uploaded_files):
                     time.sleep(0.01)
                     progress.progress(i + 1)
 
-                for uploaded_file in uploaded_files:
-                    file_path = save_image_to_folder(uploaded_file)
-                    insert_data("documents.db", "receipts", "File_path", uploaded_file.name)
+                saved_count = 0
+                skipped_files = set()
 
-                st.success(f"All {len(uploaded_files)} files successfully saved!")
+                for uploaded_file in uploaded_files:
+                    file_path, already_exists = save_image_to_folder(uploaded_file)
+                    if file_path:
+                        insert_data("documents.db", "receipts", "File_path", uploaded_file.name)
+                        saved_count += 1
+                    elif already_exists:
+                        skipped_files.add(uploaded_file.name)
+
+            if saved_count > 0:
+                st.success(f"{saved_count} file(s) successfully saved!")
+
+            if skipped_files:
+                skipped_list = ", ".join(skipped_files)
+                st.warning(f"The following file(s) already existed and were not saved: {skipped_list}")
 
     else:
         st.warning("Please upload a file to proceed.")
