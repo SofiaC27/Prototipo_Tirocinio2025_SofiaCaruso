@@ -161,17 +161,29 @@ def init_database():
     create_table("documents.db", '''
         CREATE TABLE IF NOT EXISTS extracted_data (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            receipt_id INTEGER, 
-            purchase_date TEXT,
-            purchase_time TEXT,
+            receipt_id INTEGER NOT NULL,
+            purchase_date DATE,
+            purchase_time TIME,
             store_name TEXT,
             address TEXT,
             city TEXT,
             country TEXT,
-            product_list TEXT,
-            total_price REAL,
+            total_price REAL CHECK (total_price >= 0),
+            total_currency TEXT CHECK (LENGTH(total_currency) = 3),
             payment_method TEXT,
-            receipt_number TEXT,
             FOREIGN KEY(receipt_id) REFERENCES receipts(Id) ON DELETE CASCADE
+        )
+    ''')
+
+    create_table("documents.db", '''
+        CREATE TABLE IF NOT EXISTS receipt_items (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            extracted_data_id INTEGER NOT NULL,
+            name TEXT NOT NULL,
+            price REAL CHECK (price >= 0),
+            currency TEXT CHECK (LENGTH(currency) = 3),
+            discount_percent REAL DEFAULT NULL CHECK (discount_percent >= 0 AND discount_percent <= 100),
+            discount_value REAL DEFAULT NULL CHECK (discount_value >= 0),
+            FOREIGN KEY(extracted_data_id) REFERENCES extracted_data(id) ON DELETE CASCADE
         )
     ''')
