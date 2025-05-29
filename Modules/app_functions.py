@@ -150,7 +150,7 @@ def delete_file_from_database_and_folder(data):
 
         if confirm:
             if st.button("Delete selected file"):
-                delete_data("documents.db", "receipts", "File_path", file_to_delete)
+                delete_data("documents.db", "receipts", {"File_path": file_to_delete})
                 deleted_from_folder = delete_image_from_folder(file_to_delete)
 
                 st.success(f"File '{file_to_delete}' successfully deleted from database!")

@@ -79,24 +79,24 @@ def read_data(db_name, table_name):
     return rows
 
 
-def delete_data(db_name, table_name, column_name, file_name):
+def delete_data(db_name, table_name, conditions):
     """
     Funzione per eliminare dati all'interno del database
     - Connessione al database
     - Creazione di un cursore per eseguire le query
-    - Query per eliminare i dati nella tabella
-    - Il ? è un segnaposto per valori da eliminare in sicurezza tramite parametri, evitando SQL injection
-    - La , alla fine indica che (file_name,) è una tupla con un singolo elemento
+    - Costruzione dinamica della clausola WHERE in base alle condizioni fornite
+    - Query per eliminare i dati nella tabella (usando segnaposto ? per evitare SQL injection)
     - Salvataggio dei cambiamenti e chiusura della connessione
     :param db_name: nome del database
     :param table_name: nome della tabella
-    :param column_name: nome della colonna
-    :param file_name: file da eliminare
+    :param conditions: dizionario con le condizioni di eliminazione
     """
     conn = get_connection(db_name)
     c = conn.cursor()
-    query = f'DELETE FROM {table_name} WHERE {column_name} = ?'
-    c.execute(query, (file_name,))
+    where_clause = ' AND '.join([f"{col} = ?" for col in conditions.keys()])
+    values = tuple(conditions.values())
+    query = f"DELETE FROM {table_name} WHERE {where_clause}"
+    c.execute(query, values)
     conn.commit()
     conn.close()
 
