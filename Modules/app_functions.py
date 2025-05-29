@@ -77,7 +77,7 @@ def process_uploaded_file(uploaded_files):
                         skipped_files_folder.add(uploaded_file.name)
                         continue
 
-                    result = insert_data("documents.db", "receipts", "File_path", uploaded_file.name)
+                    result = insert_data("documents.db", "receipts", {"File_path": uploaded_file.name})
                     if result == "inserted":
                         saved_count += 1
                     elif result == "exists":

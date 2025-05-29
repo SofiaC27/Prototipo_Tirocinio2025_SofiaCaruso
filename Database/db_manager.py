@@ -27,25 +27,29 @@ def get_connection(db_name):
     return sqlite3.connect(db_name)  # Return a connection to the database
 
 
-def insert_data(db_name, table_name, column_name, file_name):
+def insert_data(db_name, table_name, data_dict):
     """
     Funzione per inserire dati all'interno del database
     - Connessione al database
     - Creazione di un cursore per eseguire le query
-    - Query per inserire i dati nella tabella (se è un duplicato lo ignora)
-    - Il ? è un segnaposto per valori da inserire in sicurezza tramite parametri, evitando SQL injection
-    - La , alla fine indica che (file_name,) è una tupla con un singolo elemento
+    - Costruzione dinamica della query SQL INSERT in base alle chiavi e ai valori forniti
+    - Utilizzo di segnaposto (?) per prevenire SQL injection
+    - Inserimento dei dati nella tabella specificata
+    - Se è presente un vincolo di unicità e l'inserimento fallisce, viene gestito l'errore come duplicato
     - Salvataggio dei cambiamenti e chiusura della connessione
     :param db_name: nome del database
-    :param table_name: nome della tabella
-    :param column_name: nome della colonna
-    :param file_name: file da inserire
+    :param table_name: nome della tabella dove inserire i dati
+    :param data_dict: dizionario con i dati da inserire, con chiavi come nomi delle colonne e valori come dati
+    :return: stringa "inserted" o "exists" a seconda dell'esito dell'operazione
     """
     conn = get_connection(db_name)
     c = conn.cursor()
     try:
-        query_insert = f"INSERT INTO {table_name} ({column_name}) VALUES (?)"
-        c.execute(query_insert, (file_name,))
+        columns = ', '.join(data_dict.keys())
+        placeholders = ', '.join(['?'] * len(data_dict))
+        values = tuple(data_dict.values())
+        query = f"INSERT INTO {table_name} ({columns}) VALUES ({placeholders})"
+        c.execute(query, values)
         conn.commit()
         return "inserted"
     except sqlite3.IntegrityError:
