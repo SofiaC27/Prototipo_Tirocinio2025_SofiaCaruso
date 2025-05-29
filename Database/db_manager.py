@@ -101,6 +101,42 @@ def delete_data(db_name, table_name, conditions):
     conn.close()
 
 
+def get_data(db_name, table_name, columns, conditions=None):
+    """
+    Funzione per leggere dati specifici da una tabella con condizioni facoltative
+    - Connessione al database
+    - Creazione di un cursore per eseguire le query
+    - Costruzione dinamica della query con colonne selezionate e condizioni WHERE opzionali
+    - Esecuzione sicura della query con parametri ? per prevenire SQL injection
+    - Recupero delle righe
+    - Chiusura della connessione
+    :param db_name: nome del database
+    :param table_name: nome della tabella
+    :param columns: lista o stringa di colonne da leggere (es: ["id", "name"] o "id")
+    :param conditions: dizionario di condizioni per la clausola WHERE. Se None, non viene applicato alcun filtro
+    :return: righe selezionate della tabella (lista di tuple)
+    """
+    if isinstance(columns, str):
+        columns = [columns]
+    columns_str = ', '.join(columns)
+
+    conn = get_connection(db_name)
+    c = conn.cursor()
+
+    if conditions:
+        where_clause = ' AND '.join([f"{col} = ?" for col in conditions.keys()])
+        values = tuple(conditions.values())
+        query = f"SELECT {columns_str} FROM {table_name} WHERE {where_clause}"
+        c.execute(query, values)
+    else:
+        query = f"SELECT {columns_str} FROM {table_name}"
+        c.execute(query)
+
+    rows = c.fetchall()
+    conn.close()
+    return rows
+
+
 def close_connection(conn):
     """
     Funzione per chiudere la connessione al database (se usata)
