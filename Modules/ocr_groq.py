@@ -8,7 +8,7 @@ import json
 import re
 import os
 
-from Database.db_manager import get_data
+from Database.db_manager import insert_data, get_data
 
 
 IMAGE_DIR = "Images"
@@ -155,14 +155,68 @@ def perform_ocr_on_image(data, api_key):
     return extracted_text, selected_image
 
 
+def save_json_to_db(json_data, receipt_id):
+    """
+    Funzione per salvare i dati estratti dal JSON strutturato nel database
+    - Riceve i dati già convertiti in dizionario JSON da un modello AI
+    - Inserisce un nuovo record nella tabella 'extracted_data' legandolo a 'receipt_id'
+    - Recupera l'ID della riga appena inserita in 'extracted_data'
+    - Inserisce ogni prodotto della lista 'lista_articoli' nella tabella 'receipt_items'
+      associandolo all'ID della tabella 'extracted_data'
+    - Se il record esiste già o c'è un errore, interrompe il flusso e restituisce un messaggio
+    :param json_data: dizionario con i dati estratti dal testo OCR strutturato
+    :param receipt_id: ID del record esistente nella tabella 'receipts'
+    :return: "inserted" se inserimento riuscito, "exists" o "error: ..." in caso di problemi
+    """
+    extracted_data_row = {
+        "receipt_id": receipt_id,
+        "purchase_date": json_data.get("data"),
+        "purchase_time": json_data.get("ora"),
+        "store_name": json_data.get("negozio"),
+        "address": json_data.get("luogo"),
+        "city": json_data.get("città"),
+        "country": json_data.get("paese"),
+        "total_price": json_data.get("prezzo_totale", {}).get("valore"),
+        "total_currency": json_data.get("prezzo_totale", {}).get("valuta"),
+        "payment_method": json_data.get("metodo_pagamento")
+    }
+
+    result = insert_data("documents.db", "extracted_data", extracted_data_row)
+    if result != "inserted":
+        return result # si ferma se il record esiste già o c'è errore
+
+    extracted_data_rows = get_data("documents.db", "extracted_data", ["id"], {"receipt_id": receipt_id})
+    extracted_data_id = extracted_data_rows[-1][0] if extracted_data_rows else None
+    # [-1][0] per prendere l’ultimo ID appena inserito in extracted_data
+
+    for item in json_data.get("lista_articoli", []):
+        item_row = {
+            "extracted_data_id": extracted_data_id,
+            "name": item.get("nome"),
+            "price": item.get("prezzo"),
+            "currency": item.get("valuta"),
+            "discount_percent": item.get("percentuale_sconto"),
+            "discount_value": item.get("valore_scontato")
+        }
+        insert_data("documents.db", "receipt_items", item_row)
+
+    return "inserted"
+
+
 def generate_and_save_json(api_key):
     """
-    Funzione per generare e salvare un file JSON a partire dal testo estratto con l'OCR
+    Funzione per generare, validare e salvare un file JSON a partire dal testo OCR,
+    e memorizzare i dati strutturati nel database
     - Verifica che siano presenti il testo estratto e l'immagine selezionata nello session state
     - Mostra un bottone per generare il JSON utilizzando un modello AI tramite l'API Groq
-    - Valida e trasforma il testo estratto in un JSON strutturato
-    - Se il JSON è valido, lo salva nella cartella 'Extracted_JSON' evitando duplicati
-    - Se il JSON generato non è valido, mostra un messaggio di errore e non salva il file
+    - Invia il prompt con il testo estratto al modello llama per ottenere i dati strutturati
+    - Tenta il parsing del JSON restituito dal modello
+    - Se il JSON è valido:
+        - Salva il file nella cartella 'Extracted_JSON' evitando duplicati
+        - Recupera l'ID dello scontrino dalla tabella 'receipts'
+        - Inserisce i dati nella tabella 'extracted_data'
+        - Inserisce la lista dei prodotti nella tabella 'receipt_items' (relazionata)
+    - Se il JSON non è valido o mancano riferimenti, mostra messaggi di errore
     :param api_key: chiave per le chiamate API
     :return: percorso del file JSON salvato, oppure None se non salvato
     """
@@ -209,10 +263,21 @@ def generate_and_save_json(api_key):
 
                 rows = get_data("documents.db", "receipts", "Id", {"File_path": st.session_state.selected_image})
                 receipt_id = rows[0][0] if rows else None
+                # [0][0] per prendere il primo elemento della prima riga, cioè il valore della colonna
+                # richiesta (in questo caso "Id")
 
                 if receipt_id is None:
                     st.error("No matching receipt found in database.")
                     return None
+
+                db_result = save_json_to_db(extracted_data_dict, receipt_id)
+
+                if db_result == "inserted":
+                    st.success("Data inserted into database.")
+                elif db_result == "exists":
+                    st.warning("Data already exists in database.")
+                else:
+                    st.error(f"Database error: {db_result}")
 
         except json.JSONDecodeError:
             st.error("Generated data is not valid JSON. File not saved.")
