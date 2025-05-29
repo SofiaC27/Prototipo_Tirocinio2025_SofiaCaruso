@@ -145,7 +145,12 @@ def close_connection(conn):
     conn.close()
 
 
-create_table("documents.db", '''
+def init_database():
+    """
+     Funzione per inizializzare il database
+     - Crea le tabelle specificate se non esistono già
+    """
+    create_table("documents.db", '''
         CREATE TABLE IF NOT EXISTS receipts (
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             File_path TEXT UNIQUE,
@@ -153,20 +158,20 @@ create_table("documents.db", '''
         )
     ''')
 
-create_table("documents.db", '''
+    create_table("documents.db", '''
         CREATE TABLE IF NOT EXISTS extracted_data (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        receipt_id INTEGER, 
-        purchase_date TEXT,
-        purchase_time TEXT,
-        store_name TEXT,
-        address TEXT,
-        city TEXT,
-        country TEXT,
-        product_list TEXT,
-        total_price REAL,
-        payment_method TEXT,
-        receipt_number TEXT,
-        FOREIGN KEY(receipt_id) REFERENCES receipts(Id) ON DELETE CASCADE
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            receipt_id INTEGER, 
+            purchase_date TEXT,
+            purchase_time TEXT,
+            store_name TEXT,
+            address TEXT,
+            city TEXT,
+            country TEXT,
+            product_list TEXT,
+            total_price REAL,
+            payment_method TEXT,
+            receipt_number TEXT,
+            FOREIGN KEY(receipt_id) REFERENCES receipts(Id) ON DELETE CASCADE
         )
     ''')

@@ -1,10 +1,12 @@
 import streamlit as st
 
-from Database.db_manager import read_data
+from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
                                    delete_file_from_database_and_folder)
 from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
 
+
+init_database()
 
 # Titolo dell'applicazione
 st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart Receipts</h1>", unsafe_allow_html=True)
