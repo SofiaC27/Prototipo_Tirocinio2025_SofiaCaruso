@@ -8,6 +8,8 @@ import json
 import re
 import os
 
+from Database.db_manager import get_data
+
 
 IMAGE_DIR = "Images"
 EXTRACTED_JSON_DIR = "Extracted_JSON"
@@ -204,6 +206,14 @@ def generate_and_save_json(api_key):
             saved_path = save_json_to_folder(json_content, json_filename)
             if saved_path:
                 st.success(f"JSON file saved successfully at: {saved_path}")
+
+                rows = get_data("documents.db", "receipts", "Id", {"File_path": st.session_state.selected_image})
+                receipt_id = rows[0][0] if rows else None
+
+                if receipt_id is None:
+                    st.error("No matching receipt found in database.")
+                    return None
+
         except json.JSONDecodeError:
             st.error("Generated data is not valid JSON. File not saved.")
             saved_path = None
