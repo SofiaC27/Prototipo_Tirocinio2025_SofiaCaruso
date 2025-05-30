@@ -1,0 +1,43 @@
+{
+  "data": "2025-04-17",
+  "ora": "16:30:00",
+  "negozio": "FARMACIA OFFICINA SALUTE S.R.L.",
+  "indirizzo": "VIA BELGIARDINO N.5",
+  "città": "PORTO MANTOVANO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Farmaco",
+      "prezzo": 18.7,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Farmaco",
+      "prezzo": 3.29,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Farmaco",
+      "prezzo": 3.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Farmaco",
+      "prezzo": 2.05,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 27.54,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}
