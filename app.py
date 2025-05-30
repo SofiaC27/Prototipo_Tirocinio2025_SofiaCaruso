@@ -40,7 +40,6 @@ if "database_data" not in st.session_state:
     st.session_state.database_data = read_data("documents.db", "receipts")
 
 display_data_with_pagination(st.session_state.database_data)
-delete_file_from_database_and_folder(st.session_state.database_data)
 
 
 # OCR
@@ -64,3 +63,9 @@ if selected_image:
     st.session_state.selected_image = selected_image
 
 generate_and_save_json(api_key)
+
+
+# Eliminazione file
+st.divider()
+st.subheader("Delete files if needed")
+delete_file_from_database_and_folder(st.session_state.database_data)

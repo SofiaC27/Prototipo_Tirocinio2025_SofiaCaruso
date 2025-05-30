@@ -4,6 +4,7 @@ import os
 import time
 
 from Database.db_manager import insert_data, delete_data
+from Modules.ocr_groq import delete_json_from_folder
 
 
 IMAGE_DIR = "Images"
@@ -32,7 +33,7 @@ def save_image_to_folder(uploaded_file):
 def delete_image_from_folder(filename):
     """
     Funzione per eliminare il file specificato dalla cartella se esiste
-    :param filename: nome del file da eliminare
+    :param filename: nome del file immagine da eliminare
     :return: True se file eliminato, False se non trovato
     """
     file_path = os.path.join(IMAGE_DIR, filename)
@@ -120,15 +121,27 @@ def display_data_with_pagination(data):
 
         items_per_page = 10
         total_pages = (len(data) + items_per_page - 1) // items_per_page
-        if total_pages > 1:
-            page = st.slider("Page", 1, total_pages)
-            start = (page - 1) * items_per_page
-            end = start + items_per_page
-            for row in data[start:end]:
-                st.write(f"Id: {row[0]} | File_path: {row[1]} | Upload_date: {row[2]}")
-        else:
-            for row in data:
-                st.write(f"Id: {row[0]} | File_path: {row[1]} | Upload_date: {row[2]}")
+
+        if "current_page" not in st.session_state:
+            st.session_state.current_page = 1
+
+        col1, col2, col3 = st.columns([1, 2, 1])
+
+        with col1:
+            if st.button("Previous", use_container_width=True) and st.session_state.current_page > 1:
+                st.session_state.current_page -= 1
+
+        with col3:
+            if st.button("Next", use_container_width=True) and st.session_state.current_page < total_pages:
+                st.session_state.current_page += 1
+
+        st.write(f"Page {st.session_state.current_page} of {total_pages}")
+
+        start = (st.session_state.current_page - 1) * items_per_page
+        end = start + items_per_page
+        for row in data[start:end]:
+            st.write(f"Id: {row[0]} | File_path: {row[1]} | Upload_date: {row[2]}")
+
     else:
         st.info("No data available in the database for display.")
 
@@ -137,9 +150,9 @@ def delete_file_from_database_and_folder(data):
     """
     Funzione che permette di selezionare ed eliminare un file dal database
     - Recupera i dati presenti nel database (in caso contrario, stampa un messaggio)
-    - Seleziona il file da poter eliminare tra quelli presenti nel database
-    - Crea un bottone per eliminare il file
-    - Prima della cancellazione chiede conferma, solo in caso affermativo procede a cancellare il file
+    - Seleziona il file immagine da poter eliminare tra quelli presenti nel database
+    - Crea un bottone per eliminare il file immagine
+    - Prima della cancellazione chiede conferma, solo in caso affermativo procede a cancellare il file immagine
     :param: data: dati presenti nel database
     """
     if data:
@@ -151,10 +164,16 @@ def delete_file_from_database_and_folder(data):
         if confirm:
             if st.button("Delete selected file"):
                 delete_data("documents.db", "receipts", {"File_path": file_to_delete})
-                deleted_from_folder = delete_image_from_folder(file_to_delete)
-
                 st.success(f"File '{file_to_delete}' successfully deleted from database!")
+
+                deleted_from_folder = delete_image_from_folder(file_to_delete)
                 if deleted_from_folder:
-                    st.success(f"File '{file_to_delete}' successfully deleted from the folder!")
+                    st.success(f"Image '{file_to_delete}' successfully deleted from the folder!")
+
+                possible_json = os.path.splitext(file_to_delete)[0] + ".json"
+                deleted_json = delete_json_from_folder(possible_json)
+                if deleted_json:
+                    st.success(f"Associated JSON file '{possible_json}' successfully deleted from the folder!")
+
     else:
         st.info("No data available in the database for deletion.")

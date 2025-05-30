@@ -78,6 +78,19 @@ def save_json_to_folder(json_content, filename):
     return file_path
 
 
+def delete_json_from_folder(filename):
+    """
+    Funzione per eliminare un file JSON specificato dalla cartella 'Extracted_JSON'
+    :param filename: nome del file JSON da eliminare
+    :return: True se file eliminato, False se non trovato
+    """
+    file_path = os.path.join(EXTRACTED_JSON_DIR, filename)
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        return True
+    return False
+
+
 def parse_json_from_string(text):
     """
     Funzione per estrarre il primo oggetto JSON completo dal testo
@@ -173,7 +186,7 @@ def save_json_to_db(json_data, receipt_id):
         "purchase_date": json_data.get("data"),
         "purchase_time": json_data.get("ora"),
         "store_name": json_data.get("negozio"),
-        "address": json_data.get("luogo"),
+        "address": json_data.get("indirizzo"),
         "city": json_data.get("città"),
         "country": json_data.get("paese"),
         "total_price": json_data.get("prezzo_totale", {}).get("valore"),

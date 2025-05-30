@@ -5,7 +5,7 @@ nel formato JSON indicato di seguito:
   "data": "...",
   "ora": "...",
   "negozio": "…",
-  "luogo": "...",
+  "indirizzo": "...",
   "città": "…",
   "paese": "...",
   "lista_articoli": [
@@ -20,7 +20,7 @@ nel formato JSON indicato di seguito:
       "nome": "...",
       "prezzo": "...",
       "valuta": "…",
-      "sconto_percentuale": ...,
+      "percentuale_sconto": ...,
       "valore_scontato": ...
     }
   ],
@@ -37,17 +37,29 @@ Regole per l'estrazione:
 -Data: Scrivi la data nel formato `YYYY-MM-DD`.
 -Ora: Scrivi l'ora nel formato `HH:mm:ss`.
 -Negozio: Scrivi il nome del negozio o del punto vendita
--Luogo: Scrivi l'indirizzo preciso del negozio o punto vendita (via, piazza, numero civico), se indicato
+-Indirizzo: Scrivi l'indirizzo preciso del negozio o punto vendita (via, piazza, numero civico), se indicato
 -Città: Scrivi la città come "Città - Provincia (Sigla)". Se la provincia o la sigla non sono indicate, prova a inferirli basandoti sul contesto.
 -Paese: Scrivi il paese. Se non è indicato, prova a inferirlo basandoti sul contesto.
 -Metodo di pagamento: Scrivi il metodo di pagamento se indicato
--Lista articoli:  Scrivi il nome dell'articolo come testo, i prezzi come numeri float, mentre le valute come testo.
- Inferisci la sigla della valuta dal contesto, usando sempre il codice a 3 lettere ISO 4217 e non il simbolo (es: "EUR" e non €)
- Se sono presenti sconti aggiungili nel campo "sconto_percentuale" come percentuale e nel campo "valore_scontato" come numero float
--Prezzo totale: Scrivi i prezzi come numeri float, mentre le valute come testo. Inferisci la sigla della valuta dal contesto,
- usando sempre il codice a 3 lettere ISO 4217 e non il simbolo (es: "EUR" e non €)
+-Lista articoli:
+    -Nel campo 'nome' scrivi il nome dell'articolo come testo
+    -Nel campo 'prezzo' scrivi il prezzo pieno dell'articolo (nel caso di sconto è il prezzo originale prima dello sconto) come numero float
+    -Nel campo 'valuta' scrivi le valute come testo. Inferisci la sigla della valuta dal contesto, usando sempre il
+     codice a 3 lettere ISO 4217 e non il simbolo (es: "EUR" e non €)
+    -Nel campo 'percentuale_sconto' scrivi la percentuale di sconto se indicata. Esprimila come numero (es: 20 per 20%).
+     Se non ci sono sconti, lascia il valore come null
+    -Nel campo 'valore_scontato' scrivi il valore scontato dell'articolo come numero float.
+     Se lo scontrino mostra già il prezzo scontato usa quello, mentre se lo scontrino mostra il valore sottratto
+     corrispondente alla percentuale applicata, calcola il valore scontato facendo la differenza con il valore originale
+     (es: se il valore scontato è già 2 lascia quello, mentre se il valore originale è 10 e lo sconto è -3 il valore scontato è 7).
+     Se non ci sono sconti, lascia il valore come null
+-Prezzo totale:
+    -Nel campo 'valore' scrivi i prezzi come numeri float
+    -Nel campo 'valuta' scrivi le valute come testo. Inferisci la sigla della valuta dal contesto, usando sempre il
+     codice a 3 lettere ISO 4217 e non il simbolo (es: "EUR" e non €)
 
 
-Dati mancanti: Se qualche campo non è presente, lascia il valore come null (senza virgolette) invece di ometterlo.
+-Dati mancanti: Se qualche campo non è presente, lascia il valore come null (senza virgolette) invece di ometterlo.
+-Stringhe: Tutte le stringhe devono essere rappresentate correttamente tra ""
+
 In output restituisci solo il testo in formato JSON che hai estratto.
-Stringhe: Tutte le stringhe devono essere rappresentate correttamente tra ""

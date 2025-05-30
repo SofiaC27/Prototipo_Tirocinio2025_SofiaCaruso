@@ -21,10 +21,15 @@ def create_table(db_name, table_query):
 def get_connection(db_name):
     """
     Funzione per connettersi al database
+    - Creazione della connessione al database specificato
+    - Esegue un'istruzione specifica di SQLite per abilitare i vincoli di integrità
+      referenziale (foreign key)
     :param: db_name: nome del database
     :return: connessione al database
     """
-    return sqlite3.connect(db_name)  # Return a connection to the database
+    conn = sqlite3.connect(db_name)
+    conn.execute("PRAGMA foreign_keys = ON")
+    return conn
 
 
 def insert_data(db_name, table_name, data_dict):
@@ -142,6 +147,24 @@ def close_connection(conn):
     Funzione per chiudere la connessione al database (se usata)
     :param: conn: connessione da chiudere
     """
+    conn.close()
+
+
+def drop_table(db_name, table_name):
+    """
+    Funzione per eliminare (drop) una tabella dal database, se esiste
+    - Connessione al database
+    - Creazione di un cursore per eseguire le query
+    - Query per eliminare (drop) la tabella
+    - Salvataggio dei cambiamenti e chiusura della connessione
+    :param db_name: nome del database
+    :param table_name: nome della tabella da eliminare
+    """
+    conn = get_connection(db_name)
+    c = conn.cursor()
+    query = f"DROP TABLE IF EXISTS {table_name}"
+    c.execute(query)
+    conn.commit()
     conn.close()
 
 
