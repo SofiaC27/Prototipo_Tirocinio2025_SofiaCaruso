@@ -11,6 +11,7 @@ nel formato JSON indicato di seguito:
   "lista_articoli": [
     {
       "nome": "...",
+      "quantita": "...",
       "prezzo": "...",
       "valuta": "…",
       "percentuale_sconto": ...,
@@ -18,6 +19,7 @@ nel formato JSON indicato di seguito:
     },
     {
       "nome": "...",
+      "quantita": "...",
       "prezzo": "...",
       "valuta": "…",
       "percentuale_sconto": ...,
@@ -42,15 +44,28 @@ Regole per l'estrazione:
 -Paese: Scrivi il paese. Se non è indicato, prova a inferirlo basandoti sul contesto.
 -Metodo di pagamento: Scrivi il metodo di pagamento se indicato
 -Lista articoli:
-    -Nel campo 'nome' scrivi il nome dell'articolo come testo
-    -Nel campo 'prezzo' scrivi il prezzo pieno dell'articolo (nel caso di sconto è il prezzo originale prima dello sconto) come numero float
+    -Nel campo 'nome' scrivi il nome dell'articolo come testo. Il nome deve essere solo il testo descrittivo
+     dell'articolo (non comprende simboli di moltiplicazione o unità di misura)
+     Es: se sono presenti elementi come 4 x 4,50 Prodotto, considera solo “Prodotto” come nome
+     Solitamente il nome è affiancato dal costo, i nomi nelle righe sotto corrispondono agli altri articoli
+    -Nel campo 'quantita' scrivi la quantità dell'articolo come numero intero. Se la quantità è chiaramente
+     indicata con un moltiplicatore (es: "x2", "Qty: 3", "Q.tà 5", "Quantità: 4"), usa quel valore.
+     (se non è presente alcuna indicazione di quantità, inferisci quantita: 1). Se invece, lo stesso
+     articolo (nome e/o prezzo) appare su più righe separate dello scontrino senza una quantità
+     aggregata esplicita per riga, considera ogni riga come un articolo separato con quantita: 1
+    -Nel campo 'prezzo' scrivi il prezzo pieno dell'articolo (nel caso di sconto è il prezzo originale prima
+     dello sconto) come numero float. Se la quantità è 1, inserisci il prezzo come indicato.
+     Se la quantità è maggiore di 1 e lo scontrino riporta un prezzo totale per quell'articolo, usa il
+     prezzo riportato, mentre se riporta solo il prezzo unitario (non moltiplicato per la quantità)
+     usa il prezzo unitario di quell'articolo.
     -Nel campo 'valuta' scrivi le valute come testo. Inferisci la sigla della valuta dal contesto, usando sempre il
      codice a 3 lettere ISO 4217 e non il simbolo (es: "EUR" e non €)
     -Nel campo 'percentuale_sconto' scrivi la percentuale di sconto se indicata. Esprimila come numero (es: 20 per 20%).
      Se non ci sono sconti, lascia il valore come null
     -Nel campo 'valore_scontato' scrivi il valore scontato dell'articolo come numero float.
-     Se lo scontrino mostra già il prezzo scontato usa quello, mentre se lo scontrino mostra il valore sottratto
-     corrispondente alla percentuale applicata, calcola il valore scontato facendo la differenza con il valore originale
+     Se lo scontrino mostra già il prezzo scontato usa quello (ad esempio riporta il nuovo prezzo sotto il
+     prezzo originale), mentre se lo scontrino mostra il valore sottratto corrispondente alla
+     percentuale applicata, calcola il valore scontato facendo la differenza con il valore originale
      (es: se il valore scontato è già 2 lascia quello, mentre se il valore originale è 10 e lo sconto è -3 il valore scontato è 7).
      Se non ci sono sconti, lascia il valore come null
 -Prezzo totale:
@@ -60,6 +75,9 @@ Regole per l'estrazione:
 
 
 -Dati mancanti: Se qualche campo non è presente, lascia il valore come null (senza virgolette) invece di ometterlo.
+-Formato Numerico: Tutti i valori numerici (prezzi, quantità, percentuali) devono essere estratti
+ come numeri (float o intero) e non come stringhe. Se la virgola viene usata come separatore decimale
+ nel testo (es: "10,50"), convertila in punto (es. 10.50)
 -Stringhe: Tutte le stringhe devono essere rappresentate correttamente tra ""
 
 In output restituisci solo il testo in formato JSON che hai estratto.

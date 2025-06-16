@@ -203,6 +203,7 @@ def init_database():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             extracted_data_id INTEGER NOT NULL,
             name TEXT NOT NULL,
+            quantity INTEGER, 
             price REAL CHECK (price >= 0),
             currency TEXT CHECK (LENGTH(currency) = 3),
             discount_percent REAL DEFAULT NULL CHECK (discount_percent >= 0 AND discount_percent <= 100),

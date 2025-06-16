@@ -105,6 +105,64 @@ def parse_json_from_string(text):
     return None
 
 
+def fix_json_data(json_data, tolerance=0.05):
+    """
+    Funzione per controllare, sistemare e validare i dati estratti dal JSON di uno scontrino
+    - Calcola il prezzo totale per articoli con quantità > 1 se manca il prezzo complessivo
+    - Calcola la percentuale di sconto applicata se non è presente, ma lo sconto è indicato come valore scontato o come valore sottratto
+    - Calcola il valore scontato se non è presente, ma la percentuale o lo sconto assoluto sono indicati
+    - Verifica che la somma dei prezzi degli articoli sia coerente con il totale scontrino
+    - Mostra un messaggio di avviso se la differenza fra il totale scontrino e la somma dei costi degli articoli
+     supera la tolleranza impostata, ma mantiene il valore del totale scontrino originale
+    :param json_data: dizionario JSON estratto
+    :param tolerance: scarto massimo accettabile per la differenza fra totale scontrino e somma articoli
+    :return: json_data corretto
+    """
+    total_items_sum = 0.0
+
+    for item in json_data.get('lista_articoli', []):
+        quantity = item.get('quantita') if item.get('quantita') is not None else 1
+        price = item.get('prezzo')
+        discount_percent = item.get('percentuale_sconto')
+        discounted_value = item.get('valore_scontato')
+
+        # Se quantità > 1 e il prezzo complessivo non è indicato
+        if quantity > 1 and price is not None:
+            if discounted_value is None and discount_percent is None:
+                item['prezzo'] = round(price * quantity, 2)
+
+        # Calcola la percentuale di sconto se mancante ma esiste un valore scontato
+        if discount_percent is None and discounted_value is not None:
+            if price is not None and price != 0:
+                absolute_discount = price - discounted_value
+                calculated_percent = round((absolute_discount / price) * 100)
+                item['percentuale_sconto'] = calculated_percent
+
+        # Calcola il valore scontato se mancante ma esiste la percentuale di sconto
+        if discounted_value is None and discount_percent is not None:
+            calculated_discounted_value = round(price - (price * discount_percent / 100), 2)
+            item['valore_scontato'] = calculated_discounted_value
+
+        # Calcola la somma totale dei prezzi effettivi (usa il prezzo scontato se presente)
+        if item.get('valore_scontato') is not None:
+            final_price = item['valore_scontato']
+        else:
+            final_price = item['prezzo']
+
+        total_items_sum += final_price
+
+    # Confronta con il totale scontrino
+    total_receipt_price = json_data.get('prezzo_totale', {}).get('valore')
+
+    if total_receipt_price is not None:
+        if abs(total_receipt_price - total_items_sum) > tolerance:
+            st.warning(
+                f"Warning: Difference detected between receipt total ({total_receipt_price}) and sum of "
+                f"item costs ({round(total_items_sum, 2)}). The original receipt total will be used.")
+
+    return json_data
+
+
 def perform_ocr_on_image(data, api_key):
     """
     Funzione per estrarre il testo da un'immagine attraverso l'OCR
@@ -196,7 +254,7 @@ def save_json_to_db(json_data, receipt_id):
 
     result = insert_data("documents.db", "extracted_data", extracted_data_row)
     if result != "inserted":
-        return result # si ferma se il record esiste già o c'è errore
+        return result  # si ferma se il record esiste già o c'è errore
 
     extracted_data_rows = get_data("documents.db", "extracted_data", ["id"], {"receipt_id": receipt_id})
     extracted_data_id = extracted_data_rows[-1][0] if extracted_data_rows else None
@@ -206,6 +264,7 @@ def save_json_to_db(json_data, receipt_id):
         item_row = {
             "extracted_data_id": extracted_data_id,
             "name": item.get("nome"),
+            "quantity": item.get("quantita"),
             "price": item.get("prezzo"),
             "currency": item.get("valuta"),
             "discount_percent": item.get("percentuale_sconto"),
@@ -269,6 +328,7 @@ def generate_and_save_json(api_key):
 
         try:
             extracted_data_dict = json.loads(json_str)
+            extracted_data_dict = fix_json_data(extracted_data_dict)
             json_content = json.dumps(extracted_data_dict, ensure_ascii=False, indent=2)
             saved_path = save_json_to_folder(json_content, json_filename)
             if saved_path:
