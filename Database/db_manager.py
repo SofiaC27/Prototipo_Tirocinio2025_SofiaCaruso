@@ -207,6 +207,9 @@ def init_database():
             price REAL CHECK (price >= 0),
             currency TEXT CHECK (LENGTH(currency) = 3),
             discount_percent REAL DEFAULT NULL CHECK (discount_percent >= 0 AND discount_percent <= 100),
+            absolute_discount REAL DEFAULT NULL CHECK (
+                absolute_discount >= 0 AND
+                absolute_discount <= price),
             discount_value REAL DEFAULT NULL CHECK (discount_value >= 0),
             FOREIGN KEY(extracted_data_id) REFERENCES extracted_data(id) ON DELETE CASCADE
         )

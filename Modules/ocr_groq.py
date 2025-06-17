@@ -109,39 +109,54 @@ def fix_json_data(json_data, tolerance=0.05):
     """
     Funzione per controllare, sistemare e validare i dati estratti dal JSON di uno scontrino
     - Calcola il prezzo totale per articoli con quantità > 1 se manca il prezzo complessivo
-    - Calcola la percentuale di sconto applicata se non è presente, ma lo sconto è indicato come valore scontato o come valore sottratto
-    - Calcola il valore scontato se non è presente, ma la percentuale o lo sconto assoluto sono indicati
-    - Verifica che la somma dei prezzi degli articoli sia coerente con il totale scontrino
+    - Calcola la percentuale di sconto applicata se non è presente, ma è indicato lo sconto assoluto
+    - Calcola lo sconto assoluto se non è presente, ma è indicata la percentuale di sconto
+    - Calcola sempre il valore scontato finale in base alla percentuale di sconto o allo sconto assoluto,
+      se il valore scontato non è indicato nello scontrino
+    - Verifica che la somma dei costi degli articoli sia coerente con il costo totale riportato nello scontrino
     - Mostra un messaggio di avviso se la differenza fra il totale scontrino e la somma dei costi degli articoli
-     supera la tolleranza impostata, ma mantiene il valore del totale scontrino originale
-    :param json_data: dizionario JSON estratto
-    :param tolerance: scarto massimo accettabile per la differenza fra totale scontrino e somma articoli
-    :return: json_data corretto
+      supera la tolleranza impostata, ma mantiene il valore del totale scontrino originale
+    :param json_data: dizionario JSON estratto dallo scontrino
+    :param tolerance: scarto massimo accettabile per la differenza fra totale scontrino e somma costi degli articoli
+    :return: json_data corretto e validato
     """
-    total_items_sum = 0.0
+    total_items_cost = 0.0
 
     for item in json_data.get('lista_articoli', []):
         quantity = item.get('quantita') if item.get('quantita') is not None else 1
         price = item.get('prezzo')
         discount_percent = item.get('percentuale_sconto')
+        absolute_discount = item.get('sconto_assoluto')
         discounted_value = item.get('valore_scontato')
 
-        # Se quantità > 1 e il prezzo complessivo non è indicato
+        # Se quantità > 1 e il prezzo complessivo non è indicato)
         if quantity > 1 and price is not None:
-            if discounted_value is None and discount_percent is None:
-                item['prezzo'] = round(price * quantity, 2)
+            item['prezzo'] = round(price * quantity, 2)
+            price = item['prezzo']  # Aggiorna il prezzo di riferimento
 
-        # Calcola la percentuale di sconto se mancante ma esiste un valore scontato
-        if discount_percent is None and discounted_value is not None:
+        # Calcola la percentuale di sconto se assente, ma esiste lo sconto assoluto
+        if discount_percent is None and absolute_discount is not None:
             if price is not None and price != 0:
-                absolute_discount = price - discounted_value
                 calculated_percent = round((absolute_discount / price) * 100)
                 item['percentuale_sconto'] = calculated_percent
 
-        # Calcola il valore scontato se mancante ma esiste la percentuale di sconto
-        if discounted_value is None and discount_percent is not None:
-            calculated_discounted_value = round(price - (price * discount_percent / 100), 2)
-            item['valore_scontato'] = calculated_discounted_value
+        # Calcola lo sconto assoluto se assente, ma esiste la percentuale di sconto
+        if absolute_discount is None and discount_percent is not None:
+            if price is not None and price != 0:
+                calculated_absolute_discount = round(price * discount_percent / 100, 2)
+                item['sconto_assoluto'] = calculated_absolute_discount
+
+        # Calcola sempre il valore scontato
+        if price is not None:
+            if discount_percent is not None:
+                discounted_value = round(price - (price * discount_percent / 100), 2)
+                item['valore_scontato'] = discounted_value
+            elif absolute_discount is not None:
+                discounted_value = round(price - absolute_discount, 2)
+                item['valore_scontato'] = discounted_value
+            else:
+                item['valore_scontato'] = None  # Se non ci sono sconti applicati
+
 
         # Calcola la somma totale dei prezzi effettivi (usa il prezzo scontato se presente)
         if item.get('valore_scontato') is not None:
@@ -149,16 +164,16 @@ def fix_json_data(json_data, tolerance=0.05):
         else:
             final_price = item['prezzo']
 
-        total_items_sum += final_price
+        total_items_cost += final_price
 
-    # Confronta con il totale scontrino
+    # Confronta con il costo totale riportato nello scontrino
     total_receipt_price = json_data.get('prezzo_totale', {}).get('valore')
 
     if total_receipt_price is not None:
-        if abs(total_receipt_price - total_items_sum) > tolerance:
+        if abs(total_receipt_price - total_items_cost) > tolerance:
             st.warning(
-                f"Warning: Difference detected between receipt total ({total_receipt_price}) and sum of "
-                f"item costs ({round(total_items_sum, 2)}). The original receipt total will be used.")
+                f"Difference detected between receipt total ({total_receipt_price}) and sum of "
+                f"item costs ({round(total_items_cost, 2)}). The original receipt total will be used.")
 
     return json_data
 
@@ -268,6 +283,7 @@ def save_json_to_db(json_data, receipt_id):
             "price": item.get("prezzo"),
             "currency": item.get("valuta"),
             "discount_percent": item.get("percentuale_sconto"),
+            "absolute_discount": item.get("sconto_assoluto"),
             "discount_value": item.get("valore_scontato")
         }
         insert_data("documents.db", "receipt_items", item_row)

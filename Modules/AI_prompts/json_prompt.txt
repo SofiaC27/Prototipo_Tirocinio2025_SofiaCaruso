@@ -11,23 +11,25 @@ nel formato JSON indicato di seguito:
   "lista_articoli": [
     {
       "nome": "...",
-      "quantita": "...",
+      "quantita": ...,
       "prezzo": "...",
       "valuta": "…",
       "percentuale_sconto": ...,
+      "sconto_assoluto": ...,
       "valore_scontato": ...
     },
     {
       "nome": "...",
-      "quantita": "...",
+      "quantita": ...,
       "prezzo": "...",
       "valuta": "…",
       "percentuale_sconto": ...,
+      "sconto_assoluto": ...,
       "valore_scontato": ...
     }
   ],
   "prezzo_totale":
-{
+ {
     "valore": ...,
     "valuta": "..."
   },
@@ -44,13 +46,14 @@ Regole per l'estrazione:
 -Paese: Scrivi il paese. Se non è indicato, prova a inferirlo basandoti sul contesto.
 -Metodo di pagamento: Scrivi il metodo di pagamento se indicato
 -Lista articoli:
-    -Nel campo 'nome' scrivi il nome dell'articolo come testo. Il nome deve essere solo il testo descrittivo
-     dell'articolo (non comprende simboli di moltiplicazione o unità di misura)
-     Es: se sono presenti elementi come 4 x 4,50 Prodotto, considera solo “Prodotto” come nome
-     Solitamente il nome è affiancato dal costo, i nomi nelle righe sotto corrispondono agli altri articoli
+    -Nel campo 'nome' scrivi il nome dell'articolo ovvero il suo testo descrittivo che comprende anche eventuali codici
+     identificativi. Solitamente il nome di ogni articolo è affiancato al suo costo, mentre nelle righe sottostanti
+     ci sono eventuali sconti o gli articoli successivi. Scrivi il nome come testo
     -Nel campo 'quantita' scrivi la quantità dell'articolo come numero intero. Se la quantità è chiaramente
      indicata con un moltiplicatore (es: "x2", "Qty: 3", "Q.tà 5", "Quantità: 4"), usa quel valore.
-     (se non è presente alcuna indicazione di quantità, inferisci quantita: 1). Se invece, lo stesso
+     Eventuali codici alfanumerici identificativi non corrispondono alla quantità.
+     Solitamente la quantità è scritta sopra, di fianco o sotto il nome dell'articolo.
+     Se non è presente alcuna indicazione di quantità, inferisci quantita: 1. Se invece, lo stesso
      articolo (nome e/o prezzo) appare su più righe separate dello scontrino senza una quantità
      aggregata esplicita per riga, considera ogni riga come un articolo separato con quantita: 1
     -Nel campo 'prezzo' scrivi il prezzo pieno dell'articolo (nel caso di sconto è il prezzo originale prima
@@ -61,13 +64,15 @@ Regole per l'estrazione:
     -Nel campo 'valuta' scrivi le valute come testo. Inferisci la sigla della valuta dal contesto, usando sempre il
      codice a 3 lettere ISO 4217 e non il simbolo (es: "EUR" e non €)
     -Nel campo 'percentuale_sconto' scrivi la percentuale di sconto se indicata. Esprimila come numero (es: 20 per 20%).
+     Solitamente lo sconto è indicato sulla stessa riga dell'articolo o nella riga immediatamente sotto.
+     Spesso la percentuale di sconto è introdotta da parole come 'SCONTO', 'sconto', '20% sconto'
      Se non ci sono sconti, lascia il valore come null
-    -Nel campo 'valore_scontato' scrivi il valore scontato dell'articolo come numero float.
+    -Nel campo 'sconto_assoluto' scrivi lo sconto assoluto (valore sottratto dal prezzo originale
+    corrispondente alla percentuale di sconto applicata) se indicato. Esprimilo come numero in valore assoluto
+    (es: -3, scrivi 3). Spesso è indicato sulla stessa riga della percentuale di sconto. Se non ci sono sconti, lascia il valore come null
+    -Nel campo 'valore_scontato' scrivi il valore scontato dell'articolo come numero float, se indicato.
      Se lo scontrino mostra già il prezzo scontato usa quello (ad esempio riporta il nuovo prezzo sotto il
-     prezzo originale), mentre se lo scontrino mostra il valore sottratto corrispondente alla
-     percentuale applicata, calcola il valore scontato facendo la differenza con il valore originale
-     (es: se il valore scontato è già 2 lascia quello, mentre se il valore originale è 10 e lo sconto è -3 il valore scontato è 7).
-     Se non ci sono sconti, lascia il valore come null
+     prezzo originale). Se non ci sono sconti, lascia il valore come null
 -Prezzo totale:
     -Nel campo 'valore' scrivi i prezzi come numeri float
     -Nel campo 'valuta' scrivi le valute come testo. Inferisci la sigla della valuta dal contesto, usando sempre il
