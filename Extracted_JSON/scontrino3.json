@@ -1,0 +1,123 @@
+{
+  "data": "2025-04-18",
+  "ora": "12:43:00",
+  "negozio": "ESSLUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO MANDADORI N.2",
+  "città": "Mantova - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantita": 3,
+      "prezzo": 3.27,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "RICOTTA PEC. AMATRICE",
+      "quantita": 1,
+      "prezzo": 2.61,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "LASAGNE TOP GR.500",
+      "quantita": 1,
+      "prezzo": 2.82,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POLPA TRITA SC. BIO",
+      "quantita": 4,
+      "prezzo": 28.76,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 2.88,
+      "valore_scontato": 17.26
+    },
+    {
+      "nome": "SFIZIOSO ALLE OLIVE",
+      "quantita": 1,
+      "prezzo": 2.6,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PASTA BRISEE ESS.",
+      "quantita": 1,
+      "prezzo": 1.69,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 0.68,
+      "valore_scontato": 1.01
+    },
+    {
+      "nome": "PASTA SFOGLIA ESS.",
+      "quantita": 1,
+      "prezzo": 1.59,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SUINO NAT/PANCETTA",
+      "quantita": 1,
+      "prezzo": 3.89,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "GRANAROL MOZZ. PROTEIN",
+      "quantita": 1,
+      "prezzo": 1.35,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POMODORO",
+      "quantita": 1,
+      "prezzo": 1.98,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SALMONE AFFUMICATO",
+      "quantita": 1,
+      "prezzo": 8.9,
+      "valuta": "EUR",
+      "percentuale_sconto": 50,
+      "sconto_assoluto": 4.45,
+      "valore_scontato": 4.45
+    },
+    {
+      "nome": "PADANO GRATT",
+      "quantita": 1,
+      "prezzo": 1.89,
+      "valuta": "EUR",
+      "percentuale_sconto": 30,
+      "sconto_assoluto": 0.57,
+      "valore_scontato": 1.32
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 42.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTI, BUONO PASTO ELETTRON"
+}

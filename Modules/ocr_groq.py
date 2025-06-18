@@ -105,7 +105,7 @@ def parse_json_from_string(text):
     return None
 
 
-def fix_json_data(json_data, tolerance=0.05):
+def fix_json_data(json_data, base_tolerance=0.10):
     """
     Funzione per controllare, sistemare e validare i dati estratti dal JSON di uno scontrino
     - Calcola il prezzo totale per articoli con quantità > 1 se manca il prezzo complessivo
@@ -115,9 +115,10 @@ def fix_json_data(json_data, tolerance=0.05):
       se il valore scontato non è indicato nello scontrino
     - Verifica che la somma dei costi degli articoli sia coerente con il costo totale riportato nello scontrino
     - Mostra un messaggio di avviso se la differenza fra il totale scontrino e la somma dei costi degli articoli
-      supera la tolleranza impostata, ma mantiene il valore del totale scontrino originale
+      supera la tolleranza impostata dinamicamente (tiene conto di eventuali errori di lettura degli OCR, adattandosi
+      al totale dello scontrino), ma mantiene il valore del totale scontrino originale
     :param json_data: dizionario JSON estratto dallo scontrino
-    :param tolerance: scarto massimo accettabile per la differenza fra totale scontrino e somma costi degli articoli
+    :param base_tolerance: scarto base accettabile per la differenza fra totale scontrino e somma costi degli articoli
     :return: json_data corretto e validato
     """
     total_items_cost = 0.0
@@ -161,8 +162,11 @@ def fix_json_data(json_data, tolerance=0.05):
         # Calcola la somma totale dei prezzi effettivi (usa il prezzo scontato se presente)
         if item.get('valore_scontato') is not None:
             final_price = item['valore_scontato']
-        else:
+        elif item.get('prezzo') is not None:
             final_price = item['prezzo']
+        else:
+            st.warning(f"Price missing for item {item.get('nome')}. It will be considered 0.")
+            final_price = 0.0
 
         total_items_cost += final_price
 
@@ -170,7 +174,9 @@ def fix_json_data(json_data, tolerance=0.05):
     total_receipt_price = json_data.get('prezzo_totale', {}).get('valore')
 
     if total_receipt_price is not None:
-        if abs(total_receipt_price - total_items_cost) > tolerance:
+        dynamic_tolerance = max(base_tolerance, 0.01 * total_receipt_price)
+
+        if abs(total_receipt_price - total_items_cost) > dynamic_tolerance:
             st.warning(
                 f"Difference detected between receipt total ({total_receipt_price}) and sum of "
                 f"item costs ({round(total_items_cost, 2)}). The original receipt total will be used.")

@@ -184,7 +184,7 @@ def init_database():
     create_table("documents.db", '''
         CREATE TABLE IF NOT EXISTS extracted_data (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            receipt_id INTEGER NOT NULL,
+            receipt_id INTEGER NOT NULL UNIQUE,
             purchase_date DATE,
             purchase_time TIME,
             store_name TEXT,

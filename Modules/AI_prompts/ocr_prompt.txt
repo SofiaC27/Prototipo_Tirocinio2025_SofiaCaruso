@@ -1,11 +1,15 @@
 Estrai il testo da questa immagine utilizzando OCR, mantenendo esattamente la struttura
-visiva e la disposizione orginale del contenuto.
+visiva, l'allineamento e la disposizione orginale del contenuto.
 
-- Preserva tutti gli spazi, gli allineamenti e gli a capo così come compaiono nell'immagine.
-- Non correggere né interpretare: non unire, dividere o spostare righe, valori o parole.
-- Non modificare il contenuto, ogni carattere deve rimanere così com'è
-- Non interpretare, non riformattare e non riorganizzare il testo.
-- Non rimuovere né aggiungere nè spostare elementi.
-- Riproduci il testo esattamente come appare, mantenendo la disposizione grafica e la struttura riga per riga.
+- Mantieni esattamente la spaziatura, l'allineamento e gli a capo come compaiono nell'immagine.
+- Non unire, dividere, riformattare o spostare righe, parole o colonne.
+- Non correggere errori, non riformattare e non interpretare.
+- Non rimuovere, non aggiungere e non spostare alcun elemento.
+- Non raggruppare per logica di colonne: mantieni l’esatto ordine visivo riga per riga.
+- Ogni carattere deve rimanere esattamente come nell’immagine, anche se sembra sbagliato o incompleto.
 
-Restituisci in output solo ed esclusivamente il testo estratto.
+L'output deve essere una copia testuale perfetta, fedele all’immagine, riga per riga, spazio per spazio,
+senza alcuna modifica o interpretazione.
+
+Restituisci in output esclusivamente il testo estratto, senza aggiungere commenti,
+spiegazioni o altre informazioni.

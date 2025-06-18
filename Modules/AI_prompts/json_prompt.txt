@@ -48,12 +48,13 @@ Regole per l'estrazione:
 -Lista articoli:
     -Nel campo 'nome' scrivi il nome dell'articolo ovvero il suo testo descrittivo che comprende anche eventuali codici
      identificativi. Solitamente il nome di ogni articolo è affiancato al suo costo, mentre nelle righe sottostanti
-     ci sono eventuali sconti o gli articoli successivi. Scrivi il nome come testo
+     ci sono eventuali sconti o gli articoli successivi. Il nome non comprende parole come 'SCONTO' o 'sconto' perchè
+     indicano solo l'eventuale presenza di sconti. Scrivi il nome come testo
     -Nel campo 'quantita' scrivi la quantità dell'articolo come numero intero. Se la quantità è chiaramente
      indicata con un moltiplicatore (es: "x2", "Qty: 3", "Q.tà 5", "Quantità: 4"), usa quel valore.
      Eventuali codici alfanumerici identificativi non corrispondono alla quantità.
      Solitamente la quantità è scritta sopra, di fianco o sotto il nome dell'articolo.
-     Se non è presente alcuna indicazione di quantità, inferisci quantita: 1. Se invece, lo stesso
+     Se non è presente alcuna indicazione di quantità, inferisci quantità: 1. Se invece, lo stesso
      articolo (nome e/o prezzo) appare su più righe separate dello scontrino senza una quantità
      aggregata esplicita per riga, considera ogni riga come un articolo separato con quantita: 1
     -Nel campo 'prezzo' scrivi il prezzo pieno dell'articolo (nel caso di sconto è il prezzo originale prima
@@ -74,7 +75,7 @@ Regole per l'estrazione:
      Se lo scontrino mostra già il prezzo scontato usa quello (ad esempio riporta il nuovo prezzo sotto il
      prezzo originale). Se non ci sono sconti, lascia il valore come null
 -Prezzo totale:
-    -Nel campo 'valore' scrivi i prezzi come numeri float
+    -Nel campo 'valore' scrivi il prezzo totale come numero float
     -Nel campo 'valuta' scrivi le valute come testo. Inferisci la sigla della valuta dal contesto, usando sempre il
      codice a 3 lettere ISO 4217 e non il simbolo (es: "EUR" e non €)
 
