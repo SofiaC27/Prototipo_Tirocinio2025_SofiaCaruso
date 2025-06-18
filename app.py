@@ -2,7 +2,7 @@ import streamlit as st
 
 from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
-                                   delete_file_from_database_and_folder)
+                                   delete_file_from_database_and_folder, display_receipts_data_with_expanders)
 from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
 
 
@@ -63,6 +63,10 @@ if selected_image:
     st.session_state.selected_image = selected_image
 
 generate_and_save_json(api_key)
+
+
+receipts_data = read_data("documents.db", "extracted_data")
+display_receipts_data_with_expanders(receipts_data)
 
 
 # Eliminazione file

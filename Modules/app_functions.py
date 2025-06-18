@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import time
 
-from Database.db_manager import insert_data, delete_data
+from Database.db_manager import insert_data, delete_data, get_data
 from Modules.ocr_groq import delete_json_from_folder
 
 
@@ -128,11 +128,11 @@ def display_data_with_pagination(data):
         col1, col2, col3 = st.columns([1, 2, 1])
 
         with col1:
-            if st.button("Previous", use_container_width=True) and st.session_state.current_page > 1:
+            if st.button("Previous", key="prev_uploads", use_container_width=True) and st.session_state.current_page > 1:
                 st.session_state.current_page -= 1
 
         with col3:
-            if st.button("Next", use_container_width=True) and st.session_state.current_page < total_pages:
+            if st.button("Next", key="next_uploads", use_container_width=True) and st.session_state.current_page < total_pages:
                 st.session_state.current_page += 1
 
         st.write(f"Page {st.session_state.current_page} of {total_pages}")
@@ -177,3 +177,81 @@ def delete_file_from_database_and_folder(data):
 
     else:
         st.info("No data available in the database for deletion.")
+
+
+def display_receipts_data_with_expanders(receipts_data):
+    """
+    Funzione che mostra i dati degli scontrini con visualizzazione espandibile e impaginazione
+    - Verifica la presenza di dati (in caso contrario, mostra un messaggio informativo)
+    - Calcola il numero totale di pagine da visualizzare in base agli elementi per pagina
+    - Gestisce il sistema di navigazione tra pagine tramite pulsanti "Previous" e "Next"
+    - Estrae solo gli scontrini appartenenti alla pagina corrente
+    - Per ogni scontrino, crea una sezione espandibile con i dettagli principali
+    - Recupera e visualizza gli articoli associati allo scontrino tramite una tabella
+      all'interno dell'espander
+    :param receipts_data: elenco di tuple contenenti le informazioni degli scontrini da visualizzare
+    """
+    if receipts_data:
+        items_per_page = 5
+        total_pages = (len(receipts_data) + items_per_page - 1) // items_per_page
+
+        if "current_page_receipts" not in st.session_state:
+            st.session_state.current_page_receipts = 1
+
+        col1, col2, col3 = st.columns([1, 2, 1])
+
+        with col1:
+            if st.button("Previous", key="prev_receipts", use_container_width=True) and st.session_state.current_page_receipts > 1:
+                st.session_state.current_page_receipts -= 1
+
+        with col3:
+            if st.button("Next", key="next_receipts", use_container_width=True) and st.session_state.current_page_receipts < total_pages:
+                st.session_state.current_page_receipts += 1
+
+        st.write(f"Page {st.session_state.current_page_receipts} of {total_pages}")
+
+        start = (st.session_state.current_page_receipts - 1) * items_per_page
+        end = start + items_per_page
+        receipts_to_display = receipts_data[start:end]
+
+        for receipt in receipts_to_display:
+            receipt_id = receipt[0]
+            receipt_number = receipt[1]
+            purchase_date = receipt[2]
+            purchase_time = receipt[3]
+            store_name = receipt[4]
+            address = receipt[5]
+            city = receipt[6]
+            country = receipt[7]
+            total_price = receipt[8]
+            total_currency = receipt[9]
+            payment_method = receipt[10]
+
+            with st.expander(f"Receipt {receipt_number}"):
+                st.write(f"**Purchase date:** {purchase_date}")
+                st.write(f"**Purchase time:** {purchase_time}")
+                st.write(f"**Store:** {store_name}")
+                st.write(f"**Address:** {address}, {city}, {country}")
+                st.write(f"**Total:** {total_price} {total_currency}")
+                st.write(f"**Payment method:** {payment_method}")
+
+                # Recupera gli articoli collegati allo scontrino
+                receipt_items = get_data(
+                    db_name="documents.db",
+                    table_name="receipt_items",
+                    columns=[
+                        "name", "quantity", "price", "currency",
+                        "discount_percent", "absolute_discount", "discount_value"
+                    ],
+                    conditions={"extracted_data_id": receipt_id}
+                )
+
+                if receipt_items:
+                    df_items = pd.DataFrame(receipt_items, columns=[
+                        "name", "quantity", "price", "currency",
+                        "discount_percent", "absolute_discount", "discount_value"
+                    ])
+                    st.dataframe(df_items, use_container_width=True)
+
+    else:
+        st.info("No receipt data saved in the database.")
