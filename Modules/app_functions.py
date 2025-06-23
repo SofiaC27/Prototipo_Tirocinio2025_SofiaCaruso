@@ -47,55 +47,75 @@ def process_uploaded_file(uploaded_files):
     """
     Funzione che gestisce la visualizzazione e il salvataggio dei file caricati
     - Per ogni file da caricare, scrive il nome
-    - Se il file da caricare è un'immagine, ne mostra l'anteprima
+    - Se il file da caricare è un'immagine, ne mostra l'anteprima (solo se non è già stato salvato)
+    - Imposta un flag per evitare che la preview venga mostrata dopo il salvataggio
     - Simula la barra di avanzamento per caricare i file
     - Crea un bottone per salvare i file nel database e nella cartella 'Images'
     - In caso contrario, mostra un warning che invita a fare l'upload per procedere
-    - Se il file era già stato caricato e il flag è attivo, mostra un warning e non lo carica nuovamente
+    - Se un file è già presente nella cartella o nel database, non lo salva di nuovo e mostra un avviso
     :param uploaded_files: lista di file di cui fare l'upload (può essere anche solo uno)
     """
     if uploaded_files:
-        for uploaded_file in uploaded_files:
-            st.write(f"File uploaded: {uploaded_file.name}")
+        # Salva i file caricati solo per la preview
+        if "uploaded_files_for_preview" not in st.session_state:
+            st.session_state.uploaded_files_for_preview = []
 
-            if uploaded_file.type.startswith("image"):
-                st.image(uploaded_file, caption=f"Preview of {uploaded_file.name}", use_container_width=True)
+        if "files_saved" not in st.session_state:
+            st.session_state.files_saved = False
 
-        if st.button("Save all uploaded files"):
-            with st.spinner("Saving files..."):
-                progress = st.progress(0)
-                for i in range(100):
-                    time.sleep(0.01)
-                    progress.progress(i + 1)
+        # Aggiorna solo se ci sono nuovi file caricati
+        if uploaded_files != st.session_state.uploaded_files_for_preview:
+            st.session_state.uploaded_files_for_preview = uploaded_files
+            st.session_state.files_saved = False  # Resetta il flag per consentire una nuova preview
 
-                saved_count = 0
-                skipped_files_folder = set()
-                skipped_files_db = set()
+        # Mostra le preview solo se i file non sono ancora stati salvati
+        if not st.session_state.files_saved:
+            st.write("Preview (not saved yet):")
+            for uploaded_file in st.session_state.uploaded_files_for_preview:
+                st.write(f"File uploaded: {uploaded_file.name}")
+                if uploaded_file.type.startswith("image"):
+                    st.image(uploaded_file, caption=f"Preview of {uploaded_file.name}", use_container_width=True)
 
-                for uploaded_file in uploaded_files:
-                    file_path, already_exists = save_image_to_folder(uploaded_file)
-                    if already_exists:
-                        skipped_files_folder.add(uploaded_file.name)
-                        continue
+            if st.button("Save all uploaded files"):
+                st.session_state.files_saved = True  # Dopo il salvataggio, blocca le preview
 
-                    result = insert_data("documents.db", "receipts", {"File_path": uploaded_file.name})
-                    if result == "inserted":
-                        saved_count += 1
-                    elif result == "exists":
-                        skipped_files_db.add(uploaded_file.name)
+                with st.spinner("Saving files..."):
+                    progress = st.progress(0)
+                    for i in range(100):
+                        time.sleep(0.01)
+                        progress.progress(i + 1)
 
-            if saved_count > 0:
-                st.success(f"{saved_count} file(s) successfully saved!")
+                    saved_count = 0
+                    skipped_files_folder = set()
+                    skipped_files_db = set()
 
-            if saved_count == 0:
-                if skipped_files_folder:
-                    skipped_list = ", ".join(skipped_files_folder)
-                    st.warning(f"The following file(s) already existed in folder and were not saved: {skipped_list}")
+                    for file_to_save in st.session_state.uploaded_files_for_preview:
+                        file_path, already_exists = save_image_to_folder(file_to_save)
+                        if already_exists:
+                            skipped_files_folder.add(file_to_save.name)
+                            continue
 
-                if skipped_files_db:
-                    skipped_db_list = ", ".join(skipped_files_db)
-                    st.warning(
-                        f"The following file(s) already existed in database and were not inserted: {skipped_db_list}")
+                        result = insert_data("documents.db", "receipts", {"File_path": file_to_save.name})
+                        if result == "inserted":
+                            saved_count += 1
+                        elif result == "exists":
+                            skipped_files_db.add(file_to_save.name)
+
+                if saved_count > 0:
+                    st.success(f"{saved_count} file(s) successfully saved!")
+
+                if saved_count == 0:
+                    if skipped_files_folder:
+                        skipped_list = ", ".join(skipped_files_folder)
+                        st.warning(f"The following file(s) already existed in folder and were not saved: {skipped_list}")
+
+                    if skipped_files_db:
+                        skipped_db_list = ", ".join(skipped_files_db)
+                        st.warning(
+                            f"The following file(s) already existed in database and were not inserted: {skipped_db_list}")
+
+        else:
+            st.info("Files already saved. Upload new files to preview again.")
 
     else:
         st.warning("Please upload a file to proceed.")
@@ -192,7 +212,7 @@ def display_receipts_data_with_expanders(receipts_data):
     :param receipts_data: elenco di tuple contenenti le informazioni degli scontrini da visualizzare
     """
     if receipts_data:
-        items_per_page = 5
+        items_per_page = 10
         total_pages = (len(receipts_data) + items_per_page - 1) // items_per_page
 
         if "current_page_receipts" not in st.session_state:

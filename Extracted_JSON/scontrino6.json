@@ -1,0 +1,33 @@
+{
+  "data": "2025-05-10",
+  "ora": "15:06:00",
+  "negozio": "PRENATAL S.P.A",
+  "indirizzo": "Via Cascina Venina 9",
+  "città": "Assago - Milano (MI)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SKINNY JEANS B 8052465270698",
+      "quantita": 1,
+      "prezzo": 26.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 22.0,
+      "sconto_assoluto": 5.94,
+      "valore_scontato": 21.05
+    },
+    {
+      "nome": "LEGGING LUNGO 8052473028069",
+      "quantita": 1,
+      "prezzo": 19.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 20.0,
+      "sconto_assoluto": 3.99,
+      "valore_scontato": 15.99
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 46.98,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

@@ -1,0 +1,87 @@
+{
+  "data": "2025-04-18",
+  "ora": "13:10:00",
+  "negozio": "ALDI",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Arance Nav. foglia",
+      "quantita": 1,
+      "prezzo": 2.81,
+      "valuta": "EUR",
+      "percentuale_sconto": 4.0,
+      "sconto_assoluto": 0.11,
+      "valore_scontato": 2.7
+    },
+    {
+      "nome": "Bananne",
+      "quantita": 1,
+      "prezzo": 1.01,
+      "valuta": "EUR",
+      "percentuale_sconto": 4.0,
+      "sconto_assoluto": 0.04,
+      "valore_scontato": 0.97
+    },
+    {
+      "nome": "Sacch. ortofrutta",
+      "quantita": null,
+      "prezzo": null,
+      "valuta": "EUR",
+      "percentuale_sconto": 22.0,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Lat. ESL Int.",
+      "quantita": null,
+      "prezzo": null,
+      "valuta": "EUR",
+      "percentuale_sconto": 11.4,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Cipoll Tr IGP 500g",
+      "quantita": 3,
+      "prezzo": null,
+      "valuta": "EUR",
+      "percentuale_sconto": 4.0,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Pangrattato 1kg",
+      "quantita": 1,
+      "prezzo": null,
+      "valuta": "EUR",
+      "percentuale_sconto": 4.0,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Veg. Nugget/Cotol",
+      "quantita": 1,
+      "prezzo": null,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Paté olive BIO 180g",
+      "quantita": 1,
+      "prezzo": null,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 16.02,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

@@ -65,8 +65,13 @@ if selected_image:
 generate_and_save_json(api_key)
 
 
-receipts_data = read_data("documents.db", "extracted_data")
-display_receipts_data_with_expanders(receipts_data)
+# Visualizzazione dati degli scontrini
+st.divider()
+st.subheader("Displaying Receipt Data")
+
+if "receipts_data" not in st.session_state:
+    st.session_state.receipts_data = read_data("documents.db", "extracted_data")
+display_receipts_data_with_expanders(st.session_state.receipts_data)
 
 
 # Eliminazione file
