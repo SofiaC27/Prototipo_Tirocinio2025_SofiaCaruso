@@ -43,16 +43,55 @@ def delete_image_from_folder(filename):
     return False
 
 
+def display_image_gallery(images, columns=5):
+    """
+    Funzione che gestisce la visualizzazione di una galleria di immagini con selezione
+    - Se non sono presenti immagini mostra un messagio informativo
+    - Inizializza lo stato della sessione per tracciare l'immagine selezionata
+    - Organizza le immagini in una griglia, con un numero configurabile di colonne
+    - Per ogni immagine mostra un bottone per selezionarle
+    - Mostra un'anteprima ingrandita dell’immagine attualmente selezionata
+    :param images: lista di immagini caricate
+    :param columns: numero di colonne della griglia
+    """
+    if not images:
+        st.info("No images to display.")
+        return
+
+    if "selected_image_index" not in st.session_state:
+        st.session_state.selected_image_index = 0
+
+    st.subheader("Image Gallery")
+    rows = (len(images) + columns - 1) // columns
+
+    for row_idx in range(rows):
+        cols = st.columns(columns)
+        for col_idx in range(columns):
+            img_idx = row_idx * columns + col_idx
+            if img_idx < len(images):
+                file = images[img_idx]
+                with cols[col_idx]:
+                    if st.button(f"Select {file.name}", key=f"select_{img_idx}"):
+                        st.session_state.selected_image_index = img_idx
+                    st.image(file, use_container_width=True, caption=file.name)
+
+    # Mostra immagine selezionata
+    st.markdown("---")
+    st.subheader("Selected Image Preview")
+    selected_file = images[st.session_state.selected_image_index]
+    st.image(selected_file, caption=selected_file.name, use_container_width=True)
+
+
 def process_uploaded_file(uploaded_files):
     """
     Funzione che gestisce la visualizzazione e il salvataggio dei file caricati
-    - Per ogni file da caricare, scrive il nome
-    - Se il file da caricare è un'immagine, ne mostra l'anteprima (solo se non è già stato salvato)
-    - Imposta un flag per evitare che la preview venga mostrata dopo il salvataggio
-    - Simula la barra di avanzamento per caricare i file
+    - Se sono presenti file da caricare, li salva nello stato della sessione per mostrarne la preview
+    - Mostra un'anteprima dinamica (tipo galleria) delle immagini caricate, ma non ancora salvate
+    - Imposta un flag per evitare che la preview venga ripetuta dopo il salvataggio
     - Crea un bottone per salvare i file nel database e nella cartella 'Images'
-    - In caso contrario, mostra un warning che invita a fare l'upload per procedere
+    - Durante il salvataggio, visualizza una barra di avanzamento
     - Se un file è già presente nella cartella o nel database, non lo salva di nuovo e mostra un avviso
+    - Se invece non sono presenti file da caricare, mostra un warning che invita a fare l'upload per procedere
     :param uploaded_files: lista di file di cui fare l'upload (può essere anche solo uno)
     """
     if uploaded_files:
@@ -71,10 +110,7 @@ def process_uploaded_file(uploaded_files):
         # Mostra le preview solo se i file non sono ancora stati salvati
         if not st.session_state.files_saved:
             st.write("Preview (not saved yet):")
-            for uploaded_file in st.session_state.uploaded_files_for_preview:
-                st.write(f"File uploaded: {uploaded_file.name}")
-                if uploaded_file.type.startswith("image"):
-                    st.image(uploaded_file, caption=f"Preview of {uploaded_file.name}", use_container_width=True)
+            display_image_gallery(st.session_state.uploaded_files_for_preview)
 
             if st.button("Save all uploaded files"):
                 st.session_state.files_saved = True  # Dopo il salvataggio, blocca le preview
@@ -89,17 +125,17 @@ def process_uploaded_file(uploaded_files):
                     skipped_files_folder = set()
                     skipped_files_db = set()
 
-                    for file_to_save in st.session_state.uploaded_files_for_preview:
-                        file_path, already_exists = save_image_to_folder(file_to_save)
+                    for uploaded_file in st.session_state.uploaded_files_for_preview:
+                        file_path, already_exists = save_image_to_folder(uploaded_file)
                         if already_exists:
-                            skipped_files_folder.add(file_to_save.name)
+                            skipped_files_folder.add(uploaded_file.name)
                             continue
 
-                        result = insert_data("documents.db", "receipts", {"File_path": file_to_save.name})
+                        result = insert_data("documents.db", "receipts", {"File_path": uploaded_file.name})
                         if result == "inserted":
                             saved_count += 1
                         elif result == "exists":
-                            skipped_files_db.add(file_to_save.name)
+                            skipped_files_db.add(uploaded_file.name)
 
                 if saved_count > 0:
                     st.success(f"{saved_count} file(s) successfully saved!")
