@@ -47,39 +47,52 @@ def display_image_gallery(images, columns=5):
     """
     Funzione che gestisce la visualizzazione di una galleria di immagini con selezione
     - Se non sono presenti immagini mostra un messagio informativo
+    - Sincronizza le immagini caricate nello stato della sessione per mantenere la preview
     - Inizializza lo stato della sessione per tracciare l'immagine selezionata
-    - Organizza le immagini in una griglia, con un numero configurabile di colonne
-    - Per ogni immagine mostra un bottone per selezionarle
-    - Mostra un'anteprima ingrandita dell’immagine attualmente selezionata
+    - Se nessuna immagine è selezionata, mostra una galleria con griglia dinamica: ogni immagine ha
+      un bottone associato che consente la selezione
+    - Se è stata selezionata un’immagine, mostra l’anteprima ingrandita e la didascalia
+    - Mostra un bottone per chiudere l’anteprima e tornare alla galleria
     :param images: lista di immagini caricate
-    :param columns: numero di colonne della griglia
+    :param columns: numero di colonne della griglia (impostato a 5)
     """
     if not images:
         st.info("No images to display.")
         return
 
+    # Sincronizza le immagini nella sessione (aggiornamento in tempo reale)
+    st.session_state.uploaded_files_for_preview = images
+
+    # Inizializza l'immagine selezionata se non esiste
     if "selected_image_index" not in st.session_state:
-        st.session_state.selected_image_index = 0
+        st.session_state.selected_image_index = None
 
-    st.subheader("Image Gallery")
-    rows = (len(images) + columns - 1) // columns
+    # Visualizza la galleria se nessuna immagine è selezionata
+    if st.session_state.selected_image_index is None:
+        st.subheader("Image Gallery")
+        rows = (len(images) + columns - 1) // columns
 
-    for row_idx in range(rows):
-        cols = st.columns(columns)
-        for col_idx in range(columns):
-            img_idx = row_idx * columns + col_idx
-            if img_idx < len(images):
-                file = images[img_idx]
-                with cols[col_idx]:
-                    if st.button(f"Select {file.name}", key=f"select_{img_idx}"):
-                        st.session_state.selected_image_index = img_idx
-                    st.image(file, use_container_width=True, caption=file.name)
+        for row_idx in range(rows):
+            cols = st.columns(columns)
+            for col_idx in range(columns):
+                img_idx = row_idx * columns + col_idx
+                if img_idx < len(images):
+                    file = images[img_idx]
+                    with cols[col_idx]:
+                        # Cliccando sull'immagine, la seleziona
+                        if st.button("", key=f"select_{img_idx}"):
+                            st.session_state.selected_image_index = img_idx
+                        st.image(file, use_container_width=True)
+                        st.caption(file.name)
+    else:
+        # Visualizza l'immagine selezionata ingrandita
+        selected_file = images[st.session_state.selected_image_index]
+        st.subheader(f"Selected image: {selected_file.name}")
+        st.image(selected_file, use_container_width=True)
 
-    # Mostra immagine selezionata
-    st.markdown("---")
-    st.subheader("Selected Image Preview")
-    selected_file = images[st.session_state.selected_image_index]
-    st.image(selected_file, caption=selected_file.name, use_container_width=True)
+        # Bottone per chiudere l'anteprima e tornare alla galleria
+        if st.button("Close Preview"):
+            st.session_state.selected_image_index = None
 
 
 def process_uploaded_file(uploaded_files):

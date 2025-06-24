@@ -27,7 +27,9 @@ if "uploaded_files" not in st.session_state:
 uploaded_files = st.file_uploader("Upload files (JPG, JPEG, PNG)", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 
 if uploaded_files:
-    st.session_state.uploaded_files.extend(uploaded_files)
+    st.session_state.uploaded_files = uploaded_files  # Aggiorna direttamente la lista
+else:
+    st.session_state.uploaded_files = []  # Se l'utente rimuove tutto, svuota
 
 process_uploaded_file(st.session_state.uploaded_files)
 
