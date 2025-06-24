@@ -1,0 +1,51 @@
+{
+  "data": "2025-03-05",
+  "ora": "18:39:05",
+  "negozio": "D022 San Giorgio Bigarello",
+  "indirizzo": "Via Luisa Levi",
+  "città": "San Giorgio Bigarello - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "nastro gel nano30mmx3m",
+      "quantita": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "contenitore con coperchio eh1400ml",
+      "quantita": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "scatola te con testo legno div. var.",
+      "quantita": 1,
+      "prezzo": 3.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "the pink stuff cleaning paste850g",
+      "quantita": 1,
+      "prezzo": 2.95,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 10.92,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta"
+}
