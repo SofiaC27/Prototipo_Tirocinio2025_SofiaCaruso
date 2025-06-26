@@ -3,20 +3,13 @@ import time
 import atexit
 
 from Database.db_manager import read_data, init_database
-from MCP.mcp_server import MCPServer
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
                                    delete_file_from_database_and_folder, display_receipts_data_with_expanders)
 from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
+from Modules.llm_functions import run_nl_query
 
 
 init_database()
-
-# Avvia MCP Server prima che l'app Streamlit parta
-mcp_server = MCPServer(db_path="documents.db", port=8080)
-mcp_server.start()
-
-# Assicura che MCP Server venga fermato alla chiusura dell'app Streamlit
-atexit.register(mcp_server.stop)
 
 # Titolo dell'applicazione
 st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart Receipts</h1>", unsafe_allow_html=True)
@@ -89,6 +82,9 @@ display_receipts_data_with_expanders(st.session_state.receipts_data)
 # LLM
 st.divider()
 st.subheader("LLM")
+
+risposta = run_nl_query("Mostrami gli ultimi 3 scontrini")
+st.write(risposta)
 
 
 # Eliminazione file
