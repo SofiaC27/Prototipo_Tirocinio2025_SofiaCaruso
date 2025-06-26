@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+import atexit
 
 from Database.db_manager import read_data, init_database
 from MCP.mcp_server import MCPServer
@@ -10,14 +11,12 @@ from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
 
 init_database()
 
-mcp_server = MCPServer()
+# Avvia MCP Server prima che l'app Streamlit parta
+mcp_server = MCPServer(db_path="documents.db", port=8080)
+mcp_server.start()
 
-try:
-    mcp_server.start()
-    print("Server started. Waiting 5 seconds...")
-    time.sleep(5)
-finally:
-    mcp_server.stop()
+# Assicura che MCP Server venga fermato alla chiusura dell'app Streamlit
+atexit.register(mcp_server.stop)
 
 # Titolo dell'applicazione
 st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart Receipts</h1>", unsafe_allow_html=True)

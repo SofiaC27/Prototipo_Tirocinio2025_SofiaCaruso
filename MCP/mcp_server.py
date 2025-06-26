@@ -1,17 +1,21 @@
 import subprocess
-import signal
 import shutil
+import os
 
 
 class MCPServer:
-    def __init__(self):
+    def __init__(self, db_path="documents.db", port=8080):
         self.process = None
+        self.db_path = os.path.abspath(db_path)  # percorso assoluto del file DB
+        self.port = port
 
     def start(self):
         """
         Metodo per avviare il server MCP tramite il comando 'npx @sqlitecloud/mcp-server'
         - Cerca automaticamente il percorso eseguibile del comando 'npx' nel sistema operativo
         - Se 'npx' non è trovato nel PATH, solleva un FileNotFoundError
+        - Costruisce il comando da eseguire specificando il file del database SQLite locale da esporre e la porta
+          su cui il server MCP deve rimanere in ascolto
         - Avvia il server MCP come processo figlio del processo Python
         - Utilizza 'shell=True' per compatibilità con ambienti Windows (.cmd)
         - Redirige lo stdout e stderr per eventuali log o debugging
@@ -23,13 +27,21 @@ class MCPServer:
         if not npx_path:
             raise FileNotFoundError("npx not found in the system PATH")
 
+        command = [
+            npx_path,
+            "@sqlitecloud/mcp-server",
+            "--db", self.db_path,
+            "--port", str(self.port)
+        ]
+
         self.process = subprocess.Popen(
-            [npx_path, "@sqlitecloud/mcp-server"],
+            command,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             shell=True  # ESSENZIALE su windows per .cmd
         )
-        print(f"[MCP Server] Started (PID: {self.process.pid})")
+
+        print(f"[MCP Server] Started on port {self.port} with DB '{self.db_path}' (PID: {self.process.pid})")
 
     def stop(self):
         """
