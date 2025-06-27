@@ -1,0 +1,24 @@
+{
+  "data": "2025-03-30",
+  "ora": "14:59:00",
+  "negozio": "DECATHLON",
+  "indirizzo": "Via Sandro Pertini 10/12",
+  "città": "ROZZANO - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "LEGGING REGULAR 500 W BLACK M / W30 L31 4853407",
+      "quantita": 1,
+      "prezzo": 13.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.99,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Mastercard"
+}

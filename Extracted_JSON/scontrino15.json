@@ -1,0 +1,24 @@
+{
+  "data": "2025-04-21",
+  "ora": "15:27:33",
+  "negozio": "Action",
+  "indirizzo": "Strada 1, Palazzo F2, Piano 6",
+  "città": "Assago - MI",
+  "paese": "Italy",
+  "lista_articoli": [
+    {
+      "nome": "3203528 maxxter basic anc cuffie",
+      "quantita": 2,
+      "prezzo": 21.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 21.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}
