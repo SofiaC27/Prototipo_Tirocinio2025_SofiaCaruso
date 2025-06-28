@@ -1,0 +1,42 @@
+{
+  "data": "2025-04-19",
+  "ora": "14:38:00",
+  "negozio": "Gelateria DolceVita",
+  "indirizzo": "Via Al Mare, 64020 Scerne Di Pineto (TE)",
+  "città": "Scerne Di Pineto - TE",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Gelato",
+      "quantita": 3,
+      "prezzo": 11.7,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Gelato",
+      "quantita": 1,
+      "prezzo": 6.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Gelato PIC",
+      "quantita": 1,
+      "prezzo": 3.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 20.7,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contanti"
+}

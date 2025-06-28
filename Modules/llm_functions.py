@@ -63,3 +63,42 @@ def run_nl_query(question, chain):
     }
 
     return output
+
+
+def render_llm_interface():
+    """
+    Funzione per visualizzare l'interfaccia di interrogazione su database SQL tramite LLM
+    - Inizializza la catena SQLDatabaseChain
+    - Raccoglie la domanda dell'utente tramite campo di input in linguaggio naturale
+    - Invia la domanda all'LLM per generare una query SQL e ottiene la risposta dal database
+    - Visualizza la domanda inserita, la query SQL generata, i risultati grezzi restituiti dal database
+      e la risposta finale in linguaggio naturale prodotta dal modello
+    """
+    llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
+
+    if "llm_chain" not in st.session_state:
+        st.session_state.llm_chain = init_db_chain(llm_key)
+
+    if "llm_result" not in st.session_state:
+        st.session_state.llm_result = None
+
+    question = st.text_input("Enter a question:", key="nl_input")
+
+    if question:
+        res = run_nl_query(question, st.session_state.llm_chain)
+        st.session_state.llm_result = res
+
+    if "llm_result" in st.session_state and st.session_state.llm_result:
+        res = st.session_state.llm_result
+
+        st.markdown("# Natural language question:")
+        st.write(res["question"])
+
+        st.markdown("# Generated SQL query:")
+        st.code(res["sql_query"], language="sql")
+
+        st.markdown("# Raw database result:")
+        st.write(res["sql_result"])
+
+        st.markdown("# Model-generated answer:")
+        st.text(res["answer"])
