@@ -1,6 +1,4 @@
 import streamlit as st
-import time
-import atexit
 
 from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,

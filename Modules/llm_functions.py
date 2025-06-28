@@ -2,6 +2,10 @@ import streamlit as st
 from langchain_openai import ChatOpenAI
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain_community.utilities import SQLDatabase
+from langchain_core.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
+from Modules.ocr_groq import load_prompt
 
 
 def init_db_chain(api_key):
@@ -36,17 +40,62 @@ def init_db_chain(api_key):
     return db_chain
 
 
+def is_question_valid_for_db(question, db_schema, llm):
+    """
+    Funzione per verificare se una domanda in linguaggio naturale è pertinente rispetto allo schema di un database SQL
+    - Carica un prompt da file esterno, dove lo schema e la domanda vengono inseriti dinamicamente
+    - Il prompt viene passato all’LLM, che deve rispondere solo con "true" o "false"
+    - Costruisce una catena con il prompt, il modello LLM e il parser
+    - Esegue la catena passando schema e domanda come input
+    - La risposta viene convertita in un booleano Python per determinare se la domanda è valida
+    :param question: stringa contenente la domanda in linguaggio naturale da verificare
+    :param db_schema: stringa rappresentante lo schema SQL del database da consultare
+    :param llm: modello LLM compatibile con LangChain
+    :return: True se la domanda è pertinente allo schema, altrimenti False
+    """
+    prompt_text = load_prompt("Modules/AI_prompts/validity_prompt.txt")
+
+    prompt = PromptTemplate.from_template(prompt_text)
+
+    chain = prompt | llm | StrOutputParser()
+
+    result = chain.invoke({
+        "question": question,
+        "schema": db_schema
+    })
+
+    return result.strip().lower() == "true"
+
+
 def run_nl_query(question, chain):
     """
-    Funzione per elaborare una domanda in linguaggio naturale ed eseguire una query SQL attraverso LangChain
-    - Passa la domanda all'LLM tramite SQLDatabaseChain per generare una query SQL
-    - Esegue la query sul database connesso
-    - Estrae i passaggi intermedi per recuperare: la query SQL generata, il risultato SQL grezzo e la
-      risposta in linguaggio naturale prodotta dal modello
+    Funzione per elaborare una domanda in linguaggio naturale ed eseguire una query SQL attraverso una catena LangChain
+    - Recupera lo schema del database
+    - Recupera il modello LLM utilizzato dalla SQLDatabaseChain
+    - Verifica se la domanda è compatibile con lo schema del database tramite una validazione con l'LLM
+    - Se non è compatibile, restituisce un dizionario con un messaggio di risposta e tutti gli altri campi nulli
+    - Se è compatibile: esegue la catena LLM sul prompt della query, estrae i passaggi intermedi dalla
+       risposta ottenuta (la query SQL generata, il risultato SQL del database e la risposta finale del modello),
+       costruisce e restituisce un dizionario strutturato con tutti i dati
     :param question: stringa contenente la domanda in linguaggio naturale dell'utente
     :param chain: istanza di SQLDatabaseChain configurata con un LLM e un database SQL
     :return: dizionario con la domanda dell'utente e i passaggi intermedi estratti
     """
+    db = SQLDatabase.from_uri("sqlite:///documents.db")
+    db_schema = db.get_table_info()
+    llm = chain.llm
+
+    # Validazione della domanda
+    if not is_question_valid_for_db(question, db_schema, llm):
+        return {
+            "question": question,
+            "sql_query": None,
+            "sql_result": None,
+            "answer": "The question is not compatible with the information in the database. Please "
+                      "try asking a different, more suitable question"
+        }
+
+    # Esecuzione della catena
     response = chain.invoke({"query": question})
 
     intermediate = response.get("intermediate_steps", [])
@@ -68,11 +117,11 @@ def run_nl_query(question, chain):
 def render_llm_interface():
     """
     Funzione per visualizzare l'interfaccia di interrogazione su database SQL tramite LLM
-    - Inizializza la catena SQLDatabaseChain
-    - Raccoglie la domanda dell'utente tramite campo di input in linguaggio naturale
-    - Invia la domanda all'LLM per generare una query SQL e ottiene la risposta dal database
-    - Visualizza la domanda inserita, la query SQL generata, i risultati grezzi restituiti dal database
-      e la risposta finale in linguaggio naturale prodotta dal modello
+    - Inizializza la catena SQLDatabaseChain tramite chiave API
+    - Mostra una casella di input testuale per inserire una domanda in linguaggio naturale
+    - Esegue una query SQL tramite il modello LLM se la domanda è valida
+    - Visualizza i risultati strutturati: domanda, query SQL generata, risultato grezzo del database e risposta testuale
+    - Se non ci sono risultati, avvisa l’utente tramite un messaggio informativo
     """
     llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
 
@@ -94,11 +143,14 @@ def render_llm_interface():
         st.markdown("# Natural language question:")
         st.write(res["question"])
 
-        st.markdown("# Generated SQL query:")
-        st.code(res["sql_query"], language="sql")
+        if not res["sql_result"]:
+            st.warning(res["answer"])
+        else:
+            st.markdown("# Generated SQL query:")
+            st.code(res["sql_query"], language="sql")
 
-        st.markdown("# Raw database result:")
-        st.write(res["sql_result"])
+            st.markdown("# Raw database result:")
+            st.write(res["sql_result"])
 
-        st.markdown("# Model-generated answer:")
-        st.text(res["answer"])
+            st.markdown("# Model-generated answer:")
+            st.text(res["answer"])
