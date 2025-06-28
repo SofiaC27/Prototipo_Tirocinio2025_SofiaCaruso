@@ -1,0 +1,105 @@
+{
+  "data": "2025-05-11",
+  "ora": "11:53:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "F. DRATA NATURALE I VA",
+      "quantita": 1,
+      "prezzo": 7.82,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "NPBUONO CARS ENI100 *NS",
+      "quantita": 1,
+      "prezzo": 90.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SCOTT NAT/FETTINE",
+      "quantita": 1,
+      "prezzo": 4.01,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SL FAGIOLINI FINISSI",
+      "quantita": 2,
+      "prezzo": 6.18,
+      "valuta": "EUR",
+      "percentuale_sconto": 30,
+      "sconto_assoluto": 0.93,
+      "valore_scontato": 4.33
+    },
+    {
+      "nome": "BOCONCELLO RUSTICO",
+      "quantita": 1,
+      "prezzo": 5.39,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SL FRIARIELLI",
+      "quantita": 1,
+      "prezzo": 2.75,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CANNONCHU DORCALI",
+      "quantita": 1,
+      "prezzo": 8.59,
+      "valuta": "EUR",
+      "percentuale_sconto": 50,
+      "sconto_assoluto": 4.3,
+      "valore_scontato": 4.29
+    },
+    {
+      "nome": "SHART BEV DI SOIA S/Z",
+      "quantita": 2,
+      "prezzo": 2.18,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PISTACCHI400 G",
+      "quantita": 1,
+      "prezzo": 5.26,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BEYOND BURGER X2",
+      "quantita": 1,
+      "prezzo": 4.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 30,
+      "sconto_assoluto": 1.35,
+      "valore_scontato": 3.14
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 133.77,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA PREPAGATA, CARTA DI CREDITO"
+}

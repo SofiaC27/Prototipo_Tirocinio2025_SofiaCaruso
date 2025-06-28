@@ -1,0 +1,24 @@
+{
+  "data": "2025-04-23",
+  "ora": "16:52:00",
+  "negozio": "Gelateria Dolce Vita",
+  "indirizzo": "Via al Mare",
+  "città": "Scerne di Pineto - TE",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Gelato",
+      "quantita": 3,
+      "prezzo": 11.7,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 11.7,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

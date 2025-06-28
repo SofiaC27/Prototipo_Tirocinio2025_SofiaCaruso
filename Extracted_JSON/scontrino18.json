@@ -1,0 +1,60 @@
+{
+  "data": "2025-04-22",
+  "ora": "16:24:00",
+  "negozio": "ALDI S.r.l.",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Acq. Frizz 1.5l/500ml",
+      "quantita": 1,
+      "prezzo": 1.89,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Patat. - cresc. - 150g",
+      "quantita": 1,
+      "prezzo": 1.29,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Fichiocol 1kg",
+      "quantita": 1,
+      "prezzo": 2.73,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Banane",
+      "quantita": 1,
+      "prezzo": 1.53,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Arance Navell",
+      "quantita": 1,
+      "prezzo": 3.11,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 11.54,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Master Card"
+}

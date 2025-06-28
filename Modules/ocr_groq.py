@@ -158,7 +158,6 @@ def fix_json_data(json_data, base_tolerance=0.10):
             else:
                 item['valore_scontato'] = None  # Se non ci sono sconti applicati
 
-
         # Calcola la somma totale dei prezzi effettivi (usa il prezzo scontato se presente)
         if item.get('valore_scontato') is not None:
             final_price = item['valore_scontato']

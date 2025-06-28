@@ -1,0 +1,9 @@
+Ti fornirò lo schema di un database SQL e una domanda in linguaggio naturale.
+
+Schema:
+{schema}
+
+Domanda:
+{question}
+
+La domanda è pertinente rispetto allo schema? Rispondi solo con "true" o "false"
