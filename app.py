@@ -86,15 +86,21 @@ st.subheader("LLM")
 llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
 
 if "llm_chain" not in st.session_state:
-    st.session_state.llm_chain = init_db_chain(api_key)
+    st.session_state.llm_chain = init_db_chain(llm_key)
 
 res = run_nl_query("Mostrami gli ultimi 3 scontrini", st.session_state.llm_chain)
 
-st.write("Query SQL generata:")
-st.code(res["query"], language="sql")
+st.markdown("# Domanda in linguaggio naturale:")
+st.write(res["question"])
 
-st.write("Risposta:")
-st.write(res["result"])
+st.markdown("# Query SQL generata:")
+st.code(res["sql_query"], language="sql")
+
+st.markdown("# Risposta ottenuta dal database:")
+st.write(res["sql_result"])
+
+st.markdown("# Risposta in linguaggio naturale del modello:")
+st.text(res["answer"])
 
 
 # Eliminazione file
