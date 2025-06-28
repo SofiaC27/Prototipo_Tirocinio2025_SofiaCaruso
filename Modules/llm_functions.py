@@ -30,7 +30,7 @@ def init_db_chain(api_key):
         db=db,
         verbose=True,
         return_intermediate_steps=True,
-        use_query_checker=True
+        use_query_checker=True,
     )
 
     return db_chain
@@ -39,20 +39,27 @@ def init_db_chain(api_key):
 def run_nl_query(question, chain):
     """
     Funzione per elaborare una domanda in linguaggio naturale ed eseguire una query SQL attraverso LangChain
-    - Utilizza la catena `SQLDatabaseChain` per interpretare la domanda dell'utente
-    - Il modello LLM genera una query SQL a partire dal linguaggio naturale
-    - Viene eseguita la query sul database configurato e ne viene restituito il risultato
-    - Recupera anche i passaggi intermedi per estrarre la query SQL generata
+    - Passa la domanda all'LLM tramite SQLDatabaseChain per generare una query SQL
+    - Esegue la query sul database connesso
+    - Estrae i passaggi intermedi per recuperare: la query SQL generata, il risultato SQL grezzo e la
+      risposta in linguaggio naturale prodotta dal modello
     :param question: stringa contenente la domanda in linguaggio naturale dell'utente
-    :param chain: oggetto SQLDatabaseChain inizializzato con LLM e database SQLite
-    :return: dizionario contenente la query SQL generata e utilizzata e il risultato finale prodotto dal
-             modello LLM dopo l'esecuzione della query
+    :param chain: istanza di SQLDatabaseChain configurata con un LLM e un database SQL
+    :return: dizionario con la domanda dell'utente e i passaggi intermedi estratti
     """
-    response = chain(question)
+    response = chain.invoke({"query": question})
+
+    intermediate = response.get("intermediate_steps", [])
+
+    query_sql = intermediate[2]["sql_cmd"]
+    query_result = intermediate[3]
+    final_answer = intermediate[5]
 
     output = {
-        "query": response.get("intermediate_steps", [""])[-1],  # Ultima query SQL generata
-        "result": response.get("result")  # Risposta finale dell’LLM
+        "question": question,
+        "sql_query": query_sql,
+        "sql_result": query_result,
+        "answer": final_answer
     }
 
     return output
