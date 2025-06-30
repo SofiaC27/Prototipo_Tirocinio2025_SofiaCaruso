@@ -64,6 +64,8 @@ def is_question_valid_for_db(question, db_schema, llm):
         "schema": db_schema
     })
 
+    print("validità di:", question, "=>", result)
+
     return result.strip().lower() == "true"
 
 
@@ -79,8 +81,7 @@ def run_nl_query(question, chain):
        costruisce e restituisce un dizionario strutturato con tutti i dati
     :param question: stringa contenente la domanda in linguaggio naturale dell'utente
     :param chain: istanza di SQLDatabaseChain configurata con un LLM e un database SQL
-    :return: dizionario con lo stato della domanda, se è invalida
-    :return: dizionario con la domanda dell'utente e i passaggi intermedi estratti
+    :return: dizionario con la domanda dell'utente, i passaggi intermedi estratti e lo stato della domanda
     """
     db_schema = chain.database.get_table_info()
     llm = chain.llm_chain.llm
@@ -154,16 +155,15 @@ def render_llm_interface():
         if res["status"] == "invalid_question":
             st.warning("The question is not compatible with the information in the database. Please"
                        " try asking a different, more suitable question")
+        elif not res["sql_result"] and res["sql_query"]:  # Query valida, ma risultato vuoto
+            st.warning("The question is compatible with the database, but no matching data was "
+                       " found. Try changing the filters")
         else:
-            if not res["sql_result"] and res["sql_query"]:  # Query valida, ma risultato vuoto
-                st.warning("The question is compatible with the database, but no matching data was "
-                           " found. Try changing the filters")
-            else:
-                st.markdown("# Generated SQL query:")
-                st.code(res["sql_query"], language="sql")
+            st.markdown("# Generated SQL query:")
+            st.code(res["sql_query"], language="sql")
 
-                st.markdown("# Raw database result:")
-                st.write(res["sql_result"])
+            st.markdown("# Raw database result:")
+            st.write(res["sql_result"])
 
-                st.markdown("# Model-generated answer:")
-                st.text(res["answer"])
+            st.markdown("# Model-generated answer:")
+            st.text(res["answer"])
