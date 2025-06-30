@@ -1,4 +1,5 @@
 import streamlit as st
+import re
 from langchain_openai import ChatOpenAI
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain_community.utilities import SQLDatabase
@@ -64,7 +65,32 @@ def is_question_valid_for_db(question, db_schema, llm):
         "schema": db_schema
     })
 
+    print("validità di:", question, "=>", result)
+
     return result.strip().lower() == "true"
+
+
+def extract_sql_only(text):
+    """
+    Funzione per estrarre una query SQL pulita dal testo generato dal modello LLM
+    - Analizza il testo della query restituito dal modello (es: output della SQLDatabaseChain)
+    - Tenta prima di estrarre una query SQL racchiusa in un blocco markdown (```sql ... ```)
+    - Se non presente, cerca la prima riga che inizia con un comando SQL (SELECT, INSERT, ecc.)
+    - Se nessuna delle due condizioni è soddisfatta, restituisce None
+    - Utilizzata per rimuovere spiegazioni, descrizioni o formattazioni extra restituite dal modello,
+      che potrebbero causare errori di sintassi nel database
+    :param text: stringa contenente il testo della query generata dal modello, con eventuali spiegazioni aggiuntive
+    :return: stringa contenente solo la query SQL valida da eseguire sul database
+    """
+    match = re.search(r"```sql(.*?)```", text, re.DOTALL | re.IGNORECASE)
+    if match:
+        return match.group(1).strip()
+    else:
+        lines = text.strip().splitlines()
+        for line in lines:
+            if line.strip().lower().startswith(("select", "with", "insert", "update", "delete")):
+                return line.strip()
+        return None  # Nessun SQL valido trovato
 
 
 def run_nl_query(question, chain):
@@ -79,8 +105,7 @@ def run_nl_query(question, chain):
        costruisce e restituisce un dizionario strutturato con tutti i dati
     :param question: stringa contenente la domanda in linguaggio naturale dell'utente
     :param chain: istanza di SQLDatabaseChain configurata con un LLM e un database SQL
-    :return: dizionario con lo stato della domanda, se è invalida
-    :return: dizionario con la domanda dell'utente e i passaggi intermedi estratti
+    :return: dizionario con la domanda dell'utente, i passaggi intermedi estratti e lo stato della domanda
     """
     db_schema = chain.database.get_table_info()
     llm = chain.llm_chain.llm
@@ -100,9 +125,11 @@ def run_nl_query(question, chain):
 
     intermediate = response.get("intermediate_steps", [])
 
-    query_sql = intermediate[2]["sql_cmd"]
+    raw_sql = intermediate[2]["sql_cmd"]
     query_result = intermediate[3]
     final_answer = intermediate[5]
+
+    query_sql = extract_sql_only(raw_sql)
 
     output = {
         "question": question,
@@ -154,16 +181,15 @@ def render_llm_interface():
         if res["status"] == "invalid_question":
             st.warning("The question is not compatible with the information in the database. Please"
                        " try asking a different, more suitable question")
+        elif not res["sql_result"] and res["sql_query"]:  # Query valida, ma risultato vuoto
+            st.warning("The question is compatible with the database, but no matching data was "
+                       " found. Try changing the filters")
         else:
-            if not res["sql_result"] and res["sql_query"]:  # Query valida, ma risultato vuoto
-                st.warning("The question is compatible with the database, but no matching data was "
-                           " found. Try changing the filters")
-            else:
-                st.markdown("# Generated SQL query:")
-                st.code(res["sql_query"], language="sql")
+            st.markdown("# Generated SQL query:")
+            st.code(res["sql_query"], language="sql")
 
-                st.markdown("# Raw database result:")
-                st.write(res["sql_result"])
+            st.markdown("# Raw database result:")
+            st.write(res["sql_result"])
 
-                st.markdown("# Model-generated answer:")
-                st.text(res["answer"])
+            st.markdown("# Model-generated answer:")
+            st.text(res["answer"])
