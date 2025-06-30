@@ -1,4 +1,5 @@
 import streamlit as st
+import re
 from langchain_openai import ChatOpenAI
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain_community.utilities import SQLDatabase
@@ -69,6 +70,29 @@ def is_question_valid_for_db(question, db_schema, llm):
     return result.strip().lower() == "true"
 
 
+def extract_sql_only(text):
+    """
+    Funzione per estrarre una query SQL pulita dal testo generato dal modello LLM
+    - Analizza il testo della query restituito dal modello (es: output della SQLDatabaseChain)
+    - Tenta prima di estrarre una query SQL racchiusa in un blocco markdown (```sql ... ```)
+    - Se non presente, cerca la prima riga che inizia con un comando SQL (SELECT, INSERT, ecc.)
+    - Se nessuna delle due condizioni è soddisfatta, restituisce None
+    - Utilizzata per rimuovere spiegazioni, descrizioni o formattazioni extra restituite dal modello,
+      che potrebbero causare errori di sintassi nel database
+    :param text: stringa contenente il testo della query generata dal modello, con eventuali spiegazioni aggiuntive
+    :return: stringa contenente solo la query SQL valida da eseguire sul database
+    """
+    match = re.search(r"```sql(.*?)```", text, re.DOTALL | re.IGNORECASE)
+    if match:
+        return match.group(1).strip()
+    else:
+        lines = text.strip().splitlines()
+        for line in lines:
+            if line.strip().lower().startswith(("select", "with", "insert", "update", "delete")):
+                return line.strip()
+        return None  # Nessun SQL valido trovato
+
+
 def run_nl_query(question, chain):
     """
     Funzione per elaborare una domanda in linguaggio naturale ed eseguire una query SQL attraverso una catena LangChain
@@ -101,9 +125,11 @@ def run_nl_query(question, chain):
 
     intermediate = response.get("intermediate_steps", [])
 
-    query_sql = intermediate[2]["sql_cmd"]
+    raw_sql = intermediate[2]["sql_cmd"]
     query_result = intermediate[3]
     final_answer = intermediate[5]
+
+    query_sql = extract_sql_only(raw_sql)
 
     output = {
         "question": question,
