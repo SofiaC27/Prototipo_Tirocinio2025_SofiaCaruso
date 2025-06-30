@@ -81,9 +81,8 @@ def run_nl_query(question, chain):
     :param chain: istanza di SQLDatabaseChain configurata con un LLM e un database SQL
     :return: dizionario con la domanda dell'utente e i passaggi intermedi estratti
     """
-    db = SQLDatabase.from_uri("sqlite:///documents.db")
-    db_schema = db.get_table_info()
-    llm = chain.llm
+    db_schema = chain.database.get_table_info()
+    llm = chain.llm_chain.llm
 
     # Validazione della domanda
     if not is_question_valid_for_db(question, db_schema, llm):
@@ -118,6 +117,7 @@ def render_llm_interface():
     """
     Funzione per visualizzare l'interfaccia di interrogazione su database SQL tramite LLM
     - Inizializza la catena SQLDatabaseChain tramite chiave API
+    - Mostra un messaggio di info con la descrizione del database per aiutare l'utente a fare domande pertinenti
     - Mostra una casella di input testuale per inserire una domanda in linguaggio naturale
     - Esegue una query SQL tramite il modello LLM se la domanda è valida
     - Visualizza i risultati strutturati: domanda, query SQL generata, risultato grezzo del database e risposta testuale
@@ -130,6 +130,11 @@ def render_llm_interface():
 
     if "llm_result" not in st.session_state:
         st.session_state.llm_result = None
+
+    st.info("The database stores information extracted from receipts: it includes data about"
+            " uploaded receipt images, store and transaction details, and the list of purchased items"
+            " with potential discounts. It is designed to answer questions about purchases, stores, "
+            " prices, dates, products, and payment methods.")
 
     question = st.text_input("Enter a question:", key="nl_input")
 
