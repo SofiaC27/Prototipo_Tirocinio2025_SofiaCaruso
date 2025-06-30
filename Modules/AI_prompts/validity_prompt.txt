@@ -6,4 +6,12 @@ Schema:
 Domanda:
 {question}
 
-La domanda è pertinente rispetto allo schema? Rispondi solo con "true" o "false"
+Devi valutare se la domanda è compatibile con lo schema, cioè se fa riferimento a campi, tabelle o concetti
+presenti nel database.
+
+Non considerare la presenza effettiva dei dati: se la struttura della domanda è coerente, anche se i dati richiesti
+non esistono, considera la domanda compatibile
+
+Rispondi solo con:
+- "true" => se la domanda è compatibile con lo schema (indipendentemente dalla presenza o assenza di dati nel database)
+- "false" => se la domanda contiene concetti, tabelle o richieste non presenti nello schema

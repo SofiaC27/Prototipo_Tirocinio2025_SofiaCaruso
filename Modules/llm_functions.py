@@ -79,6 +79,7 @@ def run_nl_query(question, chain):
        costruisce e restituisce un dizionario strutturato con tutti i dati
     :param question: stringa contenente la domanda in linguaggio naturale dell'utente
     :param chain: istanza di SQLDatabaseChain configurata con un LLM e un database SQL
+    :return: dizionario con lo stato della domanda, se è invalida
     :return: dizionario con la domanda dell'utente e i passaggi intermedi estratti
     """
     db_schema = chain.database.get_table_info()
@@ -90,8 +91,8 @@ def run_nl_query(question, chain):
             "question": question,
             "sql_query": None,
             "sql_result": None,
-            "answer": "The question is not compatible with the information in the database. Please "
-                      "try asking a different, more suitable question"
+            "answer": None,
+            "status": "invalid_question"
         }
 
     # Esecuzione della catena
@@ -107,7 +108,8 @@ def run_nl_query(question, chain):
         "question": question,
         "sql_query": query_sql,
         "sql_result": query_result,
-        "answer": final_answer
+        "answer": final_answer,
+        "status": "valid_question"
     }
 
     return output
@@ -121,7 +123,8 @@ def render_llm_interface():
     - Mostra una casella di input testuale per inserire una domanda in linguaggio naturale
     - Esegue una query SQL tramite il modello LLM se la domanda è valida
     - Visualizza i risultati strutturati: domanda, query SQL generata, risultato grezzo del database e risposta testuale
-    - Se non ci sono risultati, avvisa l’utente tramite un messaggio informativo
+    - Se la domanda è incompatibile con il database oppure se la domanda è valida, ma non ci sono risultati
+      mostra dei warning
     """
     llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
 
@@ -148,14 +151,19 @@ def render_llm_interface():
         st.markdown("# Natural language question:")
         st.write(res["question"])
 
-        if not res["sql_result"]:
-            st.warning(res["answer"])
+        if res["status"] == "invalid_question":
+            st.warning("The question is not compatible with the information in the database. Please"
+                       " try asking a different, more suitable question")
         else:
-            st.markdown("# Generated SQL query:")
-            st.code(res["sql_query"], language="sql")
+            if not res["sql_result"] and res["sql_query"]:  # Query valida, ma risultato vuoto
+                st.warning("The question is compatible with the database, but no matching data was "
+                           " found. Try changing the filters")
+            else:
+                st.markdown("# Generated SQL query:")
+                st.code(res["sql_query"], language="sql")
 
-            st.markdown("# Raw database result:")
-            st.write(res["sql_result"])
+                st.markdown("# Raw database result:")
+                st.write(res["sql_result"])
 
-            st.markdown("# Model-generated answer:")
-            st.text(res["answer"])
+                st.markdown("# Model-generated answer:")
+                st.text(res["answer"])
