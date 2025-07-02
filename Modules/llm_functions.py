@@ -1,25 +1,29 @@
 import streamlit as st
-import re
 from langchain_openai import ChatOpenAI
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain_community.utilities import SQLDatabase
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
+from langchain_community.agent_toolkits.sql.base import create_sql_agent
+from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
+from langchain_community.tools.sql_database.tool import QuerySQLDatabaseTool
+
 from Modules.ocr_groq import load_prompt
 
 
-def init_db_chain(api_key):
+def init_chain(api_key):
     """
     Funzione per inizializzare la catena LangChain per interrogazioni in linguaggio naturale su database SQL
     - Configura il modello LLM llama3 tramite endpoint Groq, utilizzando l'API key fornita
     - Crea la connessione al database locale SQLite
-    - Genera una SQLDatabaseChain che permette al LLM di: interpretare domande in linguaggio naturale, tradurle
-      in query SQL valide, eseguire le query sul database
-    - Abilita l'output dettagliato (verbose) e il recupero dei passaggi intermedi per finalità di trasparenza
-    - Attiva il query checker per evitare errori o query ambigue
+    - Costruisce un SQLDatabaseToolkit che l'LLM userà per analizzare ed eseguire query
+    - Genera un agente LangChain che traduce domande in linguaggio naturale in query SQL valide, le esegue
+      sul database e interpreta i risultati
+    - Abilita l'output dettagliato nel terminale (verbose)
     :param api_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
-    :return: oggetto SQLDatabaseChain configurato per gestire query NL → SQL → risultati
+    :return: oggetto AgentExecutor configurato per gestire query NL → SQL → risultati
+    :return: modello LLM configurato per generare query e risposte
     """
     llm = ChatOpenAI(
         model="llama3-8b-8192",
@@ -30,15 +34,15 @@ def init_db_chain(api_key):
 
     db = SQLDatabase.from_uri("sqlite:///documents.db")
 
-    db_chain = SQLDatabaseChain.from_llm(
+    toolkit = SQLDatabaseToolkit(db=db, llm=llm)
+
+    agent_executor = create_sql_agent(
         llm=llm,
-        db=db,
+        toolkit=toolkit,
         verbose=True,
-        return_intermediate_steps=True,
-        use_query_checker=True,
     )
 
-    return db_chain
+    return agent_executor, llm
 
 
 def is_question_valid_for_db(question, db_schema, llm):
@@ -65,98 +69,81 @@ def is_question_valid_for_db(question, db_schema, llm):
         "schema": db_schema
     })
 
-    print("validità di:", question, "=>", result)
-
     return result.strip().lower() == "true"
 
 
-def extract_sql_only(text):
+def run_nl_query(question, agent_executor, llm):
     """
-    Funzione per estrarre una query SQL pulita dal testo generato dal modello LLM
-    - Analizza il testo della query restituito dal modello (es: output della SQLDatabaseChain)
-    - Tenta prima di estrarre una query SQL racchiusa in un blocco markdown (```sql ... ```)
-    - Se non presente, cerca la prima riga che inizia con un comando SQL (SELECT, INSERT, ecc.)
-    - Se nessuna delle due condizioni è soddisfatta, restituisce None
-    - Utilizzata per rimuovere spiegazioni, descrizioni o formattazioni extra restituite dal modello,
-      che potrebbero causare errori di sintassi nel database
-    :param text: stringa contenente il testo della query generata dal modello, con eventuali spiegazioni aggiuntive
-    :return: stringa contenente solo la query SQL valida da eseguire sul database
-    """
-    match = re.search(r"```sql(.*?)```", text, re.DOTALL | re.IGNORECASE)
-    if match:
-        return match.group(1).strip()
-    else:
-        lines = text.strip().splitlines()
-        for line in lines:
-            if line.strip().lower().startswith(("select", "with", "insert", "update", "delete")):
-                return line.strip()
-        return None  # Nessun SQL valido trovato
-
-
-def run_nl_query(question, chain):
-    """
-    Funzione per elaborare una domanda in linguaggio naturale ed eseguire una query SQL attraverso una catena LangChain
-    - Recupera lo schema del database
-    - Recupera il modello LLM utilizzato dalla SQLDatabaseChain
-    - Verifica se la domanda è compatibile con lo schema del database tramite una validazione con l'LLM
-    - Se non è compatibile, restituisce un dizionario con un messaggio di risposta e tutti gli altri campi nulli
-    - Se è compatibile: esegue la catena LLM sul prompt della query, estrae i passaggi intermedi dalla
-       risposta ottenuta (la query SQL generata, il risultato SQL del database e la risposta finale del modello),
-       costruisce e restituisce un dizionario strutturato con tutti i dati
+    Funzione per elaborare una domanda in linguaggio naturale ed eseguire una query SQL tramite un agente LangChain
+    - Estrae l'oggetto database dai tool assegnati all'agente
+    - Recupera lo schema SQL del database corrente
+    - Verifica se la domanda è semanticamente compatibile con lo schema del database tramite un LLM esterno
+    - Se la domanda è incompatibile, restituisce uno stato "invalid_question" e risposta nulla
+    - Se la domanda è compatibile: esegue l'agente con input testuale, estrae la risposta finale generata dal modello
+      e restituisce uno stato "valid_question" e la risposta estratta
+    - In caso di errore durante il processo, restituisce uno stato "error" con il messaggio dell'eccezione
     :param question: stringa contenente la domanda in linguaggio naturale dell'utente
-    :param chain: istanza di SQLDatabaseChain configurata con un LLM e un database SQL
-    :return: dizionario con la domanda dell'utente, i passaggi intermedi estratti e lo stato della domanda
+    :param agent_executor: istanza AgentExecutor configurata per gestire interrogazioni NL→SQL
+    :param llm: istanza LLM compatibile con LangChain, usata per validazione e generazione
+    :return: dizionario con la domanda dell'utente, lo stato della domanda e la risposta
     """
-    db_schema = chain.database.get_table_info()
-    llm = chain.llm_chain.llm
+    try:
+        db_obj = None
 
-    # Validazione della domanda
-    if not is_question_valid_for_db(question, db_schema, llm):
+        for tool in agent_executor.tools:
+            if isinstance(tool, QuerySQLDatabaseTool):
+                db_obj = tool.db
+                break
+
+        if db_obj is None:
+            raise ValueError("SQL tool not found")
+
+        db_schema = db_obj.get_table_info()
+
+        # Verifica se la domanda ha senso rispetto allo schema del DB
+        if not is_question_valid_for_db(question, db_schema, llm):
+            return {
+                "question": question,
+                "answer": None,
+                "status": "invalid_question"
+            }
+
+        # Esegue l'agente con la domanda
+        response = agent_executor.invoke({"input": question})
+        final_answer = response.get("output", "")
+
         return {
             "question": question,
-            "sql_query": None,
-            "sql_result": None,
-            "answer": None,
-            "status": "invalid_question"
+            "answer": final_answer,
+            "status": "valid_question"
         }
 
-    # Esecuzione della catena
-    response = chain.invoke({"query": question})
-
-    intermediate = response.get("intermediate_steps", [])
-
-    raw_sql = intermediate[2]["sql_cmd"]
-    query_result = intermediate[3]
-    final_answer = intermediate[5]
-
-    query_sql = extract_sql_only(raw_sql)
-
-    output = {
-        "question": question,
-        "sql_query": query_sql,
-        "sql_result": query_result,
-        "answer": final_answer,
-        "status": "valid_question"
-    }
-
-    return output
+    except Exception as e:
+        return {
+            "question": question,
+            "answer": None,
+            "status": "error",
+            "error_message": str(e)
+        }
 
 
 def render_llm_interface():
     """
-    Funzione per visualizzare l'interfaccia di interrogazione su database SQL tramite LLM
-    - Inizializza la catena SQLDatabaseChain tramite chiave API
+    Funzione per visualizzare l'interfaccia per interrogazioni in linguaggio naturale su database SQL tramite LLM
+    - Recupera la chiave API e inizializza l'agente SQL e il modello LLM
     - Mostra un messaggio di info con la descrizione del database per aiutare l'utente a fare domande pertinenti
     - Mostra una casella di input testuale per inserire una domanda in linguaggio naturale
-    - Esegue una query SQL tramite il modello LLM se la domanda è valida
-    - Visualizza i risultati strutturati: domanda, query SQL generata, risultato grezzo del database e risposta testuale
-    - Se la domanda è incompatibile con il database oppure se la domanda è valida, ma non ci sono risultati
-      mostra dei warning
+    - Esegue la funzione di query NLP→SQL usando l'agente e il modello LLM
+    - Visualizza i risultati strutturati: stato, domanda e risposta testuale generata dal modello
+    - In caso di domanda non compatibile con lo schema del database, mostra un messaggio di avviso
+    - In caso di errore durante l'elaborazione, mostra il messaggio dell'eccezione sollevata
     """
     llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
 
-    if "llm_chain" not in st.session_state:
-        st.session_state.llm_chain = init_db_chain(llm_key)
+    if "llm_agent" not in st.session_state or "llm" not in st.session_state:
+        agent_executor, llm = init_chain(llm_key)
+        st.session_state.llm_agent = agent_executor
+        st.session_state.llm = llm
 
     if "llm_result" not in st.session_state:
         st.session_state.llm_result = None
@@ -169,27 +156,27 @@ def render_llm_interface():
     question = st.text_input("Enter a question:", key="nl_input")
 
     if question:
-        res = run_nl_query(question, st.session_state.llm_chain)
+        res = run_nl_query(question, st.session_state.llm_agent, st.session_state.llm)
         st.session_state.llm_result = res
 
     if "llm_result" in st.session_state and st.session_state.llm_result:
         res = st.session_state.llm_result
 
-        st.markdown("# Natural language question:")
-        st.write(res["question"])
+        st.markdown("# Query status:")
+        st.write(res['status'])
 
-        if res["status"] == "invalid_question":
-            st.warning("The question is not compatible with the information in the database. Please"
-                       " try asking a different, more suitable question")
-        elif not res["sql_result"] and res["sql_query"]:  # Query valida, ma risultato vuoto
-            st.warning("The question is compatible with the database, but no matching data was "
-                       " found. Try changing the filters")
-        else:
-            st.markdown("# Generated SQL query:")
-            st.code(res["sql_query"], language="sql")
+        match res["status"]:
+            case "valid_question":
+                st.markdown("# Natural language question:")
+                st.write(res["question"])
 
-            st.markdown("# Raw database result:")
-            st.write(res["sql_result"])
+                st.markdown("# Model-generated answer:")
+                st.text(res["answer"])
 
-            st.markdown("# Model-generated answer:")
-            st.text(res["answer"])
+            case "invalid_question":
+                st.warning("The question is not compatible with the information in the database. Please"
+                           " try asking a different, more suitable question")
+
+            case "error":
+                error_msg = res.get("error_message", "An unexpected error occurred")
+                st.error(f"An error occurred while answering the question using SQL:\n\n{error_msg}")

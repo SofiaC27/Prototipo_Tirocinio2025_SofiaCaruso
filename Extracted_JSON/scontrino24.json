@@ -1,0 +1,33 @@
+{
+  "data": "2025-04-24",
+  "ora": "14:42:00",
+  "negozio": "Gelateria Dolce Vita",
+  "indirizzo": "Via Al Mare, 64020 Sceme Di Pineto (Te)",
+  "città": "Sceme Di Pineto - Teramo (TE)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Gelato",
+      "quantita": 1,
+      "prezzo": 3.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Gelato",
+      "quantita": 1,
+      "prezzo": 3.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 6.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contanti"
+}
