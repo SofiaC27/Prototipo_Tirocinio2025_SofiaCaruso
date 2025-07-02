@@ -132,7 +132,8 @@ def render_llm_interface():
     Funzione per visualizzare l'interfaccia per interrogazioni in linguaggio naturale su database SQL tramite LLM
     - Recupera la chiave API e inizializza l'agente SQL e il modello LLM
     - Mostra un messaggio di info con la descrizione del database per aiutare l'utente a fare domande pertinenti
-    - Mostra una casella di input testuale per inserire una domanda in linguaggio naturale
+    - Mostra una selectbox con degli esempi di domande, che fa anche da casella di input testuale per inserire
+      una domanda in linguaggio naturale
     - Esegue la funzione di query NLP→SQL usando l'agente e il modello LLM
     - Visualizza i risultati strutturati: stato, domanda e risposta testuale generata dal modello
     - In caso di domanda non compatibile con lo schema del database, mostra un messaggio di avviso
@@ -153,10 +154,25 @@ def render_llm_interface():
             " with potential discounts. It is designed to answer questions about purchases, stores, "
             " prices, dates, products, and payment methods.")
 
-    question = st.text_input("Enter a question:", key="nl_input")
+    examples = [
+        "Mostra tutti gli scontrini del 2025",
+        "Elenca i prodotti acquistati con lo sconto",
+        "Quanto ho speso a marzo?",
+        "Mostra i prodotti acquistati più di una volta",
+        "Qual è stato il mese con la spesa più alta?"
+    ]
 
-    if question:
-        res = run_nl_query(question, st.session_state.llm_agent, st.session_state.llm)
+    user_question = st.selectbox(
+        "Enter a question or choose one from the examples below:",
+        options=examples,
+        index=None,
+        placeholder="Type or select a question...",
+        accept_new_options=True,
+        key="nl_input"
+    )
+
+    if user_question:
+        res = run_nl_query(user_question, st.session_state.llm_agent, st.session_state.llm)
         st.session_state.llm_result = res
 
     if "llm_result" in st.session_state and st.session_state.llm_result:
