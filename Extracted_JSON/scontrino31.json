@@ -1,0 +1,51 @@
+{
+  "data": "2025-04-28",
+  "ora": "15:39:00",
+  "negozio": "GELATERIA LATTE E CACAO",
+  "indirizzo": "Via Matteotti 3",
+  "città": "Sant'Antonio di Porto Mantovano - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "5.00",
+      "quantita": 2,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "FOCACCIA",
+      "quantita": 1,
+      "prezzo": 7.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "2.50",
+      "quantita": 3,
+      "prezzo": 7.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CONO/COPPETTA",
+      "quantita": 1,
+      "prezzo": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 17.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta di credito"
+}
