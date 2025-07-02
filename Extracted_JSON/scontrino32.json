@@ -1,0 +1,249 @@
+{
+  "data": "2025-04-27",
+  "ora": "12:02:00",
+  "negozio": "SUPERMERCATI TOSANO",
+  "indirizzo": "VIA F. PARINI",
+  "città": "CURTATONE - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "COCCOLE CAT.II",
+      "quantita": 1,
+      "prezzo": 4.13,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SACHETTO ORTOFRUTTA BIO",
+      "quantita": 2,
+      "prezzo": 0.04,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CITROSTIL, SGRASS. BAGNO ML.22",
+      "quantita": 1,
+      "prezzo": 2.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DP GREENLIFE SGRASSATORE",
+      "quantita": 2,
+      "prezzo": 3.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BIRRA DELLO STRETTO LAGER",
+      "quantita": 2,
+      "prezzo": 3.4,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "V. CASALE RISO CARNAROLI K",
+      "quantita": 1,
+      "prezzo": 3.59,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CORONA TONNO TRANCEO",
+      "quantita": 1,
+      "prezzo": 1.59,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DELI.FIL. SGOMB. GR. NAT. G.",
+      "quantita": 1,
+      "prezzo": 1.55,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SPIG. FARINA1.0 TIPO \"0\"",
+      "quantita": 1,
+      "prezzo": 0.95,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "LE COEQUES ROSE TUNIC. CL.",
+      "quantita": 1,
+      "prezzo": 8.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "F. EXPRESS NCC./BUB/TOST",
+      "quantita": 1,
+      "prezzo": 0.89,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ACE CANDE SPRAY RIC.",
+      "quantita": 1,
+      "prezzo": 2.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "GELATO100% SALE MA. LAVASTO",
+      "quantita": 1,
+      "prezzo": 0.29,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T. CLASSICI FAVE SUBS. GR.",
+      "quantita": 1,
+      "prezzo": 1.3,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "JRZII LENTICCHIE PUG.",
+      "quantita": 2,
+      "prezzo": 3.3,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DOLZIES ARCHIDI USA GR.1",
+      "quantita": 1,
+      "prezzo": 0.85,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "10 X0,10",
+      "quantita": 1,
+      "prezzo": 0.3,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "TRULLI TRONCHE OLIVE BUS.",
+      "quantita": 1,
+      "prezzo": 3.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "JRZII POM. SOTT. ALLA SAL.",
+      "quantita": 1,
+      "prezzo": 6.25,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BROCCOLI ROSETTA",
+      "quantita": 1,
+      "prezzo": 2.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DERMALICK SCIARPE OLIVE G",
+      "quantita": 1,
+      "prezzo": 1.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PETO POLLO FETTE250G AH",
+      "quantita": 1,
+      "prezzo": 3.3,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PETTO POLLO XT ANTIBIOTIC",
+      "quantita": 1,
+      "prezzo": 7.52,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CIP MULTIPACK XS GR.1",
+      "quantita": 1,
+      "prezzo": 1.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PEPERONE GIALLD LUNGO VAR",
+      "quantita": 1,
+      "prezzo": 4.54,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SACHETTO ORTOFRUTTA BIO",
+      "quantita": 1,
+      "prezzo": 0.02,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 60.66,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

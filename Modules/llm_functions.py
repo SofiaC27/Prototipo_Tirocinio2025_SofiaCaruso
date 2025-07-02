@@ -40,6 +40,7 @@ def init_chain(api_key):
         llm=llm,
         toolkit=toolkit,
         verbose=True,
+        agent_executor_kwargs={"handle_parsing_errors": True}
     )
 
     return agent_executor, llm

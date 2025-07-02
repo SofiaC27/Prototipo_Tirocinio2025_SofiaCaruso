@@ -1,0 +1,105 @@
+{
+  "data": "2025-05-14",
+  "ora": "18:56:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FRANZISKAN HELL50CL",
+      "quantita": 1,
+      "prezzo": 1.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "B. AD/COSTATA DRYAGED",
+      "quantita": 1,
+      "prezzo": 14.88,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "B. AD/COSTATA DRYAGED",
+      "quantita": 1,
+      "prezzo": 14.88,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 5.96,
+      "valore_scontato": 8.93
+    },
+    {
+      "nome": "NAT. POLPA TRITA ATP",
+      "quantita": 1,
+      "prezzo": 5.29,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "GI RELLE DI SALMONE",
+      "quantita": 1,
+      "prezzo": 4.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "P.SCONTO40%",
+      "quantita": 1,
+      "prezzo": 2.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PARMIG. REGGIANO30M",
+      "quantita": 1,
+      "prezzo": 12.3,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "MINES. FAVE/AVEN/ZAFF",
+      "quantita": 1,
+      "prezzo": 2.78,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 1.12,
+      "valore_scontato": 1.67
+    },
+    {
+      "nome": "B. AD/COSTATA DRYAGED",
+      "quantita": 1,
+      "prezzo": 14.88,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 5.96,
+      "valore_scontato": 8.93
+    },
+    {
+      "nome": "S CONTO40%",
+      "quantita": 1,
+      "prezzo": 5.96,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 32.65,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}
