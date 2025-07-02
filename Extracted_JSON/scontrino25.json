@@ -1,0 +1,159 @@
+{
+  "data": "2025-04-24",
+  "ora": "21:41:00",
+  "negozio": "ASSAGGERIA KM431",
+  "indirizzo": null,
+  "città": "SILVI",
+  "paese": null,
+  "lista_articoli": [
+    {
+      "nome": "TAGLIERE KM431",
+      "quantita": 2,
+      "prezzo": 32.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CHEESECAKE",
+      "quantita": 1,
+      "prezzo": 5.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "THE PESCA",
+      "quantita": 1,
+      "prezzo": 2.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ACQUA",
+      "quantita": 2,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "COCA",
+      "quantita": 2,
+      "prezzo": 6.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "0,3 LT",
+      "quantita": 1,
+      "prezzo": 4.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "COPERTO",
+      "quantita": 5,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CESTINO PANE",
+      "quantita": 1,
+      "prezzo": 1.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "FORM FRITTO 2 PZ",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 25.0,
+      "sconto_assoluto": 1.5,
+      "valore_scontato": 3.0
+    },
+    {
+      "nome": "BRUSCH MISTA 2PZ",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BRUSCHETTE MISTE 3PZ",
+      "quantita": 1,
+      "prezzo": 6.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "FORM FRITTO 3PZ",
+      "quantita": 1,
+      "prezzo": 21.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "TAGLIATA SALE GRO",
+      "quantita": 1,
+      "prezzo": 39.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ARR. FATTI A MANO",
+      "quantita": 30,
+      "prezzo": 540.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 93.33,
+      "sconto_assoluto": 16.8,
+      "valore_scontato": 36.02
+    },
+    {
+      "nome": "ARR. PICCOLI",
+      "quantita": 15,
+      "prezzo": 180.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "VEG FANTASIA CHEF (66 x)",
+      "quantita": 1,
+      "prezzo": 171.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 171.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": null
+}

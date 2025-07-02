@@ -20,7 +20,7 @@ def init_chain(api_key):
     - Costruisce un SQLDatabaseToolkit che l'LLM userà per analizzare ed eseguire query
     - Genera un agente LangChain che traduce domande in linguaggio naturale in query SQL valide, le esegue
       sul database e interpreta i risultati
-    - Abilita l'output dettagliato (verbose) e il recupero dei passaggi intermedi per tracciare il processo
+    - Abilita l'output dettagliato nel terminale (verbose)
     :param api_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
     :return: oggetto AgentExecutor configurato per gestire query NL → SQL → risultati
     :return: modello LLM configurato per generare query e risposte
@@ -40,7 +40,6 @@ def init_chain(api_key):
         llm=llm,
         toolkit=toolkit,
         verbose=True,
-        return_intermediate_steps=True,
     )
 
     return agent_executor, llm
@@ -79,15 +78,14 @@ def run_nl_query(question, agent_executor, llm):
     - Estrae l'oggetto database dai tool assegnati all'agente
     - Recupera lo schema SQL del database corrente
     - Verifica se la domanda è semanticamente compatibile con lo schema del database tramite un LLM esterno
-    - Se la domanda è incompatibile, restituisce una risposta con stato "invalid_question" e tutti i campi nulli
-    - Se la domanda è compatibile: esegue l'agente con input testuale, recupera gli step intermedi per identificare
-      la query SQL generata e il risultato grezzo dal database, estrae la risposta finale generata dal modello, e
-      costruisce un dizionario strutturato con tutti i dati utili (input, query, risultato grezzo e risposta)
+    - Se la domanda è incompatibile, restituisce uno stato "invalid_question" e risposta nulla
+    - Se la domanda è compatibile: esegue l'agente con input testuale, estrae la risposta finale generata dal modello
+      e restituisce uno stato "valid_question" e la risposta estratta
     - In caso di errore durante il processo, restituisce uno stato "error" con il messaggio dell'eccezione
     :param question: stringa contenente la domanda in linguaggio naturale dell'utente
     :param agent_executor: istanza AgentExecutor configurata per gestire interrogazioni NL→SQL
     :param llm: istanza LLM compatibile con LangChain, usata per validazione e generazione
-    :return: dizionario con la domanda dell'utente, i passaggi intermedi estratti e lo stato della domanda
+    :return: dizionario con la domanda dell'utente, lo stato della domanda e la risposta
     """
     try:
         db_obj = None
@@ -106,38 +104,16 @@ def run_nl_query(question, agent_executor, llm):
         if not is_question_valid_for_db(question, db_schema, llm):
             return {
                 "question": question,
-                "sql_query": None,
-                "sql_result": None,
                 "answer": None,
                 "status": "invalid_question"
             }
 
         # Esegue l'agente con la domanda
         response = agent_executor.invoke({"input": question})
-        st.write("response:", response)
-
-        # Valori di fallback
-        generated_sql_query = None
-        db_extracted_data = None
-
-        # Estrai gli step intermedi per identificare la query SQL generata
-        for step in response.get("intermediate_steps", []):
-            try:
-                action = step.action
-                if action.tool == "sql_db_query":
-                    generated_sql_query = action.tool_input
-                    db_extracted_data = step.observation
-                    break
-            except Exception as e:
-                print("Errore durante l'accesso allo step:", e)
-                continue
-
         final_answer = response.get("output", "")
 
         return {
             "question": question,
-            "sql_query": generated_sql_query,
-            "sql_result": db_extracted_data,
             "answer": final_answer,
             "status": "valid_question"
         }
@@ -145,8 +121,6 @@ def run_nl_query(question, agent_executor, llm):
     except Exception as e:
         return {
             "question": question,
-            "sql_query": None,
-            "sql_result": None,
             "answer": None,
             "status": "error",
             "error_message": str(e)
@@ -160,9 +134,9 @@ def render_llm_interface():
     - Mostra un messaggio di info con la descrizione del database per aiutare l'utente a fare domande pertinenti
     - Mostra una casella di input testuale per inserire una domanda in linguaggio naturale
     - Esegue la funzione di query NLP→SQL usando l'agente e il modello LLM
-    - Visualizza i risultati strutturati: domanda, query SQL generata, risultato grezzo del database e risposta testuale
+    - Visualizza i risultati strutturati: stato, domanda e risposta testuale generata dal modello
     - In caso di domanda non compatibile con lo schema del database, mostra un messaggio di avviso
-    - In caso di query valida ma risultato vuoto, mostra un messaggio di assenza di dati
+    - In caso di errore durante l'elaborazione, mostra il messaggio dell'eccezione sollevata
     """
     llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
 
@@ -188,21 +162,21 @@ def render_llm_interface():
     if "llm_result" in st.session_state and st.session_state.llm_result:
         res = st.session_state.llm_result
 
-        st.markdown("# Natural language question:")
-        st.write(res["question"])
+        st.markdown("# Query status:")
+        st.write(res['status'])
 
-        if res["status"] == "invalid_question":
-            st.warning("The question is not compatible with the information in the database. Please"
-                       " try asking a different, more suitable question")
-        elif not res["sql_result"] and res["sql_query"]:  # Query valida, ma risultato vuoto
-            st.warning("The question is compatible with the database, but no matching data was "
-                       " found. Try changing the filters")
-        else:
-            st.markdown("# Generated SQL query:")
-            st.code(res["sql_query"], language="sql")
+        match res["status"]:
+            case "valid_question":
+                st.markdown("# Natural language question:")
+                st.write(res["question"])
 
-            st.markdown("# Raw database result:")
-            st.write(res["sql_result"])
+                st.markdown("# Model-generated answer:")
+                st.text(res["answer"])
 
-            st.markdown("# Model-generated answer:")
-            st.text(res["answer"])
+            case "invalid_question":
+                st.warning("The question is not compatible with the information in the database. Please"
+                           " try asking a different, more suitable question")
+
+            case "error":
+                error_msg = res.get("error_message", "An unexpected error occurred")
+                st.error(f"An error occurred while answering the question using SQL:\n\n{error_msg}")
