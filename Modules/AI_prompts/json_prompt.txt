@@ -46,6 +46,12 @@ Regole per l'estrazione:
 -Paese: Scrivi il paese. Se non è indicato, prova a inferirlo basandoti sul contesto.
 -Metodo di pagamento: Scrivi il metodo di pagamento se indicato
 -Lista articoli:
+      Importante: Se nel testo vicino al prezzo o su righe adiacenti è presente una percentuale IVA
+                  (es: “IVA 22%”, “iva 10%”), ignorala e non interpretarla come sconto, quantità o parte del nome
+                  dell’articolo. L’IVA è un'informazione fiscale e non va inserita nei campi quantita, percentuale_sconto,
+                  sconto_assoluto o valore_scontato, anche se contiene valori numerici simili a quelli usati per
+                  gli sconti
+
     -Nel campo 'nome' scrivi il nome dell'articolo ovvero il suo testo descrittivo che comprende anche eventuali codici
      identificativi. Solitamente il nome di ogni articolo è affiancato al suo costo, mentre nelle righe sottostanti
      ci sono eventuali sconti o gli articoli successivi. Il nome non comprende parole come 'SCONTO' o 'sconto' perchè

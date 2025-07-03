@@ -156,11 +156,16 @@ def render_llm_interface():
             " prices, dates, products, and payment methods.")
 
     examples = [
-        "Mostra tutti gli scontrini del 2025",
-        "Elenca i prodotti acquistati con lo sconto",
-        "Quanto ho speso a marzo?",
-        "Mostra i prodotti acquistati più di una volta",
-        "Qual è stato il mese con la spesa più alta?"
+        "Mostrami i primi 15 scontrini caricati nel 2025",
+        "Mostrami i primi 10 acquisti effettuati nel 2025",
+        "Elenca i prodotti per cui è stato applicato uno sconto",
+        "Qual è la somma totale delle spese effettuate nel mese di marzo?",
+        "Quali prodotti sono stati acquistati più di una volta in giorni diversi?",
+        "In quale mese del 2025 ho speso di più in totale?",
+        "Quali negozi ho visitato più spesso?",
+        "Qual è stato il metodo di pagamento più usato nei miei acquisti?",
+        "Mostrami tutti i prodotti acquistati in contanti",
+        "Quali sono i prodotti più acquistati in termini di quantità totale?"
     ]
 
     user_question = st.selectbox(

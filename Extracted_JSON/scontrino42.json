@@ -1,0 +1,123 @@
+{
+  "data": "2026-04-30",
+  "ora": "16:42:00",
+  "negozio": "COOP ALLEANZA3.0",
+  "indirizzo": "P.le Cesare Beccaria,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "M-T MACINATO SCELTO",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "M-T POLLO TAGLIATIN SO",
+      "quantita": 1,
+      "prezzo": 3.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "M-T POLLO TAGLIATIN SO",
+      "quantita": 1,
+      "prezzo": 3.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "M-T MACINATO DI SUINO",
+      "quantita": 1,
+      "prezzo": 3.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BIRRA BLANCHE DE N",
+      "quantita": 1,
+      "prezzo": 3.46,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "LEFFE BLONDE750ML",
+      "quantita": 1,
+      "prezzo": 3.09,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T MELE GRANNY SMITH",
+      "quantita": 1,
+      "prezzo": 2.58,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T36 FETTE BISC. M.B",
+      "quantita": 1,
+      "prezzo": 1.59,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T FRAGOLE IT22+500",
+      "quantita": 1,
+      "prezzo": 2.98,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T FOND. PROSC. COTTO",
+      "quantita": 1,
+      "prezzo": 1.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "M-T MOZZAR. PIZZA COOP",
+      "quantita": 1,
+      "prezzo": 3.47,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "M-T SAL FEL IGP S/A FF",
+      "quantita": 1,
+      "prezzo": 7.87,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 47.51,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}
