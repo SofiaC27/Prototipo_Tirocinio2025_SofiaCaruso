@@ -1,13 +1,14 @@
 import streamlit as st
+
 from langchain_openai import ChatOpenAI
-from langchain_experimental.sql import SQLDatabaseChain
 from langchain_community.utilities import SQLDatabase
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-
-from langchain_community.agent_toolkits.sql.base import create_sql_agent
-from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from langchain_community.tools.sql_database.tool import QuerySQLDatabaseTool
+
+from langchain_community.agent_toolkits import create_sql_agent
+from langchain.agents import AgentType
+
 
 from Modules.ocr_groq import load_prompt
 
@@ -17,10 +18,10 @@ def init_chain(api_key):
     Funzione per inizializzare la catena LangChain per interrogazioni in linguaggio naturale su database SQL
     - Configura il modello LLM llama3 tramite endpoint Groq, utilizzando l'API key fornita
     - Crea la connessione al database locale SQLite
-    - Costruisce un SQLDatabaseToolkit che l'LLM userà per analizzare ed eseguire query
-    - Genera un agente LangChain che traduce domande in linguaggio naturale in query SQL valide, le esegue
-      sul database e interpreta i risultati
-    - Abilita l'output dettagliato nel terminale (verbose)
+    - Genera un agente LangChain che, tramite il tipo zero-shot ReAct, traduce domande in linguaggio naturale
+      in query SQL valide e tenta di interpretare i risultati
+    - Utilizza direttamente lo schema del database per migliorare l'accuratezza delle query
+    - Abilita il logging verboso e la gestione degli errori di parsing
     :param api_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
     :return: oggetto AgentExecutor configurato per gestire query NL → SQL → risultati
     :return: modello LLM configurato per generare query e risposte
@@ -34,11 +35,10 @@ def init_chain(api_key):
 
     db = SQLDatabase.from_uri("sqlite:///documents.db")
 
-    toolkit = SQLDatabaseToolkit(db=db, llm=llm)
-
     agent_executor = create_sql_agent(
         llm=llm,
-        toolkit=toolkit,
+        db=db,
+        agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
         verbose=True,
         agent_executor_kwargs={"handle_parsing_errors": True}
     )
