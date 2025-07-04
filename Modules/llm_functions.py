@@ -128,33 +128,21 @@ def run_nl_query(question, agent_executor, llm):
         }
 
 
-def format_model_answer(answer, llm, translate=False):
+def format_model_answer(answer, llm):
     """
-    Funzione per riformattare una risposta generata da un LLM e, se richiesto, tradurla in italiano
-    - Carica da file un prompt di riformattazione e lo applica alla risposta grezza generata dal modello
-    - Se l'opzione di traduzione è attiva, aggiunge un'appendice al prompt per richiedere la traduzione in italiano
-    - Invia il prompt completo al modello LLM e restituisce il risultato generato
-    - In caso di errore durante il processo restituisce un messaggio di errore testuale
+    Funzione per riformattare e tradurre in italiano una risposta generata da un LLM
+    - Carica da file un prompt che include le istruzioni per la riformattazione e la traduzione
+    - Inserisce dinamicamente la risposta grezza all'interno del prompt
+    - Invia il prompt al modello LLM e riceve il testo elaborato
     :param answer: stringa contenente la risposta grezza generata dal modello
-    :param llm: istanza del modello LLM da utilizzare per la riformattazione (e traduzione)
-    :param translate: booleano che indica se includere anche la traduzione in italiano
-    :return: stringa con la risposta riformattata (e tradotta se richiesto), oppure messaggio di errore
+    :param llm: istanza del modello LLM da utilizzare per l'elaborazione
+    :return: stringa con la risposta riformattata e tradotta
     """
-    try:
-        # Carica prompt principale
-        prompt_template = load_prompt("Modules/AI_prompts/reformat_prompt.txt")
-        full_prompt = prompt_template.format(answer=answer)
+    prompt_text = load_prompt("Modules/AI_prompts/translate_and_format_prompt.txt")
+    prompt = prompt_text.format(answer=answer)
 
-        # Se richiesto, aggiunge il prompt di traduzione da file
-        if translate:
-            translation_appendix = load_prompt("Modules/AI_prompts/translate_appendix_prompt.txt")
-            full_prompt += "\n\n" + translation_appendix
-
-        result = llm.invoke(full_prompt)
-        return result
-
-    except Exception as e:
-        return f"Error while reformatting the response: {str(e)}"
+    result = llm.invoke(prompt)
+    return result.content.strip()
 
 
 def render_llm_interface():
@@ -166,6 +154,7 @@ def render_llm_interface():
       una domanda in linguaggio naturale
     - Esegue la funzione di query NLP→SQL usando l'agente e il modello LLM
     - Visualizza i risultati strutturati: stato, domanda e risposta testuale generata dal modello
+    - Mostra un bottone che permette di tradurre e riformattare la risposta generata
     - In caso di domanda non compatibile con lo schema del database, mostra un messaggio di avviso
     - In caso di errore durante l'elaborazione, mostra il messaggio dell'eccezione sollevata
     """
@@ -178,6 +167,10 @@ def render_llm_interface():
 
     if "llm_result" not in st.session_state:
         st.session_state.llm_result = None
+    if "last_rendered_answer" not in st.session_state:
+        st.session_state.last_rendered_answer = None
+    if "submitted_question" not in st.session_state:
+        st.session_state.submitted_question = None
 
     st.info("The database stores information extracted from receipts: it includes data about"
             " uploaded receipt images, store and transaction details, and the list of purchased items"
@@ -206,9 +199,12 @@ def render_llm_interface():
         key="nl_input"
     )
 
-    if user_question:
+    # Esegue la query solo se la domanda è nuova o diversa dalla precedente
+    if user_question and user_question != st.session_state.submitted_question:
+        st.session_state.submitted_question = user_question
         res = run_nl_query(user_question, st.session_state.llm_agent, st.session_state.llm)
         st.session_state.llm_result = res
+        st.session_state.last_rendered_answer = res["answer"]
 
     if "llm_result" in st.session_state and st.session_state.llm_result:
         res = st.session_state.llm_result
@@ -224,20 +220,12 @@ def render_llm_interface():
                 st.markdown("# Model-generated answer:")
                 st.text(res["answer"])
 
-                # Bottoni per riformattare o tradurre la risposta
-                col1, col2 = st.columns(2)
-                with col1:
-                    improve_clicked = st.button("Improve readability")
-                with col2:
-                    translate_clicked = st.button("Translate to Italian")
-
-                if improve_clicked or translate_clicked:
-                    llm = st.session_state.llm
-                    answer = res["answer"]
-                    translated = translate_clicked
-
-                    formatted_output = format_model_answer(answer, llm, translate=translated)
-
+                # Bottone per tradurre e migliorare leggibilità
+                if st.button("Translate to Italian"):
+                    formatted_output = format_model_answer(
+                        st.session_state.last_rendered_answer,
+                        st.session_state.llm
+                    )
                     st.markdown("# Reformatted output:")
                     st.write(formatted_output)
 
