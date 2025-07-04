@@ -1,0 +1,42 @@
+{
+  "data": "2025-05-02",
+  "ora": "18:51:00",
+  "negozio": "VstIesse Abbiglamento",
+  "indirizzo": "IS STRADA C A129460477",
+  "città": "MN - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "U.CAM DVA MM SANGALLO",
+      "quantita": 1,
+      "prezzo": 62.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 21,
+      "sconto_assoluto": 13.1,
+      "valore_scontato": 48.98
+    },
+    {
+      "nome": "100 COT1P MAXI KIARA CO",
+      "quantita": 1,
+      "prezzo": 34.5,
+      "valuta": "EUR",
+      "percentuale_sconto": 34,
+      "sconto_assoluto": 11.6,
+      "valore_scontato": 22.77
+    },
+    {
+      "nome": "STONO < CAM MM BATTISTA FANT",
+      "quantita": 1,
+      "prezzo": 49.92,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 21.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

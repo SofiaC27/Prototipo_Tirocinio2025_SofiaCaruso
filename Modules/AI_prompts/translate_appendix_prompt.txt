@@ -1,0 +1,3 @@
+Ora traduci in italiano il testo riformattato, mantenendo invariati i numeri, le date e
+i nomi propri. Non modificare alcun dato strutturale o informativo: la traduzione deve
+concentrarsi solo sul testo descrittivo o discorsivo.

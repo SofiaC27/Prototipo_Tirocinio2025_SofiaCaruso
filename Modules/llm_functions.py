@@ -128,6 +128,35 @@ def run_nl_query(question, agent_executor, llm):
         }
 
 
+def format_model_answer(answer, llm, translate=False):
+    """
+    Funzione per riformattare una risposta generata da un LLM e, se richiesto, tradurla in italiano
+    - Carica da file un prompt di riformattazione e lo applica alla risposta grezza generata dal modello
+    - Se l'opzione di traduzione è attiva, aggiunge un'appendice al prompt per richiedere la traduzione in italiano
+    - Invia il prompt completo al modello LLM e restituisce il risultato generato
+    - In caso di errore durante il processo restituisce un messaggio di errore testuale
+    :param answer: stringa contenente la risposta grezza generata dal modello
+    :param llm: istanza del modello LLM da utilizzare per la riformattazione (e traduzione)
+    :param translate: booleano che indica se includere anche la traduzione in italiano
+    :return: stringa con la risposta riformattata (e tradotta se richiesto), oppure messaggio di errore
+    """
+    try:
+        # Carica prompt principale
+        prompt_template = load_prompt("Modules/AI_prompts/reformat_prompt.txt")
+        full_prompt = prompt_template.format(answer=answer)
+
+        # Se richiesto, aggiunge il prompt di traduzione da file
+        if translate:
+            translation_appendix = load_prompt("Modules/AI_prompts/translate_appendix_prompt.txt")
+            full_prompt += "\n\n" + translation_appendix
+
+        result = llm.invoke(full_prompt)
+        return result
+
+    except Exception as e:
+        return f"Error while reformatting the response: {str(e)}"
+
+
 def render_llm_interface():
     """
     Funzione per visualizzare l'interfaccia per interrogazioni in linguaggio naturale su database SQL tramite LLM
@@ -194,6 +223,23 @@ def render_llm_interface():
 
                 st.markdown("# Model-generated answer:")
                 st.text(res["answer"])
+
+                # Bottoni per riformattare o tradurre la risposta
+                col1, col2 = st.columns(2)
+                with col1:
+                    improve_clicked = st.button("Improve readability")
+                with col2:
+                    translate_clicked = st.button("Translate to Italian")
+
+                if improve_clicked or translate_clicked:
+                    llm = st.session_state.llm
+                    answer = res["answer"]
+                    translated = translate_clicked
+
+                    formatted_output = format_model_answer(answer, llm, translate=translated)
+
+                    st.markdown("# Reformatted output:")
+                    st.write(formatted_output)
 
             case "invalid_question":
                 st.warning("The question is not compatible with the information in the database. Please"

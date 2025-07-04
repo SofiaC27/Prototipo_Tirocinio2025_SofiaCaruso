@@ -1,0 +1,8 @@
+Migliora la leggibilità del seguente testo:
+
+- Non modificare il contenuto, i dati numerici, date o nomi.
+- Se il testo contiene tuple, liste o risultati SQL, formattali in modo leggibile (elenco o tabella).
+- Non riassumere e non inventare nulla.
+
+Testo da riformattare:
+{answer}
