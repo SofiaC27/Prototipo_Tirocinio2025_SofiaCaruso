@@ -1,0 +1,78 @@
+{
+  "data": "2025-05-07",
+  "ora": "17:56:00",
+  "negozio": "ALDI S.r.l.",
+  "indirizzo": "Via Lecco 15/g",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Pan Goccioli MB",
+      "quantita": 1,
+      "prezzo": 2.59,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Wafer-Multi",
+      "quantita": 1,
+      "prezzo": 1.15,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Champ-fette 300g",
+      "quantita": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Arance Valenza 1,00/kg",
+      "quantita": 1,
+      "prezzo": 2.13,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Tacchino Take Away",
+      "quantita": 1,
+      "prezzo": 2.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Aurricchio P. dolce",
+      "quantita": 1,
+      "prezzo": 1.19,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Malvasia IQT 750ml",
+      "quantita": 1,
+      "prezzo": 3.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 15.53,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}

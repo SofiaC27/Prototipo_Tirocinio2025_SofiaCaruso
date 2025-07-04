@@ -128,6 +128,23 @@ def run_nl_query(question, agent_executor, llm):
         }
 
 
+def format_model_answer(answer, llm):
+    """
+    Funzione per riformattare e tradurre in italiano una risposta generata da un LLM
+    - Carica da file un prompt che include le istruzioni per la riformattazione e la traduzione
+    - Inserisce dinamicamente la risposta grezza all'interno del prompt
+    - Invia il prompt al modello LLM e riceve il testo elaborato
+    :param answer: stringa contenente la risposta grezza generata dal modello
+    :param llm: istanza del modello LLM da utilizzare per l'elaborazione
+    :return: stringa con la risposta riformattata e tradotta
+    """
+    prompt_text = load_prompt("Modules/AI_prompts/translate_and_format_prompt.txt")
+    prompt = prompt_text.format(answer=answer)
+
+    result = llm.invoke(prompt)
+    return result.content.strip()
+
+
 def render_llm_interface():
     """
     Funzione per visualizzare l'interfaccia per interrogazioni in linguaggio naturale su database SQL tramite LLM
@@ -137,6 +154,7 @@ def render_llm_interface():
       una domanda in linguaggio naturale
     - Esegue la funzione di query NLP→SQL usando l'agente e il modello LLM
     - Visualizza i risultati strutturati: stato, domanda e risposta testuale generata dal modello
+    - Mostra un bottone che permette di tradurre e riformattare la risposta generata
     - In caso di domanda non compatibile con lo schema del database, mostra un messaggio di avviso
     - In caso di errore durante l'elaborazione, mostra il messaggio dell'eccezione sollevata
     """
@@ -149,6 +167,10 @@ def render_llm_interface():
 
     if "llm_result" not in st.session_state:
         st.session_state.llm_result = None
+    if "last_rendered_answer" not in st.session_state:
+        st.session_state.last_rendered_answer = None
+    if "submitted_question" not in st.session_state:
+        st.session_state.submitted_question = None
 
     st.info("The database stores information extracted from receipts: it includes data about"
             " uploaded receipt images, store and transaction details, and the list of purchased items"
@@ -177,9 +199,12 @@ def render_llm_interface():
         key="nl_input"
     )
 
-    if user_question:
+    # Esegue la query solo se la domanda è nuova o diversa dalla precedente
+    if user_question and user_question != st.session_state.submitted_question:
+        st.session_state.submitted_question = user_question
         res = run_nl_query(user_question, st.session_state.llm_agent, st.session_state.llm)
         st.session_state.llm_result = res
+        st.session_state.last_rendered_answer = res["answer"]
 
     if "llm_result" in st.session_state and st.session_state.llm_result:
         res = st.session_state.llm_result
@@ -194,6 +219,15 @@ def render_llm_interface():
 
                 st.markdown("# Model-generated answer:")
                 st.text(res["answer"])
+
+                # Bottone per tradurre e migliorare leggibilità
+                if st.button("Translate to Italian"):
+                    formatted_output = format_model_answer(
+                        st.session_state.last_rendered_answer,
+                        st.session_state.llm
+                    )
+                    st.markdown("# Reformatted output:")
+                    st.write(formatted_output)
 
             case "invalid_question":
                 st.warning("The question is not compatible with the information in the database. Please"

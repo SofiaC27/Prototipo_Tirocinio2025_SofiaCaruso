@@ -12,9 +12,9 @@ init_database()
 # Titolo dell'applicazione
 st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart Receipts</h1>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center; color: black; font-size: 25px;'>"
-            "An advanced web application for uploading receipts and PDFs, extracting data with "
-            "OCR, and organizing it in a searchable database. Enhanced with AI/LLM for natural"
-            " language interaction and advanced analysis</h2>", unsafe_allow_html=True)
+            "An advanced web application for uploading receipts, extracting data with "
+            "OCR, and organizing it in a searchable database. Enhanced with AI/LLM for natural "
+            "language interaction and advanced analysis</h2>", unsafe_allow_html=True)
 
 
 # Upload dei file

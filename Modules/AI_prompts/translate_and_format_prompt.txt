@@ -1,0 +1,13 @@
+Il seguente testo è la risposta di un modello LLM a una domanda dell’utente.
+
+Istruzioni:
+- Traduci in italiano la risposta, mantenendo invariati numeri, date e nomi propri.
+- Se sono presenti tuple, liste o risultati SQL, riformattali in modo più leggibile (es: tabella o elenco).
+- Non alterare nessun dato, né rimuovere né aggiungere informazioni.
+- Non modificare alcun dato strutturale o informativo: la traduzione deve riguardare esclusivamente il
+  contenuto descrittivo o discorsivo.
+- Restituisci in output solo il testo riformattato e tradotto, senza spiegazioni, commenti aggiuntivi
+  o introduzioni.
+
+Risposta da elaborare:
+{answer}
