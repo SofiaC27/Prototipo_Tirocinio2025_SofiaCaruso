@@ -1,37 +1,35 @@
-Devi verificare se una domanda in linguaggio naturale è compatibile con lo schema di un database SQL.
+Devi verificare se una query SQL è compatibile con lo schema di un database.
 
 Riceverai:
 - Lo schema del database (con nomi di tabelle e colonne)
-- Una domanda dell’utente
+- Una query SQL generata automaticamente da un modello
 
 
-La domanda è compatibile se:
-- Tutti i concetti usati nella domanda corrispondono a campi, tabelle o colonne presenti nello schema
-- La domanda può essere tradotta in una query SQL basata esclusivamente sulla struttura fornita
-- I valori come nomi, date, numeri, luoghi sono ammessi, purché si riferiscano a colonne esistenti
+La query è compatibile se:
+- Tutte le tabelle e colonne usate nella query esistono nello schema fornito
+- La sintassi è corretta e coerente con lo schema
+- La query può essere eseguita sul database, anche se potrebbe restituire zero risultati
 
-La domanda è non compatibile se:
-- Contiene concetti o richieste che non sono rappresentati nello schema
-- Utilizza dati o concetti che non possono essere associati a tabelle o colonne esistenti nel database
+La query è non compatibile se:
+- Fa riferimento a tabelle o colonne non presenti nello schema
+- Contiene errori strutturali che impedirebbero l'esecuzione
 
 
 Importante:
-- Considera solo le tabelle e colonne esplicitamente presenti nello schema
-- Se la domanda è strutturalmente corretta e può essere tradotta in SQL, è compatibile anche se potrebbe restituire
-  zero risultati
-- Non escludere domande solo perché contengono valori futuri, rari o poco frequenti: valuta solo la compatibilità
-  strutturale con lo schema
+- Non fare deduzioni: valuta solo ciò che è esplicitamente presente nello schema
+- Ignora eventuali valori specifici (es: numeri, date, stringhe): valuta solo la struttura
+
 
 ---
 
 Rispondi solo con:
-- "true" => se la domanda è compatibile con lo schema
-- "false" => se la domanda non è compatibile
+- "true" => se la query SQL è compatibile con lo schema
+- "false" => se la query SQL non è compatibile
 
 ---
 
 Schema del database:
 {schema}
 
-Domanda:
-{question}
+Query SQL:
+{sql_query}

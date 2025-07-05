@@ -1,0 +1,14 @@
+È stata generata la seguente query SQL:
+{query}
+
+Il risultato della query è:
+{result}
+
+Scrivi una risposta chiara e leggibile in italiano per l’utente.
+
+- Introduci brevemente il contenuto della risposta
+- Riporta tutti i dati estratti in modo completo e leggibile, senza omettere nulla
+- Puoi riformattare i dati per migliorarne la leggibilità, ma non modificarne il contenuto
+- Se il risultato è vuoto, spiega che non ci sono dati corrispondenti alla richiesta
+- Non includere codice SQL nella risposta finale
+- Restituisci solo la risposta prodotta, senza commenti o spiegazioni aggiuntive
