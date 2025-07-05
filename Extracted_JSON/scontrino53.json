@@ -1,0 +1,60 @@
+{
+  "data": "2025-05-23",
+  "ora": "12:55:00",
+  "negozio": "UNIQUE SRL",
+  "indirizzo": "VIALE DELLA REPUBBLICA 2",
+  "città": "PORTO MANTOVANO - Mantova",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ORG CASS CRIST ANTISCI",
+      "quantita": 1,
+      "prezzo": 2.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POM PON ROSSO 15PCS D.",
+      "quantita": 1,
+      "prezzo": 1.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POMPON DIY 2.5CM 15PC",
+      "quantita": 1,
+      "prezzo": 1.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POM PON 25MM",
+      "quantita": 1,
+      "prezzo": 1.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DC CASA PIROTTINI CART NASTRO AZZURRO 6MM X25",
+      "quantita": 1,
+      "prezzo": 1.6,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 9.6,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

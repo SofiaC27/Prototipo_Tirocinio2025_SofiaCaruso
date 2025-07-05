@@ -70,6 +70,8 @@ def is_question_valid_for_db(question, db_schema, llm):
         "schema": db_schema
     })
 
+    print("Validity:", result)
+
     return result.strip().lower() == "true"
 
 
