@@ -1,0 +1,33 @@
+{
+  "data": "2025-05-04",
+  "ora": "18:12:00",
+  "negozio": "LA ZANZARA",
+  "indirizzo": "VIA GIARDINI BARBATO N.2",
+  "città": "MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "GIN GREEN",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SPRITZ",
+      "quantita": 1,
+      "prezzo": 5.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 15.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

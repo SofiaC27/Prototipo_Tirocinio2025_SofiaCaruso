@@ -1,0 +1,105 @@
+{
+  "data": "2025-05-23",
+  "ora": "16:28:00",
+  "negozio": "ALDI",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Shopper Bio",
+      "quantita": 5,
+      "prezzo": 0.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Grillato 450g",
+      "quantita": 1,
+      "prezzo": 1.79,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Pangrattato 1kg",
+      "quantita": 1,
+      "prezzo": 1.69,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Acqua 1,5 l",
+      "quantita": 1,
+      "prezzo": 0.25,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Acqua Frizz. 1,5 l",
+      "quantita": 1,
+      "prezzo": 0.25,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Pom. Piccad. 500g",
+      "quantita": 1,
+      "prezzo": 1.69,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Pom. baby (PT) 0,004 kg",
+      "quantita": 1,
+      "prezzo": 2.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Peperoni gialli (PT) 0,004 kg",
+      "quantita": 1,
+      "prezzo": 3.81,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Zucchine (PT) 0,004 kg (N) 1,274 kg",
+      "quantita": 1,
+      "prezzo": 1.68,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Sac. ortofrutta",
+      "quantita": 1,
+      "prezzo": 0.01,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 16.17,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}

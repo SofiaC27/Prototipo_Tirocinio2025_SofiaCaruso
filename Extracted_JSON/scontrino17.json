@@ -1,0 +1,33 @@
+{
+  "data": "2025-06-29",
+  "ora": "18:21:00",
+  "negozio": "CALLIOPE",
+  "indirizzo": "P.LE CESARE BECCARIA N.1",
+  "città": "MANTOVA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Abito Intero1000773475",
+      "quantita": 1,
+      "prezzo": 64.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 4.03,
+      "sconto_assoluto": 4.03,
+      "valore_scontato": 62.37
+    },
+    {
+      "nome": "Shopper1000518992",
+      "quantita": 1,
+      "prezzo": 80.19,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 16.15,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta di credito"
+}

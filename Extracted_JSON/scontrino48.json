@@ -1,0 +1,51 @@
+{
+  "data": "2025-05-03",
+  "ora": "18:15:42",
+  "negozio": "LIDL",
+  "indirizzo": "Via Verona, 83",
+  "città": "Mantoue - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MOZZARELLA HIGH PROT",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "VEGGIE BURGER TOFU",
+      "quantita": 1,
+      "prezzo": 1.79,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PEPPERONI ROSSI",
+      "quantita": 1,
+      "prezzo": 5.32,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "1.558 Kg x2,99 EUR/Kg",
+      "quantita": 1,
+      "prezzo": 4.65,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}
