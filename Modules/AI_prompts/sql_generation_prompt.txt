@@ -1,0 +1,16 @@
+Hai accesso a un database SQL con la seguente struttura:
+
+{table_info}
+
+Il database è di tipo SQLite. Usa solo funzioni e sintassi compatibili con SQLite.
+
+Domanda: {input}
+
+Scrivi una query SQL compatibile con il database per rispondere alla domanda.
+
+Se la domanda non è compatibile con le informazioni disponibili nel database non generare
+alcuna query e lascia la risposta vuota.
+
+Restituisci solo la query SQL, senza spiegazioni o testo aggiuntivo.
+
+Se possibile, limita il numero di risultati a massimo {top_k} righe.

@@ -5,49 +5,25 @@ from langchain_community.utilities import SQLDatabase
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain.chains import create_sql_query_chain
+from langchain.tools import Tool
+from langchain.agents import initialize_agent
+from langchain.agents.agent_types import AgentType
 
 
 from Modules.ocr_groq import load_prompt
 
 
-def init_chain(api_key):
+def init_chain(llm, db):
     """
     Funzione per inizializzare la catena LangChain per interrogazioni in linguaggio naturale su database SQL
-    - Configura il modello LLM llama3 tramite endpoint Groq, utilizzando l'API key fornita
-    - Crea la connessione al database locale SQLite
-    - Costruisce una catena LangChain che, dato un input testuale in linguaggio naturale, restituisce
-      una query SQL come stringa, senza eseguirla
-    :param api_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
-    :return: una catena Runnable che accetta una domanda e restituisce una query SQL
-    :return: oggetto SQLDatabase connesso al database locale
-    :return: modello LLM configurato per la generazione delle query
+    - Carica un prompt da file per la generazione della query
+    - Costruisce una catena LangChain che restituisce una query SQL come stringa.
+    :param llm: modello LLM
+    :param db: oggetto SQLDatabase connesso al database locale
+    :return: una catena Runnable
     """
-    llm = ChatOpenAI(
-        model="llama3-8b-8192",
-        temperature=0,
-        openai_api_key=api_key,
-        openai_api_base="https://api.groq.com/openai/v1",
-    )
-
-    db = SQLDatabase.from_uri("sqlite:///documents.db")
-
-    sql_only_prompt = PromptTemplate.from_template("""
-    Hai accesso a un database SQL con la seguente struttura:
-
-    {table_info}
-
-    Domanda: {input}
-
-    Scrivi una query SQL compatibile con il database per rispondere alla domanda.
-
-    Se la domanda non è compatibile con le informazioni disponibili nel database non generare 
-    alcuna query e lascia la risposta vuota.
-
-    Restituisci solo la query SQL, senza spiegazioni o testo aggiuntivo.
-
-    Se possibile, limita il numero di risultati a massimo {top_k} righe.
-    """)
-
+    prompt_text = load_prompt("Modules/AI_prompts/sql_generation_prompt.txt")
+    sql_only_prompt = PromptTemplate.from_template(prompt_text)
     query_chain = create_sql_query_chain(
         llm=llm,
         db=db,
@@ -55,23 +31,47 @@ def init_chain(api_key):
         k=100
     )
 
-    return query_chain, db, llm
+    return query_chain
 
 
-def is_query_valid_for_db(sql_query, db_schema, llm):
+def is_question_valid_for_db(question, llm, db_schema):
     """
-    Funzione per verificare se una query SQL generata è compatibile con lo schema di un database SQL
-    - Carica un prompt da file esterno, dove lo schema e la query vengono inseriti dinamicamente
-    - Il prompt viene passato all’LLM, che deve rispondere solo con "true" o "false"
-    - Costruisce una catena composta dal prompt, dal modello LLM e da un parser per l’output testuale
-    - Esegue la catena passando lo schema e la query come input
-    - La risposta viene convertita in un booleano Python per determinare se la query è semanticamente valida
-    :param sql_query: stringa contenente la query SQL generata da validare
-    :param db_schema: stringa rappresentante lo schema SQL del database da consultare
-    :param llm: modello LLM compatibile con LangChain
-    :return: True se la query è semanticamente compatibile con lo schema, altrimenti False
+    Funzione per verificare se una domanda in linguaggio naturale è semanticamente compatibile con
+    lo schema del database
+    - Carica un prompt da file esterno
+    - Costruisce una catena LangChain con il prompt, il modello LLM e un parser
+    - Passa la domanda e lo schema al modello
+    - Interpreta la risposta come booleano
+    :param question: domanda in linguaggio natuarale dell'utente
+    :param llm: modello LLM
+    :param db_schema: schema del database locale
+    :return: True se la domanda è compatibile, altrimenti False
     """
-    prompt_text = load_prompt("Modules/AI_prompts/validity_prompt.txt")
+    prompt_text = load_prompt("Modules/AI_prompts/question_validity_prompt.txt")
+
+    prompt = PromptTemplate.from_template(prompt_text)
+    chain = prompt | llm | StrOutputParser()
+    result = chain.invoke({
+        "question": question,
+        "schema": db_schema
+    })
+
+    return result.strip().lower() == "true"
+
+
+def is_query_valid_for_db(sql_query, llm, db_schema):
+    """
+    Funzione per verificare se una query SQL generata è compatibile con lo schema del database
+    - Carica un prompt da file esterno
+    - Costruisce una catena LangChain con il prompt, il modello LLM e un parser.
+    - Passa la query e lo schema al modello
+    - Interpreta la risposta come booleano
+    :param sql_query: query SQL generata da validare
+    :param llm: modello LLM
+    :param db_schema: schema del database locale
+    :return: True se la query è compatibile, altrimenti False
+    """
+    prompt_text = load_prompt("Modules/AI_prompts/query_validity_prompt.txt")
 
     prompt = PromptTemplate.from_template(prompt_text)
 
@@ -82,175 +82,179 @@ def is_query_valid_for_db(sql_query, db_schema, llm):
         "schema": db_schema
     })
 
-    print("Query validity:", result)
-
     return result.strip().lower() == "true"
 
 
 def format_model_answer(sql_query, raw_result, llm):
     """
-    Funzione per generare una risposta formattata e leggibile in italiano a partire da una query SQL e dal suo risultato
-    - Carica da file un prompt che include le istruzioni per la formattazione e la traduzione in italiano
-    - Inserisce dinamicamente la query SQL e il risultato grezzo all'interno del prompt
-    - Invia il prompt al modello LLM per ottenere una risposta testuale coerente, chiara e adatta all’utente
-    :param sql_query: stringa contenente la query SQL generata
-    :param raw_result: risultato grezzo ottenuto dall’esecuzione della query sul database
-    :param llm: istanza del modello LLM da utilizzare per la riformattazione
+    Funzione per generare una risposta formattata e tradotta in italiano a partire dal risultato di una query SQL
+    - Carica un prompt da file esterno
+    - Inserisce dinamicamente la query e il risultato nel prompt
+    - Invia il prompt al modello LLM
+    :param sql_query: query SQL generata
+    :param raw_result: risultato grezzo della query eseguita sul database
+    :param llm: modello LLM
     :return: stringa con la risposta finale formattata in italiano
     """
     prompt_text = load_prompt("Modules/AI_prompts/format_answer_prompt.txt")
 
-    full_input = prompt_text.format(
+    formatted_prompt = prompt_text.format(
         query=sql_query,
         result=raw_result
     )
 
-    result = llm.invoke(full_input)
-    return result.content.strip()
+    response = llm.invoke(formatted_prompt)
+
+    return response.content.strip()
 
 
-def run_nl_query(question, query_chain, db, llm):
+def build_question_validator_tool(llm, db_schema):
     """
-     Funzione per elaborare una domanda in linguaggio naturale ed eseguire una query SQL tramite LangChain
-    - Recupera lo schema SQL del database corrente
-    - Genera una query SQL a partire dalla domanda usando la catena creata
-    - Verifica se la query generata è semanticamente compatibile con lo schema del database tramite un LLM esterno
-    - Se la query è incompatibile, restituisce uno stato "invalid_question" e non viene eseguita
-    - Se la query è valida: viene eseguita sul database, e il risultato grezzo viene passato al modello per generare
-      una risposta formattata in italiano
-    - In caso di errore durante il processo, restituisce uno stato "error" con il messaggio dell'eccezione
-
-    :param question: stringa contenente la domanda in linguaggio naturale dell'utente
-    :param query_chain: catena LangChain che genera una query SQL a partire da una domanda
-    :param db: istanza SQLDatabase connessa al database da interrogare
-    :param llm: istanza LLM compatibile con LangChain, usata per validazione e formattazione
-    :return: dizionario con la domanda, la query SQL generata, il risultato grezzo, la risposta formattata e lo stato
+    Funzione che crea un tool LangChain che valida semanticamente una domanda rispetto allo schema
+    del database
+    - Recupera lo schema dal database
+    - Usa is_question_valid_for_db per la valutazione
+    :param llm: modello LLM
+    :param db_schema: schema dell'oggetto SQLDatabase connesso al database locale
+    :return: oggetto Tool utilizzabile da un agente per validare le domande
     """
-    try:
-        db_schema = db.get_table_info()
-        sql_query = query_chain.invoke({"question": question})
+    def validate_question(question):
+        return is_question_valid_for_db(question, llm, db_schema)
 
-        # Validazione post-query
-        if not is_query_valid_for_db(sql_query, db_schema, llm):
-            return {
-                "question": question,
-                "sql_query": None,
-                "raw_result": None,
-                "answer": None,
-                "status": "invalid_question"
-            }
-        else:
-            # Esegui la query
-            raw_result = db.run(sql_query)
-
-            # Genera la risposta formattata
-            formatted_answer = format_model_answer(sql_query, raw_result, llm)
-
-            return {
-                "question": question,
-                "sql_query": sql_query,
-                "raw_result": raw_result,
-                "answer": formatted_answer,
-                "status": "valid_question"
-            }
-
-    except Exception as e:
-        return {
-            "question": question,
-            "sql_query": None,
-            "raw_result": None,
-            "answer": None,
-            "status": "error",
-            "error_message": str(e)
-        }
-
-
-def render_llm_interface():
-    """
-    Funzione per visualizzare l'interfaccia per interrogazioni in linguaggio naturale su database SQL tramite LLM
-    - Recupera la chiave API e inizializza la catena LangChain per la generazione di query SQL e il modello LLM
-    - Mostra un messaggio informativo con la descrizione del database per guidare l’utente nella formulazione
-      delle domande
-    - Visualizza una selectbox con esempi di domande, che funge anche da campo di input testuale
-    - Esegue la funzione per generare la query SQL, validarla, eseguirla e formattare la risposta
-    - Visualizza i risultati strutturati: stato della domanda, domanda originale, query SQL generata, risultato grezzo
-      e risposta finale
-    - In caso di domanda non compatibile con lo schema del database, mostra un messaggio di avviso
-    - In caso di errore durante l’elaborazione, mostra il messaggio dell’eccezione sollevata
-    """
-    llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
-
-    if "query_chain" not in st.session_state or "llm" not in st.session_state or "db" not in st.session_state:
-        query_chain, db, llm = init_chain(llm_key)
-        st.session_state.query_chain = query_chain
-        st.session_state.llm = llm
-        st.session_state.db = db
-
-    if "llm_result" not in st.session_state:
-        st.session_state.llm_result = None
-    if "last_rendered_answer" not in st.session_state:
-        st.session_state.last_rendered_answer = None
-    if "submitted_question" not in st.session_state:
-        st.session_state.submitted_question = None
-
-    st.info("The database stores information extracted from receipts: it includes data about"
-            " uploaded receipt images, store and transaction details, and the list of purchased items"
-            " with potential discounts. It is designed to answer questions about purchases, stores, "
-            " prices, dates, products, and payment methods.")
-
-    examples = [
-        "Mostrami i primi 15 scontrini caricati nel 2025",
-        "Mostrami i primi 10 acquisti effettuati nel 2025",
-        "Elenca i prodotti per cui è stato applicato uno sconto",
-        "Qual è la somma totale delle spese effettuate nel mese di marzo?",
-        "Quali prodotti sono stati acquistati più di una volta in giorni diversi?",
-        "In quale mese del 2025 ho speso di più in totale?",
-        "Quali negozi ho visitato più spesso?",
-        "Qual è stato il metodo di pagamento più usato nei miei acquisti?",
-        "Mostrami tutti i prodotti acquistati in contanti",
-        "Quali sono i prodotti più acquistati in termini di quantità totale?"
-    ]
-
-    user_question = st.selectbox(
-        "Enter a question or choose one from the examples below:",
-        options=examples,
-        index=None,
-        placeholder="Type or select a question...",
-        accept_new_options=True,
-        key="nl_input"
+    return Tool(
+        name="QuestionValidator",
+        func=validate_question,
+        description="Valida se una domanda in linguaggio naturale è semanticamente compatibile con lo"
+                    " schema del database"
     )
 
-    # Esegue la query solo se la domanda è nuova o diversa dalla precedente
-    if user_question and user_question != st.session_state.submitted_question:
-        st.session_state.submitted_question = user_question
-        res = run_nl_query(user_question, st.session_state.query_chain, st.session_state.db, st.session_state.llm)
-        st.session_state.llm_result = res
-        st.session_state.last_rendered_answer = res["answer"]
 
-    if "llm_result" in st.session_state and st.session_state.llm_result:
-        res = st.session_state.llm_result
+def build_sql_query_tool(llm, db):
+    """
+    Funzione che crea un tool LangChain che genera una query SQL da una domanda in linguaggio naturale
+    - Inizializza tramite init_chain la catena che restituisce la query
+    :param llm: modello LLM
+    :param db: oggetto SQLDatabase connesso al database locale
+    :return: oggetto Tool utilizzabile da un agente che restituisce una query SQL come stringa
+    """
+    query_chain = init_chain(llm, db)
 
-        st.markdown("# Query status:")
-        st.write(res['status'])
+    def generate_sql(question):
+        return query_chain.invoke({"question": question})
 
-        match res["status"]:
-            case "valid_question":
-                st.markdown("# Natural language question:")
-                st.write(res["question"])
+    return Tool(
+        name="SQLQueryGenerator",
+        func=generate_sql,
+        description="Genera una query SQL a partire da una domanda in linguaggio naturale. Non esegue"
+                    " la query"
+    )
 
-                st.markdown("# Generated SQL query:")
-                st.code(res["sql_query"], language="sql")
 
-                st.markdown("# Raw query result:")
-                st.write(res["raw_result"])
+def build_query_validator_tool(llm, db_schema):
+    """
+    Funzione che crea un tool LangChain che verifica la compatibilità semantica di una query SQL con
+    lo schema del database
+    - Usa is_query_valid_for_db per la valutazione
+    :param llm: modello LLM
+    :param db_schema: schema dell'oggetto SQLDatabase connesso al database locale
+    :return: oggetto Tool utilizzabile da un agente per validare le query
+    """
+    def validate_query(sql_query):
+        return is_query_valid_for_db(sql_query, llm, db_schema)
 
-                st.markdown("# Model-generated answer:")
-                st.text(res["answer"])
+    return Tool(
+        name="QueryValidator",
+        func=validate_query,
+        description="Valida se una query SQL è semanticamente compatibile con lo schema del database"
+    )
 
-            case "invalid_question":
-                st.warning("The question is not compatible with the information in the database. Please"
-                           " try asking a different, more suitable question")
 
-            case "error":
-                error_msg = res.get("error_message", "An unexpected error occurred")
-                st.error(f"An error occurred while answering the question using SQL:\n\n{error_msg}")
+def build_query_executor_tool(db):
+    """
+    Funzione che crea un tool LangChain che esegue una query SQL sul database locale
+    - Usa db.run() per eseguire la query
+    :param db: oggetto SQLDatabase connesso al database locale
+    :return: oggetto Tool utilizzabile da un agente che restituisce il risultato grezzo della query
+    """
+    def execute_query(sql_query):
+        return db.run(sql_query)
+
+    return Tool(
+        name="QueryExecutor",
+        func=execute_query,
+        description="Esegue una query SQL sul database e restituisce il risultato grezzo"
+    )
+
+
+def build_answer_formatter_tool(llm):
+    """
+    Funzione che crea un tool LangChain che formatta e traduce in italiano la risposta del modello con il
+    risultato di una query SQL
+    - Usa format_model_answer per generare la risposta
+    :param llm: modello LLM
+    :return: oggetto Tool utilizzabile da un agente che restituisce la risposta come stringa formattata
+    """
+    def format_answer(query_and_result):
+        sql_query = query_and_result["sql_query"]
+        raw_result = query_and_result["raw_result"]
+        return format_model_answer(sql_query, raw_result, llm)
+
+    return Tool(
+        name="AnswerFormatter",
+        func=format_answer,
+        description="Formatta e traduce in italiano la risposta con il risultato di una query SQL"
+    )
+
+
+def build_custom_agent(api_key):
+    """
+    Funzione che inizializza un agente LangChain personalizzato per l'interrogazione di un database SQL
+    tramite linguaggio naturale
+    - Configura il modello LLM llama3 tramite endpoint Groq, utilizzando l'API key fornita
+    - Crea la connessione al database SQLite locale e ottiene il suo schema
+    - Costruisce i tool personalizzati per:
+        - Validare semanticamente la domanda
+        - Generare una query SQL coerente con lo schema
+        - Validare la query generata
+        - Eseguire la query sul database
+        - Formattare e tradurre in italiano il risultato della query
+    - Inizializza un agente LangChain con i tool configurati
+    :param api_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
+    :return: agente LangChain configurato con i tool personalizzati
+    """
+    llm = ChatOpenAI(
+        model="llama3-8b-8192",
+        temperature=0,
+        openai_api_key=api_key,
+        openai_api_base="https://api.groq.com/openai/v1",
+    )
+
+    db = SQLDatabase.from_uri("sqlite:///documents.db")
+    db_schema = db.get_table_info()
+
+    # Costruisce i tool
+    question_validator_tool = build_question_validator_tool(llm, db_schema)
+    sql_query_tool = build_sql_query_tool(llm, db)
+    query_validator_tool = build_query_validator_tool(llm, db_schema)
+    query_executor_tool = build_query_executor_tool(db)
+    answer_formatter_tool = build_answer_formatter_tool(llm)
+
+    # Lista dei tool da fornire all'agente
+    tools = [
+        question_validator_tool,
+        sql_query_tool,
+        query_validator_tool,
+        query_executor_tool,
+        answer_formatter_tool
+    ]
+
+    # Inizializza l'agente
+    agent = initialize_agent(
+        tools=tools,
+        llm=llm,
+        agent_type=AgentType.OPENAI_FUNCTIONS,
+        verbose=True,
+        handle_parsing_errors=True,
+    )
+
+    return agent

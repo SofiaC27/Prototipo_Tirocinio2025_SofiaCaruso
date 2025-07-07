@@ -1,7 +1,5 @@
-È stata generata la seguente query SQL:
-{query}
+Il risultato della seguente query SQL {query} è:
 
-Il risultato della query è:
 {result}
 
 Scrivi una risposta chiara e leggibile in italiano per l’utente.

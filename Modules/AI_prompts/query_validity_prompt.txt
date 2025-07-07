@@ -1,4 +1,4 @@
-Devi verificare se una query SQL è compatibile con lo schema di un database.
+Devi verificare se una query SQL è compatibile con lo schema di un database SQLite.
 
 Riceverai:
 - Lo schema del database (con nomi di tabelle e colonne)
