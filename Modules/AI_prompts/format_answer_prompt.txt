@@ -1,4 +1,4 @@
-Il risultato della seguente query SQL {query} è:
+Il risultato della query SQL è:
 
 {result}
 

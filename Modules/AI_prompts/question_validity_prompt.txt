@@ -6,21 +6,32 @@ Riceverai:
 
 
 La domanda è compatibile se:
-- Tutti i concetti usati nella domanda corrispondono a campi, tabelle o colonne presenti nello schema
+- Tutti i concetti usati nella domanda corrispondono esplicitamente a campi, tabelle o colonne presenti nello schema
 - La domanda può essere tradotta in una query SQL basata esclusivamente sulla struttura fornita
 - I valori come nomi, date, numeri, luoghi sono ammessi, purché si riferiscano a colonne esistenti
 
 La domanda è non compatibile se:
 - Contiene concetti o richieste che non sono rappresentati nello schema
 - Utilizza dati o concetti che non possono essere associati a tabelle o colonne esistenti nel database
+- Richiede inferenze o conoscenze esterne non presenti nello schema
 
 
 Importante:
 - Considera solo le tabelle e colonne esplicitamente presenti nello schema
-- Se la domanda è strutturalmente corretta e può essere tradotta in SQL, è compatibile anche se potrebbe restituire
-  zero risultati
-- Non escludere domande solo perché contengono valori futuri, rari o poco frequenti: valuta solo la compatibilità
-  strutturale con lo schema
+- Non cercare di interpretare o inferire significati impliciti: valuta solo se i termini usati nella domanda
+  corrispondono letteralmente a nomi di colonne o tabelle
+- Se la domanda è strutturalmente corretta e può essere tradotta in SQL, è compatibile anche se potrebbe
+  restituire zero risultati
+
+
+Esempi (servono solo a illustrare la logica da seguire. Le domande reali non devono essere identiche,
+ma devono rispettare gli stessi criteri di compatibilità con lo schema):
+
+Domanda: "Mostrami tutti gli scontrini caricati nel 2023"
+→ Risposta: true
+
+Domanda: "Quando c'è stato il sole?"
+→ Risposta: false
 
 ---
 
