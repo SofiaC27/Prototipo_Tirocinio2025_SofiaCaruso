@@ -4,7 +4,7 @@ from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
                                    delete_file_from_database_and_folder, display_receipts_data_with_expanders)
 from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
-from Modules.llm_functions import build_custom_agent
+from Modules.llm_functions import run_agent
 
 
 init_database()
@@ -83,9 +83,7 @@ st.subheader("LLM")
 
 
 llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
-agent = build_custom_agent(llm_key)
-response = agent.invoke("Mostrami i primi 10 scontrini caricati nel 2023")
-st.write(response["output"])
+run_agent(llm_key)
 
 
 # Eliminazione file

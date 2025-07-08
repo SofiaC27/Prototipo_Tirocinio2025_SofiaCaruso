@@ -96,7 +96,7 @@ def format_model_answer(raw_result, llm):
     :param llm: modello LLM
     :return: stringa con la risposta finale formattata in italiano
     """
-    if not raw_result:
+    if raw_result == "[]":
         return ("La richiesta è stata compresa ed elaborata correttamente, ma la query non ha restituito"
                 " alcun risultato. Non sono stati trovati dati corrispondenti ai criteri specificati."
                 " Potresti provare a modificare i parametri della ricerca per ottenere risultati diversi.")
@@ -173,6 +173,7 @@ def build_query_executor_tool(db):
     """
     Funzione che crea un tool LangChain che esegue una query SQL sul database locale
     - Usa db.run() per eseguire la query
+    - Se la query non restituisce un risultato, ritorna "[]"
     :param db: oggetto SQLDatabase connesso al database locale
     :return: oggetto Tool utilizzabile da un agente che restituisce il risultato grezzo della query
     """
@@ -210,7 +211,7 @@ def build_answer_formatter_tool(llm):
     )
 
 
-def build_custom_agent(api_key):
+def build_custom_agent(llm_key):
     """
     Funzione che inizializza un agente LangChain personalizzato per l'interrogazione di un database SQL
     tramite linguaggio naturale
@@ -223,13 +224,13 @@ def build_custom_agent(api_key):
         - Eseguire la query sul database
         - Formattare e tradurre in italiano il risultato della query
     - Inizializza un agente LangChain con i tool configurati
-    :param api_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
+    :param llm_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
     :return: agente LangChain configurato con i tool personalizzati
     """
     llm = ChatOpenAI(
         model="llama3-8b-8192",
         temperature=0,
-        openai_api_key=api_key,
+        openai_api_key=llm_key,
         openai_api_base="https://api.groq.com/openai/v1",
     )
 
@@ -263,4 +264,26 @@ def build_custom_agent(api_key):
         early_stopping_method="generate"
     )
 
-    return agent
+    return agent, llm, db
+
+
+def run_agent(llm_key):
+    """
+    Funzione per eseguire l'agente LangChain per rispondere a una domanda in linguaggio naturale
+    interrogando un database SQL locale
+    - Inizializza l'agente personalizzato
+    - Recupera lo schema del database per la validazione semantica della domanda
+    - Valida la domanda in linguaggio naturale rispetto allo schema del database
+        - Se la domanda non è compatibile, mostra un messaggio di avviso
+        - Se la domanda è valida, esegue l'agente per ottenere la risposta
+    - Visualizza la risposta finale
+    :param llm_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
+    """
+    agent, llm, db = build_custom_agent(llm_key)
+    user_input = "Mostrami i primi 10 scontrini caricati nel 2025"
+    db_schema = db.get_table_info()
+    if not is_question_valid_for_db(user_input, llm, db_schema):
+        st.write("La domanda non è compatibile con il database")
+    else:
+        response = agent.invoke({"input": user_input})
+        st.write(response["output"])
