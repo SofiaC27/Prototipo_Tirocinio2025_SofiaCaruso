@@ -56,7 +56,7 @@ def is_question_valid_for_db(question, llm, db_schema):
         "schema": db_schema
     })
 
-    return result.strip().lower() == "true"
+    return "true" in result.strip().lower()
 
 
 def is_query_valid_for_db(sql_query, llm, db_schema):
@@ -82,7 +82,7 @@ def is_query_valid_for_db(sql_query, llm, db_schema):
         "schema": db_schema
     })
 
-    return result.strip().lower() == "true"
+    return "true" in result.strip().lower()
 
 
 def format_model_answer(raw_result, llm):
@@ -177,7 +177,12 @@ def build_query_executor_tool(db):
     :return: oggetto Tool utilizzabile da un agente che restituisce il risultato grezzo della query
     """
     def execute_query(sql_query):
-        return db.run(sql_query)
+        try:
+            result = db.run(sql_query)
+            return result if result else "[]"
+        except Exception as e:
+            return f"Errore durante l'esecuzione della query: {str(e)}"
+        #return db.run(sql_query)
 
     return Tool(
         name="QueryExecutor",
@@ -254,6 +259,8 @@ def build_custom_agent(api_key):
         agent_type=AgentType.OPENAI_FUNCTIONS,
         verbose=True,
         handle_parsing_errors=True,
+        max_iterations=5,
+        early_stopping_method="generate"
     )
 
     return agent

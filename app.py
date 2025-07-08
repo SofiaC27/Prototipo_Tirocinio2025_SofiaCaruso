@@ -84,7 +84,7 @@ st.subheader("LLM")
 
 llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
 agent = build_custom_agent(llm_key)
-response = agent.invoke("Mostrami i primi 10 scontrini caricati nel 2025")
+response = agent.invoke("Mostrami i primi 10 scontrini caricati nel 2023")
 st.write(response["output"])
 
 
