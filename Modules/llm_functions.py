@@ -85,24 +85,24 @@ def is_query_valid_for_db(sql_query, llm, db_schema):
     return result.strip().lower() == "true"
 
 
-def format_model_answer(sql_query, raw_result, llm):
+def format_model_answer(raw_result, llm):
     """
     Funzione per generare una risposta formattata e tradotta in italiano a partire dal risultato di una query SQL
+    - Controlla se il risultato della query è vuoto e in caso da un messaggio di nessun risultato
     - Carica un prompt da file esterno
     - Inserisce dinamicamente la query e il risultato nel prompt
     - Invia il prompt al modello LLM
-    :param sql_query: query SQL generata
     :param raw_result: risultato grezzo della query eseguita sul database
     :param llm: modello LLM
     :return: stringa con la risposta finale formattata in italiano
     """
+    if not raw_result:
+        return ("La richiesta è stata compresa ed elaborata correttamente, ma la query non ha restituito"
+                " alcun risultato. Non sono stati trovati dati corrispondenti ai criteri specificati."
+                " Potresti provare a modificare i parametri della ricerca per ottenere risultati diversi.")
+
     prompt_text = load_prompt("Modules/AI_prompts/format_answer_prompt.txt")
-
-    formatted_prompt = prompt_text.format(
-        query=sql_query,
-        result=raw_result
-    )
-
+    formatted_prompt = prompt_text.format(result=raw_result)
     response = llm.invoke(formatted_prompt)
 
     return response.content.strip()
@@ -194,15 +194,14 @@ def build_answer_formatter_tool(llm):
     :param llm: modello LLM
     :return: oggetto Tool utilizzabile da un agente che restituisce la risposta come stringa formattata
     """
-    def format_answer(query_and_result):
-        sql_query = query_and_result["sql_query"]
-        raw_result = query_and_result["raw_result"]
-        return format_model_answer(sql_query, raw_result, llm)
+    def format_answer(raw_result):
+        return format_model_answer(raw_result, llm)
 
     return Tool(
         name="AnswerFormatter",
         func=format_answer,
-        description="Formatta e traduce in italiano la risposta con il risultato di una query SQL"
+        description="Formatta e traduce in italiano la risposta con il risultato di una query SQL",
+        return_direct=True
     )
 
 
