@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 from langchain_openai import ChatOpenAI
 from langchain_community.utilities import SQLDatabase
@@ -391,21 +392,21 @@ def render_llm_interface():
     if st.session_state.llm_result:
         res = st.session_state.llm_result
 
-        st.markdown("# Query status:")
+        st.markdown("<h3 style='font-size:18px;'>Query status:</h3>", unsafe_allow_html=True)
         st.write(res['status'])
 
         match res["status"]:
             case "valid_question":
-                st.markdown("<h3 style='font-size:18px;'>Natural language question</h3>", unsafe_allow_html=True)
+                st.markdown("<h3 style='font-size:18px;'>Natural language question:</h3>", unsafe_allow_html=True)
                 st.write(res["question"])
 
-                st.markdown("<h3 style='font-size:18px;'>Generated SQL query</h3>", unsafe_allow_html=True)
+                st.markdown("<h3 style='font-size:18px;'>Generated SQL query:</h3>", unsafe_allow_html=True)
                 st.code(res["query"], language="sql")
 
-                st.markdown("<h3 style='font-size:18px;'>Raw SQL result</h3>", unsafe_allow_html=True)
-                st.text(res["raw_result"])
+                st.markdown("<h3 style='font-size:18px;'>Raw SQL result:</h3>", unsafe_allow_html=True)
+                st.code(res["raw_result"], language="python", wrap_lines=True, height="content", width="stretch")
 
-                st.markdown("<h3 style='font-size:18px;'>Model-generated answer</h3>", unsafe_allow_html=True)
+                st.markdown("<h3 style='font-size:18px;'>Model-generated answer:</h3>", unsafe_allow_html=True)
                 st.text(res["answer"])
 
             case "invalid_question":
