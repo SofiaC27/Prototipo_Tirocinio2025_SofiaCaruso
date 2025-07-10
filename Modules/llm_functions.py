@@ -267,44 +267,40 @@ def build_custom_agent(llm_key):
     return agent, llm, db
 
 
-def run_agent(llm_key):
+def run_agent(llm_key, question):
     """
     Funzione per eseguire un agente LangChain e rispondere a una domanda in linguaggio naturale
     interrogando un database SQL locale
     - Inizializza l'agente personalizzato
     - Recupera lo schema del database per la validazione semantica della domanda
     - Valida la domanda in linguaggio naturale rispetto allo schema del database
-    - Se la domanda non è compatibile, mostra un messaggio di avviso e restituisce uno stato "invalid_question"
     - Se la domanda è valida:
         - Esegue l'agente con input testuale
-        - Estrae e visualizza la risposta finale generata
         - Recupera la query SQL generata e il risultato grezzo ottenuto dal database tramite intermediate_steps
-        - Visualizza query, risultato e risposta finale
+        - Estrae la risposta finale generata
         - Restituisce uno stato "valid_question" con tutte le informazioni raccolte
-    - In caso di errore durante il processo, mostra l’eccezione e restituisce uno stato "error" con il messaggio
+    - Gestisce i casi di errore o di incompatibilità semantica della domanda
     :param llm_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
+    :param question: stringa contenente la domanda in linguaggio naturale
     :return dizionario contenente lo stato della domanda, la domanda dell'utente, la query SQL generata,
             il risultato grezzo della query eseguita sul database e la risposta finale del modello
     """
-    agent, llm, db = build_custom_agent(llm_key)
-    user_input = "Mostrami i primi 10 scontrini caricati nel 2025"
-
     try:
+        agent, llm, db = build_custom_agent(llm_key)
         db_schema = db.get_table_info()
 
         # Valida la domanda rispetto allo schema
-        if not is_question_valid_for_db(user_input, llm, db_schema):
-            st.write("La domanda non è compatibile con il database")
+        if not is_question_valid_for_db(question, llm, db_schema):
             return {
                 "status": "invalid_question",
-                "question": user_input,
+                "question": question,
                 "sql_query": None,
                 "raw_result": None,
                 "answer": None
             }
 
         # Esecuzione dell'agente
-        response = agent.invoke({"input": user_input})
+        response = agent.invoke({"input": question})
         final_answer = response["output"]
         sql_query = None
         raw_result = None
@@ -315,13 +311,9 @@ def run_agent(llm_key):
             elif action.tool == "QueryExecutor":
                 raw_result = output
 
-        st.write("Query SQL:", sql_query)
-        st.write("Risultato grezzo:", raw_result)
-        st.write("Risposta:", final_answer)
-
         return {
             "status": "valid_question",
-            "question": user_input,
+            "question": question,
             "query": sql_query,
             "raw_result": raw_result,
             "answer": final_answer
@@ -331,9 +323,95 @@ def run_agent(llm_key):
         st.write("Error:", str(e))
         return {
             "status": "error",
-            "question": user_input,
+            "question": question,
             "query": None,
             "raw_result": None,
             "answer": None,
             "error_message": str(e)
         }
+
+
+def render_llm_interface():
+    """
+    Funzione per visualizzare l'interfaccia per interrogazioni in linguaggio naturale su database SQL tramite LLM
+    - Recupera la chiave API
+    - Mostra un messaggio informativo con la descrizione del database per aiutare l'utente a
+      formulare domande pertinenti
+    - Mostra una selectbox contenente esempi di interrogazioni, che funge anche da campo di input testuale per
+      l'inserimento di domande personalizzate
+    - Se la domanda è nuova, esegue l'elaborazione NLP→SQL
+    - Visualizza lo stato della richiesta, la domanda dell’utente, la query SQL generata, il risultato grezzo del
+      database e la risposta finale del modello
+    - In caso di domanda non compatibile con lo schema del database, mostra un avviso
+    - In caso di errore durante l’elaborazione, mostra il messaggio dell’eccezione sollevata
+    """
+    llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
+
+    if "llm_result" not in st.session_state:
+        st.session_state.llm_result = None
+    if "last_rendered_answer" not in st.session_state:
+        st.session_state.last_rendered_answer = None
+    if "submitted_question" not in st.session_state:
+        st.session_state.submitted_question = None
+
+    st.info("The database stores information extracted from receipts: it includes data about"
+            " uploaded receipt images, store and transaction details, and the list of purchased items"
+            " with potential discounts. It is designed to answer questions about purchases, stores, "
+            " prices, dates, products, and payment methods.")
+
+    examples = [
+        "Mostrami i primi 15 scontrini caricati nel 2025",
+        "Mostrami i primi 10 acquisti effettuati nel 2025",
+        "Elenca i prodotti per cui è stato applicato uno sconto",
+        "Qual è la somma totale delle spese effettuate nel mese di marzo?",
+        "Quali prodotti sono stati acquistati più di una volta in giorni diversi?",
+        "In quale mese del 2025 ho speso di più in totale?",
+        "Quali negozi ho visitato più spesso?",
+        "Qual è stato il metodo di pagamento più usato nei miei acquisti?",
+        "Mostrami tutti i prodotti acquistati in contanti",
+        "Quali sono i prodotti più acquistati in termini di quantità totale?"
+    ]
+
+    user_question = st.selectbox(
+        "Enter a question or choose one from the examples below:",
+        options=examples,
+        index=None,
+        placeholder="Type or select a question...",
+        accept_new_options=True,
+        key="nl_input"
+    )
+
+    # Esegue la query solo se la domanda è nuova o diversa dalla precedente
+    if user_question and user_question != st.session_state.submitted_question:
+        st.session_state.submitted_question = user_question
+        res = run_agent(llm_key, user_question)
+        st.session_state.llm_result = res
+        st.session_state.last_rendered_answer = res["answer"]
+
+    if st.session_state.llm_result:
+        res = st.session_state.llm_result
+
+        st.markdown("# Query status:")
+        st.write(res['status'])
+
+        match res["status"]:
+            case "valid_question":
+                st.markdown("<h3 style='font-size:18px;'>Natural language question</h3>", unsafe_allow_html=True)
+                st.write(res["question"])
+
+                st.markdown("<h3 style='font-size:18px;'>Generated SQL query</h3>", unsafe_allow_html=True)
+                st.code(res["query"], language="sql")
+
+                st.markdown("<h3 style='font-size:18px;'>Raw SQL result</h3>", unsafe_allow_html=True)
+                st.text(res["raw_result"])
+
+                st.markdown("<h3 style='font-size:18px;'>Model-generated answer</h3>", unsafe_allow_html=True)
+                st.text(res["answer"])
+
+            case "invalid_question":
+                st.warning("The question is not compatible with the information in the database. Please"
+                           " try asking a different, more suitable question")
+
+            case "error":
+                error_msg = res.get("error_message", "An unexpected error occurred")
+                st.error(f"An error occurred while answering the question using SQL:\n\n{error_msg}")

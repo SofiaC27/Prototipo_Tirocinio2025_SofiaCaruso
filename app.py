@@ -4,7 +4,7 @@ from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
                                    delete_file_from_database_and_folder, display_receipts_data_with_expanders)
 from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
-from Modules.llm_functions import run_agent
+from Modules.llm_functions import render_llm_interface
 
 
 init_database()
@@ -79,11 +79,9 @@ display_receipts_data_with_expanders(st.session_state.receipts_data)
 
 # LLM
 st.divider()
-st.subheader("LLM")
+st.subheader("Natural language questions with LLM")
 
-
-llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
-run_agent(llm_key)
+render_llm_interface()
 
 
 # Eliminazione file
