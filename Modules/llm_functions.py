@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 
 from langchain_openai import ChatOpenAI
 from langchain_community.utilities import SQLDatabase
@@ -109,27 +108,6 @@ def format_model_answer(raw_result, llm):
     return response.content.strip()
 
 
-def build_question_validator_tool(llm, db_schema):
-    """
-    Funzione che crea un tool LangChain che valida semanticamente una domanda rispetto allo schema
-    del database
-    - Recupera lo schema dal database
-    - Usa is_question_valid_for_db per la valutazione
-    :param llm: modello LLM
-    :param db_schema: schema dell'oggetto SQLDatabase connesso al database locale
-    :return: oggetto Tool utilizzabile da un agente per validare le domande
-    """
-    def validate_question(question):
-        return is_question_valid_for_db(question, llm, db_schema)
-
-    return Tool(
-        name="QuestionValidator",
-        func=validate_question,
-        description="Valida se una domanda in linguaggio naturale è semanticamente compatibile con lo"
-                    " schema del database"
-    )
-
-
 def build_sql_query_tool(llm, db):
     """
     Funzione che crea un tool LangChain che genera una query SQL da una domanda in linguaggio naturale
@@ -225,7 +203,7 @@ def build_custom_agent(llm_key):
         - Formattare e tradurre in italiano il risultato della query
     - Inizializza un agente LangChain con i tool configurati
     :param llm_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
-    :return: agente LangChain configurato con i tool personalizzati
+    :return: agente LangChain configurato con i tool personalizzati, modello llm, schema del database
     """
     llm = ChatOpenAI(
         model="llama3-8b-8192",
@@ -238,7 +216,6 @@ def build_custom_agent(llm_key):
     db_schema = db.get_table_info()
 
     # Costruisce i tool
-    question_validator_tool = build_question_validator_tool(llm, db_schema)
     sql_query_tool = build_sql_query_tool(llm, db)
     query_validator_tool = build_query_validator_tool(llm, db_schema)
     query_executor_tool = build_query_executor_tool(db)
@@ -246,7 +223,6 @@ def build_custom_agent(llm_key):
 
     # Lista dei tool da fornire all'agente
     tools = [
-        question_validator_tool,
         sql_query_tool,
         query_validator_tool,
         query_executor_tool,
@@ -265,7 +241,7 @@ def build_custom_agent(llm_key):
         early_stopping_method="generate"
     )
 
-    return agent, llm, db
+    return agent, llm, db_schema
 
 
 def run_agent(llm_key, question):
@@ -287,8 +263,7 @@ def run_agent(llm_key, question):
             il risultato grezzo della query eseguita sul database e la risposta finale del modello
     """
     try:
-        agent, llm, db = build_custom_agent(llm_key)
-        db_schema = db.get_table_info()
+        agent, llm, db_schema = build_custom_agent(llm_key)
 
         # Valida la domanda rispetto allo schema
         if not is_question_valid_for_db(question, llm, db_schema):
