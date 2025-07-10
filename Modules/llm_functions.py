@@ -182,8 +182,7 @@ def build_query_executor_tool(db):
             result = db.run(sql_query)
             return result if result else "[]"
         except Exception as e:
-            return f"Errore durante l'esecuzione della query: {str(e)}"
-        #return db.run(sql_query)
+            return f"Error during query execution: {str(e)}"
 
     return Tool(
         name="QueryExecutor",
@@ -259,6 +258,7 @@ def build_custom_agent(llm_key):
         llm=llm,
         agent_type=AgentType.OPENAI_FUNCTIONS,
         verbose=True,
+        return_intermediate_steps=True,
         handle_parsing_errors=True,
         max_iterations=5,
         early_stopping_method="generate"
@@ -269,21 +269,71 @@ def build_custom_agent(llm_key):
 
 def run_agent(llm_key):
     """
-    Funzione per eseguire l'agente LangChain per rispondere a una domanda in linguaggio naturale
+    Funzione per eseguire un agente LangChain e rispondere a una domanda in linguaggio naturale
     interrogando un database SQL locale
     - Inizializza l'agente personalizzato
     - Recupera lo schema del database per la validazione semantica della domanda
     - Valida la domanda in linguaggio naturale rispetto allo schema del database
-        - Se la domanda non è compatibile, mostra un messaggio di avviso
-        - Se la domanda è valida, esegue l'agente per ottenere la risposta
-    - Visualizza la risposta finale
+    - Se la domanda non è compatibile, mostra un messaggio di avviso e restituisce uno stato "invalid_question"
+    - Se la domanda è valida:
+        - Esegue l'agente con input testuale
+        - Estrae e visualizza la risposta finale generata
+        - Recupera la query SQL generata e il risultato grezzo ottenuto dal database tramite intermediate_steps
+        - Visualizza query, risultato e risposta finale
+        - Restituisce uno stato "valid_question" con tutte le informazioni raccolte
+    - In caso di errore durante il processo, mostra l’eccezione e restituisce uno stato "error" con il messaggio
     :param llm_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
+    :return dizionario contenente lo stato della domanda, la domanda dell'utente, la query SQL generata,
+            il risultato grezzo della query eseguita sul database e la risposta finale del modello
     """
     agent, llm, db = build_custom_agent(llm_key)
     user_input = "Mostrami i primi 10 scontrini caricati nel 2025"
-    db_schema = db.get_table_info()
-    if not is_question_valid_for_db(user_input, llm, db_schema):
-        st.write("La domanda non è compatibile con il database")
-    else:
+
+    try:
+        db_schema = db.get_table_info()
+
+        # Valida la domanda rispetto allo schema
+        if not is_question_valid_for_db(user_input, llm, db_schema):
+            st.write("La domanda non è compatibile con il database")
+            return {
+                "status": "invalid_question",
+                "question": user_input,
+                "sql_query": None,
+                "raw_result": None,
+                "answer": None
+            }
+
+        # Esecuzione dell'agente
         response = agent.invoke({"input": user_input})
-        st.write(response["output"])
+        final_answer = response["output"]
+        sql_query = None
+        raw_result = None
+
+        for action, output in response["intermediate_steps"]:
+            if action.tool == "SQLQueryGenerator":
+                sql_query = output
+            elif action.tool == "QueryExecutor":
+                raw_result = output
+
+        st.write("Query SQL:", sql_query)
+        st.write("Risultato grezzo:", raw_result)
+        st.write("Risposta:", final_answer)
+
+        return {
+            "status": "valid_question",
+            "question": user_input,
+            "query": sql_query,
+            "raw_result": raw_result,
+            "answer": final_answer
+        }
+
+    except Exception as e:
+        st.write("Error:", str(e))
+        return {
+            "status": "error",
+            "question": user_input,
+            "query": None,
+            "raw_result": None,
+            "answer": None,
+            "error_message": str(e)
+        }
