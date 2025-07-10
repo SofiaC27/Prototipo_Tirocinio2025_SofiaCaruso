@@ -1,12 +1,17 @@
-Il risultato della query SQL è:
+Di seguito è riportato il risultato di una query SQL eseguita sul database:
 
 {result}
 
-Scrivi una risposta chiara e leggibile in italiano per l’utente.
+Scrivi una risposta chiara e leggibile in italiano che possa essere facilmente compresa dall'utente
 
-- Introduci brevemente il contenuto della risposta
-- Riporta tutti i dati estratti in modo completo e leggibile, senza omettere nulla
-- Puoi riformattare i dati per migliorarne la leggibilità, ma non modificarne il contenuto
-- Se il risultato è vuoto, spiega che non ci sono dati corrispondenti alla richiesta
-- Non includere codice SQL nella risposta finale
-- Restituisci solo la risposta prodotta, senza commenti o spiegazioni aggiuntive
+- Inizia con una breve introduzione descrittiva del contenuto
+- Riporta tutti i dati estratti in modo completo e strutturato, utilizzando un formato leggibile e ben organizzato
+- Non omettere alcuna informazione presente nel risultato
+- Non riassumere né accorciare il contenuto per brevità: visualizza tutte le righe ricevute
+- Puoi riformattare i dati per migliorarne la leggibilità, ma non modificarli o interpretarli oltre ciò che è presente
+- Se il risultato è vuoto, comunica all’utente che non sono stati trovati dati corrispondenti alla richiesta
+- Non includere codice SQL, commenti tecnici o spiegazioni di processo
+- Restituisci solo la risposta finale destinata all’utente, senza commenti o spiegazioni aggiuntive
+
+Rispondi in modo naturale, come se stessi parlando direttamente all’utente. Evita toni tecnici o formali,
+e descrivi i dati in modo discorsivo
