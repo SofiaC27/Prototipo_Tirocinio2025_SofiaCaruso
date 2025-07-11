@@ -9,8 +9,6 @@ from langchain.tools import Tool
 from langchain.agents import initialize_agent
 from langchain.agents.agent_types import AgentType
 
-from langgraph.prebuilt import create_react_agent
-
 from Modules.ocr_groq import load_prompt
 
 
@@ -192,16 +190,17 @@ def build_answer_formatter_tool(llm):
 
 def build_custom_agent(llm_key):
     """
-    Funzione che inizializza un agente LangGraph ReAct per l'interrogazione di un database SQL
+    Funzione che inizializza un agente LangChain personalizzato per l'interrogazione di un database SQL
     tramite linguaggio naturale
     - Configura il modello LLM llama3 tramite endpoint Groq, utilizzando l'API key fornita
     - Crea la connessione al database SQLite locale e ottiene il suo schema
     - Costruisce i tool personalizzati per:
+        - Validare semanticamente la domanda
         - Generare una query SQL coerente con lo schema
         - Validare la query generata
         - Eseguire la query sul database
         - Formattare e tradurre in italiano il risultato della query
-    - Inizializza un agente LangGraph ReAct con i tool configurati
+    - Inizializza un agente LangChain con i tool configurati
     :param llm_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
     :return: agente LangChain configurato con i tool personalizzati, modello llm, schema del database
     """
@@ -229,11 +228,16 @@ def build_custom_agent(llm_key):
         answer_formatter_tool
     ]
 
-    # Inizializza l'agente LangGraph con flusso ReAct
-    agent = create_react_agent(
-        model=llm,
+    # Inizializza l'agente
+    agent = initialize_agent(
         tools=tools,
-        debug=True
+        llm=llm,
+        agent_type=AgentType.OPENAI_FUNCTIONS,
+        verbose=True,
+        return_intermediate_steps=True,
+        handle_parsing_errors=True,
+        max_iterations=5,
+        early_stopping_method="generate"
     )
 
     return agent, llm, db_schema
@@ -241,15 +245,15 @@ def build_custom_agent(llm_key):
 
 def run_agent(llm_key, question):
     """
-    Funzione per eseguire un agente LangGraph ReAct e rispondere a una domanda in linguaggio naturale
+    Funzione per eseguire un agente LangChain e rispondere a una domanda in linguaggio naturale
     interrogando un database SQL locale
     - Inizializza l'agente personalizzato
     - Recupera lo schema del database per la validazione semantica della domanda
     - Valida la domanda in linguaggio naturale rispetto allo schema del database
     - Se la domanda è valida:
-        - Invia l'input sotto forma di messaggio all'agente
-        - Estrae dai messaggi generati: la query SQL proposta, il risultato grezzo del database e
-          la risposta finale generata dal LLM
+        - Esegue l'agente con input testuale
+        - Recupera la query SQL generata e il risultato grezzo ottenuto dal database tramite intermediate_steps
+        - Estrae la risposta finale generata
         - Restituisce uno stato "valid_question" con tutte le informazioni raccolte
     - Gestisce i casi di errore o di incompatibilità semantica della domanda
     :param llm_key: chiave API per autenticare le richieste al provider Groq (OpenAI compatibile)
@@ -270,25 +274,17 @@ def run_agent(llm_key, question):
                 "answer": None
             }
 
-        # Esecuzione con LangGraph
-        result = agent.invoke({
-            "messages": [("human", question)],
-            "configurable": {"recursion_limit": 5}
-        })
-
-        # Estrazione finale
-        messages = result.get("messages", [])
+        # Esecuzione dell'agente
+        response = agent.invoke({"input": question})
+        final_answer = response["output"]
         sql_query = None
         raw_result = None
-        final_answer = None
 
-        for msg in messages:
-            if msg.type == "tool" and msg.name == "SQLQueryGenerator":
-                sql_query = msg.content
-            elif msg.type == "tool" and msg.name == "QueryExecutor":
-                raw_result = msg.content
-            elif msg.type == "ai":
-                final_answer = msg.content
+        for action, output in response["intermediate_steps"]:
+            if action.tool == "SQLQueryGenerator":
+                sql_query = output
+            elif action.tool == "QueryExecutor":
+                raw_result = output
 
         return {
             "status": "valid_question",
