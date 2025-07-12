@@ -1,2 +1,4 @@
 **/*.env
 .streamlit/secrets.toml
+*.chainlit
+*.files
