@@ -11,4 +11,4 @@ Non vediamo l’ora di scoprire cosa creerai con Chainlit! Buon coding! 💻😊
 
 ## Schermata di benvenuto
 
-Per modificare la schermata di benvenuto, modifica il file `chainlit.md` nella root del tuo progetto. Se non vuoi mostrare alcuna schermata iniziale, basta lasciare il file vuoto.
+Per modificare la schermata di benvenuto, modifica il file `chainlit_it-IT.md` nella root del tuo progetto. Se non vuoi mostrare alcuna schermata iniziale, basta lasciare il file vuoto.
