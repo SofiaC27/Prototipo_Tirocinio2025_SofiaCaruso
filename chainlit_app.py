@@ -1,68 +1,66 @@
-from langchain_openai import ChatOpenAI
-from langchain.prompts import ChatPromptTemplate
-from langchain.schema import StrOutputParser
-from langchain.schema.runnable import Runnable
-from langchain.schema.runnable.config import RunnableConfig
-from typing import cast
-
 import chainlit as cl
 import streamlit as st
 
+from Modules.llm_functions import is_question_valid_for_db, build_custom_agent
 
+# Frasi da filtrare
 COURTESY_MESSAGES = [
     "grazie", "grazie mille", "ti ringrazio", "ok", "ok grazie", "va bene",
     "va bene grazie", "capito", "tutto chiaro", "ricevuto", "bene",
     "perfetto", "chiaro", "ottimo", "eccellente"
 ]
 
-# Saluti iniziali
 GREETING_MESSAGES = [
     "ciao", "salve", "buongiorno", "buonasera", "hey", "ehi"
 ]
 
-# LLM Configuration
 llm_key = st.secrets["general"]["GROQ_LLM_KEY"]
-llm = ChatOpenAI(
-    model="llama3-8b-8192",
-    temperature=0,
-    openai_api_key=llm_key,
-    openai_api_base="https://api.groq.com/openai/v1",
-    streaming=True
-)
 
 
 @cl.on_chat_start
 async def on_chat_start():
-    model = llm
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", "Rispondi sempre in italiano. Sei uno storico molto competente che fornisce risposte accurate"
-                   " ed eloquenti alle domande storiche."),
-        ("human", "{question}")
-    ])
-    runnable = prompt | model | StrOutputParser()
-    cl.user_session.set("runnable", runnable)
+    agent, llm, db_schema = build_custom_agent(llm_key)
+    cl.user_session.set("agent", agent)
+    cl.user_session.set("llm", llm)
+    cl.user_session.set("db_schema", db_schema)
 
 
 @cl.on_message
 async def on_message(message: cl.Message):
     content = message.content.lower().strip()
 
-    # Messaggio di saluto (nessuna chiamata API)
     if content in GREETING_MESSAGES:
-        await cl.Message(content="Ciao! Se hai una domanda, chiedi pure.").send()
+        await cl.Message(content="Ciao! Chiedimi pure, sono qui per aiutarti.").send()
         return
 
-    # Messaggio di cortesia (nessuna chiamata API)
     if content in COURTESY_MESSAGES:
         await cl.Message(content="Prego! Fammi sapere se hai altre domande.").send()
         return
 
-    # Risposta standard con LLM
-    runnable = cast(Runnable, cl.user_session.get("runnable"))  # type: Runnable
-    msg = cl.Message(content="")
-    async for chunk in runnable.astream(
-        {"question": message.content},
-        config=RunnableConfig(callbacks=[cl.LangchainCallbackHandler()])
-    ):
-        await msg.stream_token(chunk)
-    await msg.send()
+    agent = cl.user_session.get("agent")
+    llm = cl.user_session.get("llm")
+    db_schema = cl.user_session.get("db_schema")
+
+    if not is_question_valid_for_db(message.content, llm, db_schema):
+        await cl.Message(content="La domanda non è compatibile con il database. Prova a riformularla.").send()
+        return
+
+    try:
+        response = agent.invoke({"input": message.content})
+        final_answer = response["output"]
+
+        sql_query = None
+        raw_result = None
+
+        for action, output in response["intermediate_steps"]:
+            if action.tool == "SQLQueryGenerator":
+                sql_query = output
+            elif action.tool == "QueryExecutor":
+                raw_result = output
+
+        reply = (f"**Domanda**: {message.content}\n\n **Query generata**:\n```sql\n{sql_query}\n```\n"
+                 f" **Risultato**:\n{raw_result}\n\n **Risposta finale**:\n{final_answer}")
+        await cl.Message(content=reply).send()
+
+    except Exception as e:
+        await cl.Message(content=f"Errore: {str(e)}").send()
