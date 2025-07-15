@@ -120,7 +120,8 @@ async def on_message(message: cl.Message):
 
     # Validazione semantica della domanda
     if not is_question_valid_for_db(message.content, llm, db_schema):
-        await cl.Message(content="La domanda non è compatibile con il database. Prova a riformularla.").send()
+        await cl.Message(content="La domanda non è compatibile con le informazioni presenti nel database."
+                                 " Prova a formularne una diversa, più adatta").send()
         return
 
     # Messaggio di attesa

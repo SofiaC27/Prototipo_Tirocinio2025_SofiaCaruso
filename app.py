@@ -4,7 +4,6 @@ from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
                                    delete_file_from_database_and_folder, display_receipts_data_with_expanders)
 from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
-from Modules.llm_functions import render_llm_interface
 
 
 init_database()
@@ -81,7 +80,11 @@ display_receipts_data_with_expanders(st.session_state.receipts_data)
 st.divider()
 st.subheader("Natural language questions with LLM")
 
-render_llm_interface()
+st.markdown(
+    "If you want to launch the conversational interface with the LLM model to query the database,"
+    " [click here to open the chat](http://localhost:8000)",
+    unsafe_allow_html=True
+)
 
 
 # Eliminazione file
