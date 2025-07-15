@@ -2,3 +2,4 @@
 .streamlit/secrets.toml
 *.chainlit
 *.files
+**/avvia_apps.bat
