@@ -12,9 +12,9 @@ Domanda: {input}
 Domanda: Mostrami gli scontrini del 2023
 Query: SELECT * FROM receipts WHERE strftime('%Y', purchase_date) = '2023';
 
--Se la domanda non è compatibile con le informazioni disponibili nel database non generare
-alcuna query e lascia la risposta vuota.
 
+Regole da seguire:
+-Se la domanda non è compatibile con le informazioni disponibili nel database, non generare alcuna query
+ e lascia la risposta vuota.
+-Limita sempre il numero di risultati utilizzando la clausola LIMIT {top_k} alla fine della query.
 -Restituisci solo la query SQL, senza spiegazioni o testo aggiuntivo.
-
--Se possibile, limita il numero di risultati a massimo {top_k} righe.

@@ -27,7 +27,7 @@ def init_chain(llm, db):
         llm=llm,
         db=db,
         prompt=sql_only_prompt,
-        k=100
+        k=30
     )
 
     return query_chain
