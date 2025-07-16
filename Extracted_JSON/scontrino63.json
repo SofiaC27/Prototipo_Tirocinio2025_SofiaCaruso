@@ -1,0 +1,42 @@
+{
+  "data": "2025-07-09",
+  "ora": "16:41:00",
+  "negozio": "Miroglio Fashion S.r.l.",
+  "indirizzo": "Piazzale Cesare Beccaria",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "GIACCA TESSUTO",
+      "quantita": 1,
+      "prezzo": 59.9,
+      "valuta": "EUR",
+      "percentuale_sconto": 20,
+      "sconto_assoluto": 11.98,
+      "valore_scontato": 47.92
+    },
+    {
+      "nome": "PANTALONE FELPA/MAGLIA",
+      "quantita": 1,
+      "prezzo": 62.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CAMICIA/BLUSA TESSUTO S/A",
+      "quantita": 1,
+      "prezzo": 34.9,
+      "valuta": "EUR",
+      "percentuale_sconto": 22,
+      "sconto_assoluto": 7.68,
+      "valore_scontato": 27.22
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 145.72,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Mastercard Carta di Credito"
+}

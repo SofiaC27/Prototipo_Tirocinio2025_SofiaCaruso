@@ -1,0 +1,42 @@
+{
+  "data": "2025-03-30",
+  "ora": "14:18:00",
+  "negozio": "La Rinascente S.p.A.",
+  "indirizzo": "Via Santa Redegonda, 3",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Mozzarella di bufala",
+      "quantita": 1,
+      "prezzo": 6.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Focaccia mortadella e bur",
+      "quantita": 1,
+      "prezzo": 4.7,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Acqua Naturale",
+      "quantita": 1,
+      "prezzo": 1.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 12.6,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat - Carta"
+}

@@ -1,0 +1,60 @@
+{
+  "data": "2025-04-17",
+  "ora": "18:53:00",
+  "negozio": "MYCHEF RIST.COMM.S.p.A.",
+  "indirizzo": "Aeroporto Bari-70057 Bari",
+  "città": "Bari - BA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BIRRA SPINA GRANDE",
+      "quantita": 3,
+      "prezzo": 17.1,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 0.57,
+      "valore_scontato": 15.39
+    },
+    {
+      "nome": "GRAN PIATTO DI RIBAGLI CAPRESE",
+      "quantita": 2,
+      "prezzo": 25.8,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 2.58,
+      "valore_scontato": 23.22
+    },
+    {
+      "nome": "CESTINO PANE",
+      "quantita": 3,
+      "prezzo": 4.5,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 0.45,
+      "valore_scontato": 4.05
+    },
+    {
+      "nome": "ACQUA PANNA BT CL7",
+      "quantita": 2,
+      "prezzo": 5.8,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 0.58,
+      "valore_scontato": 5.22
+    },
+    {
+      "nome": "CAFFE",
+      "quantita": 2,
+      "prezzo": 3.6,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 0.36,
+      "valore_scontato": 3.24
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 65.8,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

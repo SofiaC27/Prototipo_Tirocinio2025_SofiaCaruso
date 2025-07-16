@@ -1,0 +1,60 @@
+{
+  "data": "2025-05-17",
+  "ora": "11:30:00",
+  "negozio": "MARTINELLI SUPERMERCATI",
+  "indirizzo": "V. COMMERCIO, 1",
+  "città": "S.G. MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "RUMMO INTEGR. 500G TU",
+      "quantita": 1,
+      "prezzo": 1.29,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "RUMMO INTEGR. 500G ME",
+      "quantita": 2,
+      "prezzo": 2.58,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DATTERINO VASCHETTA",
+      "quantita": 1,
+      "prezzo": 1.85,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PESCHERIA",
+      "quantita": 1,
+      "prezzo": 22.69,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DALFINI RICOTTA PECO",
+      "quantita": 1,
+      "prezzo": 3.45,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 31.86,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}

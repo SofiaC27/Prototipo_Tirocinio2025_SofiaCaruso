@@ -4,6 +4,7 @@ from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
                                    delete_file_from_database_and_folder, display_receipts_data_with_expanders)
 from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
+from Modules.ML.ml_dataset import create_weekly_dataset
 
 
 init_database()
@@ -85,6 +86,14 @@ st.markdown(
     " [click here to open the chat](http://localhost:8000)",
     unsafe_allow_html=True
 )
+
+
+# ML
+st.divider()
+st.subheader("Machine Learning")
+
+df = create_weekly_dataset()
+st.dataframe(df)
 
 
 # Eliminazione file
