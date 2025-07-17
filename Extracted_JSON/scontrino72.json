@@ -1,0 +1,87 @@
+{
+  "data": "2025-06-12",
+  "ora": "17:02:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop.",
+  "indirizzo": "P. le Cesare Beccaria,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "X LITRO9788179618s NS*",
+      "quantita": 1,
+      "prezzo": 15.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "M-T PATATE PREFR COOP",
+      "quantita": 1,
+      "prezzo": 2.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BIRRA LEFFE BLONDE",
+      "quantita": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "M-T MACINATO SCELTO",
+      "quantita": 1,
+      "prezzo": 8.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T CILIEGIE VIGN IGP",
+      "quantita": 1,
+      "prezzo": 5.98,
+      "valuta": "EUR",
+      "percentuale_sconto": 40.0,
+      "sconto_assoluto": 2.4,
+      "valore_scontato": 3.59
+    },
+    {
+      "nome": "M-T POM CUORE DI BUE F",
+      "quantita": 1,
+      "prezzo": 2.29,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SC25 FIOR FIORE",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 14,
+      "sconto_assoluto": 0.58,
+      "valore_scontato": 3.42
+    },
+    {
+      "nome": "M-T MOZZ GIOIA COLLE",
+      "quantita": 4,
+      "prezzo": 11.6,
+      "valuta": "EUR",
+      "percentuale_sconto": 25.0,
+      "sconto_assoluto": 0.73,
+      "valore_scontato": 8.7
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 41.86,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

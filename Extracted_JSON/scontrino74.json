@@ -1,0 +1,177 @@
+{
+  "data": "2025-05-31",
+  "ora": "12:20:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "GRANAROL MOZZ. PROTEIN",
+      "quantita": 1,
+      "prezzo": 1.35,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SL CARNE/SALATO TOP",
+      "quantita": 1,
+      "prezzo": 3.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 20,
+      "sconto_assoluto": 0.8,
+      "valore_scontato": 3.19
+    },
+    {
+      "nome": "5STELLE CONO CARA. SAL",
+      "quantita": 1,
+      "prezzo": 5.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 2.2,
+      "valore_scontato": 3.29
+    },
+    {
+      "nome": "FILETTO SOGLIGLIA",
+      "quantita": 1,
+      "prezzo": 4.12,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 1.65,
+      "valore_scontato": 2.47
+    },
+    {
+      "nome": "POLLO NATURAM PETITI",
+      "quantita": 1,
+      "prezzo": 6.51,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "MINI FILETTI DI POLLO",
+      "quantita": 1,
+      "prezzo": 4.01,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PISELLI ESS. SURG.",
+      "quantita": 1,
+      "prezzo": 2.59,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PISELLO ESS. SURG.",
+      "quantita": 1,
+      "prezzo": 2.69,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "GRIGLIATA VERDUKE",
+      "quantita": 1,
+      "prezzo": 1.39,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PARMIG. REGG GRATT. DOP",
+      "quantita": 2,
+      "prezzo": 2.78,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ESSEL LATTE FR.500 ML",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ESSELUN LATE UHT INT",
+      "quantita": 1,
+      "prezzo": 0.78,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "UGK0.21",
+      "quantita": 1,
+      "prezzo": 10.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "RICOTTA PEC. AMATRICE",
+      "quantita": 1,
+      "prezzo": 2.35,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BRINGANT PICCANTE SV",
+      "quantita": 1,
+      "prezzo": 1.67,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BURRO PARMAREGGIO",
+      "quantita": 1,
+      "prezzo": 2.29,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantita": 1,
+      "prezzo": 1.09,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BUDINO SPESA FIDATY",
+      "quantita": 1,
+      "prezzo": 4.36,
+      "valuta": "EUR",
+      "percentuale_sconto": 619,
+      "sconto_assoluto": 27.0,
+      "valore_scontato": -22.64
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 14.32,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

@@ -1,0 +1,42 @@
+{
+  "data": "2025-05-20",
+  "ora": "13:41:00",
+  "negozio": "SAN FRANCESCO COFFEE - BEER - FOOD",
+  "indirizzo": "VIA F.LLI BANDIERA 49",
+  "città": "MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BAR",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BAR",
+      "quantita": 1,
+      "prezzo": 3.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BAR",
+      "quantita": 1,
+      "prezzo": 1.4,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.4,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

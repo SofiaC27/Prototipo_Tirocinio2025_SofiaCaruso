@@ -4,7 +4,7 @@ from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
                                    delete_file_from_database_and_folder, display_receipts_data_with_expanders)
 from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
-from Modules.ML.ml_dataset import create_weekly_dataset
+from Modules.ML.ml_dataset import create_weekly_dataset, add_temporal_features, reorder_columns
 
 
 init_database()
@@ -92,8 +92,10 @@ st.markdown(
 st.divider()
 st.subheader("Machine Learning")
 
-df = create_weekly_dataset()
-st.dataframe(df)
+weekly_df = create_weekly_dataset()
+weekly_df = add_temporal_features(weekly_df)
+weekly_df = reorder_columns(weekly_df)
+st.dataframe(weekly_df)
 
 
 # Eliminazione file

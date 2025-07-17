@@ -1,0 +1,33 @@
+{
+  "data": "2025-05-18",
+  "ora": "11:42:00",
+  "negozio": "PALAZZO DEI DIAMANTI",
+  "indirizzo": "CORSO ERC OLE I D'ESTE 21",
+  "città": "FERRARA - Ferrara (FE)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MUC\\CART",
+      "quantita": 4,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SPORTINA",
+      "quantita": 1,
+      "prezzo": 0.05,
+      "valuta": "EUR",
+      "percentuale_sconto": -100,
+      "sconto_assoluto": -0.05,
+      "valore_scontato": 0.1
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 10.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}
