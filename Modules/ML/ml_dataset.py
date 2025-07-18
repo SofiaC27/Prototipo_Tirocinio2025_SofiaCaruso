@@ -184,3 +184,23 @@ def reorder_columns(df, target="next_week_spending"):
     df = df[ordered_columns]
 
     return df
+
+
+def generate_dataset():
+    """
+    Funzione che genera il dataset finale pronto per l'utilizzo
+    - Crea il dataset settimanale a partire dai file JSON
+    - Aggiunge feature temporali
+    - Riordina le colonne portando la variabile target alla fine
+    :return: DataFrame finale pronto per essere visualizzato o passato a modelli ML
+    """
+    df = create_weekly_dataset()
+
+    if df.empty:
+        print("Dataset vuoto, nessun dato da visualizzare.")
+        return df
+
+    df = add_temporal_features(df)
+    df = reorder_columns(df)
+
+    return df
