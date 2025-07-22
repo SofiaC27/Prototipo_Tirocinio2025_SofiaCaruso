@@ -1,12 +1,7 @@
-import warnings
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import skew
-
-
-from Modules.ML.ml_dataset import generate_dataset
 
 
 sns.set(style="whitegrid")
@@ -248,42 +243,3 @@ def plot_scatter_best_feature(df, corr_matrix, target="next_week_spending"):
     plt.ylabel(target)
     plt.tight_layout()
     plt.show()
-
-
-warnings.filterwarnings("ignore")
-df = generate_dataset()
-
-# EDA #
-print('EDA:\n')
-
-# Colonne numeriche da analizzare
-columns = [
-    'total_spending',
-    'n_receipts',
-    'avg_receipt_spending',
-    'delta_spending',
-    'three_week_trend',
-    'next_week_spending'
-]
-
-# Ispezione iniziale del dataset
-inspect_dataset(df)
-print('\n')
-# Controlla se ci sono valori mancanti
-df = handle_missing_values(df)
-print('\n')
-
-# Analisi delle distribuzioni e dei valori anomali (outliers)
-analyze_distributions(df, columns)
-print('\n')
-outlier_summary = detect_outliers_iqr(df, columns)
-print("\nRiepilogo outliers:", outlier_summary)
-print('\n')
-
-# Analisi multivariata, matrice di correlazione e visualizzazioni grafiche dei dati
-corr_matrix = plot_correlation_matrix(df)
-plot_spending_over_time(df)
-plot_seasonal_spending(df)
-plot_holiday_impact(df)
-plot_scatter_best_feature(df, corr_matrix)
-print('\n')
