@@ -41,6 +41,7 @@ def handle_missing_values(df, target_col="next_week_spending"):
     - Stampa la presenza di valori NaN per ogni colonna
     - Rimuove le righe dove la variabile target è NaN
     - Riempie con la media i NaN presenti in colonne numeriche diverse dalla variabile target
+    - Stampa un messaggio che spiega come ha gestito i valori mancanti
     :param df: dataset originale
     :param target_col: nome della colonna target
     :return: dataset pulito
@@ -64,6 +65,9 @@ def handle_missing_values(df, target_col="next_week_spending"):
         if pd.api.types.is_numeric_dtype(df[col]):
             mean_val = df[col].mean(skipna=True)
             df[col].fillna(mean_val, inplace=True)
+
+    print("Sono state rimosse le righe con valori mancanti nella variabile target e riempiti con la media "
+          "i valori mancanti nelle colonne numeriche")
 
     return df
 
