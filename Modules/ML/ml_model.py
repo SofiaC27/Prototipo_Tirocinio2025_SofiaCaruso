@@ -76,34 +76,42 @@ models_hyperparameters = [
     {},  # LinearRegression non ha iperparametri rilevanti da ottimizzare
     {  # SGDRegressor
         'penalty': ['l2', 'l1'],
-        'alpha': [1e-5, 1e-4, 1e-3],
+        'alpha': [1e-5, 1e-4, 1e-3, 1e-2],
         'learning_rate': ['constant', 'optimal', 'invscaling'],
-        'eta0': [0.001, 0.01, 0.1],
+        'eta0': [0.001, 0.01, 0.1, 1.0],
     },
     {  # K-NN Regressor
         'n_neighbors': list(range(1, 10, 2)),
         'weights': ['uniform', 'distance']
     },
     {  # Decision Tree Regressor
-        'max_depth': [None, 3, 5, 10],
-        'min_samples_split': [2, 5, 10],
+        'max_depth': [None, 3, 5, 10, 15],
+        'min_samples_split': [2, 5, 10, 20],
     },
     {  # SVR
-        'C': [0.1, 1, 10, 100],
+        'C': [0.01, 0.1, 1, 10, 100],
         'gamma': ['scale', 'auto'],
         'kernel': ['linear', 'rbf']
     }
 ]
 
 cv = KFold(n_splits=5, shuffle=True, random_state=0)
+scoring = {
+    'MSE': 'neg_mean_squared_error',
+    'MAE': 'neg_mean_absolute_error',
+    'R2': 'r2'
+}
 trained_models = []
 validation_performance = []
 
 for model, model_name, hparameters in zip(models, models_names, models_hyperparameters):
         print('\n ', model_name)
-        clf = GridSearchCV(estimator=model, param_grid=hparameters, scoring='neg_mean_squared_error', cv=cv)
+        clf = GridSearchCV(estimator=model, param_grid=hparameters, scoring=scoring, refit='MSE', cv=cv)
         clf.fit(X_tr_transf, y_tr)
         trained_models.append((model_name, clf.best_estimator_))
-        print('I valori migliori degli iperparametri sono:  ', clf.best_params_)
-        print('Mean Squared Error:  ', clf.best_score_)
         validation_performance.append(clf.best_score_)
+        print('I valori migliori degli iperparametri sono: ', clf.best_params_)
+        print('Metriche di validazione:')
+        print('MSE:', clf.cv_results_['mean_test_MSE'][clf.best_index_])
+        print('MAE:', clf.cv_results_['mean_test_MAE'][clf.best_index_])
+        print('R2 :', clf.cv_results_['mean_test_R2'][clf.best_index_])
