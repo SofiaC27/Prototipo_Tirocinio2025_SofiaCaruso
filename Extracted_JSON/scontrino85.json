@@ -1,0 +1,33 @@
+{
+  "data": "2025-01-19",
+  "ora": "17:01:00",
+  "negozio": "SIREN COFFEE S.R.L.",
+  "indirizzo": "Via Milano 5",
+  "città": "Locate di Triulzi - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BLUEBERRY CREAM CHEESE MU",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 65.0,
+      "sconto_assoluto": 6.5,
+      "valore_scontato": 3.5
+    },
+    {
+      "nome": "Smoothie Fragola e Banana",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 61.0,
+      "sconto_assoluto": 6.1,
+      "valore_scontato": 3.9
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.4,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Amex"
+}

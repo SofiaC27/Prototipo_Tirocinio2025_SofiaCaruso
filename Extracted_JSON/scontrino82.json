@@ -1,0 +1,24 @@
+{
+  "data": "2025-06-02",
+  "ora": "14:49:00",
+  "negozio": "Gelateria Latte e Cacao",
+  "indirizzo": "Via Matteotti 3",
+  "città": "Sant Antonio - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CONO /COPPA/ CIALDA",
+      "quantita": 5,
+      "prezzo": 17.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 17.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

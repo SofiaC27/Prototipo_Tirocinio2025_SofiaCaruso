@@ -1,0 +1,78 @@
+{
+  "data": "2024-12-04",
+  "ora": "12:58:00",
+  "negozio": "NONNA VITTORIA SRL",
+  "indirizzo": "Via Varesina, 163",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "COPERTO",
+      "quantita": 3,
+      "prezzo": 54.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "TAGLIATELLE AI FUNGHI POR",
+      "quantita": 1,
+      "prezzo": 54.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 5.4,
+      "valore_scontato": 48.6
+    },
+    {
+      "nome": "CINI",
+      "quantita": 1,
+      "prezzo": 19.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 1.9,
+      "valore_scontato": 17.1
+    },
+    {
+      "nome": "TRIS DEL MACELLAIO",
+      "quantita": 1,
+      "prezzo": 25.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 2.5,
+      "valore_scontato": 22.5
+    },
+    {
+      "nome": "TAGLIATA CON CARCIOFI",
+      "quantita": 2,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 0.4,
+      "valore_scontato": 3.6
+    },
+    {
+      "nome": "CAFFE' ESPRESSO",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CAFFE' MACCHIATO",
+      "quantita": 1,
+      "prezzo": 2.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 104.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico di credito"
+}

@@ -1,0 +1,123 @@
+{
+  "data": "2026-06-30",
+  "ora": "16:30:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO DA MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "POMODORINI",
+      "quantita": 1,
+      "prezzo": 2.06,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PIZZOLI STICK",
+      "quantita": 1,
+      "prezzo": 1.32,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 0.88,
+      "valore_scontato": 0.79
+    },
+    {
+      "nome": "FARINA W260 GAROFALO",
+      "quantita": 1,
+      "prezzo": 1.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POLPO",
+      "quantita": 1,
+      "prezzo": 19.32,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 7.73,
+      "valore_scontato": 11.59
+    },
+    {
+      "nome": "POLPO",
+      "quantita": 1,
+      "prezzo": 21.05,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 8.42,
+      "valore_scontato": 12.63
+    },
+    {
+      "nome": "POLPO",
+      "quantita": 1,
+      "prezzo": 14.74,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 5.9,
+      "valore_scontato": 8.84
+    },
+    {
+      "nome": "POLPO",
+      "quantita": 1,
+      "prezzo": 15.31,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 6.13,
+      "valore_scontato": 9.19
+    },
+    {
+      "nome": "MOZ GIOIA COLLE DOP G",
+      "quantita": 1,
+      "prezzo": 4.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 2,
+      "valore_scontato": 2.99
+    },
+    {
+      "nome": "SEPPLE",
+      "quantita": 1,
+      "prezzo": 7.87,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SEPPLE",
+      "quantita": 1,
+      "prezzo": 9.75,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "+ F. SINMENTHAL PEPERONC.",
+      "quantita": 1,
+      "prezzo": 5.83,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POLLO CAMPESÉ A META'",
+      "quantita": 1,
+      "prezzo": 5.44,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 83.84,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTE DI CREDITO"
+}

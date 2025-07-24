@@ -1,0 +1,96 @@
+{
+  "data": "2025-05-31",
+  "ora": "17:57:00",
+  "negozio": "ALDI",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Acqua Friz. 1,5l",
+      "quantita": 2,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Ichnusa NF 11400ml",
+      "quantita": 2,
+      "prezzo": 44.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Pangrattato 1kg",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Caraffe graduate",
+      "quantita": 1,
+      "prezzo": 22.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Albicocche 1kg",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Banane",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Sacch. ortofrutta",
+      "quantita": 1,
+      "prezzo": 22.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Cipolle dorate 1kg",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Shopper Bio",
+      "quantita": 1,
+      "prezzo": 22.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 31.05,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}
