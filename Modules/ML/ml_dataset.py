@@ -186,6 +186,9 @@ def add_engineered_features(df):
     holiday_avg = df[df["is_holiday_week"] == 1]["total_spending"].mean()
     df["spending_vs_holiday_avg"] = df["total_spending"] / holiday_avg
 
+    # Rimuove la feature 'week' non più necessaria
+    df.drop(columns=["week"], inplace=True)
+
     df = df.round(2)
 
     return df

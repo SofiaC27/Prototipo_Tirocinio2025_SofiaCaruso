@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import GridSearchCV, KFold
+from sklearn.ensemble import RandomForestRegressor
 
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import SGDRegressor
@@ -41,16 +42,19 @@ print("Correlazione con il target:")
 print(target_correlations_sorted)
 
 
+# Feature Selection
+selected_features = target_correlations[target_correlations.abs() > 0.3].index.tolist()
+print("\nFeature selezionate (correlazione > 0.3):")
+print(selected_features)
+print('\n')
+
 # Selezione delle feature (X) e assegnazione del target (y)
 y = df["next_week_spending"]  # target
 
-# Rimuove le colonne con feature non necessarie
-df = df.drop(columns=["next_week_spending", "year", "week"])
-
-X = df.values  # features
+df_filtered = df[selected_features]
+X = df_filtered.values  # features
 
 
-'''
 # Training #
 print('Training:\n')
 
@@ -115,13 +119,34 @@ validation_performance = []
 
 for model, model_name, hparameters in zip(models, models_names, models_hyperparameters):
         print('\n ', model_name)
-        clf = GridSearchCV(estimator=model, param_grid=hparameters, scoring=scoring, refit='MSE', cv=cv)
-        clf.fit(X_tr_transf, y_tr)
-        trained_models.append((model_name, clf.best_estimator_))
-        validation_performance.append(clf.best_score_)
-        print('I valori migliori degli iperparametri sono: ', clf.best_params_)
+        grid = GridSearchCV(estimator=model, param_grid=hparameters, scoring=scoring, refit='MSE', cv=cv)
+        grid.fit(X_tr_transf, y_tr)
+        trained_models.append((model_name, grid.best_estimator_))
+        validation_performance.append(grid.best_score_)
+        print('I valori migliori degli iperparametri sono: ', grid.best_params_)
         print('Metriche di validazione:')
-        print('MSE:', clf.cv_results_['mean_test_MSE'][clf.best_index_])
-        print('MAE:', clf.cv_results_['mean_test_MAE'][clf.best_index_])
-        print('R2 :', clf.cv_results_['mean_test_R2'][clf.best_index_])
-'''
+        print('MSE:', grid.cv_results_['mean_test_MSE'][grid.best_index_])
+        print('MAE:', grid.cv_results_['mean_test_MAE'][grid.best_index_])
+        print('R2 :', grid.cv_results_['mean_test_R2'][grid.best_index_])
+
+
+# Ensemble
+print('\n  Random Forest Regressor')
+
+rf_model = RandomForestRegressor(random_state=0)
+rf_param_grid = {
+    'n_estimators': [30, 50, 80],
+    'max_depth': [3, 5, 7],
+    'min_samples_split': [2, 4, 6]
+}
+
+rf_grid = GridSearchCV(estimator=rf_model, param_grid=rf_param_grid, scoring=scoring, refit='MSE', cv=cv)
+rf_grid.fit(X_tr_transf, y_tr)
+trained_models.append(('RandomForest', rf_grid.best_estimator_))
+validation_performance.append(rf_grid.best_score_)
+
+print('\n I valori migliori degli iperparametri sono:', rf_grid.best_params_)
+print('Metriche di validazione:')
+print('MSE:', rf_grid.cv_results_['mean_test_MSE'][rf_grid.best_index_])
+print('MAE:', rf_grid.cv_results_['mean_test_MAE'][rf_grid.best_index_])
+print('R2 :', rf_grid.cv_results_['mean_test_R2'][rf_grid.best_index_])
