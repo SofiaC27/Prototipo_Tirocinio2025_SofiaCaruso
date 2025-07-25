@@ -28,20 +28,29 @@ print('\n')
 # Controlla se ci sono valori mancanti
 df = handle_missing_values(df)
 print('\n')
+
+
+# Codifica le feature categoriche in numeriche
+df = pd.get_dummies(df, columns=["season"], drop_first=True)
 # Matrice di correlazione
 corr_matrix = plot_correlation_matrix(df)
-print('\n')
+# Ordina le feature per correlazione col target
+target_correlations = corr_matrix["next_week_spending"].drop("next_week_spending")
+target_correlations_sorted = target_correlations.abs().sort_values(ascending=False)
+print("Correlazione con il target:")
+print(target_correlations_sorted)
+
 
 # Selezione delle feature (X) e assegnazione del target (y)
 y = df["next_week_spending"]  # target
 
 # Rimuove le colonne con feature non necessarie
 df = df.drop(columns=["next_week_spending", "year", "week"])
-# Codifica le feature categoriche in numeriche
-df = pd.get_dummies(df, columns=["season"], drop_first=True)
 
 X = df.values  # features
 
+
+'''
 # Training #
 print('Training:\n')
 
@@ -115,3 +124,4 @@ for model, model_name, hparameters in zip(models, models_names, models_hyperpara
         print('MSE:', clf.cv_results_['mean_test_MSE'][clf.best_index_])
         print('MAE:', clf.cv_results_['mean_test_MAE'][clf.best_index_])
         print('R2 :', clf.cv_results_['mean_test_R2'][clf.best_index_])
+'''

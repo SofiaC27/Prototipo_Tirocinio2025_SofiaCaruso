@@ -1,6 +1,7 @@
 import os
 import json
 import pandas as pd
+import numpy as np
 from datetime import datetime
 import holidays
 
@@ -38,9 +39,11 @@ def create_weekly_dataset():
     Funzione per creare un dataset settimanale a partire dai file JSON degli scontrini
     - Carica i dati grezzi e verifica che ogni ricevuta contenga una data valida
     - Estrae anno e numero di settimana da ciascuna data di acquisto
-    - Costruisce un elenco di record con data e importo speso per ciascuna settimana
-    - Aggrega i dati per settimana calcolando spesa totale, numero di scontrini e spesa media per scontrino
-    - Crea una colonna target che rappresenta la spesa totale prevista per la settimana successiva
+    - Calcola la spesa totale e il numero di articoli per scontrino
+    - Costruisce un elenco di record con data, importo speso e numero di articoli per ciascuna settimana
+    - Aggrega i dati per settimana sommando spesa e articoli, e contando il numero di scontrini
+    - Costruisce un DataFrame con statistiche settimanali
+    - Aggiunge una colonna target che rappresenta la spesa totale della settimana successiva
     - Arrotonda i valori numerici a due cifre decimali per maggiore coerenza e leggibilità
     :return: DataFrame con aggregati settimanali e colonna target per regressione
     """
@@ -50,7 +53,15 @@ def create_weekly_dataset():
     for receipt in raw_data:
         try:
             date_str = receipt.get("data")
-            total_price = float(receipt.get("prezzo_totale", {}).get("valore", 0))
+
+            val = receipt.get("prezzo_totale", {}).get("valore")
+            total_price = float(val) if val is not None else 0.0
+
+            items = receipt.get("lista_articoli", [])
+            n_items = sum([
+                int(q) if q is not None else 0
+                for q in [item.get("quantita") for item in items]
+            ])
 
             if not date_str:
                 continue
@@ -61,7 +72,8 @@ def create_weekly_dataset():
             records.append({
                 "year": year,
                 "week": week_num,
-                "total_price": total_price
+                "total_price": total_price,
+                "total_items": n_items
             })
         except Exception as e:
             print("Errore in uno scontrino:", e)
@@ -76,13 +88,11 @@ def create_weekly_dataset():
     weekly_df = df.groupby(["year", "week"]).agg(
         total_spending=("total_price", "sum"),
         n_receipts=("total_price", "count"),
-        avg_receipt_spending=("total_price", "mean")
+        total_items=("total_items", "sum")
     ).reset_index()
 
     # Crea colonna target: spesa della settimana successiva
     weekly_df["next_week_spending"] = weekly_df["total_spending"].shift(-1)
-
-    # Arrotonda tutte le colonne numeriche a due decimali per uniformità e leggibilità
     weekly_df = weekly_df.round(2)
 
     return weekly_df
@@ -131,33 +141,50 @@ def is_week_holiday(year, week, country_code="IT"):
     return 0
 
 
-def add_temporal_features(df):
+def add_engineered_features(df):
     """
-    Funzione che ggiunge al DataFrame settimanale le seguenti feature temporali:
-    - Variazione rispetto alla settimana precedente
-    - Media mobile della spesa sulle ultime 3 settimane
-    - Stagione associata alla settimana
-    - Flag binario per settimane contenenti festività italiane
-    :param df: DataFrame settimanale generato
-    :return: DataFrame arricchito con nuove feature
+    Funzione per arricchire il dataset settimanale con feature ingegnerizzate
+    - Controlla che il dataset non sia vuoto prima di elaborarlo
+    - Aggiunge una codifica ciclica della settimana per rappresentarne la periodicità
+    - Calcola la variazione percentuale della spesa rispetto alla settimana precedente
+    - Inserisce una media mobile della spesa sulle ultime tre settimane come indicatore di trend
+    - Deriva metriche settimanali di comportamento come spesa media per articolo, densità di scontrini e
+      articoli medi per ricevuta
+    - Assegna la stagione a ciascuna settimana e identifica quelle festive
+    - Calcola la media di spesa stagionale e il rapporto rispetto alla spesa della settimana corrente
+    - Calcola la media di spesa durante le settimane festive e il rapporto rispetto alla spesa corrente
+    - Arrotonda tutti i valori numerici a due cifre decimali per maggiore coerenza e leggibilità
+    :return: DataFrame arricchito con feature ingegnerizzate
     """
     if df.empty:
         return df
 
-    # Variazione rispetto alla settimana precedente
-    df["delta_spending"] = df["total_spending"].diff().abs()
+    # Codifica ciclica settimana
+    df["week_sin"] = np.sin(2 * np.pi * df["week"] / 52)
+    df["week_cos"] = np.cos(2 * np.pi * df["week"] / 52)
+
+    # Delta % di spesa
+    df["delta_spending_pct"] = df["total_spending"].pct_change().fillna(0)
 
     # Media mobile sulle ultime 3 settimane
     df["three_week_trend"] = df["total_spending"].rolling(window=3).mean()
 
-    # Stagionalità approssimativa basata sulla settimana ISO
-    df["season"] = df["week"].apply(assign_season)
+    # Metriche settimanali
+    df["avg_items_per_receipt"] = df["total_items"] / df["n_receipts"]
+    df["receipt_density"] = df["n_receipts"] / 7
+    df["spending_per_item"] = df["total_spending"] / df["total_items"]
 
-    # Verifica festività italiane nella settimana
-    df["is_holiday_week"] = df.apply(
-        lambda row: is_week_holiday(row["year"], row["week"]),
-        axis=1
-    )
+    # Stagione e festività
+    df["season"] = df["week"].apply(assign_season)
+    df["is_holiday_week"] = df.apply(lambda row: is_week_holiday(row["year"], row["week"]), axis=1)
+
+    # Media stagionale e confronto
+    df["season_avg_spending"] = df.groupby("season")["total_spending"].transform("mean")
+    df["spending_vs_season_avg"] = df["total_spending"] / df["season_avg_spending"]
+
+    # Media festività e confronto
+    holiday_avg = df[df["is_holiday_week"] == 1]["total_spending"].mean()
+    df["spending_vs_holiday_avg"] = df["total_spending"] / holiday_avg
 
     df = df.round(2)
 
@@ -190,7 +217,7 @@ def generate_dataset():
     """
     Funzione che genera il dataset finale pronto per l'utilizzo
     - Crea il dataset settimanale a partire dai file JSON
-    - Aggiunge feature temporali
+    - Aggiunge feature ingegnerizzate
     - Riordina le colonne portando la variabile target alla fine
     :return: DataFrame finale pronto per essere visualizzato o passato a modelli ML
     """
@@ -200,7 +227,7 @@ def generate_dataset():
         print("Dataset vuoto, nessun dato da visualizzare.")
         return df
 
-    df = add_temporal_features(df)
+    df = add_engineered_features(df)
     df = reorder_columns(df)
 
     return df
