@@ -1,0 +1,33 @@
+{
+  "data": "2025-05-29",
+  "ora": "17:54:00",
+  "negozio": "UNIQUE SRL",
+  "indirizzo": "VIALE DELLA REPUBBLICA 2",
+  "città": "PORTO MANTOVANO - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CARTA DA REGALO 70X200",
+      "quantita": 2,
+      "prezzo": 4.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Nastro Avorio 1.6CM X2",
+      "quantita": 1,
+      "prezzo": 2.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 4.4,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

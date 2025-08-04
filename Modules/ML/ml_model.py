@@ -15,7 +15,8 @@ from sklearn.svm import SVR
 
 
 from Modules.ML.ml_dataset import generate_dataset
-from Modules.ML.ml_eda import inspect_dataset, handle_missing_values, plot_correlation_matrix
+from Modules.ML.ml_eda import (inspect_dataset, handle_missing_values,plot_correlation_matrix,
+                               plot_seasonal_outlier_rate, plot_outlier_by_holiday)
 
 warnings.filterwarnings("ignore")
 df = generate_dataset()
@@ -29,10 +30,18 @@ print('\n')
 # Controlla se ci sono valori mancanti
 df = handle_missing_values(df)
 print('\n')
+# Visualizza la matrice di correlazione tra le feature numeriche
+plot_correlation_matrix(df)
+# Visualizza dei grafici a barre che mostrano la frequenza degli outlier in base alla stagione o alle festività
+plot_seasonal_outlier_rate(df)
+plot_outlier_by_holiday(df)
 
 
+'''
 # Codifica le feature categoriche in numeriche
 df = pd.get_dummies(df, columns=["season"], drop_first=True)
+
+
 # Matrice di correlazione
 corr_matrix = plot_correlation_matrix(df)
 # Ordina le feature per correlazione col target
@@ -40,7 +49,6 @@ target_correlations = corr_matrix["next_week_spending"].drop("next_week_spending
 target_correlations_sorted = target_correlations.abs().sort_values(ascending=False)
 print("Correlazione con il target:")
 print(target_correlations_sorted)
-
 
 # Feature Selection
 selected_features = target_correlations[target_correlations.abs() > 0.3].index.tolist()
@@ -150,3 +158,4 @@ print('Metriche di validazione:')
 print('MSE:', rf_grid.cv_results_['mean_test_MSE'][rf_grid.best_index_])
 print('MAE:', rf_grid.cv_results_['mean_test_MAE'][rf_grid.best_index_])
 print('R2 :', rf_grid.cv_results_['mean_test_R2'][rf_grid.best_index_])
+'''
