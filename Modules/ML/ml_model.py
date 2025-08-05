@@ -1,21 +1,21 @@
 import warnings
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import GridSearchCV, KFold
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import GridSearchCV, StratifiedKFold
+from sklearn.metrics import balanced_accuracy_score
 
-from sklearn.linear_model import LinearRegression
-from sklearn.linear_model import SGDRegressor
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.svm import SVR
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 
 from Modules.ML.ml_dataset import generate_dataset
-from Modules.ML.ml_eda import (inspect_dataset, handle_missing_values,plot_correlation_matrix,
+from Modules.ML.ml_eda import (inspect_dataset, handle_missing_values, plot_correlation_matrix,
                                plot_seasonal_outlier_rate, plot_outlier_by_holiday)
 
 warnings.filterwarnings("ignore")
@@ -37,30 +37,32 @@ plot_seasonal_outlier_rate(df)
 plot_outlier_by_holiday(df)
 
 
-'''
 # Codifica le feature categoriche in numeriche
 df = pd.get_dummies(df, columns=["season"], drop_first=True)
 
-
-# Matrice di correlazione
-corr_matrix = plot_correlation_matrix(df)
-# Ordina le feature per correlazione col target
-target_correlations = corr_matrix["next_week_spending"].drop("next_week_spending")
-target_correlations_sorted = target_correlations.abs().sort_values(ascending=False)
-print("Correlazione con il target:")
-print(target_correlations_sorted)
-
-# Feature Selection
-selected_features = target_correlations[target_correlations.abs() > 0.3].index.tolist()
-print("\nFeature selezionate (correlazione > 0.3):")
-print(selected_features)
-print('\n')
-
 # Selezione delle feature (X) e assegnazione del target (y)
-y = df["next_week_spending"]  # target
+y = df['is_outlier']  # target
+X = df.drop(['is_outlier', 'date'], axis=1).values  # features
 
-df_filtered = df[selected_features]
-X = df_filtered.values  # features
+
+# Controlla lo sbilanciamento delle classi della variabile target
+class_counts = y.value_counts().sort_index()
+
+labels = ['Normale (0)', 'Outlier (1)']
+colors = ['red', 'yellow']
+
+plt.figure(figsize=(8, 5))
+plt.bar(class_counts.index, class_counts.values, color=colors)
+plt.xticks(class_counts.index, labels)
+plt.xlabel('Classe is_outlier')
+plt.ylabel('Numero di sample')
+plt.title('Distribuzione delle classi (is_outlier)')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+
+print("Distribuzione percentuale delle classi:\n")
+print(y.value_counts(normalize=True).sort_index())
+print('\n')
 
 
 # Training #
@@ -68,94 +70,87 @@ print('Training:\n')
 
 # Divide il dataset: 80% per il training e 20% per il testing
 test_split_ratio = 0.2
-X_tr, X_ts, y_tr, y_ts = train_test_split(X, y, test_size=test_split_ratio, random_state=0)
+X_tr, X_ts, y_tr, y_ts = train_test_split(X, y, test_size=test_split_ratio, random_state=0, stratify=y)
 
 # Scalamento dei dati
 scaler = StandardScaler()
 scaler.fit(X_tr)
 X_tr_transf = scaler.transform(X_tr)
-n_features = X_tr_transf.shape[1]
+print('Numero di training samples =', X_tr_transf.shape[0])
+
 
 # Definizione dei modelli
 models = [
-    LinearRegression(),  # Linear Regression
-    SGDRegressor(random_state=0),  # Stochastic Gradient Descent Regressor
-    KNeighborsRegressor(),  # K-NN Regressor
-    DecisionTreeRegressor(random_state=0),  # Decision Tree Regressor
-    SVR()  # SVR
+    LogisticRegression(solver='liblinear', class_weight='balanced', random_state=0),  # Logistic Regression
+    KNeighborsClassifier(),  # K-NN
+    SVC(class_weight='balanced', random_state=0),  # SVM
+    DecisionTreeClassifier(class_weight='balanced', random_state=0),  # Decision Tree
 ]
 
 models_names = [
-    'Linear Regression',
-    'SGD Regressor',
-    'K-NN Regressor',
-    'DT Regressor',
-    'SVR'
+    'Logistic Regression',
+    'K-NN',
+    'SVM',
+    'Decision Tree',
 ]
 
 models_hyperparameters = [
-    {},  # LinearRegression non ha iperparametri rilevanti da ottimizzare
-    {  # SGDRegressor
-        'penalty': ['l2', 'l1'],
-        'alpha': [1e-5, 1e-4, 1e-3, 1e-2],
-        'learning_rate': ['constant', 'optimal', 'invscaling'],
-        'eta0': [0.001, 0.01, 0.1, 1.0],
-    },
-    {  # K-NN Regressor
-        'n_neighbors': list(range(1, 10, 2)),
-        'weights': ['uniform', 'distance']
-    },
-    {  # Decision Tree Regressor
-        'max_depth': [None, 3, 5, 10, 15],
-        'min_samples_split': [2, 5, 10, 20],
-    },
-    {  # SVR
-        'C': [0.01, 0.1, 1, 10, 100],
-        'gamma': ['scale', 'auto'],
-        'kernel': ['linear', 'rbf']
-    }
+    {'penalty': ['l1', 'l2'], 'C': [0.01, 0.1, 1, 10]},  # Logistic Regression
+    {'n_neighbors': list(range(1, 10, 2))},  # K-NN
+    {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf'], 'gamma': [0.001, 0.0001]},  # SVM
+    {'max_depth': [3, 5, 10], 'min_samples_split': [2, 5]},  # Decision Tree
 ]
 
-cv = KFold(n_splits=5, shuffle=True, random_state=0)
-scoring = {
-    'MSE': 'neg_mean_squared_error',
-    'MAE': 'neg_mean_absolute_error',
-    'R2': 'r2'
-}
+
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=0)
 trained_models = []
 validation_performance = []
 
 for model, model_name, hparameters in zip(models, models_names, models_hyperparameters):
-        print('\n ', model_name)
-        grid = GridSearchCV(estimator=model, param_grid=hparameters, scoring=scoring, refit='MSE', cv=cv)
-        grid.fit(X_tr_transf, y_tr)
-        trained_models.append((model_name, grid.best_estimator_))
-        validation_performance.append(grid.best_score_)
-        print('I valori migliori degli iperparametri sono: ', grid.best_params_)
-        print('Metriche di validazione:')
-        print('MSE:', grid.cv_results_['mean_test_MSE'][grid.best_index_])
-        print('MAE:', grid.cv_results_['mean_test_MAE'][grid.best_index_])
-        print('R2 :', grid.cv_results_['mean_test_R2'][grid.best_index_])
+    print('\n ', model_name)
+    clf = GridSearchCV(estimator=model, param_grid=hparameters, scoring='balanced_accuracy', cv=cv)
+    clf.fit(X_tr_transf, y_tr)
+    trained_models.append((model_name, clf.best_estimator_))
+    print('I valori migliori degli iperparametri sono:  ', clf.best_params_)
+    print('Balanced Accuracy:  ', clf.best_score_)
+    validation_performance.append(clf.best_score_)
 
 
-# Ensemble
-print('\n  Random Forest Regressor')
+# Scelta finale del modello
+best_model_index = np.argmax(validation_performance)
+final_model = trained_models[best_model_index][1]
+print('\nHo scelto come miglior modello : ', trained_models[best_model_index][0])
 
-rf_model = RandomForestRegressor(random_state=0)
-rf_param_grid = {
-    'n_estimators': [30, 50, 80],
-    'max_depth': [3, 5, 7],
-    'min_samples_split': [2, 4, 6]
-}
+# Training finale con tutto il dataset di training
+final_model.fit(X_tr_transf, y_tr)
+print('\n')
 
-rf_grid = GridSearchCV(estimator=rf_model, param_grid=rf_param_grid, scoring=scoring, refit='MSE', cv=cv)
-rf_grid.fit(X_tr_transf, y_tr)
-trained_models.append(('RandomForest', rf_grid.best_estimator_))
-validation_performance.append(rf_grid.best_score_)
 
-print('\n I valori migliori degli iperparametri sono:', rf_grid.best_params_)
-print('Metriche di validazione:')
-print('MSE:', rf_grid.cv_results_['mean_test_MSE'][rf_grid.best_index_])
-print('MAE:', rf_grid.cv_results_['mean_test_MAE'][rf_grid.best_index_])
-print('R2 :', rf_grid.cv_results_['mean_test_R2'][rf_grid.best_index_])
-'''
+# Testing #
+print('Testing:\n')
+
+# Scalamento dei dati
+X_ts_transf = scaler.transform(X_ts)
+
+# Risultati finali
+y_pred = final_model.predict(X_ts_transf)
+test_balanced_accuracy = balanced_accuracy_score(y_ts, y_pred)
+
+print('Risultati finali del testing\n')
+print('Numero di testing samples =', X_ts_transf.shape[0])
+print('Balanced Accuracy: ', test_balanced_accuracy)
+print('\n')
+
+
+mod_names = [name for name, model in trained_models]
+
+colors2 = ['red', 'blue', 'green', 'orange']
+plt.figure(figsize=(8, 5))
+plt.bar(mod_names, validation_performance, color=colors2)
+plt.ylim([0, 1])
+plt.ylabel('Balanced Accuracy')
+plt.title('Balanced Accuracy dei modelli (Cross-Validation)')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.text(0.5, -0.1, f'Performance finale sul testing set: {test_balanced_accuracy * 100:.1f}% Balanced Accuracy',
+         fontsize=12, ha='center', transform=plt.gca().transAxes)
+plt.show()
