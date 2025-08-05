@@ -1,0 +1,60 @@
+{
+  "data": "2024-06-15",
+  "ora": "19:27:00",
+  "negozio": "Pizzikotto",
+  "indirizzo": "via del Lavoro",
+  "città": "Bologna - BO",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "COTTO E FUNGHI",
+      "quantita": 1,
+      "prezzo": 9.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ALTA",
+      "quantita": 1,
+      "prezzo": 1.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "MARGHERITA + MOZZARELLA",
+      "quantita": 1,
+      "prezzo": 6.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CON DI MEZZO",
+      "quantita": 1,
+      "prezzo": 1.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "",
+      "quantita": 1,
+      "prezzo": 1.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 20.6,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MAESTRO"
+}

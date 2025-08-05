@@ -1,0 +1,24 @@
+{
+  "data": "2025-05-26",
+  "ora": "13:53:00",
+  "negozio": "COOP ALLEANZA3.0",
+  "indirizzo": "P. le Cesare Beccaria,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CAMI XL BIANCO",
+      "quantita": 1,
+      "prezzo": 17.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 17.99,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

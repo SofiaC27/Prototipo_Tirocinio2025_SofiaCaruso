@@ -1,0 +1,87 @@
+{
+  "data": "2025-05-29",
+  "ora": "17:04:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MISTO DA CUOCERE CARIGNANO SULCIS",
+      "quantita": 1,
+      "prezzo": 10.7,
+      "valuta": "EUR",
+      "percentuale_sconto": 50,
+      "sconto_assoluto": 5.35,
+      "valore_scontato": 5.35
+    },
+    {
+      "nome": "6 UOVA PASTA GIALLA",
+      "quantita": 1,
+      "prezzo": 1.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SEMOLA INTEGRAL MOLISAN PUNTI FRAGOLA",
+      "quantita": 2,
+      "prezzo": 3.34,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BANAN",
+      "quantita": 1,
+      "prezzo": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SMART BEV. DI SOIA S/2",
+      "quantita": 4,
+      "prezzo": 4.36,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ESSELUNG LATTE UHT INT",
+      "quantita": 1,
+      "prezzo": 0.78,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ESSELUNG LATTE UHT PS",
+      "quantita": 2,
+      "prezzo": 1.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BURRO PARMAGGIO",
+      "quantita": 1,
+      "prezzo": 2.29,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 22.65,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARIA DI CREDITO"
+}

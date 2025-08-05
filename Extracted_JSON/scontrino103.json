@@ -1,0 +1,51 @@
+{
+  "data": "2024-10-02",
+  "ora": "11:08:00",
+  "negozio": "Barbara",
+  "indirizzo": "P.zza Gae Aulenti Unità6",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Croissant albicocca",
+      "quantita": 2,
+      "prezzo": 11.2,
+      "valuta": "EUR",
+      "percentuale_sconto": 10,
+      "sconto_assoluto": 0.56,
+      "valore_scontato": 10.08
+    },
+    {
+      "nome": "Centrifuga arancia",
+      "quantita": 2,
+      "prezzo": 14.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "MOO acqua 500ml",
+      "quantita": 1,
+      "prezzo": 2.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Cappuccino",
+      "quantita": 2,
+      "prezzo": 6.2,
+      "valuta": "EUR",
+      "percentuale_sconto": 10,
+      "sconto_assoluto": 0.31,
+      "valore_scontato": 5.58
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 28.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Amex"
+}

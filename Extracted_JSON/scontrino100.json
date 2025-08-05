@@ -1,0 +1,24 @@
+{
+  "data": "2025-05-27",
+  "ora": "18:49:00",
+  "negozio": "PORTOFIORI",
+  "indirizzo": "VIA MANZONI N.5",
+  "città": "PORTO MANTOVANO (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PIANTE/FIORI",
+      "quantita": 1,
+      "prezzo": 2.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 2.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTE"
+}

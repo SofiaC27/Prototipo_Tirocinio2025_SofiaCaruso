@@ -1,0 +1,78 @@
+{
+  "data": "2024-10-01",
+  "ora": "13:18:00",
+  "negozio": "LEO FOOD SRL",
+  "indirizzo": "VIA TRIBONIANO",
+  "città": "MILANO - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "RISOTTO CON SALAMELLA MAN",
+      "quantita": 1,
+      "prezzo": 12.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "TOVAN",
+      "quantita": 1,
+      "prezzo": 12.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "RISOTTO AI MIRTILLI",
+      "quantita": 1,
+      "prezzo": 11.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "RISOTTO ZAFFERANO",
+      "quantita": 1,
+      "prezzo": 12.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ACQUA NATURALE50 CL",
+      "quantita": 3,
+      "prezzo": 18.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ACQUA FRIZZANTE50 CL",
+      "quantita": 1,
+      "prezzo": 2.1,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "COPERTO",
+      "quantita": 4,
+      "prezzo": 32.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 67.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

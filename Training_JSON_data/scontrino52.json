@@ -1,0 +1,24 @@
+{
+  "data": "2025-05-10",
+  "ora": "16:33:00",
+  "negozio": "GELATERIA FORLA'",
+  "indirizzo": "VIA E. FORLANINI 50/8",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CONO MEDIO",
+      "quantita": 2,
+      "prezzo": 7.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.8,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTI"
+}

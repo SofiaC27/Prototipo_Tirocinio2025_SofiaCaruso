@@ -1,0 +1,42 @@
+{
+  "data": "2025-04-12",
+  "ora": "22:44:00",
+  "negozio": "MANCUSO VINCENZO & C. S.R.L.",
+  "indirizzo": "VIA PLINIO 22",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CONO CANNOLO",
+      "quantità": 3,
+      "prezzo": 3.8,
+      "valuta": "EUR",
+      "percentuale_sconto": 10,
+      "sconto_assoluto": -1.14,
+      "valore_scontato": 3.42
+    },
+    {
+      "nome": "+ NESSUNA AGGIUNTA",
+      "quantità": 3,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "+ NESSUNA AGGIUNTA",
+      "quantità": 2,
+      "prezzo": 4.7,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 25.8,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

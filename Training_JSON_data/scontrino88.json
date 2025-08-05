@@ -1,0 +1,51 @@
+{
+  "data": "2024-12-13",
+  "ora": "13:23:00",
+  "negozio": "PANIFICIO My Bread snc di Rotaru V. & C.",
+  "indirizzo": "VIA MECENATE 76",
+  "città": "MILANO - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "VARIE",
+      "quantita": 1,
+      "prezzo": 5.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "VARIE",
+      "quantita": 1,
+      "prezzo": 3.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "VARIE",
+      "quantita": 1,
+      "prezzo": 2.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "VARIE",
+      "quantita": 1,
+      "prezzo": 1.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 12.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

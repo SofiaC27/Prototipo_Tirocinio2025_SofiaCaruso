@@ -1,0 +1,24 @@
+{
+  "data": "2025-06-08",
+  "ora": "12:27:00",
+  "negozio": "Lidl Italia S.r.l.",
+  "indirizzo": "Via Verona, 83",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MOZZARELLA HIGH PROT4%",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 0.99,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

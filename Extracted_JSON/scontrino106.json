@@ -1,0 +1,51 @@
+{
+  "data": "2024-07-18",
+  "ora": "16:58:00",
+  "negozio": "BISTROT AL SOLITO POSTO SRLS",
+  "indirizzo": "C.DA CALDURA SNC, VILLAGGIO DEI PESCATORI",
+  "città": "CEFALU' - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "COPERTO-SERVIZIO",
+      "quantita": 1,
+      "prezzo": 1.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "LURISIA CHINOTTO ARANCIATA GAS",
+      "quantita": 1,
+      "prezzo": 3.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PIATTO POLIPO E VERDURE",
+      "quantita": 1,
+      "prezzo": 12.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BRIOCHE",
+      "quantita": 1,
+      "prezzo": 1.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 18.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

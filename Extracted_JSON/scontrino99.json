@@ -1,0 +1,33 @@
+{
+  "data": "2024-10-04",
+  "ora": "14:10:00",
+  "negozio": "UNBELIEVABLE BURGERS",
+  "indirizzo": "Via Luigi Russolo 5",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Bey Cheesb",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Acqua Naturale",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 9.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "AMEX"
+}

@@ -1,0 +1,78 @@
+{
+  "data": "2025-05-23",
+  "ora": "19:14:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop.",
+  "indirizzo": "P.le Cesare Beccaria,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T MISURA CORNETTO FI",
+      "quantita": 1,
+      "prezzo": 2.59,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SC25% COLLOSS",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 25.0,
+      "sconto_assoluto": 2.5,
+      "valore_scontato": 7.5
+    },
+    {
+      "nome": "M-T POLLO FETTE ALS",
+      "quantita": 1,
+      "prezzo": 4.34,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 0.43,
+      "valore_scontato": 3.91
+    },
+    {
+      "nome": "M-T POLLO PETTO INTERO",
+      "quantita": 1,
+      "prezzo": 4.91,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 0.49,
+      "valore_scontato": 4.42
+    },
+    {
+      "nome": "T X TAGLIO PREZZO CL",
+      "quantita": 1,
+      "prezzo": 1.98,
+      "valuta": "EUR",
+      "percentuale_sconto": 4.0,
+      "sconto_assoluto": 0.08,
+      "valore_scontato": 1.9
+    },
+    {
+      "nome": "T SALSICIE PEZZENTE L",
+      "quantita": 1,
+      "prezzo": 3.28,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 0.33,
+      "valore_scontato": 2.95
+    },
+    {
+      "nome": "SCONTO10% CLIENTI S",
+      "quantita": 1,
+      "prezzo": null,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 0.39,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 20.16,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

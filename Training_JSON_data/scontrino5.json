@@ -1,0 +1,375 @@
+{
+  "data": "2025-04-18",
+  "ora": "15:36:00",
+  "negozio": "SUPERMERCATI TOSCANO",
+  "indirizzo": "VIA F. PARRI",
+  "città": "CURATONE - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "VIN AMARAGIOBINGHIA40 ML.S",
+      "quantita": 1,
+      "prezzo": 29.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "U.LOVE FIOOCCHI INT.AVANA",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "U.LOVE FIOOCCHI INT.AVANA",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BOLLE BIO BAGNODOC. ARUM",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "V. BEAUTY SH. RIVIT. P.MDH.",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "MATT HYORA POWER AGUMI G",
+      "quantita": 1,
+      "prezzo": 3.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PULLO CARDIOPI SALENT.IVU",
+      "quantita": 1,
+      "prezzo": 2.65,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ANHALFI COLL. WHITE H",
+      "quantita": 1,
+      "prezzo": 0.75,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BOLLE BIO BAGNODOC. ARUM",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "COLT. TONDA TRANC.100%",
+      "quantita": 1,
+      "prezzo": 0.89,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "FRUM. SEMOLA100% ITA.",
+      "quantita": 1,
+      "prezzo": 0.89,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "NATURE MAIS GIALLO0500",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SOJUSUN YUBIFIDUS S.2.G",
+      "quantita": 1,
+      "prezzo": 1.65,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SPIGATO. FARTING TIPO1 ATH",
+      "quantita": 1,
+      "prezzo": 1.55,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SOJUSUN YUBIFIDUS S.2.G",
+      "quantita": 1,
+      "prezzo": 1.65,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SOJUSUN YUBIFIDUS S.2.G",
+      "quantita": 1,
+      "prezzo": 1.65,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "P. RUSSO SACCO NERO50KG",
+      "quantita": 1,
+      "prezzo": 0.65,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PAQUITA TORTILLA CLASS.BR",
+      "quantita": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "V.DI.VOD. PISNELLI FINITS.",
+      "quantita": 1,
+      "prezzo": 2.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SAL. PREZ. CASER. LIGHT -SAL",
+      "quantita": 1,
+      "prezzo": 1.19,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DELI.FIL. GRISSINI. NAT.",
+      "quantita": 1,
+      "prezzo": 1.59,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BUSTO DI UNA VOLTA BURRO",
+      "quantita": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PROVOLA AFFUMICATA GR.400",
+      "quantita": 1,
+      "prezzo": 4.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "C. NOCIA LAMP.MOTOORO GR.70",
+      "quantita": 1,
+      "prezzo": 3.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CAMPI LUPINI GIGANTI B.S.G",
+      "quantita": 1,
+      "prezzo": 1.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CAMPI LUPINI GIGANTI B.S.G",
+      "quantita": 1,
+      "prezzo": 1.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "5 x6",
+      "quantita": 1,
+      "prezzo": 0.4,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CARCOIFI VAR. THEMA CAT.11",
+      "quantita": 1,
+      "prezzo": 2.4,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SACHETTO ORTOFRUTTA BZO",
+      "quantita": 1,
+      "prezzo": 0.02,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SACHETTO ORTOFRUTTA BZO",
+      "quantita": 1,
+      "prezzo": 0.02,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "COSTE CAT.11",
+      "quantita": 1,
+      "prezzo": 2.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SACHETTO ORTOFRUTTA BZO",
+      "quantita": 1,
+      "prezzo": 0.02,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "M.H. GR. BURL. INTEGRALE GR",
+      "quantita": 1,
+      "prezzo": 1.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DAILY CARTE IGIENICA6/4",
+      "quantita": 1,
+      "prezzo": 1.9,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ROBERTI UOVA A.PERTO S/A",
+      "quantita": 1,
+      "prezzo": 1.15,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ROBERTI UOVA A.PERTO S/A",
+      "quantita": 1,
+      "prezzo": 1.15,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ROBERTI UOVA A.PERTO S/A",
+      "quantita": 1,
+      "prezzo": 1.15,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ZAK TOVAGL.30X30/HELO/15",
+      "quantita": 1,
+      "prezzo": 1.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ZAK TOVAGL.30X30/HELO/15",
+      "quantita": 1,
+      "prezzo": 1.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CARCOIFI VAR. THEMA CAT.11",
+      "quantita": null,
+      "prezzo": null,
+      "valuta": null,
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 71.29,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "elettronica"
+}

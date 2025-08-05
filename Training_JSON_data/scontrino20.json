@@ -1,0 +1,141 @@
+{
+  "data": "2025-04-23",
+  "ora": "09:59:00",
+  "negozio": "FERRETTI MARKET SRL",
+  "indirizzo": "VIA PO 34",
+  "città": "SCERNE DI PINETO - TE",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FRUTTA VI",
+      "quantita": 1,
+      "prezzo": 1.6,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PANINI ROBERTO MAXI H VI",
+      "quantita": 1,
+      "prezzo": 1.95,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SCOTEX FAZZOLETTI P VI",
+      "quantita": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "2 PZ X E.",
+      "quantita": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CREMA BELPAESE X2 PZ VI",
+      "quantita": 1,
+      "prezzo": 1.98,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PARM. REGG. GRATTUGI VI",
+      "quantita": 1,
+      "prezzo": 1.89,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "MOZZARELLA S.LUCIA BU VI",
+      "quantita": 2,
+      "prezzo": 7.7,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "THE S.BENEDETTO PESCA VI",
+      "quantita": 1,
+      "prezzo": 1.98,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SOTTILETTE KRAFT GR.2 VI",
+      "quantita": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DE CECCO PENNE RIGATE VI",
+      "quantita": 1,
+      "prezzo": 1.39,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "2 REP. CARNE",
+      "quantita": 1,
+      "prezzo": 3.29,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POMODORO DATTERINO GI VI",
+      "quantita": 1,
+      "prezzo": 2.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SOTTOLI ALLA CONTADI VI",
+      "quantita": 2,
+      "prezzo": 0.6,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Sh opper VI",
+      "quantita": null,
+      "prezzo": null,
+      "valuta": null,
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 30.49,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

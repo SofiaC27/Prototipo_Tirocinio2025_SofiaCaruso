@@ -1,0 +1,132 @@
+{
+  "data": "2025-04-26",
+  "ora": "11:16:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova",
+  "paese": null,
+  "lista_articoli": [
+    {
+      "nome": "SARDINE INTEBE",
+      "quantita": 1,
+      "prezzo": 1.81,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SARDINE INTEBE",
+      "quantita": 1,
+      "prezzo": 2.02,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SARDINE INTEBE",
+      "quantita": 1,
+      "prezzo": 1.86,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "MEZZI RIGAT BARILLA B",
+      "quantita": 1,
+      "prezzo": 0.79,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SPAGHETTONI BARILLA B",
+      "quantita": 1,
+      "prezzo": 0.79,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "MEZZI RIGAT BARILLA B",
+      "quantita": 1,
+      "prezzo": 0.79,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SPAGHETTONI BARILLA B",
+      "quantita": 1,
+      "prezzo": 0.79,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "GORALLINI71 ESSELUNG",
+      "quantita": 1,
+      "prezzo": 0.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CORALLINI71 ESSELUNG",
+      "quantita": 1,
+      "prezzo": 0.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "GRANAROL MOZZ. PROTEIN",
+      "quantita": 1,
+      "prezzo": 1.35,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POLLO NATURAMA FUSI",
+      "quantita": 1,
+      "prezzo": 3.35,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POLLO NAT. SOVR S/PEL",
+      "quantita": 1,
+      "prezzo": 4.21,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "TARTARE CLAS. PIEM.",
+      "quantita": 1,
+      "prezzo": 5.29,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 2.12,
+      "valore_scontato": 3.17
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 21.91,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

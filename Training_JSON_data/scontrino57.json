@@ -1,0 +1,24 @@
+{
+  "data": "2025-05-21",
+  "ora": "16:22:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MOZ. GIOIA COLLE DOP G I VA *a EURO",
+      "quantita": 3,
+      "prezzo": 14.97,
+      "valuta": "EUR",
+      "percentuale_sconto": 40,
+      "sconto_assoluto": 2.0,
+      "valore_scontato": 8.98
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.97,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

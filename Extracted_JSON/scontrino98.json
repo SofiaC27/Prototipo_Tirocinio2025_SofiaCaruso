@@ -1,0 +1,96 @@
+{
+  "data": "2024-06-30",
+  "ora": "12:28:00",
+  "negozio": "COMPAR S.p.A.",
+  "indirizzo": "VIALE FULVIO TESTI, 132",
+  "città": "Cinisello Balsamo - Milano (MI)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SHOE 8492305440 Promo a Soffle Outle BC: PRE-SALDI SS24",
+      "quantita": 1,
+      "prezzo": 49.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 15.0,
+      "sconto_assoluto": 7.0,
+      "valore_scontato": 42.49
+    },
+    {
+      "nome": "SHOE 8499305440 Promo a Soffle Outle BC: PRE-SALDI SS24",
+      "quantita": 1,
+      "prezzo": 49.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 15.0,
+      "sconto_assoluto": 7.0,
+      "valore_scontato": 42.49
+    },
+    {
+      "nome": "SOCKS 9199892392",
+      "quantita": 1,
+      "prezzo": 4.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SANDAL 5725419390 Promo a Soffle Outle",
+      "quantita": 1,
+      "prezzo": 13.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 20.0,
+      "sconto_assoluto": 2.6,
+      "valore_scontato": 10.4
+    },
+    {
+      "nome": "SHOE 8114209450",
+      "quantita": 1,
+      "prezzo": 59.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SANDAL 5648298370 Promo a Soffle Outle BC: PRE-SALDI SS24",
+      "quantita": 1,
+      "prezzo": 79.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 15.0,
+      "sconto_assoluto": 11.19,
+      "valore_scontato": 67.99
+    },
+    {
+      "nome": "BELT 9544139010 Promo a Soffle Outle BC: PRE-SALDI SS24",
+      "quantita": 1,
+      "prezzo": 24.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 10.0,
+      "sconto_assoluto": 2.5,
+      "valore_scontato": 22.49
+    },
+    {
+      "nome": "SHOPPER - LEGGE 123/2017 ART. 9 BIS 0011003010",
+      "quantita": 1,
+      "prezzo": 0.15,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SHOPPER - LEGGE 123/2017 ART. 9 BIS 0011003010",
+      "quantita": 1,
+      "prezzo": 0.15,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 186.45,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta di Credito"
+}

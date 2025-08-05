@@ -1,0 +1,96 @@
+{
+  "data": "2024-12-10",
+  "ora": "21:46:00",
+  "negozio": "Zio Pesce",
+  "indirizzo": "Via A. Maffei 12",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "2 x COPERTO",
+      "quantita": 2,
+      "prezzo": 11.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "GRANCHIO MOLLE",
+      "quantita": 1,
+      "prezzo": 14.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ACCiUGHE",
+      "quantita": 1,
+      "prezzo": 14.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "OMBRINA BRACE",
+      "quantita": 1,
+      "prezzo": 25.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "POLPO CROCCANTE",
+      "quantita": 1,
+      "prezzo": 26.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SORBETTO MANDARINO",
+      "quantita": 1,
+      "prezzo": 5.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ACQUA",
+      "quantita": 1,
+      "prezzo": 2.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CAFFE",
+      "quantita": 1,
+      "prezzo": 2.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BUZZINELLI RIBOLLA G",
+      "quantita": 1,
+      "prezzo": 25.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 120.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA CREDITO - BANCOMAT - SATIS"
+}

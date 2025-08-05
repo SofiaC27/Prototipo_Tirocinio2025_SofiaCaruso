@@ -1,0 +1,96 @@
+{
+  "data": "2025-06-07",
+  "ora": "12:53:00",
+  "negozio": "ALDI S.r.l.",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Cibi p/vd",
+      "quantita": 1,
+      "prezzo": 12.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "DOP g.f.150",
+      "quantita": 1,
+      "prezzo": 2.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Speck Alpi 100g",
+      "quantita": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Pomodoro costoluto",
+      "quantita": 0.75,
+      "prezzo": 1.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Cipoll1r IGP 500g",
+      "quantita": 1,
+      "prezzo": 2.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 20,
+      "sconto_assoluto": 0.7,
+      "valore_scontato": 2.39
+    },
+    {
+      "nome": "Veg. Nugget/Cotoletta 0,910 kg",
+      "quantita": 1,
+      "prezzo": 6.87,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Banane",
+      "quantita": 1,
+      "prezzo": 1.26,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Albicocche",
+      "quantita": 1,
+      "prezzo": 3.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Pesche tab. 500",
+      "quantita": 1,
+      "prezzo": 3.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 40.75,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}

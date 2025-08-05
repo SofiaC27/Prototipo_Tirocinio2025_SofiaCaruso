@@ -1,0 +1,24 @@
+{
+  "data": "2024-10-02",
+  "ora": "09:11:00",
+  "negozio": "5R srl",
+  "indirizzo": "Via Luigi Russolo 5",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SPREMUTA DI ARANCIA",
+      "quantita": 1,
+      "prezzo": 3.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

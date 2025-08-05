@@ -1,0 +1,78 @@
+{
+  "data": "2025-05-25",
+  "ora": "11:41:00",
+  "negozio": "ALDI S.r.l.",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PomPelati BIO 400g",
+      "quantita": 3,
+      "prezzo": 12.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 1.95,
+      "sconto_assoluto": 0.23,
+      "valore_scontato": 11.77
+    },
+    {
+      "nome": "Speck Alpi 100g",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Patat. Crocc. dm form",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Ciliegle 300g",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Zucchine",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Baby angu",
+      "quantita": 1.172,
+      "prezzo": 1.51,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Baby angu",
+      "quantita": 2.168,
+      "prezzo": 2.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 12.68,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Master Card"
+}

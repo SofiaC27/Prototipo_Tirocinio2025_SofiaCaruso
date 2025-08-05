@@ -3,7 +3,7 @@ import streamlit as st
 from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
                                    delete_file_from_database_and_folder, display_receipts_data_with_expanders)
-from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json
+from Modules.ocr_groq import perform_ocr_on_image, generate_and_save_json, ml_predictions_from_json
 from Modules.ML.ml_dataset import generate_dataset
 
 
@@ -65,7 +65,22 @@ if extracted_text:
 if selected_image:
     st.session_state.selected_image = selected_image
 
+
 generate_and_save_json(api_key)
+
+if st.session_state.get("trigger_prediction", False):
+    prediction = ml_predictions_from_json()
+
+    if prediction == 1:
+        st.warning("Questo scontrino è stato classificato come anomalo (outlier). "
+                   "Ciò significa che ha caratteristiche insolite rispetto agli altri scontrini. "
+                   "Potrebbe indicare un errore nell'OCR, un formato molto diverso o una spesa anomala.")
+    else:
+        st.success("Questo scontrino è stato classificato come normale. "
+                   "Le sue caratteristiche rientrano nella norma rispetto agli altri scontrini.")
+
+    # Reset del flag per evitare chiamate ripetute
+    st.session_state.trigger_prediction = False
 
 
 # Visualizzazione dati degli scontrini

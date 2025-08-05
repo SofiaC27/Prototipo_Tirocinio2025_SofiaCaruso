@@ -1,0 +1,51 @@
+{
+  "data": "2024-07-23",
+  "ora": "15:25:00",
+  "negozio": "DON NINO SRL",
+  "indirizzo": "Via Vincenzo di Marco,26b",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CAFFE'",
+      "quantita": 3,
+      "prezzo": 3.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CAFFETTERIA",
+      "quantita": 1,
+      "prezzo": 1.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CAFFETTERIA",
+      "quantita": 1,
+      "prezzo": 0.6,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ROSTICCERIA GOURMET",
+      "quantita": 1,
+      "prezzo": 2.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

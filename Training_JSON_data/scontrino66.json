@@ -1,0 +1,60 @@
+{
+  "data": "2025-03-01",
+  "ora": "16:20:00",
+  "negozio": "LOJACONO COMMERCIALE S.P.A.",
+  "indirizzo": "VIA DELL'ORSA MAGGIORE,106",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "K69335 CONVEYOR NERO-MA",
+      "quantita": 1,
+      "prezzo": 35.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 10,
+      "sconto_assoluto": 3.5,
+      "valore_scontato": 31.5
+    },
+    {
+      "nome": "I41I290D NG NERO",
+      "quantita": 1,
+      "prezzo": 97.5,
+      "valuta": "EUR",
+      "percentuale_sconto": 15,
+      "sconto_assoluto": 14.63,
+      "valore_scontato": 82.88
+    },
+    {
+      "nome": "I41I835D NG BEIGE",
+      "quantita": 4,
+      "prezzo": 420.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 15,
+      "sconto_assoluto": 15.75,
+      "valore_scontato": 357.0
+    },
+    {
+      "nome": "I400361U NG CAFFE",
+      "quantita": 3,
+      "prezzo": 355.5,
+      "valuta": "EUR",
+      "percentuale_sconto": 15,
+      "sconto_assoluto": 17.78,
+      "valore_scontato": 302.18
+    },
+    {
+      "nome": "Arrot. DL N.50/2017",
+      "quantita": 1,
+      "prezzo": 0.01,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 304.35,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta di credito"
+}

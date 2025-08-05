@@ -1,0 +1,87 @@
+{
+  "data": "2025-06-03",
+  "ora": "16:34:00",
+  "negozio": "ALDI S.r.l.",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Croc. di m. for.",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Pat. di m. for.",
+      "quantita": 1,
+      "prezzo": 10.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Baby anguria",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Banane",
+      "quantita": 1.016,
+      "prezzo": 1.51,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Albicocche",
+      "quantita": 1,
+      "prezzo": 1.35,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Ciliegie",
+      "quantita": 0.5,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Acqua friz.",
+      "quantita": 6,
+      "prezzo": 20.94,
+      "valuta": "EUR",
+      "percentuale_sconto": 22,
+      "sconto_assoluto": 4.61,
+      "valore_scontato": 16.33
+    },
+    {
+      "nome": "Acqua friz",
+      "quantita": 12,
+      "prezzo": 22.68,
+      "valuta": "EUR",
+      "percentuale_sconto": 22,
+      "sconto_assoluto": 4.99,
+      "valore_scontato": 17.69
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 20.69,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}

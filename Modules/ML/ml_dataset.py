@@ -8,10 +8,10 @@ from sklearn.ensemble import IsolationForest
 # Calcola il percorso assoluto della root del progetto, risalendo di due livelli dalla cartella dello script corrente
 # Costruisce il percorso completo della cartella 'Extracted_JSON' all’interno della root del progetto
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-EXTRACTED_JSON_DIR = os.path.join(PROJECT_ROOT, "Extracted_JSON")
+TRAINING_JSON_DATA_DIR = os.path.join(PROJECT_ROOT, "Training_JSON_data")
 
 
-def load_receipts_json(json_dir=EXTRACTED_JSON_DIR):
+def load_receipts_json(json_dir=TRAINING_JSON_DATA_DIR):
     """
     Funzione per caricare tutti i file JSON dalla cartella in cui sono salvati:
     - Legge ogni file con estensione .json presente nella cartella specificata
@@ -71,14 +71,57 @@ def is_holiday(date, country_code="IT"):
         return 0  # La data NON è una festività
 
 
+def extract_features_from_receipt(receipt):
+    """
+    Funzione per estrarre le feature da uno scontrino in formato JSON:
+    - Verifica la presenza della data
+    - Calcola il giorno della settimana, il mese, la stagione e se è festività
+    - Estrae il prezzo totale e il numero di articoli (quantità totale)
+    - Calcola la spesa media per articolo, gestendo i casi con zero articoli
+    - Arrotonda i valori numerici a due cifre decimali per maggiore coerenza e leggibilità
+    :param receipt: dizionario JSON con i dati dello scontrino
+    :return: dizionario con le feature oppure None in caso di errore o dati mancanti
+    """
+    try:
+        date_str = receipt.get("data")
+        if not date_str:
+            return None
+
+        date = datetime.strptime(date_str, "%Y-%m-%d").date()
+
+        val = receipt.get("prezzo_totale", {}).get("valore")
+        total_price = float(val) if val is not None else 0.0
+
+        items = receipt.get("lista_articoli", [])
+        n_items = sum([
+            int(q) if q is not None else 0
+            for q in [item.get("quantita") for item in items]
+        ])
+
+        spending_per_item = total_price / n_items if n_items else 0.0
+
+        return {
+            "date": date,
+            "day_of_week": date.weekday(),
+            "month": date.month,
+            "season": assign_season(date),
+            "is_holiday": is_holiday(date),
+            "total_price": round(total_price, 2),
+            "n_items": n_items,
+            "spending_per_item": round(spending_per_item, 2)
+        }
+
+    except Exception as e:
+        print("Errore durante estrazione feature:", e)
+        return None
+
+
 def create_dataset_from_receipts():
     """
     Funzione per creare un dataset a partire dai file JSON degli scontrini:
-    - Carica i dati grezzi e verifica che ogni ricevuta contenga una data valida
-    - Per ciascuno scontrino: calcola giorno della settimana, mese, stagione e festività; estrae la
-      spesa totale e il numero di articoli; calcola la spesa media per articolo
-    - Arrotonda i valori numerici a due cifre decimali per maggiore coerenza e leggibilità
-    - Salva le informazioni in una lista di record e converte la lista in un DataFrame pandas
+    - Carica i dati grezzi
+    - Per ciascuno scontrino estrae le feature
+    - Salva le informazioni in una lista di record e converte la lista in un DataFrame
     - Verifica se il DataFrame è vuoto e in caso restituisce un messaggio
     :return: DataFrame con le informazioni di ciascuno scontrino
     """
@@ -86,37 +129,9 @@ def create_dataset_from_receipts():
     records = []
 
     for receipt in raw_data:
-        try:
-            date_str = receipt.get("data")
-            if not date_str:
-                continue
-
-            date = datetime.strptime(date_str, "%Y-%m-%d").date()
-
-            val = receipt.get("prezzo_totale", {}).get("valore")
-            total_price = float(val) if val is not None else 0.0
-
-            items = receipt.get("lista_articoli", [])
-            n_items = sum([
-                int(q) if q is not None else 0
-                for q in [item.get("quantita") for item in items]
-            ])
-
-            spending_per_item = total_price / n_items if n_items else 0.0
-
-            records.append({
-                "date": date,
-                "day_of_week": date.weekday(),
-                "month": date.month,
-                "season": assign_season(date),
-                "is_holiday": is_holiday(date),
-                "total_price": round(total_price, 2),
-                "n_items": n_items,
-                "spending_per_item": round(spending_per_item, 2)
-            })
-
-        except Exception as e:
-            print("Errore in uno scontrino:", e)
+        features = extract_features_from_receipt(receipt)
+        if features:
+            records.append(features)
 
     df = pd.DataFrame(records)
 

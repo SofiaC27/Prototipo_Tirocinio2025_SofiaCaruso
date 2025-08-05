@@ -7,8 +7,11 @@ import time
 import json
 import re
 import os
+import joblib
+import pandas as pd
 
 from Database.db_manager import insert_data, get_data
+from Modules.ML.ml_dataset import extract_features_from_receipt
 
 
 IMAGE_DIR = "Images"
@@ -312,6 +315,7 @@ def generate_and_save_json(api_key):
     - Se il JSON non è valido o mancano riferimenti, mostra messaggi di errore
     :param api_key: chiave per le chiamate API
     :return: percorso del file JSON salvato, oppure None se non salvato
+    :return: dizionario contenente i dati del JSON
     """
     if not st.session_state.extracted_text or not st.session_state.selected_image:
         st.warning("You must run OCR before generating JSON.")
@@ -373,8 +377,48 @@ def generate_and_save_json(api_key):
                 else:
                     st.error(f"Database error: {db_result}")
 
+                st.session_state.last_generated_json = extracted_data_dict
+                st.session_state.trigger_prediction = True
+
         except json.JSONDecodeError:
             st.error("Generated data is not valid JSON. File not saved.")
             saved_path = None
+            extracted_data_dict = None
 
-        return saved_path
+        return saved_path, extracted_data_dict
+
+
+def ml_predictions_from_json():
+    """
+    Funzione per effettuare la predizione su uno scontrino a partire da un file JSON:
+    - Carica scaler e modello ML salvati in locale
+    - Estrae le feature rilevanti dallo scontrino
+    - Costruisce il vettore delle feature nell’ordine atteso dal modello
+    - Trasforma le feature con lo scaler per normalizzarle
+    - Esegue la predizione con il modello (0 = normale, 1 = anomalo)
+    :return: risultato della previsione come valore intero, oppure None in caso di errore
+    """
+    if "last_generated_json" not in st.session_state or not st.session_state.last_generated_json:
+        return None
+
+    json_data = st.session_state.last_generated_json
+
+    # Carica scaler e modello
+    scaler = joblib.load("Modules/ML/ML_Objects/scaler.joblib")
+    model = joblib.load("Modules/ML/ML_Objects/final_model.joblib")
+
+    # Estrai le feature come dizionario
+    feature_dict = extract_features_from_receipt(json_data)
+    if feature_dict is None:
+        return None
+
+    df = pd.DataFrame([feature_dict])
+    df = pd.get_dummies(df, columns=["season"], drop_first=True)
+
+    X_new = df.drop(['date'], axis=1).values
+
+    # Trasforma le feature e fa la previsione
+    X_new_transf = scaler.transform(X_new)
+    prediction = model.predict(X_new_transf)[0]
+
+    return prediction

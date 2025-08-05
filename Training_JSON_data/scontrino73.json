@@ -1,0 +1,204 @@
+{
+  "data": "2025-05-31",
+  "ora": "16:55:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "V. COMMERCO, 1",
+  "città": "S.A. MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "DAYLY CARTA IGIENE",
+      "quantita": 2,
+      "prezzo": 3.98,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "LIME SPREMUTA NELAG",
+      "quantita": 9,
+      "prezzo": 6.3,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SLDASN YOG. BIF125",
+      "quantita": 2,
+      "prezzo": 0.78,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "LIEVITO MIGNON LIEV",
+      "quantita": 2,
+      "prezzo": 1.6,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PROC. COTTO A.O. NATU",
+      "quantita": 2,
+      "prezzo": 3.34,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ZANETTI URBANI PADOVA",
+      "quantita": 1,
+      "prezzo": 3.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "RNA SUGO ALLA NORMA",
+      "quantita": 2,
+      "prezzo": 1.84,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PRODOTTI FRESCHI (BANCO)",
+      "quantita": 2,
+      "prezzo": 1.16,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BUON PANE BAULETTO",
+      "quantita": 2,
+      "prezzo": 2.58,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "RUMMO INTEGR500G",
+      "quantita": 1,
+      "prezzo": 2.58,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "RUMMO DECOR PERFECT X70",
+      "quantita": 2,
+      "prezzo": 2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BERRY SANDERS MAI",
+      "quantita": 1,
+      "prezzo": 1.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ERBETTE",
+      "quantita": 4,
+      "prezzo": 3.36,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ERBETTE",
+      "quantita": 4,
+      "prezzo": 3.32,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "NATURELLE6 UOVA ROS",
+      "quantita": 1,
+      "prezzo": 6,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "CILIEGIE CESTINO500",
+      "quantita": 1,
+      "prezzo": 3.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "MELANZANE TONDE",
+      "quantita": 1,
+      "prezzo": 1.23,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "GALLINELLA GRANUL",
+      "quantita": 1,
+      "prezzo": 2.48,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "ALBICOCHE CESTINO5",
+      "quantita": 1,
+      "prezzo": 1.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PATATE2KG",
+      "quantita": 1,
+      "prezzo": 2.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PURA TOV.LI33X33 X2",
+      "quantita": 1,
+      "prezzo": 3.98,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 63.25,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}

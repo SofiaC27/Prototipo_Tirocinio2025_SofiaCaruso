@@ -1,0 +1,33 @@
+{
+  "data": "2025-05-30",
+  "ora": "17:05:00",
+  "negozio": "ACQUA & SAPONE",
+  "indirizzo": "Via della Repubblica, 2",
+  "città": "Porto Mantovano - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "IRGE DEUMID C.NEUT. C/A",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "IROF DEUMID. C.NEUT. C/A",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 1.98,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

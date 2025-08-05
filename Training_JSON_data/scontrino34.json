@@ -1,0 +1,87 @@
+{
+  "data": "2025-05-11",
+  "ora": "12:32:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "VIA K.MARX,1",
+  "città": "BANGOLI - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SANT'ANNA ACQUA 1,5L",
+      "quantita": 1,
+      "prezzo": 2.1,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PATATE 2KG",
+      "quantita": 1,
+      "prezzo": 2.2,
+      "valuta": "EUR",
+      "percentuale_sconto": 4,
+      "sconto_assoluto": 0.09,
+      "valore_scontato": 2.11
+    },
+    {
+      "nome": "SOJUSAN YOG.BIFID. 4X1",
+      "quantita": 1,
+      "prezzo": 1.5,
+      "valuta": "EUR",
+      "percentuale_sconto": 10,
+      "sconto_assoluto": 0.15,
+      "valore_scontato": 1.35
+    },
+    {
+      "nome": "SOJUSAN YOG.BIFID. 4X1",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SOJUSAN YOG.BIFID. 25",
+      "quantita": 3,
+      "prezzo": 2.97,
+      "valuta": "EUR",
+      "percentuale_sconto": 10,
+      "sconto_assoluto": 0.3,
+      "valore_scontato": 2.67
+    },
+    {
+      "nome": "VENUS DET.INTIMO/COR",
+      "quantita": 1,
+      "prezzo": 0.95,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "VENUS DET.INTIMO/COR EXCELLENCE CASTANO S",
+      "quantita": 1,
+      "prezzo": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PATA PATATINA ARTIG.",
+      "quantita": 1,
+      "prezzo": 1.59,
+      "valuta": "EUR",
+      "percentuale_sconto": 10,
+      "sconto_assoluto": 0.16,
+      "valore_scontato": 1.43
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 5.65,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

@@ -1,0 +1,105 @@
+{
+  "data": "2024-11-03",
+  "ora": "16:43:00",
+  "negozio": "Bata",
+  "indirizzo": "Viale Fulvio Testi, 132",
+  "città": "Cinisello Balsamo - Milano (MI)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BOOT 7916602400",
+      "quantita": 1,
+      "prezzo": 49.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 30,
+      "sconto_assoluto": 15.0,
+      "valore_scontato": 34.99
+    },
+    {
+      "nome": "BOOT 5916328390",
+      "quantita": 1,
+      "prezzo": 59.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 30,
+      "sconto_assoluto": 17.99,
+      "valore_scontato": 41.99
+    },
+    {
+      "nome": "BOOT 7946171400",
+      "quantita": 1,
+      "prezzo": 59.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 30,
+      "sconto_assoluto": 18.0,
+      "valore_scontato": 41.99
+    },
+    {
+      "nome": "SHOE 7215190390",
+      "quantita": 1,
+      "prezzo": 29.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 30,
+      "sconto_assoluto": 9.0,
+      "valore_scontato": 20.99
+    },
+    {
+      "nome": "SHOE 7216186390",
+      "quantita": 1,
+      "prezzo": 29.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 30,
+      "sconto_assoluto": 9.0,
+      "valore_scontato": 20.99
+    },
+    {
+      "nome": "SHOE TREE 9900833010",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SHOE TREE 9900833010",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "INSIDE SOLE 9900223390",
+      "quantita": 1,
+      "prezzo": 3.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SHOPPER - LEGGE123/2017 ART.9 BIS 0011004010",
+      "quantita": 1,
+      "prezzo": 0.25,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SHOPPER - LEGGE123/2017 ART.9 BIS 0011004010",
+      "quantita": 1,
+      "prezzo": 0.25,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 167.43,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta di Credito"
+}

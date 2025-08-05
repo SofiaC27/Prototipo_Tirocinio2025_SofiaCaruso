@@ -1,0 +1,33 @@
+{
+  "data": "2025-03-30",
+  "ora": "15:18:00",
+  "negozio": "SIREN COFFEE S.R.L.",
+  "indirizzo": "Via Torino 21",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "VT Chocolate Cream Frappuccino",
+      "quantita": 1,
+      "prezzo": 5.7,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Base Latte Intero",
+      "quantita": 1,
+      "prezzo": 1.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.2,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

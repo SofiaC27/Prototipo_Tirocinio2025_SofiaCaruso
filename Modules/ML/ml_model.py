@@ -2,6 +2,7 @@ import warnings
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import joblib
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -154,3 +155,8 @@ plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.text(0.5, -0.1, f'Performance finale sul testing set: {test_balanced_accuracy * 100:.1f}% Balanced Accuracy',
          fontsize=12, ha='center', transform=plt.gca().transAxes)
 plt.show()
+
+
+# Salvataggio del modello e dello scaler
+joblib.dump(final_model, "ML_Objects/final_model.joblib")
+joblib.dump(scaler, "ML_Objects/scaler.joblib")
