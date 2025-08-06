@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import joblib
 
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import GridSearchCV, StratifiedKFold
@@ -39,7 +40,10 @@ plot_outlier_by_holiday(df)
 
 
 # Codifica le feature categoriche in numeriche
-df = pd.get_dummies(df, columns=["season"], drop_first=True)
+encoder = OneHotEncoder(drop='first', sparse_output=False, handle_unknown='ignore')
+encoded = encoder.fit_transform(df[['season']])
+encoded_df = pd.DataFrame(encoded, columns=encoder.get_feature_names_out(['season']), index=df.index)
+df = pd.concat([df.drop(columns=['season']), encoded_df], axis=1)
 
 # Selezione delle feature (X) e assegnazione del target (y)
 y = df['is_outlier']  # target
@@ -157,6 +161,7 @@ plt.text(0.5, -0.1, f'Performance finale sul testing set: {test_balanced_accurac
 plt.show()
 
 
-# Salvataggio del modello e dello scaler
+# Salvataggio del modello, dello scaler e dell'encoder
 joblib.dump(final_model, "ML_Objects/final_model.joblib")
 joblib.dump(scaler, "ML_Objects/scaler.joblib")
+joblib.dump(encoder, "ML_Objects/encoder.joblib")

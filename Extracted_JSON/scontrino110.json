@@ -1,0 +1,24 @@
+{
+  "data": "2025-05-08",
+  "ora": "22:37:00",
+  "negozio": "CAFFETTERIA L' INCONTRO",
+  "indirizzo": "STRADA MARIOLLI 41",
+  "città": "PORTO MANTOVANO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ANALCOLICI DELLA CASA",
+      "quantita": 2,
+      "prezzo": 12.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 12.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTE"
+}

@@ -391,9 +391,10 @@ def generate_and_save_json(api_key):
 def ml_predictions_from_json():
     """
     Funzione per effettuare la predizione su uno scontrino a partire da un file JSON:
-    - Carica scaler e modello ML salvati in locale
+    - Carica scaler, encoder e modello ML salvati in locale
     - Estrae le feature rilevanti dallo scontrino
-    - Costruisce il vettore delle feature nell’ordine atteso dal modello
+    - Codifica le variabili categoriche con OneHotEncoder
+    - Costruisce il vettore delle feature nell'ordine atteso dal modello
     - Trasforma le feature con lo scaler per normalizzarle
     - Esegue la predizione con il modello (0 = normale, 1 = anomalo)
     :return: risultato della previsione come valore intero, oppure None in caso di errore
@@ -403,17 +404,22 @@ def ml_predictions_from_json():
 
     json_data = st.session_state.last_generated_json
 
-    # Carica scaler e modello
+    # Carica scaler, modello e encoder
     scaler = joblib.load("Modules/ML/ML_Objects/scaler.joblib")
     model = joblib.load("Modules/ML/ML_Objects/final_model.joblib")
+    encoder = joblib.load("Modules/ML/ML_Objects/encoder.joblib")
 
-    # Estrai le feature come dizionario
+    # Estrae le feature come dizionario
     feature_dict = extract_features_from_receipt(json_data)
     if feature_dict is None:
         return None
 
     df = pd.DataFrame([feature_dict])
-    df = pd.get_dummies(df, columns=["season"], drop_first=True)
+
+    # Codifica la colonna categorica usando l'encoder salvato
+    encoded = encoder.transform(df[['season']])
+    encoded_df = pd.DataFrame(encoded, columns=encoder.get_feature_names_out(['season']),index=df.index)
+    df = pd.concat([df.drop(columns=['season']), encoded_df], axis=1)
 
     X_new = df.drop(['date'], axis=1).values
 

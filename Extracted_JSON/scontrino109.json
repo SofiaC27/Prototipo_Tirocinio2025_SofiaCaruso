@@ -1,0 +1,195 @@
+{
+  "data": "2025-05-10",
+  "ora": "10:30:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "VIA R. MAURI, 1",
+  "città": "BANCOLO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "LATTE GRANAROLO P.S.",
+      "quantita": 2,
+      "prezzo": 1.5,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "HANIMALS AVENA DRINK",
+      "quantita": 1,
+      "prezzo": 0.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "FARINA MANITOBA",
+      "quantita": 1,
+      "prezzo": 1.1,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "OME SPREMUTA DI PUR",
+      "quantita": 1,
+      "prezzo": 2.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "FRUMENTO SEM.RIMAC.1",
+      "quantita": 1,
+      "prezzo": 1.2,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "NEGAL1 LT. GREC. CRE",
+      "quantita": 1,
+      "prezzo": 3.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BURRO VIRGILIO200G",
+      "quantita": 1,
+      "prezzo": 2.1,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "MILK LATTE FIEVO INT",
+      "quantita": 1,
+      "prezzo": 1.89,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "AIA UOVA X5 S/ANTIB.",
+      "quantita": 1,
+      "prezzo": 1.39,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "AIA UOVA VX S/ANTIB.",
+      "quantita": 2,
+      "prezzo": 2.78,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "RICOTTA",
+      "quantita": 1,
+      "prezzo": 3.87,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "M.BIANCO350G TARALL",
+      "quantita": 1,
+      "prezzo": 1.29,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "GORA PADANO GRATIG",
+      "quantita": 1,
+      "prezzo": 1.59,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "GRANA PADANO GRATIG",
+      "quantita": 1,
+      "prezzo": 1.59,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "LIEVITO MIGNON LIEVI",
+      "quantita": 1,
+      "prezzo": 0.39,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PREMIATO CTTO GRAN MAG",
+      "quantita": 1,
+      "prezzo": 2.23,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "LIMONI SICILIA750G",
+      "quantita": 1,
+      "prezzo": 1.35,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "TUBER WURSTEL100G",
+      "quantita": 2,
+      "prezzo": 2.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SALSIICCIA PICC. BOG V",
+      "quantita": 1,
+      "prezzo": 1.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BANANE",
+      "quantita": 1,
+      "prezzo": 1.78,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 41.25,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}
