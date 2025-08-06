@@ -1,0 +1,18 @@
+Confronta i seguenti due contenuti:
+
+1. Il testo OCR grezzo ottenuto da uno scontrino
+2. Il JSON strutturato che contiene i dati estratti
+
+Verifica se il JSON riflette accuratamente il contenuto del testo OCR, senza considerare differenze di formattazione.
+Controlla in particolare:
+- nomi degli articoli
+- quantità
+- prezzi
+- eventuali sconti
+- prezzo totale dello scontrino
+
+Se tutti i dati sono coerenti e non mancano informazioni, rispondi solo con:
+"DATI COERENTI"
+
+Se invece ci sono errori o differenze, rispondi solo con:
+"DATI DIVERSI"

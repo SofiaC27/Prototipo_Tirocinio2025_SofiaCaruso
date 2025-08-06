@@ -1,0 +1,24 @@
+{
+  "data": "2025-06-30",
+  "ora": "13:42:00",
+  "negozio": "SAN FRANCESCO",
+  "indirizzo": "VIA F.LLI BANDIERA 49",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BAR",
+      "quantita": 2,
+      "prezzo": 5.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 10.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

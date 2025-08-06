@@ -1,0 +1,96 @@
+{
+  "data": "2026-06-13",
+  "ora": "16:43:00",
+  "negozio": "COOP ALLEANZA3.0",
+  "indirizzo": "P. le Cesare Beccaria,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "M- BIR WEISS1KG FFCD",
+      "quantita": 1,
+      "prezzo": 1.87,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SC25 FIOR FIO",
+      "quantita": 1,
+      "prezzo": 22.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 25.0,
+      "sconto_assoluto": 0.47,
+      "valore_scontato": null
+    },
+    {
+      "nome": "M- BIR WEISS1KG FFCD",
+      "quantita": 1,
+      "prezzo": 1.87,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "SC25 FIOR FIO",
+      "quantita": 1,
+      "prezzo": 22.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 25.0,
+      "sconto_assoluto": 0.47,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T ANGURIA MINI COMET",
+      "quantita": 1,
+      "prezzo": 3.42,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T CILIEGIE VIGN IGP",
+      "quantita": 1,
+      "prezzo": 5.98,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T SCANTO % CLIE",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 40.0,
+      "sconto_assoluto": 2.4,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T CILIEGIE VIGN IGP",
+      "quantita": 1,
+      "prezzo": 5.98,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "T SCANTO % CLIE",
+      "quantita": 1,
+      "prezzo": 4.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 40.0,
+      "sconto_assoluto": 2.4,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.38,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}
