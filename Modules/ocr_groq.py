@@ -2,12 +2,12 @@ import streamlit as st
 from PIL import Image
 from groq import Groq
 import base64
-import time
 import json
 import re
 import os
 import joblib
 import pandas as pd
+import mimetypes
 from streamlit_ace import st_ace
 
 from Database.db_manager import insert_data, get_data
@@ -220,7 +220,9 @@ def run_ocr_and_save_json(api_key):
     - Mostra o nasconde il testo OCR in una textarea attraverso un checkbox
     - Sfrutta il testo estratto per generare un JSON strutturato utilizzando un modello AI tramite l'API Groq
     - Analizza la coerenza dei dati nel JSON
-    - Se necessario, mostra un editor Ace JSON per correggere manualmente i dati
+    - Se è necessario, visualizza l'immagine dello scontrino in un contenitore scrollabile con
+      zoom personalizzato, per facilitare l'ispezione visiva dei dati OCR
+    - Accanto all'immagine mostra un editor Ace JSON per correggere manualmente i dati
     - Salva le modifiche nel session state e visualizza l'anteprima del JSON finale
     :param api_key: chiave per le chiamate API
     """
@@ -284,16 +286,37 @@ def run_ocr_and_save_json(api_key):
 
         st.info(
             "**Istruzioni per la modifica:**\n"
+            "- Usa le barre di scorrimento sull'immagine per visionare tutto lo scontrino e"
+            " verificare con facilità i dati presenti.\n"
             "- Modifica i dati nel formato JSON prestando attenzione alla sintassi: mantieni correttamente"
             " caratteri come virgole, parentesi e virgolette.\n"
             "- Dopo aver effettuato le modifiche, premi prima il bottone 'APPLY' per aggiornare il JSON,"
             " e poi conferma con il bottone 'Salva modifiche'."
         )
 
-        col1, col2 = st.columns([1, 1])
+        col1, col2 = st.columns([1, 1.3])
 
         with col1:
-            st.image(img, caption=f"Image: {image}", use_container_width=True)
+            # Contenitore scrollabile con immagine zoommata
+            zoom_factor = 0.5  # ingrandisce rispetto alla larghezza colonna
+            img_width = int(img.width * zoom_factor)
+
+            # Ottiene il tipo MIME
+            mime_type, _ = mimetypes.guess_type(image_path)
+            if mime_type is None:
+                mime_type = "image/jpg"  # fallback se non rilevato
+
+            encoded_img = encode_image(image_path)
+            st.markdown(
+                f"""
+                    <div style="height:500px; overflow:auto; border:1px solid #ccc; padding:5px; background-color:white;">
+                        <img src="data:{mime_type};base64,{encoded_img}" 
+                             width="{img_width}px" 
+                             style="max-width:none; display:block;">
+                    </div>
+                """,
+                unsafe_allow_html=True
+            )
 
         with col2:
             st.session_state.corrected_json_text = st_ace(
