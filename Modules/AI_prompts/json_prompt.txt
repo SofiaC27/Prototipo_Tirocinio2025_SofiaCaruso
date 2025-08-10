@@ -11,7 +11,7 @@ nel formato JSON indicato di seguito:
   "lista_articoli": [
     {
       "nome": "...",
-      "quantita": ...,
+      "quantità": ...,
       "prezzo": "...",
       "valuta": "…",
       "percentuale_sconto": ...,
@@ -20,7 +20,7 @@ nel formato JSON indicato di seguito:
     },
     {
       "nome": "...",
-      "quantita": ...,
+      "quantità": ...,
       "prezzo": "...",
       "valuta": "…",
       "percentuale_sconto": ...,
@@ -56,7 +56,7 @@ Regole per l'estrazione:
      identificativi. Solitamente il nome di ogni articolo è affiancato al suo costo, mentre nelle righe sottostanti
      ci sono eventuali sconti o gli articoli successivi. Il nome non comprende parole come 'SCONTO' o 'sconto' perchè
      indicano solo l'eventuale presenza di sconti. Scrivi il nome come testo
-    -Nel campo 'quantita' scrivi la quantità dell'articolo come numero intero. Se la quantità è chiaramente
+    -Nel campo 'quantità' scrivi la quantità dell'articolo come numero intero. Se la quantità è chiaramente
      indicata con un moltiplicatore (es: "x2", "Qty: 3", "Q.tà 5", "Quantità: 4"), usa quel valore.
      Eventuali codici alfanumerici identificativi non corrispondono alla quantità.
      Solitamente la quantità è scritta sopra, di fianco o sotto il nome dell'articolo.

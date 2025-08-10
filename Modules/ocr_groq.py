@@ -118,88 +118,48 @@ def perform_ocr_on_image(api_key):
     )
 
     extracted_text = chat_completion.choices[0].message.content
+    st.session_state.extracted_text = extracted_text
 
     return extracted_text
 
 
-def fix_json_data(api_key, json_data_dict, ocr_text):
+def check_data_consistency(json_data_dict):
     """
-    Funzione per verificare e correggere la coerenza tra testo OCR e dati JSON estratti
-    - Recupera l'immagine e i dati estratti dallo stato della sessione Streamlit
-    - Converte il JSON in una stringa formattata
-    - Invia il testo OCR e iol JSON al modello Groq per fare validazione semantica
-    - Se i dati sono coerenti, conferma il contenuto
-    - Se ci sono discrepanze, mostra l'immagine e il JSON per una modifica manuale
-    - Consente la correzione diretta tramite editor Ace e conferma finale
-    :param api_key: chiave per le chiamate API
-    :param json_data_dict: dizionario estratto contenente i dati dello scontrino
-    :param ocr_text: testo estratto tramite OCR
-    :return: dizionario JSON finale validato e corretto
+    Funzione per verificare la coerenza dei dati confrontando il prezzo totale dello scontrino e
+    la somma dei prezzi degli articoli
+    - Calcola il costo totale degli articoli moltiplicando prezzo e quantità estratti
+    - Recupera il prezzo totale salvato dallo scontrino
+    - Confronta i due valori e mostra un messaggio di avviso se i dati non sono coerenti e rileva discrepanze
+    - Se il prezzo totale è mancante, interrompe il controllo
+    :param json_data_dict: dizionario JSON con i dati estratti dallo scontrino
+    :return: True se ci sono discrepanze, False se i dati sono coerenti o incompleti
     """
-    image = st.session_state.get("selected_image")
-    image_path = st.session_state.get("selected_image_path")
-    img = Image.open(image_path)
+    total_items_cost = 0.0
 
-    client = Groq(api_key=api_key)
-    prompt_text = load_prompt("Modules/AI_prompts/comparison_prompt.txt")
-    json_string = json.dumps(json_data_dict, indent=2, ensure_ascii=False)
+    for item in json_data_dict.get('lista_articoli', []):
+        quantity = item.get('quantità') if item.get('quantità') is not None else 1
+        price = item.get('prezzo') if item.get('prezzo') is not None else 0.0
+        total_items_cost += price * quantity
 
-    chat_completion = client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
-        messages=[
-            {"role": "user", "content": [
-                {"type": "text", "text": prompt_text},
-                {"type": "text", "text": f"TESTO OCR:\n{ocr_text}"},
-                {"type": "text", "text": f"JSON ESTRATTO:\n{json_string}"}
-            ]}
-        ]
-    )
+    total_receipt_price = json_data_dict.get('prezzo_totale', {}).get('valore')
 
-    comparison = chat_completion.choices[0].message.content.strip()
-    final_json_dict = json_data_dict
+    # Se manca il prezzo totale, non si può fare il confronto, quindi ritorna False
+    if total_receipt_price is None:
+        st.warning("Prezzo totale scontrino mancante.")
+        return False
 
-    # Se i dati sono coerenti, ritorna il dizionario originale
-    if "DATI COERENTI" in comparison.upper():
-        st.success("I dati estratti sono coerenti con il testo OCR")
-    # Altrimenti, permette all'utente di correggere il JSON
-    else:
-        st.warning("Sono state rilevate differenze tra il testo OCR e i dati estratti")
-        st.info("Controlla e correggi i dati nel campo qui sotto prima di salvarli")
+    if total_receipt_price != total_items_cost:
+        st.warning(
+            f"Attenzione: il prezzo totale estratto ({total_receipt_price}) non corrisponde alla somma dei prezzi "
+            f"degli articoli ({round(total_items_cost, 2)}).\n"
+            "Verifica attentamente i dati, in particolare quantità, prezzi o sconti applicati, e "
+            "correggi eventuali errori per garantire accuratezza e coerenza."
+        )
+        # Se rileva una differenza, ritorna True
+        return True
 
-        col1, col2 = st.columns([1, 1])
-        with col1:
-            st.image(img, caption=f"Image: {image}", use_container_width=True)
-        with col2:
-            st.write("Dati JSON estratti (modificabili):")
-
-            if "corrected_json_text" not in st.session_state:
-                st.session_state.corrected_json_text = json_string
-
-            st.session_state.corrected_json_text = st_ace(
-                value=st.session_state.corrected_json_text,
-                language="json",
-                theme="tomorrow_night",
-                height=400,
-                key="ace_json_fix"
-            )
-
-        # Conferma modifica
-        if st.button("Conferma dati corretti"):
-            try:
-                st.session_state.corrected_json_final = json.loads(st.session_state.corrected_json_text)
-                st.success("Dati aggiornati correttamente")
-            except Exception as e:
-                st.error(f"Errore nel JSON modificato: {e}")
-                st.stop()
-
-        # Blocca finché non è stato confermato qualcosa
-        if "corrected_json_final" not in st.session_state:
-            st.info("Conferma i dati per continuare")
-            st.stop()
-
-        final_json_dict = st.session_state.corrected_json_final
-
-    return final_json_dict
+    # Il prezzo totale e la somma dei prezzi degli articoli coincidono (nessuna incoerenza) quindi ritorna False
+    return False
 
 
 def save_json_to_db(json_data, receipt_id):
@@ -240,7 +200,7 @@ def save_json_to_db(json_data, receipt_id):
         item_row = {
             "extracted_data_id": extracted_data_id,
             "name": item.get("nome"),
-            "quantity": item.get("quantita"),
+            "quantity": item.get("quantità"),
             "price": item.get("prezzo"),
             "currency": item.get("valuta"),
             "discount_percent": item.get("percentuale_sconto"),
@@ -254,15 +214,15 @@ def save_json_to_db(json_data, receipt_id):
 
 def run_ocr_and_save_json(api_key):
     """
-    Funzione che esegue l'OCR su uno scontrino e genera il file JSON corrispondente
-    - Recupera l'iimmagine e il percorso dallo stato della sessione Streamlit
-    - Applica l'OCR usando Groq e un'immagine codificata in base64
-    - Mostra il testo OCR estratto, se richiesto, e valida che non sia vuoto
-    - Genera un JSON strutturato a partire dal testo OCR
-    - Salva il file JSON nella cartella
-    - Inserisce i dati estratti nel database associandoli allo scontrino originale
+    Funzione per eseguire l'OCR su uno scontrino e generare il file JSON corrispondente
+    - Recupera l'immagine e il percorso dal session state di Streamlit
+    - Esegue l'OCR sull'immagine e salva il testo estratto
+    - Mostra o nasconde il testo OCR in una textarea attraverso un checkbox
+    - Sfrutta il testo estratto per generare un JSON strutturato utilizzando un modello AI tramite l'API Groq
+    - Analizza la coerenza dei dati nel JSON
+    - Se necessario, mostra un editor Ace JSON per correggere manualmente i dati
+    - Salva le modifiche nel session state e visualizza l'anteprima del JSON finale
     :param api_key: chiave per le chiamate API
-    :return: dizionario con dati strutturati, oppure None in caso di errore
     """
     image = st.session_state.get("selected_image")
     image_path = st.session_state.get("selected_image_path")
@@ -271,43 +231,104 @@ def run_ocr_and_save_json(api_key):
         st.warning("Nessuna immagine selezionata o file non trovato.")
         return
 
-    # Esegue l'OCR
-    ocr_text = perform_ocr_on_image(api_key)
+    img = Image.open(image_path)
 
-    # Mostra opzionalmente il testo OCR
-    if st.checkbox(f"Mostra testo OCR estratto da {image}"):
-        st.text_area("Testo OCR", ocr_text, height=200)
+    # === OCR ===
+    if st.session_state.ocr_text is None:
+        ocr_text = perform_ocr_on_image(api_key)
+        if not ocr_text:
+            st.error("OCR fallito")
+            return
+        st.session_state.ocr_text = ocr_text
 
-    if not ocr_text.strip():
-        st.error("Testo OCR vuoto. Impossibile continuare.")
-        return
+    # Checkbox per mostrare/nascondere il testo OCR
+    show_ocr_checkbox = st.checkbox("Mostra testo OCR estratto", key="show_ocr_text")
 
-    # Chiamata al modello Groq per generare JSON
-    json_filename = os.path.splitext(st.session_state.selected_image)[0] + ".json"
-    client = Groq(api_key=api_key)
-    prompt_text = load_prompt("Modules/AI_prompts/json_prompt.txt")
+    # Se checkbox è attivo, mostra il testo OCR in una textarea
+    if st.session_state.show_ocr_text:
+        st.text_area("OCR", st.session_state.ocr_text, height=300)
 
-    chat_completion = client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
-        messages=[
-            {"role": "user", "content": [
-                {"type": "text", "text": prompt_text},
-                {"type": "text", "text": ocr_text}
-            ]}
-        ]
-    )
+    # === Estrazione JSON ===
+    if st.session_state.json_data is None:
+        client = Groq(api_key=api_key)
+        prompt_text = load_prompt("Modules/AI_prompts/json_prompt.txt")
 
-    extracted_data = chat_completion.choices[0].message.content
-    raw_json_string = parse_json_from_string(extracted_data.strip())
+        # Chiamata al modello AI
+        chat_completion = client.chat.completions.create(
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
+            messages=[
+                {"role": "user", "content": [
+                    {"type": "text", "text": prompt_text},
+                    {"type": "text", "text": st.session_state.ocr_text}
+                ]}
+            ]
+        )
 
-    if not raw_json_string:
-        st.error("No JSON object found in extracted data. File not saved.")
-        return None
+        # Estrazione del contenuto generato
+        extracted_data = chat_completion.choices[0].message.content
+        raw_json_string = parse_json_from_string(extracted_data.strip())
 
+        try:
+            json_data = json.loads(raw_json_string)
+            st.session_state.json_data = json_data
+            st.session_state.corrected_json_text = json.dumps(json_data, indent=2, ensure_ascii=False)
+        except json.JSONDecodeError as e:
+            st.error(f"Errore nel parsing del JSON: {e}")
+            return
+
+    # === Controlla coerenza dati ===
+    needs_correction = check_data_consistency(st.session_state.json_data)
+
+    if needs_correction:
+        st.subheader("Verifica e correggi il JSON")
+
+        st.info(
+            "**Istruzioni per la modifica:**\n"
+            "- Modifica i dati nel formato JSON prestando attenzione alla sintassi: mantieni correttamente"
+            " caratteri come virgole, parentesi e virgolette.\n"
+            "- Dopo aver effettuato le modifiche, premi prima il bottone 'APPLY' per aggiornare il JSON,"
+            " e poi conferma con il bottone 'Salva modifiche'."
+        )
+
+        col1, col2 = st.columns([1, 1])
+
+        with col1:
+            st.image(img, caption=f"Image: {image}", use_container_width=True)
+
+        with col2:
+            st.session_state.corrected_json_text = st_ace(
+                value=st.session_state.corrected_json_text,
+                language="json",
+                theme="tomorrow_night",
+                height=500,
+                key="ace_json_editor"
+            )
+
+            if st.button("Salva modifiche"):
+                try:
+                    corrected_data = json.loads(st.session_state.corrected_json_text)
+                    st.session_state.json_data = corrected_data
+                    st.success("Modifiche applicate con successo!")
+                except json.JSONDecodeError as e:
+                    st.error(f"Errore nel JSON modificato: {e}")
+    else:
+        # Se non servono modifiche, corrected_json_text contiene il JSON formattato
+        st.session_state.corrected_json_text = json.dumps(st.session_state.json_data, indent=2, ensure_ascii=False)
+
+    # Visualizza sempre l'anteprima JSON finale (modificato o originale)
+    try:
+        final_json = json.loads(st.session_state.corrected_json_text)
+        st.subheader("Anteprima JSON finale")
+        st.json(final_json)
+    except json.JSONDecodeError:
+        st.error("Errore nel JSON finale, non è possibile visualizzarlo.")
+
+    '''
     # Corregge il JSON e lo salva
+    json_filename = os.path.splitext(st.session_state.selected_image)[0] + ".json"
     try:
         extracted_data_dict = json.loads(raw_json_string)
-        extracted_data_dict = fix_json_data(api_key, extracted_data_dict, ocr_text)
+        extracted_data_dict = fix_json_data(extracted_data_dict)
         json_content = json.dumps(extracted_data_dict, ensure_ascii=False, indent=2)
         json_path = save_json_to_folder(json_content, json_filename)
         if json_path:
@@ -337,10 +358,12 @@ def run_ocr_and_save_json(api_key):
     except json.JSONDecodeError:
         st.error("Generated data is not valid JSON. File not saved.")
         extracted_data_dict = None
-
+    
     return extracted_data_dict
+    '''
 
 
+'''
 def ml_predictions_from_json():
     """
     Funzione per effettuare la predizione su uno scontrino a partire da un file JSON:
@@ -392,6 +415,7 @@ def process_receipt(data, api_key):
     - Mostra una barra di caricamento durante l’elaborazione
     - Esegue la classificazione ML se il flag è attivo
     - Mostra messaggio finale in base alla predizione
+    - ...
     :param data: dati presenti nel database
     :param api_key: chiave per le chiamate API
     """
@@ -411,8 +435,7 @@ def process_receipt(data, api_key):
                     time.sleep(0.01)
                     progress.progress(i + 1)
 
-                extracted_data_dict = run_ocr_and_save_json(api_key)
-                st.session_state["last_generated_json"] = extracted_data_dict
+            run_ocr_and_save_json(api_key)
 
         if st.session_state.get("trigger_prediction", False):
             prediction = ml_predictions_from_json()
@@ -427,6 +450,7 @@ def process_receipt(data, api_key):
 
             # Reset del flag per evitare chiamate ripetute
             st.session_state.trigger_prediction = False
-
+        
     else:
         st.info("No data available in the database for processing.")
+'''

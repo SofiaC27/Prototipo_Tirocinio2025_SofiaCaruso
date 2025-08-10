@@ -1,11 +1,15 @@
 import streamlit as st
+from PIL import Image
+import os
 
 from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
                                    delete_file_from_database_and_folder, display_receipts_data_with_expanders)
-from Modules.ocr_groq import process_receipt
+from Modules.ocr_groq import run_ocr_and_save_json
 from Modules.ML.ml_dataset import generate_dataset
 
+
+IMAGE_DIR = "Images"
 
 init_database()
 
@@ -45,13 +49,46 @@ if "database_data" not in st.session_state:
 display_data_with_pagination(st.session_state.database_data)
 
 
-# OCR
+# OCR e JSON
 st.divider()
-st.subheader("Process files with OCR")
+st.subheader("Process files with OCR and generate JSON")
+
+# Inizializzazione stato
+if "selected_image" not in st.session_state:
+    st.session_state.selected_image = None
+if "selected_image_path" not in st.session_state:
+    st.session_state.selected_image_path = None
+if "start_processing" not in st.session_state:
+    st.session_state.start_processing = False
+if "ocr_text" not in st.session_state:
+    st.session_state.ocr_text = None
+if "json_data" not in st.session_state:
+    st.session_state.json_data = None
+if "corrected_json_text" not in st.session_state:
+    st.session_state.corrected_json_text = None
+
 
 api_key = st.secrets["general"]["GROQ_API_KEY"]
 
-process_receipt(st.session_state.database_data, api_key)
+if st.session_state.database_data:
+
+    selected_image = st.selectbox("Select file to process with OCR", [row[1] for row in st.session_state.database_data])
+    image_path = os.path.join(IMAGE_DIR, selected_image)
+
+    st.session_state['selected_image'] = selected_image
+    st.session_state['selected_image_path'] = image_path
+
+    img = Image.open(image_path)
+    st.image(img, caption=f"Preview of {selected_image}", use_container_width=True)
+
+    if st.button(f"OCR + JSON for {selected_image}"):
+        st.session_state.start_processing = True
+
+    if st.session_state.start_processing:
+        run_ocr_and_save_json(api_key)
+
+else:
+    st.info("No data available in the database for processing.")
 
 
 # Visualizzazione dati degli scontrini
