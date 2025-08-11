@@ -212,18 +212,147 @@ def save_json_to_db(json_data, receipt_id):
     return "inserted"
 
 
+def manage_json_saving(json_data):
+    """
+    Funzione per gestire il salvataggio dei dati JSON sia su file che nel database
+    - Riceve un dizionario JSON già validato e formattato
+    - Salva il contenuto in un file .json nella cartella indicata
+    - Recupera l'ID dello scontrino dalla tabella 'receipts' usando il percorso immagine
+    - Inserisce i dati nella tabella 'extracted_data' associandoli allo scontrino
+    - Aggiorna lo stato della sessione per usi futuri
+    - In caso di errore o dati già presenti, mostra un messaggio appropriato
+    :param json_data: dizionario con i dati estratti e corretti
+    """
+    image = st.session_state.get("selected_image")
+    json_content = json.dumps(json_data, ensure_ascii=False, indent=2)
+
+    json_filename = os.path.splitext(image)[0] + ".json"
+    json_path = save_json_to_folder(json_content, json_filename)
+
+    if json_path:
+        st.success(f"JSON file saved successfully at: {json_path}")
+
+        rows = get_data("documents.db", "receipts", "Id", {"File_path": image})
+        receipt_id = rows[0][0] if rows else None
+        # [0][0] per prendere il primo elemento della prima riga, cioè il valore della colonna
+        # richiesta (in questo caso "Id")
+
+        if receipt_id is None:
+            st.error("Nessuno scontrino trovato nel database.")
+            return
+
+        db_result = save_json_to_db(json_data, receipt_id)
+        if db_result == "inserted":
+            st.success("Dati inseriti nel database.")
+        elif db_result == "exists":
+            st.warning("Dati già presenti nel database.")
+        else:
+            st.error(f"Errore database: {db_result}")
+
+        st.session_state.last_generated_json = json_data
+        st.session_state.trigger_prediction = True
+
+
+def extract_json_from_ocr(api_key):
+    """
+    Funzione per generare un JSON strutturato a partire dal testo OCR
+    - Recupera il prompt da file e lo invia al modello AI tramite l'API Groq
+    - Riceve una risposta testuale e tenta di estrarre un JSON valido
+    - Se il parsing ha successo, salva il JSON nel session state
+    - Se il parsing fallisce, mostra un errore e interrompe il flusso
+    :param api_key: chiave per le chiamate API
+    :return: True se il JSON è stato estratto correttamente, False in caso di errore
+    """
+    if st.session_state.json_data is None:
+        client = Groq(api_key=api_key)
+        prompt_text = load_prompt("Modules/AI_prompts/json_prompt.txt")
+
+        chat_completion = client.chat.completions.create(
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
+            messages=[
+                {"role": "user", "content": [
+                    {"type": "text", "text": prompt_text},
+                    {"type": "text", "text": st.session_state.ocr_text}
+                ]}
+            ]
+        )
+
+        extracted_data = chat_completion.choices[0].message.content
+        raw_json_string = parse_json_from_string(extracted_data.strip())
+
+        try:
+            json_data = json.loads(raw_json_string)
+            st.session_state.json_data = json_data
+            st.session_state.corrected_json_text = json.dumps(json_data, indent=2, ensure_ascii=False)
+        except json.JSONDecodeError as e:
+            st.error(f"Errore nel parsing del JSON: {e}")
+            return False
+    return True
+
+
+def show_image_and_editor():
+    """
+    Funzione per modificare manualmente il JSON attraverso un editor
+    - Mostra l'immagine in un contenitore scrollabile con zoom personalizzato
+    - Accanto all'immagine, presenta un editor Ace JSON per la correzione manuale
+    - Dopo la modifica, tenta di validare il JSON e lo salva nel database
+    - Evita salvataggi duplicati grazie a un flag nel session state
+    """
+    image_path = st.session_state.get("selected_image_path")
+    img = Image.open(image_path)
+    col1, col2 = st.columns([1, 1.3])
+
+    with col1:
+        zoom_factor = 0.5
+        img_width = int(img.width * zoom_factor)
+
+        mime_type, _ = mimetypes.guess_type(image_path)
+        if mime_type is None:
+            mime_type = "image/jpg"
+
+        encoded_img = encode_image(image_path)
+        st.markdown(
+            f"""
+            <div style="height:500px; overflow:auto; border:1px solid #ccc; padding:5px; background-color:white;">
+                <img src="data:{mime_type};base64,{encoded_img}" 
+                     width="{img_width}px" 
+                     style="max-width:none; display:block;">
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    with col2:
+        st.session_state.corrected_json_text = st_ace(
+            value=st.session_state.corrected_json_text,
+            language="json",
+            theme="tomorrow_night",
+            height=500,
+            key="ace_json_editor"
+        )
+
+        if st.button("Salva modifiche"):
+            try:
+                corrected_data = json.loads(st.session_state.corrected_json_text)
+                st.session_state.json_data = corrected_data
+
+                # Salva solo se non già salvato
+                if not st.session_state.get("json_saved", False):
+                    manage_json_saving(corrected_data)
+                    st.session_state.json_saved = True  # Marca come salvato
+
+            except json.JSONDecodeError as e:
+                st.error(f"Errore nel JSON modificato: {e}")
+
+
 def run_ocr_and_save_json(api_key):
     """
-    Funzione per eseguire l'OCR su uno scontrino e generare il file JSON corrispondente
-    - Recupera l'immagine e il percorso dal session state di Streamlit
-    - Esegue l'OCR sull'immagine e salva il testo estratto
+    Funzione per eseguire l'OCR e gestire il flusso di estrazione e salvataggio dei JSON
+    - Verifica la presenza dell'immagine selezionata e ne esegue l'OCR
     - Mostra o nasconde il testo OCR in una textarea attraverso un checkbox
-    - Sfrutta il testo estratto per generare un JSON strutturato utilizzando un modello AI tramite l'API Groq
-    - Analizza la coerenza dei dati nel JSON
-    - Se è necessario, visualizza l'immagine dello scontrino in un contenitore scrollabile con
-      zoom personalizzato, per facilitare l'ispezione visiva dei dati OCR
-    - Accanto all'immagine mostra un editor Ace JSON per correggere manualmente i dati
-    - Salva le modifiche nel session state e visualizza l'anteprima del JSON finale
+    - Genera un JSON strutturato tramite AI e lo valida
+    - Se necessario, consente la correzione manuale del JSON
+    - Salva i dati finali nella cartella e nel database, evitando duplicazioni
     :param api_key: chiave per le chiamate API
     """
     image = st.session_state.get("selected_image")
@@ -233,9 +362,7 @@ def run_ocr_and_save_json(api_key):
         st.warning("Nessuna immagine selezionata o file non trovato.")
         return
 
-    img = Image.open(image_path)
-
-    # === OCR ===
+    # Step 1: OCR
     if st.session_state.ocr_text is None:
         ocr_text = perform_ocr_on_image(api_key)
         if not ocr_text:
@@ -250,35 +377,11 @@ def run_ocr_and_save_json(api_key):
     if st.session_state.show_ocr_text:
         st.text_area("OCR", st.session_state.ocr_text, height=300)
 
-    # === Estrazione JSON ===
-    if st.session_state.json_data is None:
-        client = Groq(api_key=api_key)
-        prompt_text = load_prompt("Modules/AI_prompts/json_prompt.txt")
+    # Step 2: Estrazione JSON
+    if not extract_json_from_ocr(api_key):
+        return
 
-        # Chiamata al modello AI
-        chat_completion = client.chat.completions.create(
-            model="meta-llama/llama-4-scout-17b-16e-instruct",
-            messages=[
-                {"role": "user", "content": [
-                    {"type": "text", "text": prompt_text},
-                    {"type": "text", "text": st.session_state.ocr_text}
-                ]}
-            ]
-        )
-
-        # Estrazione del contenuto generato
-        extracted_data = chat_completion.choices[0].message.content
-        raw_json_string = parse_json_from_string(extracted_data.strip())
-
-        try:
-            json_data = json.loads(raw_json_string)
-            st.session_state.json_data = json_data
-            st.session_state.corrected_json_text = json.dumps(json_data, indent=2, ensure_ascii=False)
-        except json.JSONDecodeError as e:
-            st.error(f"Errore nel parsing del JSON: {e}")
-            return
-
-    # === Controlla coerenza dati ===
+    # Step 3: Controllo coerenza dati e salvataggio JSON
     needs_correction = check_data_consistency(st.session_state.json_data)
 
     if needs_correction:
@@ -294,99 +397,15 @@ def run_ocr_and_save_json(api_key):
             " e poi conferma con il bottone 'Salva modifiche'."
         )
 
-        col1, col2 = st.columns([1, 1.3])
+        show_image_and_editor()
 
-        with col1:
-            # Contenitore scrollabile con immagine zoommata
-            zoom_factor = 0.5  # ingrandisce rispetto alla larghezza colonna
-            img_width = int(img.width * zoom_factor)
-
-            # Ottiene il tipo MIME
-            mime_type, _ = mimetypes.guess_type(image_path)
-            if mime_type is None:
-                mime_type = "image/jpg"  # fallback se non rilevato
-
-            encoded_img = encode_image(image_path)
-            st.markdown(
-                f"""
-                    <div style="height:500px; overflow:auto; border:1px solid #ccc; padding:5px; background-color:white;">
-                        <img src="data:{mime_type};base64,{encoded_img}" 
-                             width="{img_width}px" 
-                             style="max-width:none; display:block;">
-                    </div>
-                """,
-                unsafe_allow_html=True
-            )
-
-        with col2:
-            st.session_state.corrected_json_text = st_ace(
-                value=st.session_state.corrected_json_text,
-                language="json",
-                theme="tomorrow_night",
-                height=500,
-                key="ace_json_editor"
-            )
-
-            if st.button("Salva modifiche"):
-                try:
-                    corrected_data = json.loads(st.session_state.corrected_json_text)
-                    st.session_state.json_data = corrected_data
-                    st.success("Modifiche applicate con successo!")
-                except json.JSONDecodeError as e:
-                    st.error(f"Errore nel JSON modificato: {e}")
     else:
-        # Se non servono modifiche, corrected_json_text contiene il JSON formattato
-        st.session_state.corrected_json_text = json.dumps(st.session_state.json_data, indent=2, ensure_ascii=False)
-
-    # Visualizza sempre l'anteprima JSON finale (modificato o originale)
-    try:
-        final_json = json.loads(st.session_state.corrected_json_text)
-        st.subheader("Anteprima JSON finale")
-        st.json(final_json)
-    except json.JSONDecodeError:
-        st.error("Errore nel JSON finale, non è possibile visualizzarlo.")
-
-    '''
-    # Corregge il JSON e lo salva
-    json_filename = os.path.splitext(st.session_state.selected_image)[0] + ".json"
-    try:
-        extracted_data_dict = json.loads(raw_json_string)
-        extracted_data_dict = fix_json_data(extracted_data_dict)
-        json_content = json.dumps(extracted_data_dict, ensure_ascii=False, indent=2)
-        json_path = save_json_to_folder(json_content, json_filename)
-        if json_path:
-            st.success(f"JSON file saved successfully at: {json_path}")
-
-            rows = get_data("documents.db", "receipts", "Id", {"File_path": image})
-            receipt_id = rows[0][0] if rows else None
-            # [0][0] per prendere il primo elemento della prima riga, cioè il valore della colonna
-            # richiesta (in questo caso "Id")
-
-            if receipt_id is None:
-                st.error("No matching receipt found in database.")
-                return None
-
-            db_result = save_json_to_db(extracted_data_dict, receipt_id)
-
-            if db_result == "inserted":
-                st.success("Data inserted into database.")
-            elif db_result == "exists":
-                st.warning("Data already exists in database.")
-            else:
-                st.error(f"Database error: {db_result}")
-
-            st.session_state.last_generated_json = extracted_data_dict
-            st.session_state.trigger_prediction = True
-
-    except json.JSONDecodeError:
-        st.error("Generated data is not valid JSON. File not saved.")
-        extracted_data_dict = None
-    
-    return extracted_data_dict
-    '''
+        # Se non servono modifiche, salva il JSON direttamente (se non è già stato salvato)
+        if not st.session_state.get("json_saved", False):
+            manage_json_saving(st.session_state.json_data)
+            st.session_state.json_saved = True  # Marca come salvato
 
 
-'''
 def ml_predictions_from_json():
     """
     Funzione per effettuare la predizione su uno scontrino a partire da un file JSON:
@@ -429,19 +448,8 @@ def ml_predictions_from_json():
     return prediction
 
 
+'''
 def process_receipt(data, api_key):
-    """
-    Funzione per gestire l'interfaccia utente e il flusso OCR/JSON
-    - Mostra le immagini selezionabili da elaborare
-    - Visualizza l’immagine corrente
-    - Consente di eseguire l’OCR e generare il JSON con pulsante dedicato
-    - Mostra una barra di caricamento durante l’elaborazione
-    - Esegue la classificazione ML se il flag è attivo
-    - Mostra messaggio finale in base alla predizione
-    - ...
-    :param data: dati presenti nel database
-    :param api_key: chiave per le chiamate API
-    """
     if data:
         selected_image = st.selectbox("Select file to process with OCR", [row[1] for row in data])
         image_path = os.path.join(IMAGE_DIR, selected_image)

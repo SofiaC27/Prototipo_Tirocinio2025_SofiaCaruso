@@ -1,11 +1,12 @@
 import streamlit as st
 from PIL import Image
+import time
 import os
 
 from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
                                    delete_file_from_database_and_folder, display_receipts_data_with_expanders)
-from Modules.ocr_groq import run_ocr_and_save_json
+from Modules.ocr_groq import run_ocr_and_save_json, ml_predictions_from_json
 from Modules.ML.ml_dataset import generate_dataset
 
 
@@ -66,6 +67,12 @@ if "json_data" not in st.session_state:
     st.session_state.json_data = None
 if "corrected_json_text" not in st.session_state:
     st.session_state.corrected_json_text = None
+if "json_saved" not in st.session_state:
+    st.session_state.json_saved = False
+if "last_generated_json" not in st.session_state:
+    st.session_state.last_generated_json = None
+if "trigger_prediction" not in st.session_state:
+    st.session_state.trigger_prediction = None
 
 
 api_key = st.secrets["general"]["GROQ_API_KEY"]
@@ -82,10 +89,34 @@ if st.session_state.database_data:
     st.image(img, caption=f"Preview of {selected_image}", use_container_width=True)
 
     if st.button(f"OCR + JSON for {selected_image}"):
+        with st.spinner("Processing OCR and JSON..."):
+            progress = st.progress(0)
+            for i in range(100):
+                time.sleep(0.01)
+                progress.progress(i + 1)
         st.session_state.start_processing = True
 
     if st.session_state.start_processing:
         run_ocr_and_save_json(api_key)
+
+        # Mostra il risultato ML se è stato impostato il trigger
+        if st.session_state.get("trigger_prediction", False):
+            prediction = ml_predictions_from_json()
+
+            if prediction == 1:
+                st.warning(
+                    "Questo scontrino è stato classificato come anomalo (outlier). "
+                    "Ciò significa che ha caratteristiche insolite rispetto agli altri scontrini. "
+                    "Potrebbe indicare un errore nell'OCR, un formato molto diverso o una spesa anomala."
+                )
+            else:
+                st.success(
+                    "Questo scontrino è stato classificato come normale. "
+                    "Le sue caratteristiche rientrano nella norma rispetto agli altri scontrini."
+                )
+
+            # Reset del flag per evitare chiamate ripetute
+            st.session_state.trigger_prediction = False
 
 else:
     st.info("No data available in the database for processing.")
