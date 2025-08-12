@@ -11,7 +11,7 @@ import mimetypes
 from streamlit_ace import st_ace
 
 from utils import show_progress_bar, load_prompt_text, save_json_to_folder
-from config import IMAGE_DIR
+from config import IMAGE_DIR, EXTRACTED_JSON_DIR
 
 from Database.db_manager import insert_data, get_data
 from Modules.ML.ml_dataset import extract_features_from_receipt
@@ -302,7 +302,9 @@ def run_ocr_and_save_json(api_key):
     Funzione per eseguire l'OCR e gestire il flusso di estrazione e salvataggio dei JSON
     - Verifica la presenza dell'immagine selezionata e ne esegue l'OCR
     - Mostra o nasconde il testo OCR in una textarea attraverso un checkbox
-    - Genera un JSON strutturato tramite AI e lo valida
+    - Controlla se il file JSON corrispondente all'immagine è già stato salvato
+    - Se esiste, lo mostra attraverso un checkbox e ne evita la rigenerazione
+    - Se non esiste, genera un JSON strutturato tramite AI e lo valida
     - Se necessario, consente la correzione manuale del JSON
     - Salva i dati finali nella cartella e nel database, evitando duplicazioni
     :param api_key: chiave per le chiamate API
@@ -314,7 +316,7 @@ def run_ocr_and_save_json(api_key):
         st.warning("Nessuna immagine selezionata o file non trovato.")
         return
 
-    # Step 1: OCR
+    # Esegue l'OCR
     if st.session_state.ocr_text is None:
         ocr_text = perform_ocr_on_image(api_key)
         if not ocr_text:
@@ -323,17 +325,35 @@ def run_ocr_and_save_json(api_key):
         st.session_state.ocr_text = ocr_text
 
     # Checkbox per mostrare/nascondere il testo OCR
-    show_ocr_checkbox = st.checkbox("Mostra testo OCR estratto", key="show_ocr_text")
-
-    # Se checkbox è attivo, mostra il testo OCR in una textarea
-    if st.session_state.show_ocr_text:
+    if st.checkbox("Mostra testo OCR estratto"):
         st.text_area("OCR", st.session_state.ocr_text, height=300)
 
-    # Step 2: Estrazione JSON
+    # Controlla se il JSON è già stato salvato
+    json_filename = os.path.splitext(image)[0] + ".json"
+    json_path = os.path.join(EXTRACTED_JSON_DIR, json_filename)
+
+    if os.path.exists(json_path):
+        st.session_state.json_file_exists = True
+    else:
+        st.session_state.json_file_exists = False
+
+    # Checkbox per mostrare/nascondere il JSON salvato
+    if st.session_state.json_file_exists:
+        st.warning("Il JSON per questo scontrino è già stato salvato.")
+
+        if st.checkbox("Mostra JSON salvato"):
+            with open(json_path, "r", encoding="utf-8") as f:
+                saved_json = json.load(f)
+            st.session_state.json_data = saved_json
+            st.session_state.corrected_json_text = json.dumps(saved_json, indent=2, ensure_ascii=False)
+            st.json(saved_json)
+        return  # Evita di chiamare di nuovo l'API
+
+    # Altrimenti procede all'estrazione del JSON
     if not extract_json_from_ocr(api_key):
         return
 
-    # Step 3: Controllo coerenza dati e salvataggio JSON
+    # Controlla coerenza dati e salvataggio JSON
     needs_correction = check_data_consistency(st.session_state.json_data)
 
     if needs_correction:

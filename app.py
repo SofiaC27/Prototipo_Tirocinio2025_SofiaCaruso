@@ -25,7 +25,8 @@ init_session_state({
     "corrected_json_text": None,
     "json_saved": False,
     "last_generated_json": None,
-    "trigger_prediction": None
+    "trigger_prediction": None,
+    "json_file_exists": False
 })
 
 
