@@ -226,13 +226,30 @@ def display_receipts_data_with_expanders(receipts_data):
 
 def delete_file_from_database_and_folder(data):
     """
-    Funzione che permette di selezionare ed eliminare un file dal database
-    - Recupera i dati presenti nel database (in caso contrario, stampa un messaggio)
-    - Seleziona il file immagine da poter eliminare tra quelli presenti nel database
+    Funzione che permette di selezionare ed eliminare un file dal database e dalle cartelle
+    - Richiede l'inserimento della password admin per abilitare la cancellazione
+    - Verifica la correttezza della password e, se corretta, consente di selezionare un file da eliminare
+      tra quelli presenti nel database
+    - Chiede conferma esplicita prima di procedere con l'eliminazione
     - Crea un bottone per eliminare il file immagine
-    - Prima della cancellazione chiede conferma, solo in caso affermativo procede a cancellare il file immagine
+    - Cancella il file dal database e dalla cartella immagini, eliminando anche il file JSON associato, se presente
     :param: data: dati presenti nel database
     """
+    admin_password = st.secrets["admin"]["ADMIN_PASSWORD"]
+
+    # Campo password
+    input_password = st.text_input("Enter admin password to enable file deletion:", type="password")
+
+    # Controllo password
+    if input_password and input_password != admin_password:
+        st.error("Password errata, riprova")
+        return  # Blocca qui se la password è errata
+    elif not input_password:
+        # Non fa nulla, nessun messaggio di errore finché non si scrive qualcosa
+        return  # Blocca qui se la password è vuota
+
+    st.success("Admin access granted. You can now delete files.")
+
     if data:
         file_to_delete = st.selectbox("Select file to delete", [row[1] for row in data])
 
