@@ -1,5 +1,3 @@
-import streamlit as st
-
 from langchain_openai import ChatOpenAI
 from langchain_community.utilities import SQLDatabase
 from langchain_core.prompts import PromptTemplate
@@ -9,7 +7,7 @@ from langchain.tools import Tool
 from langchain.agents import initialize_agent
 from langchain.agents.agent_types import AgentType
 
-from Modules.ocr_groq import load_prompt
+from utils import load_prompt_text
 
 
 def init_chain(llm, db):
@@ -21,7 +19,7 @@ def init_chain(llm, db):
     :param db: oggetto SQLDatabase connesso al database locale
     :return: una catena Runnable
     """
-    prompt_text = load_prompt("Modules/AI_prompts/sql_generation_prompt.txt")
+    prompt_text = load_prompt_text("Modules/AI_prompts/sql_generation_prompt.txt")
     sql_only_prompt = PromptTemplate.from_template(prompt_text)
     query_chain = create_sql_query_chain(
         llm=llm,
@@ -46,7 +44,7 @@ def is_question_valid_for_db(question, llm, db_schema):
     :param db_schema: schema del database locale
     :return: True se la domanda è compatibile, altrimenti False
     """
-    prompt_text = load_prompt("Modules/AI_prompts/question_validity_prompt.txt")
+    prompt_text = load_prompt_text("Modules/AI_prompts/question_validity_prompt.txt")
 
     prompt = PromptTemplate.from_template(prompt_text)
     chain = prompt | llm | StrOutputParser()
@@ -70,7 +68,7 @@ def is_query_valid_for_db(sql_query, llm, db_schema):
     :param db_schema: schema del database locale
     :return: True se la query è compatibile, altrimenti False
     """
-    prompt_text = load_prompt("Modules/AI_prompts/query_validity_prompt.txt")
+    prompt_text = load_prompt_text("Modules/AI_prompts/query_validity_prompt.txt")
 
     prompt = PromptTemplate.from_template(prompt_text)
 
@@ -100,7 +98,7 @@ def format_model_answer(raw_result, llm):
                 " alcun risultato. Non sono stati trovati dati corrispondenti ai criteri specificati."
                 " Potresti provare a modificare i parametri della ricerca per ottenere risultati diversi.")
 
-    prompt_text = load_prompt("Modules/AI_prompts/format_answer_prompt.txt")
+    prompt_text = load_prompt_text("Modules/AI_prompts/format_answer_prompt.txt")
     formatted_prompt = prompt_text.format(result=raw_result)
     response = llm.invoke(formatted_prompt)
 

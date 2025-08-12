@@ -10,12 +10,11 @@ import pandas as pd
 import mimetypes
 from streamlit_ace import st_ace
 
+from utils import show_progress_bar, load_prompt_text, save_json_to_folder
+from config import IMAGE_DIR
+
 from Database.db_manager import insert_data, get_data
 from Modules.ML.ml_dataset import extract_features_from_receipt
-
-
-IMAGE_DIR = "Images"
-EXTRACTED_JSON_DIR = "Extracted_JSON"
 
 
 def encode_image(img_path):
@@ -29,53 +28,6 @@ def encode_image(img_path):
     """
     with open(img_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")
-
-
-def load_prompt(file_path):
-    """
-    Funzione per caricare il file di testo con il prompt da passare all'AI
-    - Apre il file in lettura
-    - Decodifica in un formato leggibile "utf-8"
-    - Rimuove eventuali spazi bianchi o caratteri di nuova riga all'inizio e alla fine del testo
-    :param file_path: percorso del file con il prompt da caricare
-    :return: stringa di testo corrispondente al prompt
-    """
-    with open(file_path, "r", encoding="utf-8") as file:
-        return file.read().strip()
-
-
-def save_json_to_folder(json_content, filename):
-    """
-    Funzione per salvare un file JSON nella cartella 'Extracted_JSON'
-    - Crea la cartella 'Extracted_JSON' se non esiste già
-    - Costruisce il percorso completo del file JSON all’interno della cartella
-    - Salva il contenuto JSON in formato testo con codifica UTF-8
-    - Se il file esiste già, non sovrascrive
-    :param json_content: contenuto JSON da salvare (stringa)
-    :param filename: nome del file .json
-    :return: percorso del file salvato oppure None se il file esiste già
-    """
-    os.makedirs(EXTRACTED_JSON_DIR, exist_ok=True)
-    file_path = os.path.join(EXTRACTED_JSON_DIR, filename)
-    if os.path.exists(file_path):
-        st.warning(f"JSON file '{filename}' already exists in the folder. No action taken.")
-        return None
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write(json_content)
-    return file_path
-
-
-def delete_json_from_folder(filename):
-    """
-    Funzione per eliminare un file JSON specificato dalla cartella 'Extracted_JSON'
-    :param filename: nome del file JSON da eliminare
-    :return: True se file eliminato, False se non trovato
-    """
-    file_path = os.path.join(EXTRACTED_JSON_DIR, filename)
-    if os.path.exists(file_path):
-        os.remove(file_path)
-        return True
-    return False
 
 
 def parse_json_from_string(text):
@@ -105,7 +57,7 @@ def perform_ocr_on_image(api_key):
 
     client = Groq(api_key=api_key)
     base64_image = encode_image(image_path)
-    prompt_text = load_prompt("Modules/AI_prompts/ocr_prompt.txt")
+    prompt_text = load_prompt_text("Modules/AI_prompts/ocr_prompt.txt")
 
     chat_completion = client.chat.completions.create(
         model="meta-llama/llama-4-scout-17b-16e-instruct",
@@ -265,7 +217,7 @@ def extract_json_from_ocr(api_key):
     """
     if st.session_state.json_data is None:
         client = Groq(api_key=api_key)
-        prompt_text = load_prompt("Modules/AI_prompts/json_prompt.txt")
+        prompt_text = load_prompt_text("Modules/AI_prompts/json_prompt.txt")
 
         chat_completion = client.chat.completions.create(
             model="meta-llama/llama-4-scout-17b-16e-instruct",
@@ -448,40 +400,52 @@ def ml_predictions_from_json():
     return prediction
 
 
-'''
 def process_receipt(data, api_key):
+    """
+    Funzione per elaborare uno scontrino tramite OCR+JSON e classificazione ML
+    - Consente all'utente di selezionare un'immagine da elaborare tra quelle presenti nel database
+    - Mostra l'immagine selezionata come anteprima
+    - Avvia il processo OCR e genera un file JSON con i dati estratti
+    - Se attivato, esegue una classificazione ML per rilevare eventuali anomalie nello scontrino
+    - Mostra un messaggio di avviso o conferma in base al risultato della classificazione
+    :param data: dati presenti nel database per la selezione dell'immagine
+    :param api_key: chiave per le chiamate API
+    """
     if data:
-        selected_image = st.selectbox("Select file to process with OCR", [row[1] for row in data])
+        selected_image = st.selectbox("Select file to process with OCR", [row[1] for row in st.session_state.database_data])
         image_path = os.path.join(IMAGE_DIR, selected_image)
+
         st.session_state['selected_image'] = selected_image
         st.session_state['selected_image_path'] = image_path
 
         img = Image.open(image_path)
         st.image(img, caption=f"Preview of {selected_image}", use_container_width=True)
 
-        if st.button(f"OCR and JSON for {selected_image}"):
-            with st.spinner("Processing OCR and JSON..."):
-                progress = st.progress(0)
-                for i in range(100):
-                    time.sleep(0.01)
-                    progress.progress(i + 1)
+        if st.button(f"OCR + JSON for {selected_image}"):
+            show_progress_bar(duration=1.5, message="Processing OCR and JSON...")
+            st.session_state.start_processing = True
 
+        if st.session_state.start_processing:
             run_ocr_and_save_json(api_key)
 
-        if st.session_state.get("trigger_prediction", False):
-            prediction = ml_predictions_from_json()
+            # Mostra il risultato ML se è stato impostato il trigger
+            if st.session_state.get("trigger_prediction", False):
+                prediction = ml_predictions_from_json()
 
-            if prediction == 1:
-                st.warning("Questo scontrino è stato classificato come anomalo (outlier). "
-                           "Ciò significa che ha caratteristiche insolite rispetto agli altri scontrini. "
-                           "Potrebbe indicare un errore nell'OCR, un formato molto diverso o una spesa anomala.")
-            else:
-                st.success("Questo scontrino è stato classificato come normale. "
-                           "Le sue caratteristiche rientrano nella norma rispetto agli altri scontrini.")
+                if prediction == 1:
+                    st.warning(
+                        "Questo scontrino è stato classificato come anomalo (outlier). "
+                        "Ciò significa che ha caratteristiche insolite rispetto agli altri scontrini. "
+                        "Potrebbe indicare un errore nell'OCR, un formato molto diverso o una spesa anomala."
+                    )
+                else:
+                    st.success(
+                        "Questo scontrino è stato classificato come normale. "
+                        "Le sue caratteristiche rientrano nella norma rispetto agli altri scontrini."
+                    )
 
-            # Reset del flag per evitare chiamate ripetute
-            st.session_state.trigger_prediction = False
-        
+                # Reset del flag per evitare chiamate ripetute
+                st.session_state.trigger_prediction = False
+
     else:
         st.info("No data available in the database for processing.")
-'''

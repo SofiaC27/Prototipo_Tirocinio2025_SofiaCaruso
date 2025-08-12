@@ -1,46 +1,42 @@
 import streamlit as st
 import pandas as pd
 import os
-import time
 
+from utils import show_progress_bar, save_image_to_folder, delete_image_from_folder, delete_json_from_folder
 from Database.db_manager import insert_data, delete_data, get_data
-from Modules.ocr_groq import delete_json_from_folder
 
 
-IMAGE_DIR = "Images"
-
-
-def save_image_to_folder(uploaded_file):
+def paginate(data, page_key, items_per_page=10):
     """
-    Funzione per salvare le immagini inserite con l'upload dentro la cartella 'Images'
-    - Crea la cartella 'Images' se non esiste già
-    - Costruisce il path del file all'interno della cartella
-    - Se il file esiste già, non sovrascrive e imposta un flag
-    - Salva il file in formato binario per preservarne l’integrità e gestire correttamente
-      qualsiasi tipo di dato, inclusi immagini e documenti
-    :param uploaded_file: file caricato da inserire nella cartella
-    :return: percorso del file salvato oppure None se il file esiste già, flag
+    Funzione per gestire l'impaginazione dei dati
+    - Inizializza la pagina corrente nello stato della sessione se non è già presente
+    - Calcola il numero totale di pagine in base alla lunghezza dei dati e agli elementi per pagina
+    - Mostra i pulsanti "Previous" e "Next" per navigare tra le pagine
+    - Visualizza il numero della pagina corrente
+    :param data: lista di elementi da impaginare
+    :param page_key: chiave univoca per tracciare la pagina corrente nello stato della sessione
+    :param items_per_page: numero di elementi da mostrare per pagina (default: 10)
+    :return: solo gli elementi relativi alla pagina selezionata
     """
-    os.makedirs(IMAGE_DIR, exist_ok=True)
-    file_path = os.path.join(IMAGE_DIR, uploaded_file.name)
-    if os.path.exists(file_path):
-        return None, True
-    with open(file_path, "wb") as f:
-        f.write(uploaded_file.getbuffer())
-    return file_path, False
+    if page_key not in st.session_state:
+        st.session_state[page_key] = 1
 
+    total_pages = (len(data) + items_per_page - 1) // items_per_page
+    col1, col2, col3 = st.columns([1, 2, 1])
 
-def delete_image_from_folder(filename):
-    """
-    Funzione per eliminare il file specificato dalla cartella se esiste
-    :param filename: nome del file immagine da eliminare
-    :return: True se file eliminato, False se non trovato
-    """
-    file_path = os.path.join(IMAGE_DIR, filename)
-    if os.path.exists(file_path):
-        os.remove(file_path)
-        return True
-    return False
+    with col1:
+        if st.button("Previous", key=f"prev_{page_key}", use_container_width=True) and st.session_state[page_key] > 1:
+            st.session_state[page_key] -= 1
+
+    with col3:
+        if st.button("Next", key=f"next_{page_key}", use_container_width=True) and st.session_state[page_key] < total_pages:
+            st.session_state[page_key] += 1
+
+    st.write(f"Page {st.session_state[page_key]} of {total_pages}")
+
+    start = (st.session_state[page_key] - 1) * items_per_page
+    end = start + items_per_page
+    return data[start:end]
 
 
 def display_image_gallery(images, columns=5):
@@ -83,7 +79,7 @@ def process_uploaded_file(uploaded_files):
     - Se sono presenti file da caricare, li salva nello stato della sessione per mostrarne la preview
     - Mostra un'anteprima dinamica (tipo galleria) delle immagini caricate, ma non ancora salvate
     - Imposta un flag per evitare che la preview venga ripetuta dopo il salvataggio
-    - Crea un bottone per salvare i file nel database e nella cartella 'Images'
+    - Crea un bottone per salvare i file nel database e nella cartella apposita
     - Durante il salvataggio, visualizza una barra di avanzamento
     - Se un file è già presente nella cartella o nel database, non lo salva di nuovo e mostra un avviso
     - Se invece non sono presenti file da caricare, mostra un warning che invita a fare l'upload per procedere
@@ -110,27 +106,23 @@ def process_uploaded_file(uploaded_files):
             if st.button("Save all uploaded files"):
                 st.session_state.files_saved = True  # Dopo il salvataggio, blocca le preview
 
-                with st.spinner("Saving files..."):
-                    progress = st.progress(0)
-                    for i in range(100):
-                        time.sleep(0.01)
-                        progress.progress(i + 1)
+                show_progress_bar(duration=1.5, message="Saving files...")
 
-                    saved_count = 0
-                    skipped_files_folder = set()
-                    skipped_files_db = set()
+                saved_count = 0
+                skipped_files_folder = set()
+                skipped_files_db = set()
 
-                    for uploaded_file in st.session_state.uploaded_files_for_preview:
-                        file_path, already_exists = save_image_to_folder(uploaded_file)
-                        if already_exists:
-                            skipped_files_folder.add(uploaded_file.name)
-                            continue
+                for uploaded_file in st.session_state.uploaded_files_for_preview:
+                    file_path, already_exists = save_image_to_folder(uploaded_file)
+                    if already_exists:
+                        skipped_files_folder.add(uploaded_file.name)
+                        continue
 
-                        result = insert_data("documents.db", "receipts", {"File_path": uploaded_file.name})
-                        if result == "inserted":
-                            saved_count += 1
-                        elif result == "exists":
-                            skipped_files_db.add(uploaded_file.name)
+                    result = insert_data("documents.db", "receipts", {"File_path": uploaded_file.name})
+                    if result == "inserted":
+                        saved_count += 1
+                    elif result == "exists":
+                        skipped_files_db.add(uploaded_file.name)
 
                 if saved_count > 0:
                     st.success(f"{saved_count} file(s) successfully saved!")
@@ -157,9 +149,7 @@ def display_data_with_pagination(data):
     Funzione che mostra i dati salavati nel database con l'impaginazione
     - Recupera i dati presenti nel database (in caso contrario, stampa un messaggio)
     - Crea un dataframe per una visualizzazione migliore dei dati
-    - Crea un sistema di impaginazione: la formula calcola il numero totale di pagine necessarie
-      per visualizzare tutti gli elementi, arrotondando verso l'alto quando gli elementi non
-      sono un multiplo esatto
+    - Usa un sistema di impaginazione
     - Se il numero totale di pagine è maggiore di 1, mostra i dati in base alla pagina selezionata;
       altrimenti, visualizza tutti i dati senza impaginazione
     :param: data: dati presenti nel database
@@ -170,72 +160,18 @@ def display_data_with_pagination(data):
         df = pd.DataFrame(data, columns=["Id", "File_path", "Upload_date"])
         st.dataframe(df)
 
-        items_per_page = 10
-        total_pages = (len(data) + items_per_page - 1) // items_per_page
-
-        if "current_page" not in st.session_state:
-            st.session_state.current_page = 1
-
-        col1, col2, col3 = st.columns([1, 2, 1])
-
-        with col1:
-            if st.button("Previous", key="prev_uploads", use_container_width=True) and st.session_state.current_page > 1:
-                st.session_state.current_page -= 1
-
-        with col3:
-            if st.button("Next", key="next_uploads", use_container_width=True) and st.session_state.current_page < total_pages:
-                st.session_state.current_page += 1
-
-        st.write(f"Page {st.session_state.current_page} of {total_pages}")
-
-        start = (st.session_state.current_page - 1) * items_per_page
-        end = start + items_per_page
-        for row in data[start:end]:
+        for row in paginate(data, page_key="uploads"):
             st.write(f"Id: {row[0]} | File_path: {row[1]} | Upload_date: {row[2]}")
 
     else:
         st.info("No data available in the database for display.")
 
 
-def delete_file_from_database_and_folder(data):
-    """
-    Funzione che permette di selezionare ed eliminare un file dal database
-    - Recupera i dati presenti nel database (in caso contrario, stampa un messaggio)
-    - Seleziona il file immagine da poter eliminare tra quelli presenti nel database
-    - Crea un bottone per eliminare il file immagine
-    - Prima della cancellazione chiede conferma, solo in caso affermativo procede a cancellare il file immagine
-    :param: data: dati presenti nel database
-    """
-    if data:
-        file_to_delete = st.selectbox("Select file to delete", [row[1] for row in data])
-
-        confirm = st.checkbox(f"Confirm deletion of '{file_to_delete}'")
-        st.warning("Please confirm before deleting the file.")
-
-        if confirm:
-            if st.button("Delete selected file"):
-                delete_data("documents.db", "receipts", {"File_path": file_to_delete})
-                st.success(f"File '{file_to_delete}' successfully deleted from database!")
-
-                deleted_from_folder = delete_image_from_folder(file_to_delete)
-                if deleted_from_folder:
-                    st.success(f"Image '{file_to_delete}' successfully deleted from the folder!")
-
-                possible_json = os.path.splitext(file_to_delete)[0] + ".json"
-                deleted_json = delete_json_from_folder(possible_json)
-                if deleted_json:
-                    st.success(f"Associated JSON file '{possible_json}' successfully deleted from the folder!")
-
-    else:
-        st.info("No data available in the database for deletion.")
-
-
 def display_receipts_data_with_expanders(receipts_data):
     """
     Funzione che mostra i dati degli scontrini con visualizzazione espandibile e impaginazione
     - Verifica la presenza di dati (in caso contrario, mostra un messaggio informativo)
-    - Calcola il numero totale di pagine da visualizzare in base agli elementi per pagina
-    - Gestisce il sistema di navigazione tra pagine tramite pulsanti "Previous" e "Next"
+    - Usa un sistema di impaginazione
     - Estrae solo gli scontrini appartenenti alla pagina corrente
     - Per ogni scontrino, crea una sezione espandibile con i dettagli principali
     - Recupera e visualizza gli articoli associati allo scontrino tramite una tabella
@@ -243,27 +179,7 @@ def display_receipts_data_with_expanders(receipts_data):
     :param receipts_data: elenco di tuple contenenti le informazioni degli scontrini da visualizzare
     """
     if receipts_data:
-        items_per_page = 10
-        total_pages = (len(receipts_data) + items_per_page - 1) // items_per_page
-
-        if "current_page_receipts" not in st.session_state:
-            st.session_state.current_page_receipts = 1
-
-        col1, col2, col3 = st.columns([1, 2, 1])
-
-        with col1:
-            if st.button("Previous", key="prev_receipts", use_container_width=True) and st.session_state.current_page_receipts > 1:
-                st.session_state.current_page_receipts -= 1
-
-        with col3:
-            if st.button("Next", key="next_receipts", use_container_width=True) and st.session_state.current_page_receipts < total_pages:
-                st.session_state.current_page_receipts += 1
-
-        st.write(f"Page {st.session_state.current_page_receipts} of {total_pages}")
-
-        start = (st.session_state.current_page_receipts - 1) * items_per_page
-        end = start + items_per_page
-        receipts_to_display = receipts_data[start:end]
+        receipts_to_display = paginate(receipts_data, page_key="receipts")
 
         for receipt in receipts_to_display:
             receipt_id = receipt[0]
@@ -306,3 +222,36 @@ def display_receipts_data_with_expanders(receipts_data):
 
     else:
         st.info("No receipt data saved in the database.")
+
+
+def delete_file_from_database_and_folder(data):
+    """
+    Funzione che permette di selezionare ed eliminare un file dal database
+    - Recupera i dati presenti nel database (in caso contrario, stampa un messaggio)
+    - Seleziona il file immagine da poter eliminare tra quelli presenti nel database
+    - Crea un bottone per eliminare il file immagine
+    - Prima della cancellazione chiede conferma, solo in caso affermativo procede a cancellare il file immagine
+    :param: data: dati presenti nel database
+    """
+    if data:
+        file_to_delete = st.selectbox("Select file to delete", [row[1] for row in data])
+
+        confirm = st.checkbox(f"Confirm deletion of '{file_to_delete}'")
+        st.warning("Please confirm before deleting the file.")
+
+        if confirm:
+            if st.button("Delete selected file"):
+                delete_data("documents.db", "receipts", {"File_path": file_to_delete})
+                st.success(f"File '{file_to_delete}' successfully deleted from database!")
+
+                deleted_from_folder = delete_image_from_folder(file_to_delete)
+                if deleted_from_folder:
+                    st.success(f"Image '{file_to_delete}' successfully deleted from the folder!")
+
+                possible_json = os.path.splitext(file_to_delete)[0] + ".json"
+                deleted_json = delete_json_from_folder(possible_json)
+                if deleted_json:
+                    st.success(f"Associated JSON file '{possible_json}' successfully deleted from the folder!")
+
+    else:
+        st.info("No data available in the database for deletion.")

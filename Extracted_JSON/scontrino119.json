@@ -1,0 +1,87 @@
+{
+  "data": "2025-05-19",
+  "ora": "16:22:00",
+  "negozio": "ALDI",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Acqua friz 1,5l",
+      "quantità": 2,
+      "prezzo": 0.25,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Acqua frizz 1 IGP 500g",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Porri 500g",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "valuta": "EUR",
+      "percentuale_sconto": 50,
+      "sconto_assoluto": 0.85,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Pom. Peeled 500g",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Baby anguria (PT)",
+      "quantità": 1,
+      "prezzo": 2.87,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Banane (PT)",
+      "quantità": 1,
+      "prezzo": 1.23,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Saclh. ortofrutta",
+      "quantità": 3,
+      "prezzo": 0.01,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "Arance (N)",
+      "quantità": 1,
+      "prezzo": 3.12,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.66,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Mastercard"
+}
