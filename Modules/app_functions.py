@@ -224,6 +224,49 @@ def display_receipts_data_with_expanders(receipts_data):
         st.info("No receipt data saved in the database.")
 
 
+def show_receipt_predictions():
+    """
+    Funzione che mostra l'elenco degli scontrini classificati tramite modello ML
+    - Visualizza un'intestazione introduttiva per la sezione
+    - Permette di filtrare gli scontrini in base alla previsione: Normale o Anomalo (outlier)
+    - Recupera dal database solo i nomi degli scontrini corrispondenti al filtro selezionato
+    - Verifica la presenza di dati (in caso contrario, mostra un messaggio informativo)
+    - Usa un sistema di impaginazione per visualizzare gli scontrini in modo ordinato
+    - Mostra l'elenco dei nomi degli scontrini classificati nella categoria selezionata
+    """
+    st.write("Visualizzazione delle previsioni sugli scontrini")
+
+    # Radio Button per scegliere il tipo di scontrino
+    filter_option = st.radio(
+        "Seleziona il tipo di scontrino da visualizzare:",
+        options=["Normale", "Anomalo (outlier)"]
+    )
+
+    # Filtro su valore numerico della previsione nel DB
+    prediction_value = 0 if filter_option == "Normale" else 1
+
+    # Recupera dati dal DB (solo i nomi degli scontrini)
+    rows = get_data(
+        db_name="documents.db",
+        table_name="receipt_predictions",
+        columns=["file_name"],
+        conditions={"prediction": prediction_value}
+    )
+
+    # Se ci sono dati, li mostra impaginati
+    if rows:
+        receipt_list = [row[0] for row in rows]
+
+        paginated_receipts = paginate(receipt_list, page_key=f"predictions_{filter_option}")
+
+        # visualizza i nomi degli scontrini
+        st.subheader(f"Elenco scontrini classificati come: {filter_option}")
+        for name in paginated_receipts:
+            st.write(f"- {name}")
+    else:
+        st.info(f"Nessun scontrino classificato come {filter_option.lower()}.")
+
+
 def delete_file_from_database_and_folder(data):
     """
     Funzione che permette di selezionare ed eliminare un file dal database e dalle cartelle

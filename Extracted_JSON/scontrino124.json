@@ -1,0 +1,42 @@
+{
+  "data": "2025-06-19",
+  "ora": "16:24:00",
+  "negozio": "Lidl Italia S.r.l.",
+  "indirizzo": "Via Verona, 83",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ARCA NA BIRRA BIANCA",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "NODINI BABY MOZZARELLA",
+      "quantità": 1,
+      "prezzo": 2.19,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "BABY ANGURIA",
+      "quantità": 1,
+      "prezzo": 3.46,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.64,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat, Mastercard"
+}

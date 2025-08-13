@@ -4,7 +4,8 @@ from utils import init_session_state
 
 from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
-                                   delete_file_from_database_and_folder, display_receipts_data_with_expanders)
+                                   delete_file_from_database_and_folder, display_receipts_data_with_expanders,
+                                   show_receipt_predictions)
 from Modules.ocr_groq import process_receipt
 from Modules.ML.ml_dataset import generate_dataset
 
@@ -90,6 +91,8 @@ st.subheader("Machine Learning")
 
 df = generate_dataset()
 st.dataframe(df)
+
+show_receipt_predictions()
 
 
 # Eliminazione file

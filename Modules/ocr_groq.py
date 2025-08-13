@@ -175,16 +175,16 @@ def manage_json_saving(json_data):
     - In caso di errore o dati già presenti, mostra un messaggio appropriato
     :param json_data: dizionario con i dati estratti e corretti
     """
-    image = st.session_state.get("selected_image")
+    selected_image = st.session_state.get("selected_image")
     json_content = json.dumps(json_data, ensure_ascii=False, indent=2)
 
-    json_filename = os.path.splitext(image)[0] + ".json"
+    json_filename = os.path.splitext(selected_image)[0] + ".json"
     json_path = save_json_to_folder(json_content, json_filename)
 
     if json_path:
         st.success(f"JSON file saved successfully at: {json_path}")
 
-        rows = get_data("documents.db", "receipts", "Id", {"File_path": image})
+        rows = get_data("documents.db", "receipts", "Id", {"File_path": selected_image})
         receipt_id = rows[0][0] if rows else None
         # [0][0] per prendere il primo elemento della prima riga, cioè il valore della colonna
         # richiesta (in questo caso "Id")
@@ -309,10 +309,10 @@ def run_ocr_and_save_json(api_key):
     - Salva i dati finali nella cartella e nel database, evitando duplicazioni
     :param api_key: chiave per le chiamate API
     """
-    image = st.session_state.get("selected_image")
+    selected_image = st.session_state.get("selected_image")
     image_path = st.session_state.get("selected_image_path")
 
-    if not image or not image_path or not os.path.exists(image_path):
+    if not selected_image or not image_path or not os.path.exists(image_path):
         st.warning("Nessuna immagine selezionata o file non trovato.")
         return
 
@@ -329,7 +329,7 @@ def run_ocr_and_save_json(api_key):
         st.text_area("OCR", st.session_state.ocr_text, height=300)
 
     # Controlla se il JSON è già stato salvato
-    json_filename = os.path.splitext(image)[0] + ".json"
+    json_filename = os.path.splitext(selected_image)[0] + ".json"
     json_path = os.path.join(EXTRACTED_JSON_DIR, json_filename)
 
     if os.path.exists(json_path):
@@ -415,7 +415,7 @@ def ml_predictions_from_json():
 
     # Trasforma le feature e fa la previsione
     X_new_transf = scaler.transform(X_new)
-    prediction = model.predict(X_new_transf)[0]
+    prediction = int(model.predict(X_new_transf)[0])
 
     return prediction
 
@@ -427,7 +427,8 @@ def process_receipt(data, api_key):
     - Mostra l'immagine selezionata come anteprima
     - Avvia il processo OCR e genera un file JSON con i dati estratti
     - Se attivato, esegue una classificazione ML per rilevare eventuali anomalie nello scontrino
-    - Mostra un messaggio di avviso o conferma in base al risultato della classificazione
+    - Mostra un messaggio diverso in base al risultato della classificazione
+    - Inserisce i dati della previsione nel database
     :param data: dati presenti nel database per la selezione dell'immagine
     :param api_key: chiave per le chiamate API
     """
@@ -435,8 +436,8 @@ def process_receipt(data, api_key):
         selected_image = st.selectbox("Select file to process with OCR", [row[1] for row in st.session_state.database_data])
         image_path = os.path.join(IMAGE_DIR, selected_image)
 
-        st.session_state['selected_image'] = selected_image
-        st.session_state['selected_image_path'] = image_path
+        st.session_state["selected_image"] = selected_image
+        st.session_state["selected_image_path"] = image_path
 
         img = Image.open(image_path)
         st.image(img, caption=f"Preview of {selected_image}", use_container_width=True)
@@ -450,19 +451,31 @@ def process_receipt(data, api_key):
 
             # Mostra il risultato ML se è stato impostato il trigger
             if st.session_state.get("trigger_prediction", False):
+                st.subheader("Previsione Machine Learning")
                 prediction = ml_predictions_from_json()
 
                 if prediction == 1:
-                    st.warning(
-                        "Questo scontrino è stato classificato come anomalo (outlier). "
-                        "Ciò significa che ha caratteristiche insolite rispetto agli altri scontrini. "
-                        "Potrebbe indicare un errore nell'OCR, un formato molto diverso o una spesa anomala."
+                    st.markdown(
+                        "<span style='color:red; font-weight:bold;'>Scontrino anomalo (outlier)</span><br>"
+                        "Questo scontrino presenta caratteristiche insolite rispetto agli altri. "
+                        "Può indicare un errore nell'OCR, un formato molto diverso o una spesa anomala.",
+                        unsafe_allow_html=True
                     )
+                    prediction_label = "Anomalo (outlier)"
                 else:
-                    st.success(
-                        "Questo scontrino è stato classificato come normale. "
-                        "Le sue caratteristiche rientrano nella norma rispetto agli altri scontrini."
+                    st.markdown(
+                        "<span style='color:green; font-weight:bold;'>Scontrino normale</span><br>"
+                        "Le caratteristiche di questo scontrino rientrano nella norma rispetto agli altri.",
+                        unsafe_allow_html=True
                     )
+                    prediction_label = "Normale"
+
+                # Salvataggio nel database
+                insert_data("documents.db", "receipt_predictions", {
+                    "file_name": st.session_state.selected_image,
+                    "prediction": prediction,
+                    "prediction_label": prediction_label
+                })
 
                 # Reset del flag per evitare chiamate ripetute
                 st.session_state.trigger_prediction = False

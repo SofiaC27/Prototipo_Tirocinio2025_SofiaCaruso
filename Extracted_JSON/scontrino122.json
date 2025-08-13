@@ -1,0 +1,51 @@
+{
+  "data": "2025-06-14",
+  "ora": "12:37:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "V. COMMERCIO, 1",
+  "città": "S.G.MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FONDI SALUMI",
+      "quantità": 1,
+      "prezzo": 0.47,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PROSC. COTTO A.Q.NATU",
+      "quantità": 1,
+      "prezzo": 2.26,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PROSC. COTTO A.Q.NATU",
+      "quantità": 1,
+      "prezzo": 2.07,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    },
+    {
+      "nome": "PESCHE GIALLE CESTIN",
+      "quantità": 1,
+      "prezzo": 2.6,
+      "valuta": "EUR",
+      "percentuale_sconto": null,
+      "sconto_assoluto": null,
+      "valore_scontato": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.4,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}

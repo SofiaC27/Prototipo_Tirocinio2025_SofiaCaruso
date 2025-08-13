@@ -57,7 +57,8 @@ def insert_data(db_name, table_name, data_dict):
         c.execute(query, values)
         conn.commit()
         return "inserted"
-    except sqlite3.IntegrityError:
+    except sqlite3.IntegrityError as e:
+        print("IntegrityError:", e)
         return "exists"
     finally:
         conn.close()
@@ -212,5 +213,15 @@ def init_database():
                 absolute_discount <= price),
             discount_value REAL DEFAULT NULL CHECK (discount_value >= 0),
             FOREIGN KEY(extracted_data_id) REFERENCES extracted_data(id) ON DELETE CASCADE
+        )
+    ''')
+
+    create_table("documents.db", '''
+        CREATE TABLE IF NOT EXISTS receipt_predictions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            file_name TEXT UNIQUE,
+            prediction INTEGER CHECK (prediction IN (0,1)),
+            prediction_label TEXT,
+            FOREIGN KEY(file_name) REFERENCES receipts(File_path) ON DELETE CASCADE
         )
     ''')
