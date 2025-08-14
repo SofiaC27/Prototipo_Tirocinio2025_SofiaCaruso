@@ -162,6 +162,6 @@ plt.show()
 
 
 # Salvataggio del modello, dello scaler e dell'encoder
-joblib.dump(final_model, "ML_Objects/final_model.joblib")
-joblib.dump(scaler, "ML_Objects/scaler.joblib")
-joblib.dump(encoder, "ML_Objects/encoder.joblib")
+# joblib.dump(final_model, "ML_Objects/final_model.joblib")
+# joblib.dump(scaler, "ML_Objects/scaler.joblib")
+# joblib.dump(encoder, "ML_Objects/encoder.joblib")

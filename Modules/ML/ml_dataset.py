@@ -5,13 +5,10 @@ from datetime import datetime
 import holidays
 from sklearn.ensemble import IsolationForest
 
-# Calcola il percorso assoluto della root del progetto, risalendo di due livelli dalla cartella dello script corrente
-# Costruisce il percorso completo della cartella 'Extracted_JSON' all’interno della root del progetto
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-TRAINING_JSON_DATA_DIR = os.path.join(PROJECT_ROOT, "Training_JSON_data")
+from config import TRAINING_JSON_DATA_DIR_PATH
 
 
-def load_receipts_json(json_dir=TRAINING_JSON_DATA_DIR):
+def load_receipts_json(json_dir=TRAINING_JSON_DATA_DIR_PATH):
     """
     Funzione per caricare tutti i file JSON dalla cartella in cui sono salvati:
     - Legge ogni file con estensione .json presente nella cartella specificata

@@ -97,7 +97,7 @@ def check_data_consistency(json_data_dict):
 
     # Se manca il prezzo totale, non si può fare il confronto, quindi ritorna False
     if total_receipt_price is None:
-        st.warning("Prezzo totale scontrino mancante.")
+        st.warning("Prezzo totale scontrino mancante")
         return False
 
     if total_receipt_price != total_items_cost:
@@ -182,7 +182,7 @@ def manage_json_saving(json_data):
     json_path = save_json_to_folder(json_content, json_filename)
 
     if json_path:
-        st.success(f"JSON file saved successfully at: {json_path}")
+        st.success(f"File JSON salvato con successo in: {json_path}")
 
         rows = get_data("documents.db", "receipts", "Id", {"File_path": selected_image})
         receipt_id = rows[0][0] if rows else None
@@ -190,14 +190,14 @@ def manage_json_saving(json_data):
         # richiesta (in questo caso "Id")
 
         if receipt_id is None:
-            st.error("Nessuno scontrino trovato nel database.")
+            st.error("Nessuno scontrino trovato nel database")
             return
 
         db_result = save_json_to_db(json_data, receipt_id)
         if db_result == "inserted":
-            st.success("Dati inseriti nel database.")
+            st.success("Dati inseriti nel database")
         elif db_result == "exists":
-            st.warning("Dati già presenti nel database.")
+            st.warning("Dati già presenti nel database")
         else:
             st.error(f"Errore database: {db_result}")
 
@@ -313,7 +313,7 @@ def run_ocr_and_save_json(api_key):
     image_path = st.session_state.get("selected_image_path")
 
     if not selected_image or not image_path or not os.path.exists(image_path):
-        st.warning("Nessuna immagine selezionata o file non trovato.")
+        st.warning("Nessuna immagine selezionata o file non trovato")
         return
 
     # Esegue l'OCR
@@ -339,7 +339,7 @@ def run_ocr_and_save_json(api_key):
 
     # Checkbox per mostrare/nascondere il JSON salvato
     if st.session_state.json_file_exists:
-        st.warning("Il JSON per questo scontrino è già stato salvato.")
+        st.warning("Il JSON per questo scontrino è già stato salvato")
 
         if st.checkbox("Mostra JSON salvato"):
             with open(json_path, "r", encoding="utf-8") as f:
@@ -433,17 +433,17 @@ def process_receipt(data, api_key):
     :param api_key: chiave per le chiamate API
     """
     if data:
-        selected_image = st.selectbox("Select file to process with OCR", [row[1] for row in st.session_state.database_data])
+        selected_image = st.selectbox("Seleziona il file da elaborare con OCR", [row[1] for row in st.session_state.database_data])
         image_path = os.path.join(IMAGE_DIR, selected_image)
 
         st.session_state["selected_image"] = selected_image
         st.session_state["selected_image_path"] = image_path
 
         img = Image.open(image_path)
-        st.image(img, caption=f"Preview of {selected_image}", use_container_width=True)
+        st.image(img, caption=f"Anteprima di {selected_image}", use_container_width=True)
 
-        if st.button(f"OCR + JSON for {selected_image}"):
-            show_progress_bar(duration=1.5, message="Processing OCR and JSON...")
+        if st.button(f"OCR + JSON per {selected_image}"):
+            show_progress_bar(duration=1.5, message="Elaborazione OCR e JSON in corso...")
             st.session_state.start_processing = True
 
         if st.session_state.start_processing:
@@ -458,14 +458,14 @@ def process_receipt(data, api_key):
                     st.markdown(
                         "<span style='color:red; font-weight:bold;'>Scontrino anomalo (outlier)</span><br>"
                         "Questo scontrino presenta caratteristiche insolite rispetto agli altri. "
-                        "Può indicare un errore nell'OCR, un formato molto diverso o una spesa anomala.",
+                        "Può indicare un errore nell'OCR, un formato molto diverso o una spesa anomala",
                         unsafe_allow_html=True
                     )
                     prediction_label = "Anomalo (outlier)"
                 else:
                     st.markdown(
                         "<span style='color:green; font-weight:bold;'>Scontrino normale</span><br>"
-                        "Le caratteristiche di questo scontrino rientrano nella norma rispetto agli altri.",
+                        "Le caratteristiche di questo scontrino rientrano nella norma rispetto agli altri",
                         unsafe_allow_html=True
                     )
                     prediction_label = "Normale"
@@ -481,4 +481,4 @@ def process_receipt(data, api_key):
                 st.session_state.trigger_prediction = False
 
     else:
-        st.info("No data available in the database for processing.")
+        st.info("Nessun dato disponibile nel database per l'elaborazione")

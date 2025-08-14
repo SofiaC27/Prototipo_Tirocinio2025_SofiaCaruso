@@ -17,7 +17,7 @@ def init_session_state(defaults):
             st.session_state[key] = value
 
 
-def show_progress_bar(duration=1.0, message="Processing..."):
+def show_progress_bar(duration=1.0, message="Elaborazione in corso..."):
     """
     Funzione per mostrare una barra di avanzamento simulata
     - Visualizza un messaggio di caricamento
@@ -44,7 +44,7 @@ def load_prompt_text(file_path):
     :return: stringa di testo corrispondente al prompt
     """
     if not os.path.exists(file_path):
-        raise FileNotFoundError(f"Prompt file not found: {file_path}")
+        raise FileNotFoundError(f"File prompt non trovato: {file_path}")
     with open(file_path, "r", encoding="utf-8") as file:
         return file.read().strip()
 
@@ -96,7 +96,7 @@ def save_json_to_folder(json_content, filename):
     os.makedirs(EXTRACTED_JSON_DIR, exist_ok=True)
     file_path = os.path.join(EXTRACTED_JSON_DIR, filename)
     if os.path.exists(file_path):
-        st.warning(f"JSON file '{filename}' already exists in the folder. No action taken.")
+        st.warning(f"Il file JSON '{filename}' esiste già nella cartella. Nessuna azione eseguita.")
         return None
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(json_content)

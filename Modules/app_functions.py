@@ -25,14 +25,14 @@ def paginate(data, page_key, items_per_page=10):
     col1, col2, col3 = st.columns([1, 2, 1])
 
     with col1:
-        if st.button("Previous", key=f"prev_{page_key}", use_container_width=True) and st.session_state[page_key] > 1:
+        if st.button("Precedente", key=f"prev_{page_key}", use_container_width=True) and st.session_state[page_key] > 1:
             st.session_state[page_key] -= 1
 
     with col3:
-        if st.button("Next", key=f"next_{page_key}", use_container_width=True) and st.session_state[page_key] < total_pages:
+        if st.button("Successivo", key=f"next_{page_key}", use_container_width=True) and st.session_state[page_key] < total_pages:
             st.session_state[page_key] += 1
 
-    st.write(f"Page {st.session_state[page_key]} of {total_pages}")
+    st.write(f"Pagina {st.session_state[page_key]} di {total_pages}")
 
     start = (st.session_state[page_key] - 1) * items_per_page
     end = start + items_per_page
@@ -52,14 +52,15 @@ def display_image_gallery(images, columns=5):
     :param columns: numero di colonne della griglia (impostato a 5)
     """
     if not images:
-        st.info("No images to display.")
+        st.info("Nessuna immagine da mostrare")
         return
 
     # Sincronizza la galleria con la sessione
     st.session_state.uploaded_files_for_preview = images
 
-    st.subheader("Image Gallery")
-    st.info("Click on the fullscreen icon (top-right of each image) to enlarge and preview the image.")
+    st.subheader("Galleria di immagini")
+    st.info("Fai clic sull'icona a schermo intero (in alto a destra di ogni immagine) per ingrandire e visualizzare"
+            " l'anteprima dell'immagine")
 
     rows = (len(images) + columns - 1) // columns
 
@@ -100,13 +101,13 @@ def process_uploaded_file(uploaded_files):
 
         # Mostra le preview solo se i file non sono ancora stati salvati
         if not st.session_state.files_saved:
-            st.write("Preview (not saved yet):")
+            st.write("Anteprima (non ancora salvato):")
             display_image_gallery(st.session_state.uploaded_files_for_preview)
 
-            if st.button("Save all uploaded files"):
+            if st.button("Salva tutti i file caricati"):
                 st.session_state.files_saved = True  # Dopo il salvataggio, blocca le preview
 
-                show_progress_bar(duration=1.5, message="Saving files...")
+                show_progress_bar(duration=1.5, message="Salvataggio dei file in corso...")
 
                 saved_count = 0
                 skipped_files_folder = set()
@@ -125,23 +126,23 @@ def process_uploaded_file(uploaded_files):
                         skipped_files_db.add(uploaded_file.name)
 
                 if saved_count > 0:
-                    st.success(f"{saved_count} file(s) successfully saved!")
+                    st.success(f"{saved_count} file salvati con successo!")
 
                 if saved_count == 0:
                     if skipped_files_folder:
                         skipped_list = ", ".join(skipped_files_folder)
-                        st.warning(f"The following file(s) already existed in folder and were not saved: {skipped_list}")
+                        st.warning(f"I seguenti file erano già presenti nella cartella e non sono stati salvati: {skipped_list}")
 
                     if skipped_files_db:
                         skipped_db_list = ", ".join(skipped_files_db)
                         st.warning(
-                            f"The following file(s) already existed in database and were not inserted: {skipped_db_list}")
+                            f"I seguenti file erano già presenti nel database e non sono stati inseriti: {skipped_db_list}")
 
         else:
-            st.info("Files already saved. Upload new files to preview again.")
+            st.info("File già salvati. Carica nuovi file per visualizzare l'anteprima")
 
     else:
-        st.warning("Please upload a file to proceed.")
+        st.warning("Carica un file per continuare")
 
 
 def display_data_with_pagination(data):
@@ -154,7 +155,7 @@ def display_data_with_pagination(data):
       altrimenti, visualizza tutti i dati senza impaginazione
     :param: data: dati presenti nel database
     """
-    st.write("Saved data in the database:")
+    st.write("Dati salvati nel database:")
 
     if data:
         df = pd.DataFrame(data, columns=["Id", "File_path", "Upload_date"])
@@ -164,7 +165,7 @@ def display_data_with_pagination(data):
             st.write(f"Id: {row[0]} | File_path: {row[1]} | Upload_date: {row[2]}")
 
     else:
-        st.info("No data available in the database for display.")
+        st.info("Nessun dato disponibile nel database da visualizzare")
 
 
 def display_receipts_data_with_expanders(receipts_data):
@@ -194,13 +195,13 @@ def display_receipts_data_with_expanders(receipts_data):
             total_currency = receipt[9]
             payment_method = receipt[10]
 
-            with st.expander(f"Receipt {receipt_number}"):
-                st.write(f"**Purchase date:** {purchase_date}")
-                st.write(f"**Purchase time:** {purchase_time}")
-                st.write(f"**Store:** {store_name}")
-                st.write(f"**Address:** {address}, {city}, {country}")
-                st.write(f"**Total:** {total_price} {total_currency}")
-                st.write(f"**Payment method:** {payment_method}")
+            with st.expander(f"Scontrino {receipt_number}"):
+                st.write(f"**Data di acquisto:** {purchase_date}")
+                st.write(f"**Ora di acquisto:** {purchase_time}")
+                st.write(f"**Negozio:** {store_name}")
+                st.write(f"**Indirizzo:** {address}, {city}, {country}")
+                st.write(f"**Totale:** {total_price} {total_currency}")
+                st.write(f"**Metodo di pagamento:** {payment_method}")
 
                 # Recupera gli articoli collegati allo scontrino
                 receipt_items = get_data(
@@ -221,7 +222,7 @@ def display_receipts_data_with_expanders(receipts_data):
                     st.dataframe(df_items, use_container_width=True)
 
     else:
-        st.info("No receipt data saved in the database.")
+        st.info("Non ci sono scontrini salvati nel database")
 
 
 def show_receipt_predictions():
@@ -264,7 +265,7 @@ def show_receipt_predictions():
         for name in paginated_receipts:
             st.write(f"- {name}")
     else:
-        st.info(f"Nessun scontrino classificato come {filter_option.lower()}.")
+        st.info(f"Nessun scontrino classificato come {filter_option.lower()}")
 
 
 def delete_file_from_database_and_folder(data):
@@ -281,7 +282,8 @@ def delete_file_from_database_and_folder(data):
     admin_password = st.secrets["admin"]["ADMIN_PASSWORD"]
 
     # Campo password
-    input_password = st.text_input("Enter admin password to enable file deletion:", type="password")
+    input_password = st.text_input("Inserisci la password amministratore per abilitare l'eliminazione dei file:",
+                                   type="password")
 
     # Controllo password
     if input_password and input_password != admin_password:
@@ -291,27 +293,27 @@ def delete_file_from_database_and_folder(data):
         # Non fa nulla, nessun messaggio di errore finché non si scrive qualcosa
         return  # Blocca qui se la password è vuota
 
-    st.success("Admin access granted. You can now delete files.")
+    st.success("Accesso amministratore confermato. Ora puoi eliminare i file")
 
     if data:
-        file_to_delete = st.selectbox("Select file to delete", [row[1] for row in data])
+        file_to_delete = st.selectbox("Seleziona il file da eliminare", [row[1] for row in data])
 
-        confirm = st.checkbox(f"Confirm deletion of '{file_to_delete}'")
-        st.warning("Please confirm before deleting the file.")
+        confirm = st.checkbox(f"Conferma l'eliminazione di '{file_to_delete}'")
+        st.warning("Conferma prima di eliminare il file")
 
         if confirm:
-            if st.button("Delete selected file"):
+            if st.button("Elimina il file selezionato"):
                 delete_data("documents.db", "receipts", {"File_path": file_to_delete})
-                st.success(f"File '{file_to_delete}' successfully deleted from database!")
+                st.success(f"File '{file_to_delete}' eliminato con successo dal database!")
 
                 deleted_from_folder = delete_image_from_folder(file_to_delete)
                 if deleted_from_folder:
-                    st.success(f"Image '{file_to_delete}' successfully deleted from the folder!")
+                    st.success(f"Immagine '{file_to_delete}' eliminata con successo dalla cartella!")
 
                 possible_json = os.path.splitext(file_to_delete)[0] + ".json"
                 deleted_json = delete_json_from_folder(possible_json)
                 if deleted_json:
-                    st.success(f"Associated JSON file '{possible_json}' successfully deleted from the folder!")
+                    st.success(f"File JSON associato '{possible_json}' eliminato con successo dalla cartella!")
 
     else:
-        st.info("No data available in the database for deletion.")
+        st.info("Nessun dato disponibile nel database per l'eliminazione")

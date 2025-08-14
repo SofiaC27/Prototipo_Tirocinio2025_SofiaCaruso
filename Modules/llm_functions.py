@@ -183,7 +183,7 @@ def build_query_executor_tool(db):
             result = db.run(sql_query)
             return result if result else "[]"
         except Exception as e:
-            return f"Error during query execution: {str(e)}"
+            return f"Errore durante l'esecuzione della query: {str(e)}"
 
     return Tool(
         name="QueryExecutor",

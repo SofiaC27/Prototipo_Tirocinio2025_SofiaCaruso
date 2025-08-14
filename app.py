@@ -34,14 +34,14 @@ init_session_state({
 # Titolo dell'applicazione
 st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart Receipts</h1>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center; color: black; font-size: 25px;'>"
-            "An advanced web application for uploading receipts, extracting data with "
-            "OCR, and organizing it in a searchable database. Enhanced with AI/LLM for natural "
-            "language interaction and advanced analysis</h2>", unsafe_allow_html=True)
+            "Un'applicazione web avanzata per caricare scontrini, estrarre dati tramite OCR e organizzarli in "
+            "un database ricercabile. Potenziata con AI/LLM per interazioni in linguaggio naturale "
+            "e analisi avanzate</h2>", unsafe_allow_html=True)
 
 
 # Upload dei file
 st.divider()
-st.subheader("File Uploader")
+st.subheader("Caricamento File")
 
 uploaded_files = st.file_uploader("Upload files (JPG, JPEG, PNG)", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 
@@ -55,32 +55,32 @@ process_uploaded_file(st.session_state.uploaded_files)
 
 # Gestione del database
 st.divider()
-st.subheader("Database Management")
+st.subheader("Gestione del Database")
 
 display_data_with_pagination(st.session_state.database_data)
 
 
 # OCR e JSON
 st.divider()
-st.subheader("Process files with OCR and generate JSON")
+st.subheader("Elabora i file con OCR e genera JSON")
 
 process_receipt(st.session_state.database_data, api_key)
 
 
 # Visualizzazione dati degli scontrini
 st.divider()
-st.subheader("Displaying Receipt Data")
+st.subheader("Visualizzazione dei dati degli scontrini")
 
 display_receipts_data_with_expanders(st.session_state.receipts_data)
 
 
 # LLM
 st.divider()
-st.subheader("Natural language questions with LLM")
+st.subheader("Domande in linguaggio naturale con LLM")
 
 st.markdown(
-    "If you want to launch the conversational interface with the LLM model to query the database,"
-    " [click here to open the chat](http://localhost:8000)",
+    "Se vuoi avviare l'interfaccia conversazionale con il modello LLM per interrogare il database"
+    " [clicca qui per aprire la chat](http://localhost:8000)",
     unsafe_allow_html=True
 )
 
@@ -97,5 +97,5 @@ show_receipt_predictions()
 
 # Eliminazione file
 st.divider()
-st.subheader("Delete files if needed")
+st.subheader("Elimina i file se necessario")
 delete_file_from_database_and_folder(st.session_state.database_data)
