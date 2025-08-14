@@ -7,6 +7,8 @@ from langchain.tools import Tool
 from langchain.agents import initialize_agent
 from langchain.agents.agent_types import AgentType
 
+import ast
+
 from utils import load_prompt_text
 
 
@@ -82,27 +84,50 @@ def is_query_valid_for_db(sql_query, llm, db_schema):
     return "true" in result.strip().lower()
 
 
-def format_model_answer(raw_result, llm):
+def format_model_answer(raw_result):
     """
     Funzione per generare una risposta formattata e tradotta in italiano a partire dal risultato di una query SQL
-    - Controlla se il risultato della query è vuoto e in caso da un messaggio di nessun risultato
-    - Carica un prompt da file esterno
-    - Inserisce dinamicamente la query e il risultato nel prompt
-    - Invia il prompt al modello LLM
+    - Controlla se il risultato della query è vuoto ("[]") e in caso dà un messaggio di nessun risultato
+    - Tenta di convertire il risultato da stringa a struttura Python, gestendo eventuali errori di sintassi o valore
+    - Analizza la struttura del risultato per fornire una risposta coerente:
+        - Singolo valore => restituisce direttamente il valore
+        - Singola riga con più colonne => restituisce i valori separati da virgole
+        - Più righe => restituisce ogni riga formattata come elenco puntato
+    - In caso di struttura non prevista, restituisce il risultato grezzo come stringa
     :param raw_result: risultato grezzo della query eseguita sul database
-    :param llm: modello LLM
     :return: stringa con la risposta finale formattata in italiano
     """
+    # Controllo esplicito per risultato vuoto come stringa
     if raw_result == "[]":
-        return ("La richiesta è stata compresa ed elaborata correttamente, ma la query non ha restituito"
-                " alcun risultato. Non sono stati trovati dati corrispondenti ai criteri specificati."
-                " Potresti provare a modificare i parametri della ricerca per ottenere risultati diversi.")
+        return ("La richiesta è stata compresa ed elaborata correttamente, ma la query non ha restituito "
+                "alcun risultato.\nNon sono stati trovati dati corrispondenti ai criteri specificati.\n"
+                "Potresti provare a modificare i parametri della ricerca per ottenere risultati diversi.")
 
-    prompt_text = load_prompt_text("Modules/AI_prompts/format_answer_prompt.txt")
-    formatted_prompt = prompt_text.format(result=raw_result)
-    response = llm.invoke(formatted_prompt)
+    # Prova a convertire la stringa in struttura Python
+    if isinstance(raw_result, str):
+        try:
+            raw_result = ast.literal_eval(raw_result)
+        except (ValueError, SyntaxError) as e:
+            return f"Errore durante la conversione del risultato: {e}"
 
-    return response.content.strip()
+    # Caso: singolo valore
+    if isinstance(raw_result, list) and len(raw_result) == 1 and len(raw_result[0]) == 1:
+        value = raw_result[0][0]
+        return f"Ecco la risposta alla tua domanda: {value}"
+
+    # Caso: singola riga con più colonne
+    if isinstance(raw_result, list) and len(raw_result) == 1:
+        row = raw_result[0]
+        row_str = ", ".join(str(v) for v in row)
+        return f"Ecco il record trovato:\n{row_str}"
+
+    # Caso: più righe
+    if isinstance(raw_result, list) and len(raw_result) > 1:
+        rows_formatted = "\n".join("- " + ", ".join(str(v) for v in row) for row in raw_result)
+        return f"Ecco i risultati trovati:\n{rows_formatted}"
+
+    # Caso generico
+    return f"Ecco la risposta alla tua domanda:\n{raw_result}"
 
 
 def build_sql_query_tool(llm, db):
@@ -167,21 +192,20 @@ def build_query_executor_tool(db):
     )
 
 
-def build_answer_formatter_tool(llm):
+def build_answer_formatter_tool():
     """
     Funzione che crea un tool LangChain che formatta e traduce in italiano la risposta del modello con il
     risultato di una query SQL
     - Usa format_model_answer per generare la risposta
-    :param llm: modello LLM
     :return: oggetto Tool utilizzabile da un agente che restituisce la risposta come stringa formattata
     """
     def format_answer(raw_result):
-        return format_model_answer(raw_result, llm)
+        return format_model_answer(raw_result)
 
     return Tool(
         name="AnswerFormatter",
         func=format_answer,
-        description="Formatta e traduce in italiano la risposta con il risultato di una query SQL",
+        description="Restituisce una risposta in italiano con il risultato della query in formato leggibile",
         return_direct=True
     )
 
@@ -193,7 +217,6 @@ def build_custom_agent(llm_key):
     - Configura il modello LLM llama3 tramite endpoint Groq, utilizzando l'API key fornita
     - Crea la connessione al database SQLite locale e ottiene il suo schema
     - Costruisce i tool personalizzati per:
-        - Validare semanticamente la domanda
         - Generare una query SQL coerente con lo schema
         - Validare la query generata
         - Eseguire la query sul database
@@ -216,7 +239,7 @@ def build_custom_agent(llm_key):
     sql_query_tool = build_sql_query_tool(llm, db)
     query_validator_tool = build_query_validator_tool(llm, db_schema)
     query_executor_tool = build_query_executor_tool(db)
-    answer_formatter_tool = build_answer_formatter_tool(llm)
+    answer_formatter_tool = build_answer_formatter_tool()
 
     # Lista dei tool da fornire all'agente
     tools = [

@@ -12,7 +12,7 @@ COURTESY_MESSAGES = [
 ]
 
 GREETING_MESSAGES = [
-    "ciao", "salve", "buongiorno", "buonasera", "hey", "ehi"
+    "ciao", "salve", "buongiorno", "buonasera", "buon pomeriggio", "hey", "ehi"
 ]
 
 MAX_RIGHE = 30  # numero massimo di righe consentite
@@ -62,16 +62,16 @@ async def on_chat_start():
 
     # Esempi di domande come pulsanti cliccabili e icone
     examples = {
-        "Mostrami i primi 15 scontrini caricati nel 2025": "receipt-euro",
         "Mostrami i primi 10 acquisti effettuati nel 2025": "shopping-cart",
-        "Elenca i prodotti per cui è stato applicato uno sconto": "percent",
+        "Elenca i prodotti per cui è stata applicata una percentuale di sconto del 50%": "percent",
         "Qual è la somma totale delle spese effettuate nel mese di marzo?": "calendar-days",
-        "Quali prodotti sono stati acquistati più di una volta in giorni diversi?": "repeat",
+        "Qual è lo scontrino con la spesa totale più bassa?": "receipt-euro",
         "In quale mese del 2025 ho speso di più in totale?": "calendar-clock",
         "Quali negozi ho visitato più spesso?": "map-pin",
         "Qual è stato il metodo di pagamento più usato nei miei acquisti?": "credit-card",
         "Mostrami tutti i prodotti acquistati in contanti": "wallet",
-        "Quali sono i prodotti più acquistati in termini di quantità totale?": "chart-bar"
+        "Quali sono i prodotti più acquistati in termini di quantità totale?": "chart-bar",
+        "Ci sono degli scontrini anomali?": "triangle-alert"
     }
 
     # Invio degli esempi come azioni interattive (pulsanti)
@@ -99,7 +99,7 @@ async def on_message(message: cl.Message):
     - Filtra messaggi di cortesia o saluto per risposte rapide
     - Valida la domanda rispetto allo schema del database
     - Invoca l’agente LangChain e recupera la query, il risultato SQL e la risposta finale
-    - Mostra messaggi distinti per query, risultato grezzo e risposta finale
+    - Mostra messaggi distinti per domanda, query e risposta finale
     - Se il risultato ha esattamente MAX_RIGHE righe, mostra un avviso di limitazione
     :param message: oggetto cl.Message contenente il testo dell’utente
     """
@@ -129,8 +129,8 @@ async def on_message(message: cl.Message):
     await thinking.send()
 
     try:
-        # Esecuzione dell'agente
-        response = agent.invoke({"input": message.content})
+        # Esecuzione asincrona dell'agente
+        response = await agent.ainvoke({"input": message.content})
         final_answer = response["output"]
 
         sql_query = None
@@ -145,7 +145,7 @@ async def on_message(message: cl.Message):
                     raw_result = ast.literal_eval(raw_result)
 
         # Avviso se il risultato supera il limite
-        if raw_result and isinstance(raw_result, list) and len(raw_result) == MAX_RIGHE:
+        if raw_result and isinstance(raw_result, list) and len(raw_result) >= MAX_RIGHE:
             await cl.Message(
                 content=f"⚠️ La risposta è stata limitata ai primi {MAX_RIGHE} elementi per garantire una maggiore"
                         f" velocità e stabilità"
@@ -156,9 +156,6 @@ async def on_message(message: cl.Message):
 
         if sql_query:
             await cl.Message(content=f"**Query generata:**\n```sql\n{sql_query}\n```").send()
-
-        if raw_result:
-            await cl.Message(content=f"**Risultato grezzo:**\n{raw_result}").send()
 
         await cl.Message(content=f"**Risposta finale:**\n{final_answer}").send()
 
