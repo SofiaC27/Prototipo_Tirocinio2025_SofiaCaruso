@@ -1,5 +1,7 @@
 import sqlite3
 
+from config import DATABASE_NAME
+
 
 def create_table(db_name, table_query):
     """
@@ -174,16 +176,15 @@ def init_database():
      Funzione per inizializzare il database
      - Crea le tabelle specificate se non esistono già
     """
-    create_table("documents.db", '''
+    create_table(DATABASE_NAME, '''
         CREATE TABLE IF NOT EXISTS receipts (
-            Id INTEGER PRIMARY KEY AUTOINCREMENT,
-            File_path TEXT UNIQUE,
-            Upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            file_path TEXT UNIQUE
         )
     ''')
 
-    create_table("documents.db", '''
-        CREATE TABLE IF NOT EXISTS extracted_data (
+    create_table(DATABASE_NAME, '''
+        CREATE TABLE IF NOT EXISTS extracted_receipts_data (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             receipt_id INTEGER NOT NULL UNIQUE,
             purchase_date DATE,
@@ -195,33 +196,32 @@ def init_database():
             total_price REAL CHECK (total_price >= 0),
             total_currency TEXT CHECK (LENGTH(total_currency) = 3),
             payment_method TEXT,
-            FOREIGN KEY(receipt_id) REFERENCES receipts(Id) ON DELETE CASCADE
+            FOREIGN KEY(receipt_id) REFERENCES receipts(id) ON DELETE CASCADE
         )
     ''')
 
-    create_table("documents.db", '''
+    create_table(DATABASE_NAME, '''
         CREATE TABLE IF NOT EXISTS receipt_items (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             extracted_data_id INTEGER NOT NULL,
             name TEXT NOT NULL,
             quantity INTEGER, 
             price REAL CHECK (price >= 0),
+            discounted_price REAL DEFAULT NULL CHECK (
+                discounted_price >= 0 AND
+                discounted_price <= price),
             currency TEXT CHECK (LENGTH(currency) = 3),
             discount_percent REAL DEFAULT NULL CHECK (discount_percent >= 0 AND discount_percent <= 100),
-            absolute_discount REAL DEFAULT NULL CHECK (
-                absolute_discount >= 0 AND
-                absolute_discount <= price),
-            discount_value REAL DEFAULT NULL CHECK (discount_value >= 0),
-            FOREIGN KEY(extracted_data_id) REFERENCES extracted_data(id) ON DELETE CASCADE
+            FOREIGN KEY(extracted_data_id) REFERENCES extracted_receipts_data(id) ON DELETE CASCADE
         )
     ''')
 
-    create_table("documents.db", '''
+    create_table(DATABASE_NAME, '''
         CREATE TABLE IF NOT EXISTS receipt_predictions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            file_name TEXT UNIQUE,
+            receipt_id INTEGER NOT NULL UNIQUE,
             prediction INTEGER CHECK (prediction IN (0,1)),
             prediction_label TEXT,
-            FOREIGN KEY(file_name) REFERENCES receipts(File_path) ON DELETE CASCADE
+            FOREIGN KEY(receipt_id) REFERENCES receipts(id) ON DELETE CASCADE
         )
     ''')

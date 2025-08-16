@@ -4,28 +4,26 @@ nel formato JSON indicato di seguito:
 {
   "data": "...",
   "ora": "...",
-  "negozio": "…",
+  "negozio": "...",
   "indirizzo": "...",
-  "città": "…",
+  "città": "...",
   "paese": "...",
   "lista_articoli": [
     {
       "nome": "...",
       "quantità": ...,
-      "prezzo": "...",
-      "valuta": "…",
-      "percentuale_sconto": ...,
-      "sconto_assoluto": ...,
-      "valore_scontato": ...
+      "prezzo": ...,
+      "prezzo_scontato": ...,
+      "valuta": "...",
+      "percentuale_sconto": ...
     },
     {
       "nome": "...",
       "quantità": ...,
-      "prezzo": "...",
-      "valuta": "…",
-      "percentuale_sconto": ...,
-      "sconto_assoluto": ...,
-      "valore_scontato": ...
+      "prezzo": ...,
+      "prezzo_scontato": ...,
+      "valuta": "...",
+      "percentuale_sconto": ...
     }
   ],
   "prezzo_totale":
@@ -38,58 +36,84 @@ nel formato JSON indicato di seguito:
 
 
 Regole per l'estrazione:
--Data: Scrivi la data nel formato `YYYY-MM-DD`.
--Ora: Scrivi l'ora nel formato `HH:mm:ss`.
--Negozio: Scrivi il nome del negozio o del punto vendita
--Indirizzo: Scrivi l'indirizzo preciso del negozio o punto vendita (via, piazza, numero civico), se indicato
--Città: Scrivi la città come "Città - Provincia (Sigla)". Se la provincia o la sigla non sono indicate, prova a inferirli basandoti sul contesto.
--Paese: Scrivi il paese. Se non è indicato, prova a inferirlo basandoti sul contesto.
--Metodo di pagamento: Scrivi il metodo di pagamento se indicato
--Lista articoli:
-      Importante: Se nel testo vicino al prezzo o su righe adiacenti è presente una percentuale IVA
-                  (es: “IVA 22%”, “iva 10%”), ignorala e non interpretarla come sconto, quantità o parte del nome
-                  dell’articolo. L’IVA è un'informazione fiscale e non va inserita nei campi quantita, percentuale_sconto,
-                  sconto_assoluto o valore_scontato, anche se contiene valori numerici simili a quelli usati per
-                  gli sconti
+-**Data**: scrivi nel formato `YYYY-MM-DD`
+-**Ora**: scrivi nel formato `HH:mm:ss`
+-**Negozio**: scrivi il nome del negozio o del punto vendita
+-**Indirizzo**: scrivi l'indirizzo preciso (via, piazza, numero civico), se indicato
+-**Città**: scrivi come "Città - Provincia (Sigla)". Se la provincia o la sigla non sono indicate, prova a
+            inferirli basandoti sul contesto
+-**Paese**: scrivi il paese. Se non è indicato, prova a inferirlo basandoti sul contesto
+-**Metodo di pagamento**: scrivi se indicato
 
-    -Nel campo 'nome' scrivi il nome dell'articolo ovvero il suo testo descrittivo che comprende anche eventuali codici
-     identificativi. Solitamente il nome di ogni articolo è affiancato al suo costo, mentre nelle righe sottostanti
-     ci sono eventuali sconti o gli articoli successivi. Il nome non comprende parole come 'SCONTO' o 'sconto' perchè
-     indicano solo l'eventuale presenza di sconti. Scrivi il nome come testo
-    -Nel campo 'quantità' scrivi la quantità dell'articolo come numero intero. Se la quantità è chiaramente
-     indicata con un moltiplicatore (es: "x2", "Qty: 3", "Q.tà 5", "Quantità: 4"), usa quel valore.
-     Eventuali codici alfanumerici identificativi non corrispondono alla quantità.
-     Solitamente la quantità è scritta sopra, di fianco o sotto il nome dell'articolo.
-     Se non è presente alcuna indicazione di quantità, inferisci quantità: 1. Se invece, lo stesso
-     articolo (nome e/o prezzo) appare su più righe separate dello scontrino senza una quantità
-     aggregata esplicita per riga, considera ogni riga come un articolo separato con quantita: 1
-    -Nel campo 'prezzo' scrivi il prezzo pieno dell'articolo (nel caso di sconto è il prezzo originale prima
-     dello sconto) come numero float. Se la quantità è 1, inserisci il prezzo come indicato.
-     Se la quantità è maggiore di 1 e lo scontrino riporta un prezzo totale per quell'articolo, usa il
-     prezzo riportato, mentre se riporta solo il prezzo unitario (non moltiplicato per la quantità)
-     usa il prezzo unitario di quell'articolo.
-    -Nel campo 'valuta' scrivi le valute come testo. Inferisci la sigla della valuta dal contesto, usando sempre il
+-**Lista articoli**:
+    -Riporta sempre ogni riga di articolo esattamente come compare nello scontrino, SENZA accorpare articoli uguali.
+      Se lo scontrino mostra due righe identiche per lo stesso prodotto, scrivi due oggetti separati nel JSON.
+      L'unica eccezione: se nello scontrino è già scritto un moltiplicatore (es: "x3", "Qty: 3" ecc.), allora usa
+      quello come quantità e NON creare più oggetti separati
+    -NON calcolare tu le quantità o i totali: limita la trascrizione a ciò che è scritto nello scontrino
+    -Ignora l'IVA o iva, non considerarla come quantità, prezzo o sconto
+    -Le righe che contengono la parola 'SCONTO', 'sconto', '50% sconto' o simili NON rappresentano mai articoli
+     separati. Queste righe indicano esclusivamente la presenza di uno sconto applicato all'articolo precedente.
+     Non creare un oggetto JSON separato per queste righe di sconto e usa queste informazioni solo per compilare
+     i campi `prezzo_scontato` e `percentuale_sconto` dell'articolo corrispondente
+    -**Nome**: scrivi come testo il nome dell'articolo ovvero il suo testo descrittivo che comprende anche eventuali
+               codici identificativi
+    -**Quantità**: scrivi la quantità dell'articolo come numero intero. Se la quantità è chiaramente
+                   indicata con un moltiplicatore (es: "x2", "Qty: 3", "Q.tà 5", "Quantità: 4"), usa quel valore.
+                   Altrimenti metti 1. Eventuali codici alfanumerici identificativi non corrispondono alla quantità
+    -**Prezzo**: scrivi sempre il prezzo pieno dell'articolo (in caso di sconto, corrisponde al prezzo originale prima
+     dello sconto) come numero float
+    -**Prezzo scontato**: se c'è sconto, scrivi il prezzo effettivamente pagato dopo lo sconto come numero float.
+                          Se non ci sono sconti, metti sempre `null` (non riscrivere il prezzo originale)
+    -**Valuta**: scrivi le valute come testo. Inferisci la sigla della valuta dal contesto, usando sempre il
      codice a 3 lettere ISO 4217 e non il simbolo (es: "EUR" e non €)
-    -Nel campo 'percentuale_sconto' scrivi la percentuale di sconto se indicata. Esprimila come numero (es: 20 per 20%).
-     Solitamente lo sconto è indicato sulla stessa riga dell'articolo o nella riga immediatamente sotto.
-     Spesso la percentuale di sconto è introdotta da parole come 'SCONTO', 'sconto', '20% sconto'
-     Se non ci sono sconti, lascia il valore come null
-    -Nel campo 'sconto_assoluto' scrivi lo sconto assoluto (valore sottratto dal prezzo originale
-    corrispondente alla percentuale di sconto applicata) se indicato. Esprimilo come numero in valore assoluto
-    (es: -3, scrivi 3). Spesso è indicato sulla stessa riga della percentuale di sconto. Se non ci sono sconti, lascia il valore come null
-    -Nel campo 'valore_scontato' scrivi il valore scontato dell'articolo come numero float, se indicato.
-     Se lo scontrino mostra già il prezzo scontato usa quello (ad esempio riporta il nuovo prezzo sotto il
-     prezzo originale). Se non ci sono sconti, lascia il valore come null
--Prezzo totale:
-    -Nel campo 'valore' scrivi il prezzo totale come numero float
-    -Nel campo 'valuta' scrivi le valute come testo. Inferisci la sigla della valuta dal contesto, usando sempre il
+    -**Percentuale sconto**: se c'è sconto, scrivi la percentuale di sconto se indicata. Esprimila come numero
+                             (es: 20 per 20%). Spesso è introdotta da parole come 'SCONTO', 'sconto', '20% sconto'.
+                             Se non ci sono sconti, metti sempre `null`
+-**Prezzo totale**:
+    -**Valore**: scrivi il prezzo totale come numero float
+    -**Valuta**: scrivi le valute come testo. Inferisci la sigla della valuta dal contesto, usando sempre il
      codice a 3 lettere ISO 4217 e non il simbolo (es: "EUR" e non €)
 
 
--Dati mancanti: Se qualche campo non è presente, lascia il valore come null (senza virgolette) invece di ometterlo.
+-Dati mancanti: se qualche campo non è presente, lascia il valore come `null` (senza virgolette) invece di ometterlo.
 -Formato Numerico: Tutti i valori numerici (prezzi, quantità, percentuali) devono essere estratti
  come numeri (float o intero) e non come stringhe. Se la virgola viene usata come separatore decimale
  nel testo (es: "10,50"), convertila in punto (es. 10.50)
--Stringhe: Tutte le stringhe devono essere rappresentate correttamente tra ""
+-Stringhe: tutte le stringhe devono essere rappresentate correttamente tra ""
+
+
+=> Esempio NON CORRETTO in caso di sconti:
+[
+  {
+    "nome": "LASAGNE TOP GR.500",
+    "quantità": 1,
+    "prezzo": 2.82,
+    "prezzo_scontato": null,
+    "valuta": "EUR",
+    "percentuale_sconto": null
+  },
+  {
+    "nome": "SCONTO FIDATY40%",
+    "quantità": 1,
+    "prezzo": 1.13,
+    "prezzo_scontato": null,
+    "valuta": "EUR",
+    "percentuale_sconto": 40
+  }
+]
+
+=> Esempio CORRETTO in caso di sconti:
+[
+  {
+    "nome": "LASAGNE TOP GR.500",
+    "quantità": 1,
+    "prezzo": 2.82,
+    "prezzo_scontato": 1.69,
+    "valuta": "EUR",
+    "percentuale_sconto": 40
+  }
+]
+
 
 In output restituisci solo il testo in formato JSON che hai estratto.

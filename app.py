@@ -1,6 +1,7 @@
 import streamlit as st
 
 from utils import init_session_state
+from config import DATABASE_NAME
 
 from Database.db_manager import read_data, init_database
 from Modules.app_functions import (process_uploaded_file, display_data_with_pagination,
@@ -16,8 +17,8 @@ init_database()
 
 init_session_state({
     "uploaded_files": [],
-    "database_data": read_data("documents.db", "receipts"),
-    "receipts_data": read_data("documents.db", "extracted_data"),
+    "database_data": read_data(DATABASE_NAME, "receipts"),
+    "receipts_data": read_data(DATABASE_NAME, "extracted_receipts_data"),
     "selected_image": None,
     "selected_image_path": None,
     "start_processing": False,
@@ -89,10 +90,10 @@ st.markdown(
 st.divider()
 st.subheader("Machine Learning")
 
-df = generate_dataset()
-st.dataframe(df)
+# df = generate_dataset()
+# st.dataframe(df)
 
-show_receipt_predictions()
+# show_receipt_predictions()
 
 
 # Eliminazione file

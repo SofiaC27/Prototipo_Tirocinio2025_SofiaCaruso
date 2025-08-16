@@ -11,7 +11,7 @@ import mimetypes
 from streamlit_ace import st_ace
 
 from utils import show_progress_bar, load_prompt_text, save_json_to_folder
-from config import IMAGE_DIR, EXTRACTED_JSON_DIR
+from config import IMAGE_DIR, EXTRACTED_JSON_DIR, DATABASE_NAME
 
 from Database.db_manager import insert_data, get_data
 from Modules.ML.ml_dataset import extract_features_from_receipt
@@ -80,6 +80,7 @@ def check_data_consistency(json_data_dict):
     Funzione per verificare la coerenza dei dati confrontando il prezzo totale dello scontrino e
     la somma dei prezzi degli articoli
     - Calcola il costo totale degli articoli moltiplicando prezzo e quantità estratti
+      (in caso di sconto, usa il prezzo scontato nel calcolo)
     - Recupera il prezzo totale salvato dallo scontrino
     - Confronta i due valori e mostra un messaggio di avviso se i dati non sono coerenti e rileva discrepanze
     - Se il prezzo totale è mancante, interrompe il controllo
@@ -91,7 +92,15 @@ def check_data_consistency(json_data_dict):
     for item in json_data_dict.get('lista_articoli', []):
         quantity = item.get('quantità') if item.get('quantità') is not None else 1
         price = item.get('prezzo') if item.get('prezzo') is not None else 0.0
-        total_items_cost += price * quantity
+        discounted_price = item.get('prezzo_scontato')
+        discount_percent = item.get('percentuale_sconto')
+
+        # Se è stato applicato uno sconto, usa il prezzo scontato
+        if discounted_price is not None and discount_percent is not None:
+            total_items_cost += discounted_price * quantity
+        else:
+            # Altrimenti usa il prezzo pieno
+            total_items_cost += price * quantity
 
     total_receipt_price = json_data_dict.get('prezzo_totale', {}).get('valore')
 
@@ -100,7 +109,7 @@ def check_data_consistency(json_data_dict):
         st.warning("Prezzo totale scontrino mancante")
         return False
 
-    if total_receipt_price != total_items_cost:
+    if round(total_receipt_price, 2) != round(total_items_cost, 2):
         st.warning(
             f"Attenzione: il prezzo totale estratto ({total_receipt_price}) non corrisponde alla somma dei prezzi "
             f"degli articoli ({round(total_items_cost, 2)}).\n"
@@ -140,11 +149,11 @@ def save_json_to_db(json_data, receipt_id):
         "payment_method": json_data.get("metodo_pagamento")
     }
 
-    result = insert_data("documents.db", "extracted_data", extracted_data_row)
+    result = insert_data(DATABASE_NAME, "extracted_receipts_data", extracted_data_row)
     if result != "inserted":
         return result  # si ferma se il record esiste già o c'è errore
 
-    extracted_data_rows = get_data("documents.db", "extracted_data", ["id"], {"receipt_id": receipt_id})
+    extracted_data_rows = get_data(DATABASE_NAME, "extracted_receipts_data", ["id"], {"receipt_id": receipt_id})
     extracted_data_id = extracted_data_rows[-1][0] if extracted_data_rows else None
     # [-1][0] per prendere l’ultimo ID appena inserito in extracted_data
 
@@ -154,12 +163,11 @@ def save_json_to_db(json_data, receipt_id):
             "name": item.get("nome"),
             "quantity": item.get("quantità"),
             "price": item.get("prezzo"),
+            "discounted_price": item.get("prezzo_scontato"),
             "currency": item.get("valuta"),
-            "discount_percent": item.get("percentuale_sconto"),
-            "absolute_discount": item.get("sconto_assoluto"),
-            "discount_value": item.get("valore_scontato")
+            "discount_percent": item.get("percentuale_sconto")
         }
-        insert_data("documents.db", "receipt_items", item_row)
+        insert_data(DATABASE_NAME, "receipt_items", item_row)
 
     return "inserted"
 
@@ -184,7 +192,7 @@ def manage_json_saving(json_data):
     if json_path:
         st.success(f"File JSON salvato con successo in: {json_path}")
 
-        rows = get_data("documents.db", "receipts", "Id", {"File_path": selected_image})
+        rows = get_data(DATABASE_NAME, "receipts", "id", {"file_path": selected_image})
         receipt_id = rows[0][0] if rows else None
         # [0][0] per prendere il primo elemento della prima riga, cioè il valore della colonna
         # richiesta (in questo caso "Id")
@@ -338,7 +346,7 @@ def run_ocr_and_save_json(api_key):
         st.session_state.json_file_exists = False
 
     # Checkbox per mostrare/nascondere il JSON salvato
-    if st.session_state.json_file_exists:
+    if st.session_state.json_file_exists and not st.session_state.json_saved:
         st.warning("Il JSON per questo scontrino è già stato salvato")
 
         if st.checkbox("Mostra JSON salvato"):
@@ -373,7 +381,7 @@ def run_ocr_and_save_json(api_key):
 
     else:
         # Se non servono modifiche, salva il JSON direttamente (se non è già stato salvato)
-        if not st.session_state.get("json_saved", False):
+        if not st.session_state.json_saved:
             manage_json_saving(st.session_state.json_data)
             st.session_state.json_saved = True  # Marca come salvato
 
@@ -449,6 +457,7 @@ def process_receipt(data, api_key):
         if st.session_state.start_processing:
             run_ocr_and_save_json(api_key)
 
+            '''
             # Mostra il risultato ML se è stato impostato il trigger
             if st.session_state.get("trigger_prediction", False):
                 st.subheader("Previsione Machine Learning")
@@ -479,6 +488,7 @@ def process_receipt(data, api_key):
 
                 # Reset del flag per evitare chiamate ripetute
                 st.session_state.trigger_prediction = False
+            '''
 
     else:
         st.info("Nessun dato disponibile nel database per l'elaborazione")

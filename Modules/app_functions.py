@@ -3,6 +3,7 @@ import pandas as pd
 import os
 
 from utils import show_progress_bar, save_image_to_folder, delete_image_from_folder, delete_json_from_folder
+from config import DATABASE_NAME
 from Database.db_manager import insert_data, delete_data, get_data
 
 
@@ -119,7 +120,7 @@ def process_uploaded_file(uploaded_files):
                         skipped_files_folder.add(uploaded_file.name)
                         continue
 
-                    result = insert_data("documents.db", "receipts", {"File_path": uploaded_file.name})
+                    result = insert_data(DATABASE_NAME, "receipts", {"file_path": uploaded_file.name})
                     if result == "inserted":
                         saved_count += 1
                     elif result == "exists":
@@ -158,11 +159,11 @@ def display_data_with_pagination(data):
     st.write("Dati salvati nel database:")
 
     if data:
-        df = pd.DataFrame(data, columns=["Id", "File_path", "Upload_date"])
+        df = pd.DataFrame(data, columns=["id", "file_path"])
         st.dataframe(df)
 
         for row in paginate(data, page_key="uploads"):
-            st.write(f"Id: {row[0]} | File_path: {row[1]} | Upload_date: {row[2]}")
+            st.write(f"id: {row[0]} | file_path: {row[1]}")
 
     else:
         st.info("Nessun dato disponibile nel database da visualizzare")
@@ -195,7 +196,17 @@ def display_receipts_data_with_expanders(receipts_data):
             total_currency = receipt[9]
             payment_method = receipt[10]
 
-            with st.expander(f"Scontrino {receipt_number}"):
+            # Recupera il nome dello scontrino
+            file_path_result = get_data(
+                db_name=DATABASE_NAME,
+                table_name="receipts",
+                columns=["file_path"],
+                conditions={"id": receipt_number}  # campo di JOIN tra le due tabelle
+            )
+
+            file_path = file_path_result[0][0]
+
+            with st.expander(f"{file_path}"):
                 st.write(f"**Data di acquisto:** {purchase_date}")
                 st.write(f"**Ora di acquisto:** {purchase_time}")
                 st.write(f"**Negozio:** {store_name}")
@@ -205,19 +216,19 @@ def display_receipts_data_with_expanders(receipts_data):
 
                 # Recupera gli articoli collegati allo scontrino
                 receipt_items = get_data(
-                    db_name="documents.db",
+                    db_name=DATABASE_NAME,
                     table_name="receipt_items",
                     columns=[
-                        "name", "quantity", "price", "currency",
-                        "discount_percent", "absolute_discount", "discount_value"
+                        "name", "quantity", "price", "discounted_price",
+                        "currency", "discount_percent"
                     ],
                     conditions={"extracted_data_id": receipt_id}
                 )
 
                 if receipt_items:
                     df_items = pd.DataFrame(receipt_items, columns=[
-                        "name", "quantity", "price", "currency",
-                        "discount_percent", "absolute_discount", "discount_value"
+                        "name", "quantity", "price", "discounted_price",
+                        "currency", "discount_percent"
                     ])
                     st.dataframe(df_items, use_container_width=True)
 
@@ -247,18 +258,30 @@ def show_receipt_predictions():
     prediction_value = 0 if filter_option == "Normale" else 1
 
     # Recupera dati dal DB (solo i nomi degli scontrini)
-    rows = get_data(
-        db_name="documents.db",
+    prediction_rows = get_data(
+        db_name=DATABASE_NAME,
         table_name="receipt_predictions",
-        columns=["file_name"],
+        columns=["receipt_id"],
         conditions={"prediction": prediction_value}
     )
 
     # Se ci sono dati, li mostra impaginati
-    if rows:
-        receipt_list = [row[0] for row in rows]
+    if prediction_rows:
+        receipt_ids = [row[0] for row in prediction_rows]
 
-        paginated_receipts = paginate(receipt_list, page_key=f"predictions_{filter_option}")
+        # Recupera i nomi degli scontrini corrispondenti
+        file_paths = []
+        for rid in receipt_ids:
+            path_row = get_data(
+                db_name=DATABASE_NAME,
+                table_name="receipts",
+                columns=["file_path"],
+                conditions={"id": rid}
+            )
+            if path_row:
+                file_paths.append(path_row[0][0])
+
+        paginated_receipts = paginate(file_paths, page_key=f"predictions_{filter_option}")
 
         # visualizza i nomi degli scontrini
         st.subheader(f"Elenco scontrini classificati come: {filter_option}")
@@ -303,7 +326,7 @@ def delete_file_from_database_and_folder(data):
 
         if confirm:
             if st.button("Elimina il file selezionato"):
-                delete_data("documents.db", "receipts", {"File_path": file_to_delete})
+                delete_data(DATABASE_NAME, "receipts", {"file_path": file_to_delete})
                 st.success(f"File '{file_to_delete}' eliminato con successo dal database!")
 
                 deleted_from_folder = delete_image_from_folder(file_to_delete)

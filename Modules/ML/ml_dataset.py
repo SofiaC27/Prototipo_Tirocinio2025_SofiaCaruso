@@ -92,7 +92,7 @@ def extract_features_from_receipt(receipt):
         items = receipt.get("lista_articoli", [])
         n_items = sum([
             int(q) if q is not None else 0
-            for q in [item.get("quantita") for item in items]
+            for q in [item.get("quantità") for item in items]
         ])
 
         spending_per_item = total_price / n_items if n_items else 0.0

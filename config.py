@@ -12,3 +12,6 @@ TRAINING_JSON_DATA_DIR_PATH = os.path.join(BASE_DIR, "Training_JSON_data")
 IMAGE_DIR = os.path.basename(IMAGE_DIR_PATH)
 EXTRACTED_JSON_DIR = os.path.basename(EXTRACTED_JSON_DIR_PATH)
 TRAINING_JSON_DATA_DIR = os.path.basename(TRAINING_JSON_DATA_DIR_PATH)
+
+# Nome del database
+DATABASE_NAME = "receipts_archive.db"
