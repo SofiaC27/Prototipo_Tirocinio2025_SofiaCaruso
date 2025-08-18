@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-14",
+  "ora": "16:37:00",
+  "negozio": "AB ALIMENTI BIOLOGICI SRL",
+  "indirizzo": "Via Giacchino Di Marzo 23B",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BASTONCINI CRUSCA",
+      "quantità": 3,
+      "prezzo": 2.61,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.83,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTE"
+}

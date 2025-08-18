@@ -1,0 +1,47 @@
+{
+  "data": "2025-07-09",
+  "ora": "12:11:39",
+  "negozio": "DEICHMANN CALZATURE S.R.L.",
+  "indirizzo": "Strada Provinciale 10",
+  "città": "Curtatone - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "scarpe estive da donna",
+      "quantità": 1,
+      "prezzo": 29.99,
+      "prezzo_scontato": 23.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 22.0
+    },
+    {
+      "nome": "scarpe estive da donna",
+      "quantità": 1,
+      "prezzo": 29.99,
+      "prezzo_scontato": 23.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 22.0
+    },
+    {
+      "nome": "5th Avenue",
+      "quantità": 1,
+      "prezzo": 39.99,
+      "prezzo_scontato": 31.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 22.0
+    },
+    {
+      "nome": "Sacchetti grandi",
+      "quantità": 1,
+      "prezzo": 0.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 80.07,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta di credito"
+}

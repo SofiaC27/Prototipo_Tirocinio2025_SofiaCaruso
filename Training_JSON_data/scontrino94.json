@@ -1,0 +1,55 @@
+{
+  "data": "2024-06-18",
+  "ora": "22:04:00",
+  "negozio": "Domo Sushi Restaurant",
+  "indirizzo": "Via Novara 11/23",
+  "città": "Roma - RM",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CENA",
+      "quantità": 2,
+      "prezzo": 31.9,
+      "prezzo_scontato": 63.8,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA NATIA 75CL",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA NEPI 75CL",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA KIRIN ALLA SPINA",
+      "quantità": 2,
+      "prezzo": 6.5,
+      "prezzo_scontato": 13.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAFFE",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 84.8,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

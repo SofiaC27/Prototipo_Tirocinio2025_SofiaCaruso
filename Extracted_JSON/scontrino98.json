@@ -1,0 +1,87 @@
+{
+  "data": "2024-06-30",
+  "ora": "12:28:00",
+  "negozio": "Bata",
+  "indirizzo": "Viale Fulvio Testi, 132",
+  "città": "Cinisello Balsamo - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SHOE 8492305440",
+      "quantità": 1,
+      "prezzo": 49.99,
+      "prezzo_scontato": 27.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 44
+    },
+    {
+      "nome": "SHOE 8499305440",
+      "quantità": 1,
+      "prezzo": 49.99,
+      "prezzo_scontato": 27.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 44
+    },
+    {
+      "nome": "SOCKS 9199892392",
+      "quantità": 1,
+      "prezzo": 4.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SANDAL 5725419390",
+      "quantità": 1,
+      "prezzo": 13.0,
+      "prezzo_scontato": 10.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 20
+    },
+    {
+      "nome": "SHOE 8114209450",
+      "quantità": 1,
+      "prezzo": 59.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SANDAL 5648298370",
+      "quantità": 1,
+      "prezzo": 79.99,
+      "prezzo_scontato": 44.8,
+      "valuta": "EUR",
+      "percentuale_sconto": 44
+    },
+    {
+      "nome": "BELT 9544139010",
+      "quantità": 1,
+      "prezzo": 24.99,
+      "prezzo_scontato": 9.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 60
+    },
+    {
+      "nome": "SHOPPER - LEGGE 123/2017 ART. 9 BIS",
+      "quantità": 1,
+      "prezzo": 0.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPER - LEGGE 123/2017 ART. 9 BIS",
+      "quantità": 1,
+      "prezzo": 0.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 186.45,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta di Credito"
+}

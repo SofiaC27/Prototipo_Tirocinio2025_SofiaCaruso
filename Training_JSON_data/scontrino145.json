@@ -1,0 +1,31 @@
+{
+  "data": "2025-07-06",
+  "ora": "13:12:00",
+  "negozio": "Bijou Brigitte",
+  "indirizzo": "Via Mantova 36",
+  "città": "Lonato - Brescia",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Collane",
+      "quantità": 1,
+      "prezzo": 17.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "organza Sacchetto",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 18.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

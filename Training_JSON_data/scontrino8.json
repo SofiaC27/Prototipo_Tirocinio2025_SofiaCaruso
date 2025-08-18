@@ -1,0 +1,55 @@
+{
+  "data": "2026-04-19",
+  "ora": "11:13:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop.",
+  "indirizzo": "P. LE CESARE BECCARIA,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T PANE BIANCO MULINO",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T FINOCCHI SF",
+      "quantità": 1,
+      "prezzo": 2.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACCHETTO ORTO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T MELANZANE GLOBBOSE",
+      "quantità": 1,
+      "prezzo": 1.94,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACCHETTO ORTO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 5.36,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

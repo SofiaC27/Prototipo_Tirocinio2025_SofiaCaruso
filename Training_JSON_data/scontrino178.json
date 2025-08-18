@@ -1,0 +1,31 @@
+{
+  "data": "2025-07-25",
+  "ora": "19:20:00",
+  "negozio": "PUNTO PIZZA DI CHICCHI ALICE",
+  "indirizzo": "VIA MATTEOTTI N.2",
+  "città": "PORTO MANTOVANO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "2 X8,00",
+      "quantità": 1,
+      "prezzo": 16.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PIZZA",
+      "quantità": 1,
+      "prezzo": 7.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 23.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "BANCOMAT"
+}

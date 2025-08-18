@@ -1,0 +1,71 @@
+{
+  "data": "2025-08-12",
+  "ora": "11:24:00",
+  "negozio": "EUROSPIN SICILIA S.P.A.",
+  "indirizzo": "Via Placido Rizzotto, 30/32",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PERE COSCIA",
+      "quantità": 1,
+      "prezzo": 1.84,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LATTUGA ROMANA",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INDIVIA BELGA 500g",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PANE RUSTICO A FET",
+      "quantità": 1,
+      "prezzo": 1.45,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "50 SACC. GELO 19X2",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BANANE",
+      "quantità": 1,
+      "prezzo": 1.12,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPER ORTOFR.BIO",
+      "quantità": 2,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

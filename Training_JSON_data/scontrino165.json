@@ -1,0 +1,39 @@
+{
+  "data": "2025-07-22",
+  "ora": "10:07:00",
+  "negozio": "AmbROSIO STORE",
+  "indirizzo": "Via Barbarulo, 70",
+  "città": "Nocera Inf. - SA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Web",
+      "quantità": 1,
+      "prezzo": 39.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Web",
+      "quantità": 2,
+      "prezzo": 25.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Web",
+      "quantità": 1,
+      "prezzo": 29.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 119.8,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA CREDITO"
+}

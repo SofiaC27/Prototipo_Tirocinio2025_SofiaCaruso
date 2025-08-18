@@ -1,0 +1,47 @@
+{
+  "data": "2025-08-07",
+  "ora": "11:45:00",
+  "negozio": "GIALGI S.R.L",
+  "indirizzo": "Via Regione Siciliana 29/31",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SLIP DONNA 3362",
+      "quantità": 1,
+      "prezzo": 17.98,
+      "prezzo_scontato": 16.18,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "CALZA BABY 4300C",
+      "quantità": 1,
+      "prezzo": 7.2,
+      "prezzo_scontato": 5.76,
+      "valuta": "EUR",
+      "percentuale_sconto": 20
+    },
+    {
+      "nome": "CANOTTA DONNA 9143 APERTA",
+      "quantità": 1,
+      "prezzo": 42.01,
+      "prezzo_scontato": 33.61,
+      "valuta": "EUR",
+      "percentuale_sconto": 20
+    },
+    {
+      "nome": "MAXI CARTA IGIENIC. 3V XXL 12RT",
+      "quantità": 1,
+      "prezzo": 3.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 59.15,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

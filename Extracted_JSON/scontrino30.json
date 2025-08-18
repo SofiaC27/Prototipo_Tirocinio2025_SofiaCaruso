@@ -1,0 +1,119 @@
+{
+  "data": "2025-04-26",
+  "ora": "11:16:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SARDINE INTERE",
+      "quantità": 1,
+      "prezzo": 1.81,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SARDINE INTERE",
+      "quantità": 1,
+      "prezzo": 2.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SARDINE INTERE",
+      "quantità": 1,
+      "prezzo": 1.86,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MEZZI RIGAT BARILLA B",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SPAGHETTONI BARILLA B",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MEZZI RIGAT BARILLA B",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SPAGHETTONI BARILLA B",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CORALLINI71 ESSELUNG",
+      "quantità": 1,
+      "prezzo": 0.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CORALLINI71 ESSELUNG",
+      "quantità": 1,
+      "prezzo": 0.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRANAROL MOZZ. PROTEIN",
+      "quantità": 1,
+      "prezzo": 1.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POLLO NATURAMA FUSI",
+      "quantità": 1,
+      "prezzo": 3.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POLLO NAT. SOVR S/PEL",
+      "quantità": 1,
+      "prezzo": 4.21,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TARTARE CLAS.PIEM.",
+      "quantità": 1,
+      "prezzo": 5.29,
+      "prezzo_scontato": 3.17,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 21.91,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

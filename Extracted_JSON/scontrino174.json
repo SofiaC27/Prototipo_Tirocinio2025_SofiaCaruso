@@ -1,0 +1,71 @@
+{
+  "data": "2025-07-26",
+  "ora": "11:33:00",
+  "negozio": "ESSSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO MONDADORI N.2",
+  "città": "Mantova",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CUORI DI LATTUGA",
+      "quantità": 1,
+      "prezzo": 1.98,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FERRARINI PETTO TACCH",
+      "quantità": 1,
+      "prezzo": 3.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PARMIG.REGG.MONT 24 M",
+      "quantità": 1,
+      "prezzo": 15.57,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRANAROL MOZZ.PROTEIN",
+      "quantità": 1,
+      "prezzo": 1.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SFIZIOSO ALLE OLIVE",
+      "quantità": 1,
+      "prezzo": 2.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NPBUONO CARB.ENI 100",
+      "quantità": 1,
+      "prezzo": 90.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PIEM. POLPA TRITA ATP",
+      "quantità": 1,
+      "prezzo": 7.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 122.87,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA PREPAGATA, CARTA PREPAGATA, CARTA DI CREDITO"
+}

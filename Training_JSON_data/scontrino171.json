@@ -1,0 +1,39 @@
+{
+  "data": "2025-07-26",
+  "ora": "10:37:00",
+  "negozio": "CONAD CITY",
+  "indirizzo": "Via Villagrazi, 303/B",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BIRRA MORETTI CL.66",
+      "quantità": 1,
+      "prezzo": 1.35,
+      "prezzo_scontato": 1.19,
+      "valuta": "EUR",
+      "percentuale_sconto": 12
+    },
+    {
+      "nome": "BANCO SALUMERIA",
+      "quantità": 1,
+      "prezzo": 6.07,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPER CONAD BIOD.GRAN.P",
+      "quantità": 1,
+      "prezzo": 0.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.41,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

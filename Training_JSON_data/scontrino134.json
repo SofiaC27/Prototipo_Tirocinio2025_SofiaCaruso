@@ -1,0 +1,95 @@
+{
+  "data": "2025-07-02",
+  "ora": "16:49:00",
+  "negozio": "ALDI",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Acqua Friz. 1,5l",
+      "quantità": 1,
+      "prezzo": 0.25,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Acqua Friz. 1,5l",
+      "quantità": 1,
+      "prezzo": 0.25,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Albicocche 1kg",
+      "quantità": 1,
+      "prezzo": 2.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Cipolle dorate 1kg",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Lattughino 125g",
+      "quantità": 1,
+      "prezzo": 0.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Melone mantov. IGP",
+      "quantità": 1,
+      "prezzo": 1.92,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Banane",
+      "quantità": 1,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Sacch. ortofrutta",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Ins. mista 500g",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Shopper Bio",
+      "quantità": 1,
+      "prezzo": 0.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 10.19,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}

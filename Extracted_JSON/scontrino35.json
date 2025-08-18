@@ -1,0 +1,143 @@
+{
+  "data": "2025-05-14",
+  "ora": "09:11:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "VIA K.MARX,1",
+  "città": "BANCOLE - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CLASS TOVAGLIOLI MON",
+      "quantità": 1,
+      "prezzo": 1.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DAYLY CARTA IGIEN.",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CLASS TOVAGLIOLI MON",
+      "quantità": 1,
+      "prezzo": 1.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DAYLY CARTA IGIEN.",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BRIM FILONE MOZZ.",
+      "quantità": 1,
+      "prezzo": 3.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FRUMENTA SEM. RIMAC.",
+      "quantità": 1,
+      "prezzo": 1.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURALLE U OVA RUS",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURALLE U OVA RUS",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURALLE U OVA RUS",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LATTE GRANAROLO P.S.",
+      "quantità": 1,
+      "prezzo": 0.75,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRANA PADANO GRATUG",
+      "quantità": 1,
+      "prezzo": 1.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CIPOLLOITI ROSSI TRO",
+      "quantità": 1,
+      "prezzo": 1.62,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FONDI SALUMI",
+      "quantità": 1,
+      "prezzo": 1.81,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROSC. COTTO TENERONI",
+      "quantità": 1,
+      "prezzo": 2.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOZZ. NODINO180G SAB",
+      "quantità": 1,
+      "prezzo": 2.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PATATE",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 29.29,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}

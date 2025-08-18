@@ -1,0 +1,23 @@
+{
+  "data": "2025-06-07",
+  "ora": "18:35:00",
+  "negozio": "ACQUA E SAPONE",
+  "indirizzo": "Viale della Repubblica",
+  "città": "Porto Mantovano - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "EXCELL. CR. CA. SCURO*3",
+      "quantità": 1,
+      "prezzo": 11.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 11.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

@@ -1,0 +1,63 @@
+{
+  "data": "2025-02-01",
+  "ora": "18:45:00",
+  "negozio": "Facis",
+  "indirizzo": "Via Marco D'Agrate, 41",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ABITI",
+      "quantità": 1,
+      "prezzo": 533.0,
+      "prezzo_scontato": 199.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 62.5
+    },
+    {
+      "nome": "PANTALONI SPORTIVI",
+      "quantità": 1,
+      "prezzo": 138.0,
+      "prezzo_scontato": 69.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 50.0
+    },
+    {
+      "nome": "PANTALONI CLASSICI",
+      "quantità": 1,
+      "prezzo": 139.0,
+      "prezzo_scontato": 69.5,
+      "valuta": "EUR",
+      "percentuale_sconto": 50.0
+    },
+    {
+      "nome": "GIACCHE INFORMALI",
+      "quantità": 1,
+      "prezzo": 159.0,
+      "prezzo_scontato": 129.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 18.86
+    },
+    {
+      "nome": "GIACCHE INFORMALI",
+      "quantità": 1,
+      "prezzo": 288.0,
+      "prezzo_scontato": 129.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 55.21
+    },
+    {
+      "nome": "SHOPPER",
+      "quantità": null,
+      "prezzo": null,
+      "prezzo_scontato": null,
+      "valuta": null,
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 595.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

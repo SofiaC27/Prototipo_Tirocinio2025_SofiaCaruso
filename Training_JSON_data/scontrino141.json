@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-13",
+  "ora": "13:00:00",
+  "negozio": "LIU JO UOMO",
+  "indirizzo": "Via Marco Biagi, 46100 Mantova MN",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "POLO ST P N/C PD TG: M",
+      "quantità": 1,
+      "prezzo": 39.9,
+      "prezzo_scontato": 29.9,
+      "valuta": "EUR",
+      "percentuale_sconto": 25
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 29.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}

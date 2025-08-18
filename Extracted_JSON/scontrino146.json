@@ -1,0 +1,71 @@
+{
+  "data": "2025-07-05",
+  "ora": "15:31:00",
+  "negozio": "ALDI",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Acqua frizz 12x500ml",
+      "quantità": 1,
+      "prezzo": 1.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Auricchio P. picc.",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Gyros/Kebab",
+      "quantità": 1,
+      "prezzo": 4.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Ciliegia Ver. 500g",
+      "quantità": 1,
+      "prezzo": 4.99,
+      "prezzo_scontato": 2.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "Utensili assortiti",
+      "quantità": 1,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Melone mantov. IGP",
+      "quantità": 1,
+      "prezzo": 2.33,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Melone mantov. IGP",
+      "quantità": 1,
+      "prezzo": 2.26,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 16.05,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}

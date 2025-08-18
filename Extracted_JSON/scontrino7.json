@@ -1,0 +1,71 @@
+{
+  "data": "2025-05-12",
+  "ora": "17:36:00",
+  "negozio": "ALDI S.r.l.",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Birr Stretto 330ml",
+      "quantità": 4,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Crocc di n. form.",
+      "quantità": 1,
+      "prezzo": 0.45,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Finocchi",
+      "quantità": 1,
+      "prezzo": 2.32,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Banane",
+      "quantità": 1,
+      "prezzo": 1.87,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Kiwi verde 500g",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Arance Valencia",
+      "quantità": 1,
+      "prezzo": 2.34,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Shoper Bio",
+      "quantità": 1,
+      "prezzo": 0.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.47,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Master Card"
+}

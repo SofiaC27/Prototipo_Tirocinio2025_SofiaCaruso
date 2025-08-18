@@ -1,0 +1,39 @@
+{
+  "data": "2025-04-09",
+  "ora": "18:56:42",
+  "negozio": "SICILYSHOP S.R.L.",
+  "indirizzo": "AEROPORTO V. BELLINI SNC",
+  "città": "FONTANAROSSA - Catania (CT)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Caffe americano",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Spremuta d arancia n.2",
+      "quantità": 1,
+      "prezzo": 10.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Acqua 50 cl",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 15.2,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA BANCOMAT"
+}

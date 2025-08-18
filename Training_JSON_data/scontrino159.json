@@ -1,0 +1,31 @@
+{
+  "data": "2025-07-11",
+  "ora": "16:54:00",
+  "negozio": "TORREFAZIONE BRASIL",
+  "indirizzo": "Via Tiglio 1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CAFFE'",
+      "quantità": 1,
+      "prezzo": 14.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAFFE'",
+      "quantità": 1,
+      "prezzo": 14.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 28.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA CREDITO"
+}

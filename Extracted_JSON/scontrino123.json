@@ -1,0 +1,71 @@
+{
+  "data": "2025-06-18",
+  "ora": "16:34:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop",
+  "indirizzo": "P.le Cesare Beccaria,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T PAN GOCCIOLI MB",
+      "quantità": 1,
+      "prezzo": 2.87,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T PANCARRE CLAS 330G",
+      "quantità": 1,
+      "prezzo": 0.68,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T PETTO POLLO COOP",
+      "quantità": 1,
+      "prezzo": 5.66,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T PETTO POLLO COOP",
+      "quantità": 1,
+      "prezzo": 4.86,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T SCOTTONA POLPA FFI",
+      "quantità": 1,
+      "prezzo": 4.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T MACINATO MISTO",
+      "quantità": 1,
+      "prezzo": 3.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T UOVA BIO NATUREL",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 24.36,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

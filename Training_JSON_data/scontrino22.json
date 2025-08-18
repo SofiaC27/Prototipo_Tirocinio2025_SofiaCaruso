@@ -1,0 +1,23 @@
+{
+  "data": "2025-04-23",
+  "ora": "16:46:27",
+  "negozio": "APAM Esercizio S.p.A",
+  "indirizzo": "Via dei Toscani, 3/c",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "10 Corse URB",
+      "quantità": 1,
+      "prezzo": 14.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 14.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": null
+}

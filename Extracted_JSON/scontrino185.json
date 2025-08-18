@@ -1,0 +1,95 @@
+{
+  "data": "2025-07-30",
+  "ora": "10:14:38",
+  "negozio": "Ica Market s.r.l.",
+  "indirizzo": "V. le Placido Rizzotto, 2",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T. Patate kg2",
+      "quantità": 1,
+      "prezzo": 2.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Coupon APP Patate",
+      "quantità": 1,
+      "prezzo": -1.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PELATI GR400 SELEX100 ITALIA",
+      "quantità": 1,
+      "prezzo": 0.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PELATI GR400 SELEX100 ITALIA",
+      "quantità": 1,
+      "prezzo": 0.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Albicocca",
+      "quantità": 1,
+      "prezzo": 1.11,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Lattuga romana",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FB17 FAMILA30/4",
+      "quantità": 1,
+      "prezzo": -0.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Radicchio rosso",
+      "quantità": 1,
+      "prezzo": 1.22,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T. ACQUA NAT. LT.2x6 ROVERELLA FA2",
+      "quantità": 1,
+      "prezzo": 7.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "10 % OVER60",
+      "quantità": 1,
+      "prezzo": -0.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 12.79,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

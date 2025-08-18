@@ -1,0 +1,167 @@
+{
+  "data": "2026-07-20",
+  "ora": "11:35:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FAIRY GEL PULIZ.PROF.",
+      "quantità": 1,
+      "prezzo": 3.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FAIRY GEL PULIZ.PROF.",
+      "quantità": 1,
+      "prezzo": 3.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FAIRY GEL PULIZ.PROF.",
+      "quantità": 1,
+      "prezzo": 3.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FAIRY GEL PULIZ.PROF.",
+      "quantità": 1,
+      "prezzo": 3.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FAIRY GEL PULIZ.PROF.",
+      "quantità": 1,
+      "prezzo": 3.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GALLETTO VALLE SPLUGA",
+      "quantità": 1,
+      "prezzo": 4.97,
+      "prezzo_scontato": 2.98,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "GALLETTO VALLE SPLUGA",
+      "quantità": 1,
+      "prezzo": 5.16,
+      "prezzo_scontato": 3.09,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "GRUVI MANGO",
+      "quantità": 1,
+      "prezzo": 4.29,
+      "prezzo_scontato": 2.57,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "GRUVI STECCO CROCCANT",
+      "quantità": 1,
+      "prezzo": 4.29,
+      "prezzo_scontato": 2.57,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "GRUVI STECCO PISTACCH",
+      "quantità": 1,
+      "prezzo": 4.29,
+      "prezzo_scontato": 2.57,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "GRUVI STRACCIAITELLA",
+      "quantità": 1,
+      "prezzo": 4.29,
+      "prezzo_scontato": 2.57,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "PROSECCCHINI TRE MASCH",
+      "quantità": 1,
+      "prezzo": 5.22,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "B.AD/TARTARE SCOTTONA",
+      "quantità": 1,
+      "prezzo": 4.24,
+      "prezzo_scontato": 2.54,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "B.AD/TARTARE SCOTTONA",
+      "quantità": 1,
+      "prezzo": 4.24,
+      "prezzo_scontato": 2.54,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "PETTO FETTE ECC FILEN",
+      "quantità": 1,
+      "prezzo": 4.27,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PETTO FETTE ECC FILEN",
+      "quantità": 1,
+      "prezzo": 4.81,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ARROSTICINI AGNELLO",
+      "quantità": 1,
+      "prezzo": 5.59,
+      "prezzo_scontato": 3.35,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "ARROSTICINI AGNELLO",
+      "quantità": 1,
+      "prezzo": 5.59,
+      "prezzo_scontato": 3.35,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "GALLETTO VALLE SPLUGA",
+      "quantità": 1,
+      "prezzo": 5.06,
+      "prezzo_scontato": 3.03,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 64.41,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA PREPAGATA, CARTA PREPAGATA, CARTA PREPAGATA, CARTA DI CREDITO"
+}

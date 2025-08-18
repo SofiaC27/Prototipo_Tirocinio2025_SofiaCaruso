@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-28",
+  "ora": "09:55:00",
+  "negozio": "PANIFICIO BARONE SCALA",
+  "indirizzo": "VIA VILLAGRAZIA 303/A",
+  "città": null,
+  "paese": null,
+  "lista_articoli": [
+    {
+      "nome": "Reparto1",
+      "quantità": 1,
+      "prezzo": 1.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 1.3,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

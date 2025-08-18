@@ -1,0 +1,151 @@
+{
+  "data": "2025-06-22",
+  "ora": "11:35:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "VIA K.MARX,1",
+  "città": "BANCOLLE - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PATATE GNOCCHI2KG",
+      "quantità": 1,
+      "prezzo": 2.58,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SALE INTEGR.1KG FINO",
+      "quantità": 1,
+      "prezzo": 0.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ZANETTI GRANA PADANO",
+      "quantità": 1,
+      "prezzo": 1.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ZANETTI GRANA PADANO",
+      "quantità": 1,
+      "prezzo": 1.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "EXCELLENCE CASTANO S",
+      "quantità": 1,
+      "prezzo": 10.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "EXCELLENCE CASTANO S",
+      "quantità": 1,
+      "prezzo": 10.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROSC.COTTO A.Q. LIB",
+      "quantità": 1,
+      "prezzo": 1.88,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO500G",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO500G",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO500G",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO500G",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LOME SPREMUTA DI PUR",
+      "quantità": 1,
+      "prezzo": 2.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VENUS DET.INTIMO/COR",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VENUS DET.INTIMO/COR",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "AIA UOVA X4 BIOVITA",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LOME SPREMUTA DI PUR",
+      "quantità": 1,
+      "prezzo": 2.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FLIS HAPPY YELLOW12",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 42.28,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}

@@ -1,0 +1,31 @@
+{
+  "data": "2025-05-27",
+  "ora": "17:02:00",
+  "negozio": "Lidl",
+  "indirizzo": "Via Verona, 83",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "10 UOVA M SENZA ANTIB",
+      "quantità": 1,
+      "prezzo": 2.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BANANE",
+      "quantità": 1,
+      "prezzo": 1.48,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 4.27,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

@@ -1,0 +1,63 @@
+{
+  "data": "2025-05-20",
+  "ora": "19:02:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "V.COMMERCI0.1 46030 S.G.MANTOVA MN",
+  "città": "S.G.MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "COLUSSI G.DISPENSA 6",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURELLE 6 UOVA RUS",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURELLE 6 UOVA RUS",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURELLE6 UOVA RUS",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROSC. COTTO A.Q.VALB",
+      "quantità": 1,
+      "prezzo": 2.08,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRANA PADANO GRATTUG",
+      "quantità": 1,
+      "prezzo": 1.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 10.37,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}

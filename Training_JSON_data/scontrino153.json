@@ -1,0 +1,71 @@
+{
+  "data": "2025-07-19",
+  "ora": "12:15:00",
+  "negozio": "Lidl Italia S.r.l.",
+  "indirizzo": "Via Verona, 83",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PESTO DI PISTACCHIO",
+      "quantità": 2,
+      "prezzo": 3.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOZZARELLA HIGH PROT",
+      "quantità": 3,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SUSINE SFUSE",
+      "quantità": 1,
+      "prezzo": 2.46,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACCH.ORTOFR.BIOGRAD",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CETRIOLI",
+      "quantità": 1,
+      "prezzo": 1.76,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACCH.ORTOFR.BIOGRAD",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPER BIODEGRAD.",
+      "quantità": 1,
+      "prezzo": 0.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.89,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

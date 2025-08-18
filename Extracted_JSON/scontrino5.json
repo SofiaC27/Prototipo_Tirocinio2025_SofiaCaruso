@@ -1,0 +1,319 @@
+{
+  "data": "2025-04-18",
+  "ora": "15:36:00",
+  "negozio": "SUPERMERCATI TOSCANO",
+  "indirizzo": "VIA F. PARRI",
+  "città": "CURATONE - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "GIN AMARAGGIUBINO40 ML.S",
+      "quantità": 1,
+      "prezzo": 9.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "V.LOVE FIOOCCHI INT.AVANA",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "V.LOVE FIOOCCHI INT.AVANA",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BOLLE BIO BAGNINO DOC. ARUM",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "V.BEUTY SH.RIVIT.POM.HD",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MATT HYORA POWER AGUMI G",
+      "quantità": 1,
+      "prezzo": 3.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PULLO CARCIOFI SALENTI. VU",
+      "quantità": 1,
+      "prezzo": 2.65,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "AMALFI COLL. WHITE M",
+      "quantità": 1,
+      "prezzo": 0.75,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BOLLE BIO BAGNINO DOC. ARUM",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COALMA TONO TRANG.100% ITA.",
+      "quantità": 1,
+      "prezzo": 3.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FRUM. SEMOLA RIM.100% ITA.",
+      "quantità": 1,
+      "prezzo": 0.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FRUM. SEMOLA RIM.100% ITA.",
+      "quantità": 1,
+      "prezzo": 0.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURE MAIS GIALLO",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJRSUN YUBIFIDUS S.2 G",
+      "quantità": 1,
+      "prezzo": 1.65,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SPIGAD FARTING TIPO1 ATH",
+      "quantità": 1,
+      "prezzo": 1.55,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJASUN YUBIFIDUS S.2 G",
+      "quantità": 1,
+      "prezzo": 1.65,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJASUN YUBIFIDUS S.2 G",
+      "quantità": 1,
+      "prezzo": 1.65,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "P. ROSSO SACCO NERO",
+      "quantità": 1,
+      "prezzo": 0.65,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PAQUITA TORTILLA CLASS. BR",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "V.D.O. PISELLI FINISSIMI",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SAL. PREZ. CASER. LIGHT -SAL",
+      "quantità": 1,
+      "prezzo": 1.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DELI. FIL. GRISSINI. NAT.",
+      "quantità": 1,
+      "prezzo": 1.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GUSTO DI UNA VOLTA BURRO",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROVOLA AFFUM. GR.400",
+      "quantità": 1,
+      "prezzo": 4.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "C. NONNA LAMPOMODORO GR.70",
+      "quantità": 1,
+      "prezzo": 3.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAMPI LUPINI GIGANTI B.S.G.",
+      "quantità": 1,
+      "prezzo": 1.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAMPI LUPINI GIGANTI B.S.G.",
+      "quantità": 1,
+      "prezzo": 1.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CARCIOFI VAR. THEMA CAT. I",
+      "quantità": 1,
+      "prezzo": 2.4,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACHETTO ORTOFRUTTA BIO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COSTE CAT. II",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACHETTO ORTOFRUTTA BIO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M.B. GR. BAUL. INTEGRALE GR.",
+      "quantità": 1,
+      "prezzo": 1.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DAILY CARTA IGIENICA",
+      "quantità": 1,
+      "prezzo": 1.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ROBERTI UOVA A.PERTI S/A",
+      "quantità": 1,
+      "prezzo": 1.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ROBERTI UOVA A.PERTI S/A",
+      "quantità": 1,
+      "prezzo": 1.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ROBERTI UOVA A.PERTI S/A",
+      "quantità": 1,
+      "prezzo": 1.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ZAK TOVAGL.",
+      "quantità": 1,
+      "prezzo": 1.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ZAK TOVAGL.",
+      "quantità": 1,
+      "prezzo": 1.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 71.29,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "elettronica"
+}

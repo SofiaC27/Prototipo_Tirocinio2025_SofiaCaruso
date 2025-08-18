@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-27",
+  "ora": "09:15:00",
+  "negozio": "FARMACIA CANNATA S.r.l.",
+  "indirizzo": "Via dell'orsa minore n.102",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "D.MED CE926522475",
+      "quantità": 1,
+      "prezzo": 4.9,
+      "prezzo_scontato": 3.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 30.61
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.4,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

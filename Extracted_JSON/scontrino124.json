@@ -1,0 +1,39 @@
+{
+  "data": "2025-06-19",
+  "ora": "16:24:00",
+  "negozio": "Lidl Italia S.r.l.",
+  "indirizzo": "Via Verona, 83",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ARCANA BIRRA BIANCA",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NODINI BABY ANGUIRIA",
+      "quantità": 1,
+      "prezzo": 2.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOZZARELLA",
+      "quantità": 2.91,
+      "prezzo": 1.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.64,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat e Mastercard"
+}

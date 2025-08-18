@@ -195,7 +195,7 @@ def manage_json_saving(json_data):
         rows = get_data(DATABASE_NAME, "receipts", "id", {"file_path": selected_image})
         receipt_id = rows[0][0] if rows else None
         # [0][0] per prendere il primo elemento della prima riga, cioè il valore della colonna
-        # richiesta (in questo caso "Id")
+        # richiesta (in questo caso "id")
 
         if receipt_id is None:
             st.error("Nessuno scontrino trovato nel database")
@@ -457,7 +457,6 @@ def process_receipt(data, api_key):
         if st.session_state.start_processing:
             run_ocr_and_save_json(api_key)
 
-            '''
             # Mostra il risultato ML se è stato impostato il trigger
             if st.session_state.get("trigger_prediction", False):
                 st.subheader("Previsione Machine Learning")
@@ -480,15 +479,26 @@ def process_receipt(data, api_key):
                     prediction_label = "Normale"
 
                 # Salvataggio nel database
-                insert_data("documents.db", "receipt_predictions", {
-                    "file_name": st.session_state.selected_image,
+                rows = get_data(DATABASE_NAME, "receipts", "id", {"file_path": selected_image})
+                receipt_id = rows[0][0] if rows else None
+                # [0][0] per prendere il primo elemento della prima riga, cioè il valore della colonna
+                # richiesta (in questo caso "id")
+
+                result = insert_data(DATABASE_NAME, "receipt_predictions", {
+                    "receipt_id": receipt_id,
                     "prediction": prediction,
                     "prediction_label": prediction_label
                 })
 
+                if result == "inserted":
+                    st.success("Previsione salvata nel database")
+                elif result == "exists":
+                    st.warning("La previsione è già presente nel database")
+                else:
+                    st.error("Errore durante il salvataggio")
+
                 # Reset del flag per evitare chiamate ripetute
                 st.session_state.trigger_prediction = False
-            '''
 
     else:
         st.info("Nessun dato disponibile nel database per l'elaborazione")

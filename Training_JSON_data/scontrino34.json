@@ -1,0 +1,111 @@
+{
+  "data": "2025-05-11",
+  "ora": "12:32:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "VIA K.MARX,1",
+  "città": "BANCOLLI - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SANT'ANNA ACQUA 1,5L",
+      "quantità": 6,
+      "prezzo": 0.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PATATE 2KG",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJUSAN YOG.BIFID. 4X",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJUSAN YOG.BIFID. 4X",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJUSAN YOG.BIFID. 25",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJUSAN YOG.BIFID. 25",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJUSAN YOG.BIFID. 25",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJUSAN YOG.BIFID. 25",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VENUS DET.INTIMO/COR",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VENUS DET.INTIMO/COR",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "EXCELLENCE CASTANO S",
+      "quantità": 1,
+      "prezzo": 11.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PATA PATATINA ARTIG.",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 26.65,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

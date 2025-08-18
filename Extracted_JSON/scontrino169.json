@@ -1,0 +1,31 @@
+{
+  "data": "2025-07-25",
+  "ora": "10:06:00",
+  "negozio": "Discount Beauty",
+  "indirizzo": "Via San Filippo, 20/a",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SILIUM COL.6.0 BIONDO",
+      "quantità": 1,
+      "prezzo": 8.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SAUGELLA DERMOLIQUIDA BLU",
+      "quantità": 1,
+      "prezzo": 7.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 16.7,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

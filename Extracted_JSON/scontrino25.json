@@ -1,0 +1,143 @@
+{
+  "data": "2025-04-24",
+  "ora": "21:41:00",
+  "negozio": "ASSAGGERIA KM 431",
+  "indirizzo": null,
+  "città": "SILVI - TE",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "TAGLIERE KM431",
+      "quantità": 2,
+      "prezzo": 16.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CHEESECAKE",
+      "quantità": 1,
+      "prezzo": 5.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "THE PESCA",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA",
+      "quantità": 2,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COCA 0.33",
+      "quantità": 2,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "0,3 LT",
+      "quantità": 1,
+      "prezzo": 4.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COPERTO",
+      "quantità": 5,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CESTINO PANE",
+      "quantità": 1,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FORM FRITTO 2 PZ",
+      "quantità": 1,
+      "prezzo": 4.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BRUSCH MISTA 2 PZ",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BRUSCHETTE MISTE 3 PZ",
+      "quantità": 1,
+      "prezzo": 4.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FORM FRITTO 3 PZ",
+      "quantità": 1,
+      "prezzo": 6.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TAGLIATA SALE GRO",
+      "quantità": 1,
+      "prezzo": 21.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ARR. FATTI A MANO",
+      "quantità": 30,
+      "prezzo": 1.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ARR. PICCOLI",
+      "quantità": 15,
+      "prezzo": 1.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VEG FANTASIA CHEF",
+      "quantità": 1,
+      "prezzo": 12.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 171.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": null
+}

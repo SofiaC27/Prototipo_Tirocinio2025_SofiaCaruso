@@ -1,0 +1,31 @@
+{
+  "data": "2025-07-25",
+  "ora": "10:07:00",
+  "negozio": "Discount Beauty",
+  "indirizzo": "Via San Filippo, 20/a",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FERMASANGUE CF FIAMMIFERI",
+      "quantità": 3,
+      "prezzo": 0.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MONOUSO TOVAGLIOLI BARB.6",
+      "quantità": 1,
+      "prezzo": 4.75,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 6.25,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "POS MANUALE"
+}

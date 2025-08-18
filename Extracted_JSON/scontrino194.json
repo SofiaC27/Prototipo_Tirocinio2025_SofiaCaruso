@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-05",
+  "ora": "10:34:00",
+  "negozio": "FCPARK24 SRLS",
+  "indirizzo": "CORTILE AMATO II12",
+  "città": "PALERMO",
+  "paese": null,
+  "lista_articoli": [
+    {
+      "nome": "PARCHEGGIO ORARIO",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

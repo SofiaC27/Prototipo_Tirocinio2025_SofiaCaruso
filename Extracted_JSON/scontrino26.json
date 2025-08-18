@@ -1,0 +1,23 @@
+{
+  "data": "2025-04-18",
+  "ora": "16:24:00",
+  "negozio": "LUBIAM MODA PER L'UOMO SPA",
+  "indirizzo": "Via Ffume .55",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Maglie101157443",
+      "quantità": 1,
+      "prezzo": 144.0,
+      "prezzo_scontato": 39.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 73
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 39.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

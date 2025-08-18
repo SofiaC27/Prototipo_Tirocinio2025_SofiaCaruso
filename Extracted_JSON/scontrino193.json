@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-04",
+  "ora": "10:58:00",
+  "negozio": "PANIFICIO LO SFILATINO",
+  "indirizzo": "VIA ALOI 15B-C",
+  "città": "PALERMO",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "REPARTO1",
+      "quantità": 1,
+      "prezzo": 3.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.3,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

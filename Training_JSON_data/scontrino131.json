@@ -1,0 +1,23 @@
+{
+  "data": "2025-06-24",
+  "ora": "17:16:00",
+  "negozio": "CAFFETTERIA PASTICCERIA AMATO",
+  "indirizzo": "VIA MANZONI 48",
+  "città": "PORTO MANTOVANO - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "VR-PASTICceria",
+      "quantità": 1,
+      "prezzo": 10.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 10.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

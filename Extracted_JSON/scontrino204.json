@@ -1,0 +1,47 @@
+{
+  "data": "2025-08-11",
+  "ora": "08:55:00",
+  "negozio": "CONAD CITY",
+  "indirizzo": "Via Villagrazie, 303/B",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FETTE BISCOT.BARIL.INTEGR",
+      "quantità": 1,
+      "prezzo": 2.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BANCO SALUMERIA",
+      "quantità": 1,
+      "prezzo": 5.54,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAFFE' TRINCA ATT.STR.50 C",
+      "quantità": 1,
+      "prezzo": 7.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PASTA POIATTI RUSTICHELLI",
+      "quantità": 3,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 19.75,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

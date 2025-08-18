@@ -1,0 +1,39 @@
+{
+  "data": "2025-06-15",
+  "ora": "22:33:00",
+  "negozio": "CIRCOLO ARCI MUSICA INSIEME APS",
+  "indirizzo": "VIA BERSAGLIERI D'ITALIA 2 Z",
+  "città": "PORTO MANTOVANO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Riso venere con salmone e verdure",
+      "quantità": 2,
+      "prezzo": 9.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Mirò",
+      "quantità": 1,
+      "prezzo": 6.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Piña Bausch (piña colada analcolico)",
+      "quantità": 1,
+      "prezzo": 7.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 31.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

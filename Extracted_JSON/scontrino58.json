@@ -1,0 +1,63 @@
+{
+  "data": "2025-04-17",
+  "ora": "18:53:00",
+  "negozio": "MYCHEF RIST.COMM.S.p.A.",
+  "indirizzo": "Aeroporto Bari-70057 Bari",
+  "città": "Bari - BA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BIRRA SPINA GRANDE",
+      "quantità": 3,
+      "prezzo": 5.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRAN PIATTO FORMAGGI",
+      "quantità": 2,
+      "prezzo": 12.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAPRESE",
+      "quantità": 1,
+      "prezzo": 9.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CESTINO PANE",
+      "quantità": 3,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA PANNA BT CL 7",
+      "quantità": 2,
+      "prezzo": 2.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAFFE",
+      "quantità": 2,
+      "prezzo": 1.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 65.8,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

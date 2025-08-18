@@ -1,0 +1,135 @@
+{
+  "data": "2025-07-24",
+  "ora": "17:16:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop.",
+  "indirizzo": "P.le Cesare Beccaria,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PESCHE BIANCHE SF",
+      "quantità": 1,
+      "prezzo": 5.51,
+      "prezzo_scontato": 3.3,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "SACCHETTO ORTO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T PATATE SF",
+      "quantità": 1,
+      "prezzo": 1.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACCHETTO ORTO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOP COMP. COOP LAR",
+      "quantità": 1,
+      "prezzo": 0.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T POLLO FETTE ALS 25",
+      "quantità": 1,
+      "prezzo": 4.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T-SH.M VIOLA",
+      "quantità": 1,
+      "prezzo": 12.99,
+      "prezzo_scontato": 6.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "M-T VELLUTATA ASPAR CO",
+      "quantità": 1,
+      "prezzo": 3.53,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "X PANT.L MARRONE",
+      "quantità": 1,
+      "prezzo": 19.99,
+      "prezzo_scontato": 9.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "X BERM.48 MARRONE",
+      "quantità": 1,
+      "prezzo": 34.99,
+      "prezzo_scontato": 17.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "X BERM.46 ROSA",
+      "quantità": 1,
+      "prezzo": 24.99,
+      "prezzo_scontato": 12.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "X PANT.L BLU",
+      "quantità": 1,
+      "prezzo": 19.99,
+      "prezzo_scontato": 9.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "LIBR 9791255560692 NS",
+      "quantità": 1,
+      "prezzo": 4.66,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T CAROTE COOP IT",
+      "quantità": 1,
+      "prezzo": 1.18,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOP COMP. COOP LAR",
+      "quantità": 1,
+      "prezzo": 0.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 74.76,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

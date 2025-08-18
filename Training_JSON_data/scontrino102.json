@@ -1,0 +1,79 @@
+{
+  "data": "2024-10-01",
+  "ora": "13:18:00",
+  "negozio": "LEO FOOD SRL",
+  "indirizzo": "VIA TRIBONIANO",
+  "città": "MILANO - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "RISOTTO CON SALAMELLA MAN",
+      "quantità": 1,
+      "prezzo": 12.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TOVAN",
+      "quantità": 1,
+      "prezzo": 12.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TAGLIERE LANGHIRANO",
+      "quantità": 1,
+      "prezzo": 11.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "RISOTTO AI MIRTILLI",
+      "quantità": 1,
+      "prezzo": 12.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "RISOTTO ZAFFERANO",
+      "quantità": 1,
+      "prezzo": 12.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA NATURALE 50 CL",
+      "quantità": 3,
+      "prezzo": 2.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA FRIZZANTE 50 CL",
+      "quantità": 1,
+      "prezzo": 2.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COPERTO",
+      "quantità": 4,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 67.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

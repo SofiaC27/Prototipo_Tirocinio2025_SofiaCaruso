@@ -63,14 +63,16 @@ async def on_chat_start():
     # Esempi di domande come pulsanti cliccabili e icone
     examples = {
         "Mostrami i primi 10 acquisti effettuati nel 2025": "shopping-cart",
-        "Elenca i prodotti per cui è stata applicata una percentuale di sconto del 50%": "percent",
+        "A quali prodotti è stata applicata una percentuale di sconto del 50%?": "percent",
         "Qual è la somma totale delle spese effettuate nel mese di marzo?": "calendar-days",
         "Qual è lo scontrino con la spesa totale più bassa?": "receipt-euro",
         "In quale mese del 2025 ho speso di più in totale?": "calendar-clock",
         "Quali negozi ho visitato più spesso?": "map-pin",
         "Qual è stato il metodo di pagamento più usato nei miei acquisti?": "credit-card",
-        "Mostrami tutti i prodotti acquistati in contanti": "wallet",
+        "Mostrami i prodotti acquistati in contanti": "wallet",
         "Quali sono i prodotti più acquistati in termini di quantità totale?": "chart-bar",
+        "Quali sono i primi acquisti effettuati nel negozio Esselunga?": "store",
+        "Quanti acquisti non sono stati fatti a Mantova?": "earth",
         "Ci sono degli scontrini anomali?": "triangle-alert"
     }
 

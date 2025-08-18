@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-13",
+  "ora": "11:10:00",
+  "negozio": "ENRICO COVERI OUTLET",
+  "indirizzo": "VIA MARCO BIAGI",
+  "città": "BAGNOLO SAN VITO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ABBIGLIAMENTO",
+      "quantità": 1,
+      "prezzo": 40.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 40.6,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

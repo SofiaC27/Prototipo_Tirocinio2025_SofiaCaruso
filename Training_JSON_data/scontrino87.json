@@ -1,0 +1,55 @@
+{
+  "data": "2024-12-04",
+  "ora": "12:58:00",
+  "negozio": "NONNA VITTORIA SRL",
+  "indirizzo": "Via Varesina, 163",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "TAGLIATELLE AI FUNGHI PORCINI",
+      "quantità": 3,
+      "prezzo": 18.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TRIS DEL MACELLAIO",
+      "quantità": 1,
+      "prezzo": 19.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TAGLIATA CON CARCIOFI",
+      "quantità": 1,
+      "prezzo": 25.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAFFE' ESPRESSO",
+      "quantità": 2,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAFFE' MACCHIATO",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 104.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico di credito"
+}

@@ -1,0 +1,39 @@
+{
+  "data": "2025-05-03",
+  "ora": "18:15:22",
+  "negozio": "Lidl Italia s.r.l. a socio unico",
+  "indirizzo": "Via Verona, 83",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MOZZARELLA HIGH PROT",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VEGGIE BURGER TOFU",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PEPERONI ROSSI",
+      "quantità": 1,
+      "prezzo": 5.32,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

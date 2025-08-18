@@ -1,0 +1,31 @@
+{
+  "data": "2025-06-24",
+  "ora": "14:26:51",
+  "negozio": "DEICHMANN CALZATURE S.R.L.",
+  "indirizzo": "Plazzale Cesare Beccaria,1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "scarpe estive da donna",
+      "quantità": 1,
+      "prezzo": 29.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Sacchetti piccoli",
+      "quantità": 1,
+      "prezzo": 0.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 30.09,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta di credito"
+}

@@ -1,0 +1,31 @@
+{
+  "data": "2025-04-12",
+  "ora": "20:49:00",
+  "negozio": "BRETZEL S.r.l.",
+  "indirizzo": "Via Tadino, 15",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SPRITZ",
+      "quantità": 3,
+      "prezzo": 9.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VALPOLICELLA RIPASSO",
+      "quantità": 1,
+      "prezzo": 8.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 35.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

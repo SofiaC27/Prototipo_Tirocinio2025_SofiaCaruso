@@ -1,0 +1,63 @@
+{
+  "data": "2025-05-13",
+  "ora": "14:49:00",
+  "negozio": "RISTOCAFE",
+  "indirizzo": "P.ZZA SAN FRANCESCO D'ASSISI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "copert o",
+      "quantità": 1,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA1L",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TORTA AL LIMONE",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "RAVIOLI CARNE",
+      "quantità": 1,
+      "prezzo": 4.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SPAGHETTI CON VERDUR",
+      "quantità": 1,
+      "prezzo": 4.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GAMBERI FRITTI",
+      "quantità": 1,
+      "prezzo": 7.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 21.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

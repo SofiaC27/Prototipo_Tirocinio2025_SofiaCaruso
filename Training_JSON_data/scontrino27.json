@@ -1,0 +1,31 @@
+{
+  "data": "2025-04-27",
+  "ora": "12:07:00",
+  "negozio": "SUPERMERCATI TOSANO",
+  "indirizzo": "VIA F. PARRI",
+  "città": "CURTATONE - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ANICA PROF. BUCATO BERGA",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LENOR AHH. TE CAPRI86 LAV",
+      "quantità": 1,
+      "prezzo": 4.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.45,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

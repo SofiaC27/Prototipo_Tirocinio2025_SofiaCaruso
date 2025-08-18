@@ -1,0 +1,63 @@
+{
+  "data": "2025-04-22",
+  "ora": "16:24:00",
+  "negozio": "ALDI S.r.l.",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Acq friz 12x250ml",
+      "quantità": 1,
+      "prezzo": 1.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Patat. crocc. 150g",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Carote 1kg",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Finocchi",
+      "quantità": 1,
+      "prezzo": 2.73,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Banane",
+      "quantità": 1,
+      "prezzo": 1.53,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Arance Navel",
+      "quantità": 1,
+      "prezzo": 3.11,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 11.54,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}

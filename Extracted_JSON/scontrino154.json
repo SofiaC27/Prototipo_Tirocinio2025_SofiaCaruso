@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-19",
+  "ora": "00:04:00",
+  "negozio": "CIRCOLO ARCI MUSICA INSIEME APS",
+  "indirizzo": "VIA BERSAGLIERI D'ITALIA 2 Z",
+  "città": "PORTO MANTOVANO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Giro pinsa",
+      "quantità": 2,
+      "prezzo": 15.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 30.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

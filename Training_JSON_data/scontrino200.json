@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-11",
+  "ora": "17:29:00",
+  "negozio": "NUOVA FARMACIA BARONE SCALA S.R.L.",
+  "indirizzo": "Via Villagrazia, 303/1",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "TRIMIX GOCCE OCULARI 8ML",
+      "quantità": 1,
+      "prezzo": 21.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 21.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

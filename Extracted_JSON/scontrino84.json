@@ -1,0 +1,31 @@
+{
+  "data": "2025-05-30",
+  "ora": "17:19:00",
+  "negozio": "UNIQUE SRL",
+  "indirizzo": "VIALE DELLA REPUBBLICA 2",
+  "città": "PORTO MANTOVANO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "GUANTO SPOLVERO FLY",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ORG CASS CRIST ANTISCI",
+      "quantità": 2,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 6.6,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

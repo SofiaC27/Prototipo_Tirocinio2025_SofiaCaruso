@@ -1,0 +1,135 @@
+{
+  "data": "2026-05-11",
+  "ora": "11:53:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "F. ORATA NATURAMA",
+      "quantità": 1,
+      "prezzo": 7.82,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "F. ORATA NATURAMA",
+      "quantità": 1,
+      "prezzo": 6.84,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NPBUONO CARB.ENI 100",
+      "quantità": 1,
+      "prezzo": 90.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SCOTT NAT/FETTINE",
+      "quantità": 1,
+      "prezzo": 4.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SL FAGIOLINI FINISSI",
+      "quantità": 1,
+      "prezzo": 3.09,
+      "prezzo_scontato": 2.15,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "SL FAGIOLINI FINISSI",
+      "quantità": 1,
+      "prezzo": 3.09,
+      "prezzo_scontato": 2.15,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "BOCONCINO RUSTICO",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SL FRIARIELLI",
+      "quantità": 1,
+      "prezzo": 2.75,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CANNONAU DORGALI",
+      "quantità": 1,
+      "prezzo": 8.59,
+      "prezzo_scontato": 4.3,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "SMART BEV DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PISTACCHI 400 G",
+      "quantità": 1,
+      "prezzo": 5.26,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BEYOND BURGER X2",
+      "quantità": 1,
+      "prezzo": 4.49,
+      "prezzo_scontato": 3.14,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 133.77,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA PREPAGATA, CARTA DI CREDITO"
+}

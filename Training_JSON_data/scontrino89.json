@@ -1,0 +1,119 @@
+{
+  "data": "2025-05-30",
+  "ora": "16:30:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO DA MONTADDI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "POMODORINI ",
+      "quantità": 1,
+      "prezzo": 2.05,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PIZZOLI STICK",
+      "quantità": 1,
+      "prezzo": 3.29,
+      "prezzo_scontato": 1.97,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "FARINA W260 GAROFALO",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POLPO",
+      "quantità": 1,
+      "prezzo": 19.32,
+      "prezzo_scontato": 11.59,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "POLPO",
+      "quantità": 1,
+      "prezzo": 21.05,
+      "prezzo_scontato": 12.63,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "POLPO",
+      "quantità": 1,
+      "prezzo": 14.74,
+      "prezzo_scontato": 8.84,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "POLPO",
+      "quantità": 1,
+      "prezzo": 15.31,
+      "prezzo_scontato": 9.18,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "MOZ. GIOIA COLLE DOP G",
+      "quantità": 1,
+      "prezzo": 4.99,
+      "prezzo_scontato": 2.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "SEPPIE",
+      "quantità": 1,
+      "prezzo": 7.87,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SEPPIE",
+      "quantità": 1,
+      "prezzo": 9.71,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "+F SIMMENTHAL PEPPERONCI",
+      "quantità": 1,
+      "prezzo": 4.25,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POLLO CAMP1ESE A META'",
+      "quantità": 1,
+      "prezzo": 5.83,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POLLO CAMP1ESE A META'",
+      "quantità": 1,
+      "prezzo": 5.44,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 83.84,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "carta di credito"
+}

@@ -1,0 +1,71 @@
+{
+  "data": "2025-05-22",
+  "ora": "16:25:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MANDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "POLPO PULITO",
+      "quantità": 1,
+      "prezzo": 11.78,
+      "prezzo_scontato": 7.06,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "PELATI ESSEL. GR240",
+      "quantità": 1,
+      "prezzo": 0.85,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POLPA FINE ESS. GR420",
+      "quantità": 1,
+      "prezzo": 1.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BANANE",
+      "quantità": 1,
+      "prezzo": 1.07,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BANANE",
+      "quantità": 1,
+      "prezzo": 1.08,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.39,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

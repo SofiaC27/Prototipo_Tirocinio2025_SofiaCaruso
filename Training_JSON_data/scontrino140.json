@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-13",
+  "ora": "12:05:00",
+  "negozio": "UNITED COLORS OF BENETTON",
+  "indirizzo": "Via Marco Biagi",
+  "città": "Bazze di Mezzo - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T-SHIRT S",
+      "quantità": 1,
+      "prezzo": 25.1,
+      "prezzo_scontato": 17.55,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 17.55,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

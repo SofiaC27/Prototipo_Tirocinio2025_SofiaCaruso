@@ -1,0 +1,55 @@
+{
+  "data": "2025-08-06",
+  "ora": "14:19:22",
+  "negozio": "Ica Market s.r.l.",
+  "indirizzo": "V.le Placido Rizzotto,2",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T ACQUA NAT. LT.2x6 ROVERELLA FA",
+      "quantità": 1,
+      "prezzo": 1.56,
+      "prezzo_scontato": 1.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "T ACQUA NAT. LT.2x6 ROVERELLA FA",
+      "quantità": 1,
+      "prezzo": 1.56,
+      "prezzo_scontato": 1.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "T ACQUA NAT. LT.2x6 ROVERELLA FA",
+      "quantità": 1,
+      "prezzo": 1.56,
+      "prezzo_scontato": 1.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "T ACQUA NAT. LT.2x6 ROVERELLA FA",
+      "quantità": 1,
+      "prezzo": 1.56,
+      "prezzo_scontato": 1.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "T ACQUA NAT. LT.2x6 ROVERELLA FA",
+      "quantità": 1,
+      "prezzo": 1.56,
+      "prezzo_scontato": 1.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

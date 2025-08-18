@@ -1,0 +1,31 @@
+{
+  "data": "2025-07-06",
+  "ora": "18:12:00",
+  "negozio": "DEICHMANN CALZATURE S.R.L.",
+  "indirizzo": "Piazzale Cesare Beccaria, 1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Adidas",
+      "quantità": 1,
+      "prezzo": 39.99,
+      "prezzo_scontato": 35.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Sacchetti piccoli",
+      "quantità": 1,
+      "prezzo": 0.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 36.09,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta di credito"
+}

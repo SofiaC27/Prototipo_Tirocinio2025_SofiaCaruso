@@ -1,0 +1,31 @@
+{
+  "data": "2025-07-31",
+  "ora": "09:55:00",
+  "negozio": "GIALGI S.R.L",
+  "indirizzo": "Via Regione Siciliana 20/31",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "RIO AZZURRO 750 ML",
+      "quantità": 1,
+      "prezzo": 1.97,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TOVAGLIOLI UA' GREEN",
+      "quantità": 1,
+      "prezzo": 1.78,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.75,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

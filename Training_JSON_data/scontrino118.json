@@ -1,0 +1,104 @@
+{
+  "data": "2026-06-05",
+  "ora": "16:26:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PATATE",
+      "quantità": 1,
+      "prezzo": 1.33,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NPSACCHETTO COMPOST.LE",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOZZ. X PIZZA ESS.",
+      "quantità": 2,
+      "prezzo": 2.99,
+      "prezzo_scontato": 2.39,
+      "valuta": "EUR",
+      "percentuale_sconto": 20
+    },
+    {
+      "nome": "S. MARZANO DOP ESS. TOP",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "S. MARZANO DOP ESS. TOP",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "AURICCHIO PROV. PICC",
+      "quantità": 1,
+      "prezzo": 4.99,
+      "prezzo_scontato": 2.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "ANELLI CALAMARO",
+      "quantità": 1,
+      "prezzo": 6.86,
+      "prezzo_scontato": 4.1,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "ANELLI CALAMARO",
+      "quantità": 1,
+      "prezzo": 7.26,
+      "prezzo_scontato": 4.35,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "ANELLI CALAMARO",
+      "quantità": 1,
+      "prezzo": 5.83,
+      "prezzo_scontato": 3.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "ANELLI CALAMARO",
+      "quantità": 1,
+      "prezzo": 5.76,
+      "prezzo per quantità": 3.46,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "FARINA W260 GAROFALO",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 28.38,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

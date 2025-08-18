@@ -1,0 +1,47 @@
+{
+  "data": "2024-12-13",
+  "ora": "13:23:00",
+  "negozio": "My Bread srl di Rotaru V. & C.",
+  "indirizzo": "Via Mecenate 76",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "VARIE",
+      "quantità": 1,
+      "prezzo": 5.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VARIE",
+      "quantità": 1,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VARIE",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VARIE",
+      "quantità": 1,
+      "prezzo": 1.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 12.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

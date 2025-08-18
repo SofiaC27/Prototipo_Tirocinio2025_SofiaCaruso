@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-08",
+  "ora": "19:19:00",
+  "negozio": "Brico",
+  "indirizzo": "Via Ferdinando Gallanti, 1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BATTERIA AUTO",
+      "quantità": 1,
+      "prezzo": 67.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 67.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MasterCard"
+}

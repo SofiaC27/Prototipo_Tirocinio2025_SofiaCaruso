@@ -1,0 +1,55 @@
+{
+  "data": "2025-07-06",
+  "ora": "11:02:00",
+  "negozio": "MANGO",
+  "indirizzo": "Vicolo S.Maria alla Porta, 1",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "VESTITO FERTINA",
+      "quantità": 1,
+      "prezzo": 17.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VESTITO CARROT",
+      "quantità": 1,
+      "prezzo": 19.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VESTITO FERTI",
+      "quantità": 1,
+      "prezzo": 19.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VESTITO FERTI",
+      "quantità": 1,
+      "prezzo": 19.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BUSTA DI CARTA",
+      "quantità": 1,
+      "prezzo": 0.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 78.11,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "DEBIT MASTER CARD"
+}

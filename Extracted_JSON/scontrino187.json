@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-31",
+  "ora": "10:03:00",
+  "negozio": "F.G. S.R.L.",
+  "indirizzo": "Via Mico Geraci N.51/59",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BALS.PANTENE AQUA LIGHT",
+      "quantità": 1,
+      "prezzo": 3.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.35,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

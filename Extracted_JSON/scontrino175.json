@@ -1,0 +1,55 @@
+{
+  "data": "2025-07-20",
+  "ora": "11:50:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FAIRY GEL ANTIODORE",
+      "quantità": 1,
+      "prezzo": 3.79,
+      "prezzo_scontato": 2.65,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "FAIRY GEL ANTIODORE",
+      "quantità": 1,
+      "prezzo": 3.79,
+      "prezzo_scontato": 2.65,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "FAIRY GEL ANTIODORE",
+      "quantità": 1,
+      "prezzo": 3.79,
+      "prezzo_scontato": 2.65,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "FAIRY GEL ANTIODORE",
+      "quantità": 1,
+      "prezzo": 3.79,
+      "prezzo_scontato": 2.65,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "FAIRY GEL ANTIODORE",
+      "quantità": 1,
+      "prezzo": 3.79,
+      "prezzo_scontato": 2.65,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.25,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTE DI CREDITO"
+}

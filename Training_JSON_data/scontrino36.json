@@ -1,0 +1,23 @@
+{
+  "data": "2025-01-10",
+  "ora": "16:02:00",
+  "negozio": "PANIFICIO TIEPOLO",
+  "indirizzo": "VIA TIEPOLO N.60",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PANE",
+      "quantità": 1,
+      "prezzo": 0.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 0.7,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

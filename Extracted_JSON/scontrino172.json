@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-26",
+  "ora": "10:14:00",
+  "negozio": "RUBINO G.PPE SRL",
+  "indirizzo": "V.LE REG.SICILIANA2047 SUD EST",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "LIFE PRESA BIV.SIC.2P+I",
+      "quantità": 1,
+      "prezzo": 3.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.7,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

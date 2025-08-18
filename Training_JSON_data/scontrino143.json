@@ -1,0 +1,39 @@
+{
+  "data": "2025-07-16",
+  "ora": "09:22:00",
+  "negozio": "DIPA SAS DI DI GREGOLI LAURA",
+  "indirizzo": "VIA E.T. MONETA,7/9",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T ACQUA NAT.LT.2x6 ROVERE",
+      "quantità": 1,
+      "prezzo": 1.56,
+      "prezzo_scontato": 1.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "T ACQUA NAT.LT.2x6 ROVERE",
+      "quantità": 1,
+      "prezzo": 1.56,
+      "prezzo_scontato": 1.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "T ACQUA NAT.LT.2x6 ROVERE",
+      "quantità": 1,
+      "prezzo": 1.56,
+      "prezzo_scontato": 1.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 4.2,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

@@ -1,0 +1,23 @@
+{
+  "data": "2025-05-27",
+  "ora": "18:49:00",
+  "negozio": "PORTOFIORI DI PIZZAMIGLIO LARA",
+  "indirizzo": "VIA MANZONI N.5",
+  "città": "PORTO MANTOVANO - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PIANTE/FIORI",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 2.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTE"
+}

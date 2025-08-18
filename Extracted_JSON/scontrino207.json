@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-14",
+  "ora": "08:42:00",
+  "negozio": "FARMACIA ALTEA S.R.L.",
+  "indirizzo": "VIALE REG.SICILIANA S.E.2221",
+  "città": "PALERMO",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PIC GARZA STERICOM",
+      "quantità": 1,
+      "prezzo": 5.9,
+      "prezzo_scontato": 3.9,
+      "valuta": "EUR",
+      "percentuale_sconto": 34
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

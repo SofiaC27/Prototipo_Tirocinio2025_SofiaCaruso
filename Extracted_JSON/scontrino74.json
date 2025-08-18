@@ -1,0 +1,151 @@
+{
+  "data": "2025-05-31",
+  "ora": "12:20:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "GRANAROL MOZZ. PROTEIN",
+      "quantità": 1,
+      "prezzo": 1.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SL CARAM/SALATO TOP",
+      "quantità": 1,
+      "prezzo": 3.99,
+      "prezzo_scontato": 3.19,
+      "valuta": "EUR",
+      "percentuale_sconto": 20
+    },
+    {
+      "nome": "5STELLE CONO CARA. SAL",
+      "quantità": 1,
+      "prezzo": 5.49,
+      "prezzo_scontato": 3.29,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "FILETTO SOGLIGLIA",
+      "quantità": 1,
+      "prezzo": 4.12,
+      "prezzo_scontato": 2.47,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "POLLO NATURAMA PETTI",
+      "quantità": 1,
+      "prezzo": 6.51,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MINI FILETTI DI POLLO",
+      "quantità": 1,
+      "prezzo": 4.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PISELLI ESS. SURG.",
+      "quantità": 1,
+      "prezzo": 2.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRIGLIATA VERDUKE",
+      "quantità": 1,
+      "prezzo": 2.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PARMIG. REGG GRATT. DOP",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PARMIG. REGG GRATT. DOP",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ESSEL LATTE FR. AQ. 500",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ESSELUN.LATTE UHT INT",
+      "quantità": 1,
+      "prezzo": 0.78,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "RICOTTA PEC. AMATRICE",
+      "quantità": 1,
+      "prezzo": 2.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SPIANATA PICCANTE S.V",
+      "quantità": 1,
+      "prezzo": 1.67,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BURRO PARMAREGGIO",
+      "quantità": 1,
+      "prezzo": 2.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantità": 4,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BUONO SPESA FIDATY",
+      "quantità": 1,
+      "prezzo": 27.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 14.32,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta di credito"
+}

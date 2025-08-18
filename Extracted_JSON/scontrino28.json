@@ -1,0 +1,31 @@
+{
+  "data": "2025-04-18",
+  "ora": "18:58:00",
+  "negozio": "H&M Hennes & Mauritz S.R.L",
+  "indirizzo": "Piazzale Commercio,1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Pantaloni",
+      "quantità": 1,
+      "prezzo": 27.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Pantaloni Beige",
+      "quantità": 1,
+      "prezzo": 27.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 55.98,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Creditcard Mastercard"
+}

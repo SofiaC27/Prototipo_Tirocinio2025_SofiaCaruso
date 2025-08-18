@@ -1,0 +1,63 @@
+{
+  "data": "2025-06-08",
+  "ora": "11:59:00",
+  "negozio": "ESSSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SALAME FELINO IGP",
+      "quantità": 1,
+      "prezzo": 11.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POLLO NATURAMA PETTI",
+      "quantità": 1,
+      "prezzo": 9.08,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CHIANTI RIS. ORO PICC",
+      "quantità": 1,
+      "prezzo": 7.99,
+      "prezzo_scontato": 3.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "NEGRAMARO CONTI ZECCA",
+      "quantità": 1,
+      "prezzo": 6.2,
+      "prezzo_scontato": 3.72,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 30.16,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTE DI CREDITO"
+}

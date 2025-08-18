@@ -1,0 +1,47 @@
+{
+  "data": "2025-08-01",
+  "ora": "12:26:00",
+  "negozio": "CONAD CITY",
+  "indirizzo": "VIA VILLAGRAZIA,303/B",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FARRO SOFFIATO CONAD V.NA",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRAN FORMAGGIO 100% ITAL",
+      "quantità": 1,
+      "prezzo": 6.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA MEZZE PENNE RIG.",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": 1.15,
+      "valuta": "EUR",
+      "percentuale_sconto": 23
+    },
+    {
+      "nome": "BARILLA FARFALLE 265 GR.",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": 0.69,
+      "valuta": "EUR",
+      "percentuale_sconto": 37
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 10.22,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

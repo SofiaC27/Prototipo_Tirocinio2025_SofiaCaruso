@@ -1,0 +1,47 @@
+{
+  "data": "2024-06-16",
+  "ora": "10:33:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. COOP.",
+  "indirizzo": "Via Casciarolo, 3",
+  "città": "Bologna - BO",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T PASSATA DI POMODORO",
+      "quantità": 1,
+      "prezzo": 1.98,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T PANE FILONCINO SIC",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "X C.I. SCOTTONELLE",
+      "quantità": 1,
+      "prezzo": 4.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "X SHOP COMP COOP PIC",
+      "quantità": 1,
+      "prezzo": 0.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.16,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "BANCOMAT"
+}

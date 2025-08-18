@@ -1,0 +1,239 @@
+{
+  "data": "2025-04-27",
+  "ora": "12:02:00",
+  "negozio": "SUPERMERCATI TOSANO",
+  "indirizzo": "VIA F. PARRI",
+  "città": "CURTATONE - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "COCUZZE CAT.II",
+      "quantità": 1,
+      "prezzo": 4.13,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACCHETTO ORTOFRUTTA BIO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CITROSIL SGRASS. BIANCO ML",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DP GREENLIFE SGRASSATORE",
+      "quantità": 1,
+      "prezzo": 1.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA DELLO STRETTO LAGER",
+      "quantità": 2,
+      "prezzo": 0.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DP GREENLIFE SGRASSATORE",
+      "quantità": 1,
+      "prezzo": 1.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "V. CASALE RISO CARNAROLI K",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COALMA TONNO TRANCIO",
+      "quantità": 1,
+      "prezzo": 3.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DELI-FIL.SGOMB.GRI.NATU.G",
+      "quantità": 1,
+      "prezzo": 1.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SPIGAD.FARINA TIPO 1",
+      "quantità": 1,
+      "prezzo": 1.55,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LE COQUERS ROSE TONIC CL.",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "F.EXPRESS NOCC.SGU/TOST",
+      "quantità": 1,
+      "prezzo": 8.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA DELLO STRETTO LAGER",
+      "quantità": 1,
+      "prezzo": 0.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACE CANDEGGINA SPRAY RIC.",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ADRIATICO SALE MA.LAVASTO",
+      "quantità": 1,
+      "prezzo": 0.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "I CLASSICI FAVE SGUSC.",
+      "quantità": 1,
+      "prezzo": 1.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ORZI LENTECCHIE PUGLIA G",
+      "quantità": 1,
+      "prezzo": 1.65,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ORZI LENTECCHIE PUGLIA G",
+      "quantità": 1,
+      "prezzo": 1.65,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ONZIES ARACHIDI USA GR.",
+      "quantità": 1,
+      "prezzo": 0.85,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TRULLI TRONCHE.OLIVE BUS.",
+      "quantità": 10,
+      "prezzo": 0.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NOCIAMO NOCI SGUSCIATE GR",
+      "quantità": 1,
+      "prezzo": 6.25,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BROCCOLI ROSETTA",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "EUROSNACK SCHIACC. OLIVE",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PETTO POLLO FETTE 250G",
+      "quantità": 1,
+      "prezzo": 3.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PETTO POLLO X1 ANTIBIOTIC",
+      "quantità": 1,
+      "prezzo": 7.52,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CIPSTER MULTIPACK X6 GR.",
+      "quantità": 1,
+      "prezzo": 1.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PEPERONE GIALLO LUNGO VAR",
+      "quantità": 1,
+      "prezzo": 4.54,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACCHETTO ORTOFRUTTA BIO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 68.66,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

@@ -1,0 +1,23 @@
+{
+  "data": "2025-03-30",
+  "ora": "15:35:00",
+  "negozio": "MANGO",
+  "indirizzo": "Via Eugenio Curiel 25",
+  "città": "Rozzano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PANTALONI COLA",
+      "quantità": 1,
+      "prezzo": 29.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 29.99,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "DEBIT MASTERCARD"
+}

@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-13",
+  "ora": "12:25:00",
+  "negozio": "VALIGERIA RONCATO S.P.A.",
+  "indirizzo": "Via M. Biagi, loc. Bagnoio San Vito",
+  "città": "Mantova - Miv",
+  "paese": "ITALY",
+  "lista_articoli": [
+    {
+      "nome": "40071501 - BARCODE PORTACARTE/BANCONOTE E",
+      "quantità": 1,
+      "prezzo": 52.0,
+      "prezzo_scontato": 36.4,
+      "valuta": "EUR",
+      "percentuale_sconto": 30.0
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 36.4,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

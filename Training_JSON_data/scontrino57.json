@@ -1,0 +1,39 @@
+{
+  "data": "2025-05-21",
+  "ora": "16:22:00",
+  "negozio": "ESSSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO MONDADORI N.2",
+  "città": "Mantova",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MOZ. GIOIA COLLE DOP G",
+      "quantità": 1,
+      "prezzo": 4.99,
+      "prezzo_scontato": 2.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "MOZ. GIOIA COLLE DOP G",
+      "quantità": 1,
+      "prezzo": 4.99,
+      "prezzo_scontato": 2.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "MOZ. GIOIA COLLE DOP G",
+      "quantità": 1,
+      "prezzo": 4.99,
+      "prezzo_scontato": 2.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.97,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTE DI CREDITO"
+}

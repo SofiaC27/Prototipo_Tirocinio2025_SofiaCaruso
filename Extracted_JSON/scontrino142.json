@@ -1,0 +1,111 @@
+{
+  "data": "2024-07-14",
+  "ora": "15:45:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop",
+  "indirizzo": "P. le Cesare Beccaria,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "M-T POLLO BS META FF",
+      "quantità": 1,
+      "prezzo": 6.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T POLLO BS META FF",
+      "quantità": 1,
+      "prezzo": 6.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T POLLO FETTE ALS 25",
+      "quantità": 1,
+      "prezzo": 4.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T POLLO FETTE ALS 25",
+      "quantità": 1,
+      "prezzo": 4.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T POLLO FETTE ALS 25",
+      "quantità": 1,
+      "prezzo": 4.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T CAROTE GS COOP1KG",
+      "quantità": 1,
+      "prezzo": 1.18,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T CETRIOLI",
+      "quantità": 1,
+      "prezzo": 2.26,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACCHETTO ORTO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T PANCARRE 6+6 COOP",
+      "quantità": 1,
+      "prezzo": 0.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T DEO ROLL COOP V/V",
+      "quantità": 1,
+      "prezzo": 3.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T DEO ROLL COOP V/V",
+      "quantità": 1,
+      "prezzo": 3.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T DEO ROLL COOP V/V",
+      "quantità": 1,
+      "prezzo": 3.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 38.49,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

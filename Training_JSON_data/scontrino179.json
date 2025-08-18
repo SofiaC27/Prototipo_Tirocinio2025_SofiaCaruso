@@ -1,0 +1,79 @@
+{
+  "data": "2025-07-26",
+  "ora": "15:29:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "VIA K.MARX,1",
+  "città": "BANCOLE - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "M.BIANCO PANCARRE'28",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOZZARELLA RUGIADA",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FONDI SALUMI",
+      "quantità": 1,
+      "prezzo": 1.44,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO 500G",
+      "quantità": 2,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VENUS DET.INTIMO/COR",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VENUS DET.INTIMO/COR",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NEUTRO VENUS INTIMO",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NEUTRO VENUS INTIMO",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.6,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}

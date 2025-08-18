@@ -1,0 +1,63 @@
+{
+  "data": "2025-08-10",
+  "ora": "09:11:00",
+  "negozio": "EUROSPIN SICILIA S.P.A.",
+  "indirizzo": "Via Placido Rizzo,30-32",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "DETERGENTE PIATTI",
+      "quantità": 1,
+      "prezzo": 2.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BICARBONATO500g",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ENERGIA MIX90g",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BEVANDA SOIA BIO",
+      "quantità": 3,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "OMAG. APP ENERGIA M",
+      "quantità": 1,
+      "prezzo": -1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SCONTO CENTESIMI",
+      "quantità": 1,
+      "prezzo": -0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 6.2,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

@@ -1,0 +1,23 @@
+{
+  "data": "2025-01-19",
+  "ora": "17:30:00",
+  "negozio": "TFASHION S.R.L.",
+  "indirizzo": "VIA MILANO N.5",
+  "città": "LOCALE TRIULZI - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "GIACCONE PELLICCIA ECOLOGICA1",
+      "quantità": 1,
+      "prezzo": 90.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 90.3,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

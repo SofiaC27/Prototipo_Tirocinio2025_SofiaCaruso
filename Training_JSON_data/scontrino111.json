@@ -1,0 +1,47 @@
+{
+  "data": "2025-05-30",
+  "ora": "14:18:00",
+  "negozio": "RISTOCAFE",
+  "indirizzo": "P.ZZA SAN FRANCESCO D'ASSISI N.2",
+  "città": "MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "coperto",
+      "quantità": 1,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA0,5L",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ANATRA+VERDURA MISTA",
+      "quantità": 1,
+      "prezzo": 6.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOCHI DI SESAMO",
+      "quantità": 1,
+      "prezzo": 4.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

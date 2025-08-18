@@ -1,0 +1,56 @@
+{
+  "data": "2025-08-03",
+  "ora": "10:02:00",
+  "negozio": "EUROSPIN SICILIA S.P.A.",
+  "indirizzo": "Via Placido Rizzo, 30-32",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ROT ALLUMINIO 30m",
+      "quantità": 1,
+      "prezzo": 2.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ANGURIA*(BINS)",
+      "quantità": 1,
+      "prezzo": 3.52,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PANE RUSTICO A FET",
+      "quantità": 1,
+      "prezzo": 1.33,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "AVOCADO 200g",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPER ORTOFR BIO",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo per quantità": null,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.8,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

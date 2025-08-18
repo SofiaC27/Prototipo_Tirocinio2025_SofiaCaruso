@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-06",
+  "ora": "12:02:00",
+  "negozio": "H&M Hennes & Mauritz S.R.L",
+  "indirizzo": "Via Mantova / Via Tiracollo",
+  "città": "Lonato - BS",
+  "paese": "IT",
+  "lista_articoli": [
+    {
+      "nome": "SRosa",
+      "quantità": 1,
+      "prezzo": 7.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.99,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Creditcard Mastercard"
+}

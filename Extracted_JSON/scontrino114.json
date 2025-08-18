@@ -1,0 +1,23 @@
+{
+  "data": "2025-06-13",
+  "ora": "00:11:00",
+  "negozio": "BAR CAFFETTERIA L INCONTRO",
+  "indirizzo": "STRADA MARTORELLI 41",
+  "città": "PORTO MANTOVANO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ANALCOLICI DELLA CASA",
+      "quantità": 2,
+      "prezzo": 6.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 12.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTE"
+}

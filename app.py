@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 from utils import init_session_state
 from config import DATABASE_NAME
@@ -8,7 +9,6 @@ from Modules.app_functions import (process_uploaded_file, display_data_with_pagi
                                    delete_file_from_database_and_folder, display_receipts_data_with_expanders,
                                    show_receipt_predictions)
 from Modules.ocr_groq import process_receipt
-from Modules.ML.ml_dataset import generate_dataset
 
 
 api_key = st.secrets["general"]["GROQ_API_KEY"]
@@ -37,14 +37,15 @@ st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart
 st.markdown("<h2 style='text-align: center; color: black; font-size: 25px;'>"
             "Un'applicazione web avanzata per caricare scontrini, estrarre dati tramite OCR e organizzarli in "
             "un database ricercabile. Potenziata con AI/LLM per interazioni in linguaggio naturale "
-            "e analisi avanzate</h2>", unsafe_allow_html=True)
+            "e con ML per analisi avanzate</h2>", unsafe_allow_html=True)
 
 
 # Upload dei file
 st.divider()
 st.subheader("Caricamento File")
 
-uploaded_files = st.file_uploader("Upload files (JPG, JPEG, PNG)", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
+uploaded_files = st.file_uploader("Upload files (JPG, JPEG, PNG)", type=["jpg", "jpeg", "png"],
+                                  accept_multiple_files=True)
 
 if uploaded_files:
     st.session_state.uploaded_files = uploaded_files  # Aggiorna direttamente la lista
@@ -90,10 +91,10 @@ st.markdown(
 st.divider()
 st.subheader("Machine Learning")
 
-# df = generate_dataset()
-# st.dataframe(df)
+df = pd.read_csv("Modules/ML/ML_Objects/dataset.csv")
+st.dataframe(df)
 
-# show_receipt_predictions()
+show_receipt_predictions()
 
 
 # Eliminazione file

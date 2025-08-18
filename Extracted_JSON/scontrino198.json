@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-08",
+  "ora": "19:22:00",
+  "negozio": "PANIFICIO PASTICCERIA PIZZERIA MARCHESE EXPERIENCE S.R.L.",
+  "indirizzo": "VIALE R. SICILIANA 2207 SUD/EST",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PASTICCERIA BILANCIA",
+      "quantità": 1,
+      "prezzo": 31.21,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 31.21,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

@@ -1,0 +1,39 @@
+{
+  "data": "2025-01-19",
+  "ora": "16:19:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop.",
+  "indirizzo": "P.le Cesare Beccaria, 1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T POMODORI CILIEG.IG",
+      "quantità": 1,
+      "prezzo": 1.88,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CR. MANIVVCOOP75",
+      "quantità": 1,
+      "prezzo": 2.46,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DEO ROLL COOP V/V",
+      "quantità": 1,
+      "prezzo": 3.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.36,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

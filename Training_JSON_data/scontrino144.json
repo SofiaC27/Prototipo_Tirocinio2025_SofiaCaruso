@@ -1,0 +1,55 @@
+{
+  "data": "2025-07-03",
+  "ora": "17:00:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "VIA K.MARX,1",
+  "città": "BANCOLE - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "INSALATA ROMANA",
+      "quantità": 1,
+      "prezzo": 0.93,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LIMONI SICILIA75/G",
+      "quantità": 1,
+      "prezzo": 1.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LIMONI SICILIA75/G",
+      "quantità": 1,
+      "prezzo": 1.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LIMONI SICILIA75/G",
+      "quantità": 1,
+      "prezzo": 1.55,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LIMONI SICILIA75/G",
+      "quantità": 1,
+      "prezzo": 1.55,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 6.28,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}

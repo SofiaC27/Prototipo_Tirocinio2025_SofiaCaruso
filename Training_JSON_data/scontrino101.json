@@ -1,0 +1,31 @@
+{
+  "data": "2025-05-30",
+  "ora": "14:45:00",
+  "negozio": "UNIQUE SRL",
+  "indirizzo": "VIALE DELLA REPUBBLICA 2",
+  "città": "PORTO MANTOVANO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "2 X2.00",
+      "quantità": 1,
+      "prezzo": null,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MINI TELA10X10CM",
+      "quantità": 1,
+      "prezzo": 4.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 4.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

@@ -1,0 +1,79 @@
+{
+  "data": "2025-07-06",
+  "ora": "12:52:00",
+  "negozio": "CANDIDA SRL",
+  "indirizzo": "Via Mantova, 36",
+  "città": "Lonato - BS",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SHOP-M, Neutro, UN",
+      "quantità": 1,
+      "prezzo": 0.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CND1271P25CEAR, Verde militare",
+      "quantità": 1,
+      "prezzo": 22.0,
+      "prezzo_scontato": 5.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 25.03
+    },
+    {
+      "nome": "CND1271P25CEAR, Nero, S/M",
+      "quantità": 1,
+      "prezzo": 22.0,
+      "prezzo_scontato": 5.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 25.03
+    },
+    {
+      "nome": "TSD1205P25CEAR, Bianco, M/L",
+      "quantità": 1,
+      "prezzo": 22.0,
+      "prezzo_scontato": 3.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 50.06
+    },
+    {
+      "nome": "TSD1277P25CEAR, Belge, S/M",
+      "quantità": 1,
+      "prezzo": 22.0,
+      "prezzo_scontato": 5.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 25.03
+    },
+    {
+      "nome": "TSD1602A25CEAR, Verde g., S/M",
+      "quantità": 1,
+      "prezzo": 22.0,
+      "prezzo_scontato": 5.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 25.03
+    },
+    {
+      "nome": "TSD1205P25CEAR, Nero, M/L",
+      "quantità": 1,
+      "prezzo": 22.0,
+      "prezzo_scontato": 3.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 50.06
+    },
+    {
+      "nome": "GOJD1098P25COSK, DENIM ME, DIO, S",
+      "quantità": 1,
+      "prezzo": 19.99,
+      "prezzo_scontato": 9.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 50.03
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 42.13,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

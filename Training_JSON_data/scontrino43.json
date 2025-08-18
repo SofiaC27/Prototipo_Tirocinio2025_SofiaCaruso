@@ -1,0 +1,39 @@
+{
+  "data": "2025-05-01",
+  "ora": "16:40:00",
+  "negozio": "UNIQUE SRL",
+  "indirizzo": "VIALE DELLA REPUBBLICA 2",
+  "città": "PORTO MANTOVANO - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CESTINO 24X14X11CM",
+      "quantità": 1,
+      "prezzo": 5.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DC CASA STAMPO CUORE A",
+      "quantità": 1,
+      "prezzo": 6.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DC CASA L/BONTA CASA T",
+      "quantità": 2,
+      "prezzo": 4.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 21.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

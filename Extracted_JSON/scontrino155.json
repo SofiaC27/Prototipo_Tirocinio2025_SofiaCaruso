@@ -1,0 +1,39 @@
+{
+  "data": "2025-07-18",
+  "ora": "18:43:00",
+  "negozio": "GOLDENPOINT SPA",
+  "indirizzo": "VIA MARCO BIAGI",
+  "città": "BAGNOIO SAN VITO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SHOPPER25x27 MAN.PI",
+      "quantità": 1,
+      "prezzo": 0.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COSTUME INTERO SUMME",
+      "quantità": 1,
+      "prezzo": 34.95,
+      "prezzo_scontato": 27.96,
+      "valuta": "EUR",
+      "percentuale_sconto": 20
+    },
+    {
+      "nome": "COSTUME INTERO LIBER",
+      "quantità": 1,
+      "prezzo": 39.95,
+      "prezzo_scontato": 31.96,
+      "valuta": "EUR",
+      "percentuale_sconto": 20
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 60.07,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

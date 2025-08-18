@@ -1,0 +1,71 @@
+{
+  "data": "2025-06-30",
+  "ora": "16:32:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop",
+  "indirizzo": "P. le Cesare Beccaria,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "M-T PATATE PREFR COOP",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T PR PRAGA COOP100G",
+      "quantità": 1,
+      "prezzo": 1.93,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T POLLO FETTE ALS 25",
+      "quantità": 1,
+      "prezzo": 4.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T POLLO FETTE ALS 25",
+      "quantità": 1,
+      "prezzo": 4.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA PERONI CRUDA",
+      "quantità": 1,
+      "prezzo": 1.34,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA PERONI CRUDA",
+      "quantità": 1,
+      "prezzo": 1.34,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T PETTO POLLO COOP",
+      "quantità": 1,
+      "prezzo": 3.92,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 18.93,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

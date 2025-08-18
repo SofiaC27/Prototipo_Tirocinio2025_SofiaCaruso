@@ -1,0 +1,63 @@
+{
+  "data": "2025-08-02",
+  "ora": "09:31:39",
+  "negozio": "Ica Market s.r.l.",
+  "indirizzo": "V.le Placido Rizzotto,2",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PROSCIUTTO COTTO SCELTO",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T Pasta fusilli n52 kg",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T YOGURT BIO BIANCO Gr150 INTER",
+      "quantità": 3,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Albicocca",
+      "quantità": 1,
+      "prezzo": 1.88,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T SACCH.ORTOF.",
+      "quantità": 2,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T Susine rosse",
+      "quantità": 1,
+      "prezzo": 2.42,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 9.95,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

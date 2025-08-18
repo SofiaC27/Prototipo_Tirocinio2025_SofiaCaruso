@@ -1,0 +1,23 @@
+{
+  "data": "2025-01-29",
+  "ora": "19:07:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop.",
+  "indirizzo": "P. le Cesare Beccaria,1/1",
+  "città": "MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ART. GIOIEL VENDITA",
+      "quantità": 1,
+      "prezzo": 13.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

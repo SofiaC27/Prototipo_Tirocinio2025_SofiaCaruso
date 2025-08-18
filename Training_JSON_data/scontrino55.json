@@ -1,0 +1,39 @@
+{
+  "data": "2025-04-12",
+  "ora": "22:44:00",
+  "negozio": "MANCUSO VINCENZO & C. S.R.L.",
+  "indirizzo": "VIA PLINIO 22",
+  "città": "MILANO - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CONO CANNOLO",
+      "quantità": 1,
+      "prezzo": 5.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COPPETTA REGULAR",
+      "quantità": 3,
+      "prezzo": 3.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COPPETTA MEDIA",
+      "quantità": 2,
+      "prezzo": 4.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 25.8,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

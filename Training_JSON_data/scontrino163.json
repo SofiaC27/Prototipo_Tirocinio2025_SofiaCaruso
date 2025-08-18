@@ -1,0 +1,55 @@
+{
+  "data": "2025-07-21",
+  "ora": "10:08:00",
+  "negozio": "GIALGI S.R.L",
+  "indirizzo": "Via Regione Siciliana 20/31",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ALE SALV.BABY X72 POP UP",
+      "quantità": 1,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DERMOMED SAP.LIQ.TALCO LT1",
+      "quantità": 1,
+      "prezzo": 1.47,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VENUS INTIMO LENITIVO ML200 ART.99",
+      "quantità": 1,
+      "prezzo": 1.58,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NEUTRODERMA INTIMO ML250 ALOE E CA",
+      "quantità": 1,
+      "prezzo": 0.75,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NEUTRODERMA SAP.LIQ.TALCO LT1 Art.",
+      "quantità": 1,
+      "prezzo": 1.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 6.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

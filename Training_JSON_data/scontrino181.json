@@ -1,0 +1,39 @@
+{
+  "data": "2025-07-27",
+  "ora": "09:30:25",
+  "negozio": "famila",
+  "indirizzo": "V.le Placido Rizzotto,2",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T YOGURT BIO BIANCO Gr150",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "X Susine rosse",
+      "quantità": 1,
+      "prezzo": 1.81,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T Mele granny smith",
+      "quantità": 1,
+      "prezzo": 1.21,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.97,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

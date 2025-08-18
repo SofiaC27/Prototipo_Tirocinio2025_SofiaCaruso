@@ -22,6 +22,8 @@ from Modules.ML.ml_eda import (inspect_dataset, handle_missing_values, plot_corr
 
 warnings.filterwarnings("ignore")
 df = generate_dataset()
+df.to_csv("ML_Objects/dataset.csv", index=False)
+
 
 # EDA #
 print('EDA:\n')
@@ -162,6 +164,6 @@ plt.show()
 
 
 # Salvataggio del modello, dello scaler e dell'encoder
-# joblib.dump(final_model, "ML_Objects/final_model.joblib")
-# joblib.dump(scaler, "ML_Objects/scaler.joblib")
-# joblib.dump(encoder, "ML_Objects/encoder.joblib")
+joblib.dump(final_model, "ML_Objects/final_model.joblib")
+joblib.dump(scaler, "ML_Objects/scaler.joblib")
+joblib.dump(encoder, "ML_Objects/encoder.joblib")

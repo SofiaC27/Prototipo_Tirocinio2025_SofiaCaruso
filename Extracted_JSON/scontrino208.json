@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-14",
+  "ora": "16:35:00",
+  "negozio": "coOp SUPERISOLA S.R.L.",
+  "indirizzo": "Via G. DI Marzo,2/B",
+  "città": "Paterno - (non specificata)",
+  "paese": "Italia (inferito dal contesto)",
+  "lista_articoli": [
+    {
+      "nome": "COOP FARRO SOF INT.B",
+      "quantità": 2,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 2.78,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTE"
+}

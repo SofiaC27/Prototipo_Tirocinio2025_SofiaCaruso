@@ -1,0 +1,39 @@
+{
+  "data": "2025-07-22",
+  "ora": "18:18:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop",
+  "indirizzo": "P. le Commercio,1",
+  "città": "Borgo Virgiliano - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T-SH.M BLU",
+      "quantità": 1,
+      "prezzo": 12.99,
+      "prezzo_scontato": 6.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 50.0
+    },
+    {
+      "nome": "T-SH.M BLU",
+      "quantità": 1,
+      "prezzo": 12.99,
+      "prezzo_scontato": 6.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 50.0
+    },
+    {
+      "nome": "T-SH M GRIGIO",
+      "quantità": 1,
+      "prezzo": 12.99,
+      "prezzo_scontato": 6.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 50.0
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 19.47,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

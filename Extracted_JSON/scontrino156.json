@@ -1,0 +1,55 @@
+{
+  "data": "2025-07-14",
+  "ora": "21:27:00",
+  "negozio": "Pizzeria - Ristorante Miramonti",
+  "indirizzo": "Piazza Garibaldi N.1",
+  "città": "Volta Mantovana - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "COPERTO",
+      "quantità": 5,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ANTIPASTI",
+      "quantità": 2,
+      "prezzo": 13.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PRIMI PIATTI",
+      "quantità": 4,
+      "prezzo": 18.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SECONDl DI PESCE",
+      "quantità": 1,
+      "prezzo": 16.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BEVANDE",
+      "quantità": 3,
+      "prezzo": 3.33,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 139.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

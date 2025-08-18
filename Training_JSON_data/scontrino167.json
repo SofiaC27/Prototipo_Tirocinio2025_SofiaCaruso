@@ -1,0 +1,63 @@
+{
+  "data": null,
+  "ora": null,
+  "negozio": "Ica Market s.r.l.",
+  "indirizzo": "V.le Placido Rizzotto,2",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ACQUA NAT.LT1,5X6 VALMORA",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T Melone retato",
+      "quantità": 1,
+      "prezzo": 2.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T PASTA FUSILLI INT. Gr500 DE CE",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T YOGURT BIO BIANCO Gr150 INTER",
+      "quantità": 4,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T PASTA FUSILLI INT. Gr500 DE CE",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T GRANA PADANO DOP12 MESI FORM",
+      "quantità": 1,
+      "prezzo": 4.34,
+      "prezzo_scontato": 3.91,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 15.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

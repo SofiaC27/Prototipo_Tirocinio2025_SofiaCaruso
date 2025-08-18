@@ -1,0 +1,39 @@
+{
+  "data": "2025-04-19",
+  "ora": "14:38:00",
+  "negozio": "Gelateria DolceVita",
+  "indirizzo": "Via Al Mare, 64020 Sceme Di Pineto (TE)",
+  "città": "Sceme Di Pineto - TE",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Gelato",
+      "quantità": 3,
+      "prezzo": 3.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Gelato",
+      "quantità": 1,
+      "prezzo": 6.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Gelato PIC",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 20.7,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contanti"
+}

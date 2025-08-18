@@ -1,0 +1,151 @@
+{
+  "data": "2025-04-18",
+  "ora": "12:43:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "RICOTTA PEC. AMATRICE",
+      "quantità": 1,
+      "prezzo": 2.51,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LASAGNE TOP GR.500",
+      "quantità": 1,
+      "prezzo": 2.82,
+      "prezzo_scontato": 1.69,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "POLPA TRITA SC. BIO",
+      "quantità": 1,
+      "prezzo": 7.19,
+      "prezzo_scontato": 4.31,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "POLPA TRITA SC. BIO",
+      "quantità": 1,
+      "prezzo": 7.19,
+      "prezzo_scontato": 4.31,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "POLPA TRITA SC. BIO",
+      "quantità": 1,
+      "prezzo": 7.19,
+      "prezzo_scontato": 4.31,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "POLPA TRITA SC. BIO",
+      "quantità": 1,
+      "prezzo": 7.19,
+      "prezzo_scontato": 4.31,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "SFIZIOSO ALLE OLIVE",
+      "quantità": 1,
+      "prezzo": 2.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PASTA BRISEE ESS.",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": 1.01,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "PASTA SFOGLIA ESS.",
+      "quantità": 1,
+      "prezzo": 1.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SUINO NAT/PANCETTA",
+      "quantità": 1,
+      "prezzo": 3.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRANAROL MOZZ. PROTEIN",
+      "quantità": 1,
+      "prezzo": 1.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POMODORO",
+      "quantità": 1,
+      "prezzo": 1.98,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SALMONE AFFUMICATO",
+      "quantità": 1,
+      "prezzo": 8.9,
+      "prezzo_scontato": 4.45,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "PADANO GRATT",
+      "quantità": 1,
+      "prezzo": 1.89,
+      "prezzo_scontato": 1.32,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 42.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTI, BUONO PASTO ELETTRON"
+}

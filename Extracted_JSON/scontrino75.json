@@ -1,0 +1,31 @@
+{
+  "data": "2025-06-10",
+  "ora": "11:53:00",
+  "negozio": "UNIQUE SRL",
+  "indirizzo": "VIALE DELLA REPUBBLICA 2",
+  "città": "PORTO MANTOVANO - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SCATOLA TEMPERA GIOTTO",
+      "quantità": 1,
+      "prezzo": 7.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "colore acrilico fine",
+      "quantità": 1,
+      "prezzo": 2.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 10.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

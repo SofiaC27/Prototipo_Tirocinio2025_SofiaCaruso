@@ -1,0 +1,39 @@
+{
+  "data": "2025-05-02",
+  "ora": "18:51:00",
+  "negozio": "VESTIESSE ABBIGLIAMENTO",
+  "indirizzo": "STRADA CISA 129",
+  "città": "PORTO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "U.CAM D/A M/M SANGALLO",
+      "quantità": 1,
+      "prezzo": 62.0,
+      "prezzo_scontato": 48.9,
+      "valuta": "EUR",
+      "percentuale_sconto": 21
+    },
+    {
+      "nome": "100 COT 1P MAXI KIARA CO",
+      "quantità": 1,
+      "prezzo": 34.5,
+      "prezzo_scontato": 22.9,
+      "valuta": "EUR",
+      "percentuale_sconto": 34
+    },
+    {
+      "nome": "> STORNO < CAM MM BATTISTA FANT",
+      "quantità": 1,
+      "prezzo": 49.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 21.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

@@ -1,0 +1,95 @@
+{
+  "data": "2025-05-29",
+  "ora": "17:04:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MISTO DA CUOCERE",
+      "quantità": 1,
+      "prezzo": 2.58,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CARIGNANO SULCIS SELL",
+      "quantità": 1,
+      "prezzo": 10.7,
+      "prezzo_scontato": 5.35,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "6 UOVA PASTA GIALIA",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SEMOLA INTEGR MOLISAN",
+      "quantità": 1,
+      "prezzo": 1.67,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SEMOLA INTEGR MOLISAN",
+      "quantità": 1,
+      "prezzo": 1.67,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BANANE",
+      "quantità": 1,
+      "prezzo": 0.96,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantità": 4,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ESSELUN LATTE UHT INT",
+      "quantità": 1,
+      "prezzo": 0.78,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ESSELUNG LATTE UHT PS",
+      "quantità": 2,
+      "prezzo": 0.75,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BURRO PARMAREGGIO",
+      "quantità": 1,
+      "prezzo": 2.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 22.65,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTE DI CREDITO"
+}

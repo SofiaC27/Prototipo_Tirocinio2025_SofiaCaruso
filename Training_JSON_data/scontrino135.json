@@ -1,0 +1,239 @@
+{
+  "data": "2025-07-04",
+  "ora": "18:21:00",
+  "negozio": "SUPERMERCATI MARTINELLI",
+  "indirizzo": "V. COMMERCIO, 1",
+  "città": "S.G. MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "POMODORO DATTERINO",
+      "quantità": 1,
+      "prezzo": 2.18,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CILIEGIE CESTINO 500G",
+      "quantità": 1,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CILIEGIE CESTINO 500G",
+      "quantità": 1,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INSALATA ROMANA",
+      "quantità": 1,
+      "prezzo": 1.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "WUBER WURSTEL 100G",
+      "quantità": 1,
+      "prezzo": 0.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INSALATA ROMANA",
+      "quantità": 1,
+      "prezzo": 0.85,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FONZIES 280G GIGA PA",
+      "quantità": 1,
+      "prezzo": 2.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VALLELATA MOZZARELLA",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VALLELATA MOZZARELLA",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VALLELATA MOZZARELLA",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "VALLELATA MOZZARELLA",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ZANETTI GRANA PADANO",
+      "quantità": 1,
+      "prezzo": 1.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GERMO NOVALCOL 250ML",
+      "quantità": 1,
+      "prezzo": 1.4,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FONDI SALUMI",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NOI VOI COTONE 100G",
+      "quantità": 1,
+      "prezzo": 0.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FONDI SALUMI",
+      "quantità": 1,
+      "prezzo": 0.64,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROC. COTTO A.Q.NATU",
+      "quantità": 1,
+      "prezzo": 1.64,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROC. COTTO A.Q.NATU",
+      "quantità": 1,
+      "prezzo": 1.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FONDI SALUMI",
+      "quantità": 1,
+      "prezzo": 0.71,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DR.PROTECT SIRINGA ST",
+      "quantità": 1,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PHARMA. 4 CEROTTI X A",
+      "quantità": 1,
+      "prezzo": 0.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DR.PROTEC CEROTTI 4P",
+      "quantità": 1,
+      "prezzo": 1.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PHARMA. 6 COMPRESSE D",
+      "quantità": 1,
+      "prezzo": 0.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURELLE 4 UOVA RUS",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURELLE 4 UOVA RUS",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURELLE 4 UOVA RUS",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURELLE 4 UOVA RUS",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PURA TOV.LI 33X33 X2",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 42.3,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

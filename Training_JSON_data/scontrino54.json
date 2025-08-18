@@ -1,0 +1,63 @@
+{
+  "data": "2025-05-22",
+  "ora": "13:56:00",
+  "negozio": "MONTADITOS",
+  "indirizzo": "VIA CESARE BATTISTI 8-10",
+  "città": "MANTOVA - Mantova",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Montadito 43",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Montadito 44",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Montadito 38",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Patatine fritte con 4 salse",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Churros ripieni di crema",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Bottiglia Fuzetea Pesca",
+      "quantità": 1,
+      "prezzo": 2.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 12.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "BANCOMAT"
+}

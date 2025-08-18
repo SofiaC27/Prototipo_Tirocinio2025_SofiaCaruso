@@ -1,0 +1,103 @@
+{
+  "data": "2025-06-21",
+  "ora": "12:25:00",
+  "negozio": "ESSLUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SMART BEV. DI SOIA S/Z",
+      "quantità": 7,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CARCIOFINI TAG ESSEL.",
+      "quantità": 1,
+      "prezzo": 2.99,
+      "prezzo_scontato": 2.39,
+      "valuta": "EUR",
+      "percentuale_sconto": 20
+    },
+    {
+      "nome": "GRANGALLETTO GRIGLIA",
+      "quantità": 1,
+      "prezzo": 7.28,
+      "prezzo_scontato": 4.36,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "GRANAGALLETTO GRIGLIA",
+      "quantità": 1,
+      "prezzo": 6.84,
+      "prezzo_scontato": 4.1,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "GRANAGALLETTO GRIGLIA",
+      "quantità": 1,
+      "prezzo": 5.21,
+      "prezzo_scontato": 3.12,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "MAXIBON COOKIE X4",
+      "quantità": 1,
+      "prezzo": 4.5,
+      "prezzo_scontato": 2.25,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "MAXIBON COCONUT",
+      "quantità": 1,
+      "prezzo": 4.5,
+      "prezzo_scontato": 2.25,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "SFIZIOSO ALLE OLIVE",
+      "quantità": 1,
+      "prezzo": 2.08,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRANOLA MOZZ PROTEIN",
+      "quantità": 1,
+      "prezzo": 1.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOZ. GIOIA COLLE 400G",
+      "quantità": 1,
+      "prezzo": 6.49,
+      "prezzo_scontato": 4.54,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "MOZ. GIOIA COLLE 400G",
+      "quantità": 1,
+      "prezzo": 6.49,
+      "prezzo_scontato": 4.54,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 36.43,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

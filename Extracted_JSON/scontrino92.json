@@ -1,0 +1,87 @@
+{
+  "data": "2024-12-10",
+  "ora": "21:46:00",
+  "negozio": "Zio Pesce Officina di Mare",
+  "indirizzo": "VIA A. MAFFEI12",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "COPERTO",
+      "quantità": 2,
+      "prezzo": 2.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRANCHIO MOLLE",
+      "quantità": 1,
+      "prezzo": 14.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACCIUGHE",
+      "quantità": 1,
+      "prezzo": 14.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "OMBRINA BRACE",
+      "quantità": 1,
+      "prezzo": 25.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POLPO CROCCANTE",
+      "quantità": 1,
+      "prezzo": 26.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SORBETTO MANDARINO",
+      "quantità": 1,
+      "prezzo": 5.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAFFE",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BUZZINELLI RIBOLLA G",
+      "quantità": 1,
+      "prezzo": 25.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 120.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA CREDITO - BANCOMAT - SATIS"
+}

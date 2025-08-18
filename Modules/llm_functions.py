@@ -10,6 +10,7 @@ from langchain.agents.agent_types import AgentType
 import ast
 
 from utils import load_prompt_text
+from config import DATABASE_NAME
 
 
 def init_chain(llm, db):
@@ -232,7 +233,7 @@ def build_custom_agent(llm_key):
         openai_api_base="https://api.groq.com/openai/v1",
     )
 
-    db = SQLDatabase.from_uri("sqlite:///documents.db")
+    db = SQLDatabase.from_uri(f"sqlite:///{DATABASE_NAME}")
     db_schema = db.get_table_info()
 
     # Costruisce i tool

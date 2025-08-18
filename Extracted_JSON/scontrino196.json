@@ -1,0 +1,71 @@
+{
+  "data": null,
+  "ora": null,
+  "negozio": "Ica Market s.r.l.",
+  "indirizzo": "V.le Placido Rizzo,2",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Birra cl66 Moretti",
+      "quantità": 1,
+      "prezzo": 1.45,
+      "prezzo_scontato": 1.19,
+      "valuta": "EUR",
+      "percentuale_sconto": 18
+    },
+    {
+      "nome": "Coca Cola C190 REGULAR",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": 1.25,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Birra cl66 Moretti",
+      "quantità": 1,
+      "prezzo": 1.45,
+      "prezzo_scontato": 1.19,
+      "valuta": "EUR",
+      "percentuale_sconto": 18
+    },
+    {
+      "nome": "Uova grandi x6 gr6373 all.a",
+      "quantità": 1,
+      "prezzo": 2.09,
+      "prezzo_scontato": 1.88,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Yogurt Bio Bianco Gr150 INTER",
+      "quantità": 6,
+      "prezzo": 0.95,
+      "prezzo_scontato": 0.85,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Grana Padano DOP 12 MESI FORM",
+      "quantità": 1,
+      "prezzo": 4.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Bisc. Ottimi Mandorle Gr350",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": 1.52,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 16.23,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

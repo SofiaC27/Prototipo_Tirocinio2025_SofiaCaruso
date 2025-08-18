@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-11",
+  "ora": "10:33:00",
+  "negozio": "NUOVA FARMACIA",
+  "indirizzo": "Via Villagrazia, 303/1",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "9045465441",
+      "quantità": 1,
+      "prezzo": 15.9,
+      "prezzo_scontato": 15.5,
+      "valuta": "EUR",
+      "percentuale_sconto": 2
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 15.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

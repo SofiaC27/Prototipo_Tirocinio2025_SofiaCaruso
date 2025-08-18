@@ -1,0 +1,47 @@
+{
+  "data": "2024-10-02",
+  "ora": "11:08:00",
+  "negozio": "illy Caffè",
+  "indirizzo": "P.zza Gae Aulenti Unità6",
+  "città": "Milano - MI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Croissant albicocca",
+      "quantità": 2,
+      "prezzo": 2.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Centrifuga arancia",
+      "quantità": 2,
+      "prezzo": 7.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOO acqua 500ml nat",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Cappuccino",
+      "quantità": 2,
+      "prezzo": 3.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 28.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Amex"
+}

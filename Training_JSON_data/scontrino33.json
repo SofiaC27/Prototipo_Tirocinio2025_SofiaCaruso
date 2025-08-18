@@ -1,0 +1,79 @@
+{
+  "data": "2025-05-14",
+  "ora": "18:56:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FRANZISKAN HELL 50CL",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "B. AD/COSTATA DRYAGED",
+      "quantità": 1,
+      "prezzo": 14.88,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "B. AD/COSTATA DRYAGED",
+      "quantità": 1,
+      "prezzo": 14.88,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NAT. POLPA TRITA ATP",
+      "quantità": 1,
+      "prezzo": 5.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GIRELLE DI SALMONE",
+      "quantità": 1,
+      "prezzo": 4.99,
+      "prezzo_scontato": 2.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "PARMIG. REGGIANO 30M",
+      "quantità": 1,
+      "prezzo": 12.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MINES. FAVE/AVEN/ZAFF",
+      "quantità": 1,
+      "prezzo": 2.78,
+      "prezzo_scontato": 1.66,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "B. AD/COSTATA DRYAGED",
+      "quantità": 1,
+      "prezzo": 14.88,
+      "prezzo_scontato": 8.93,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 32.65,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}
