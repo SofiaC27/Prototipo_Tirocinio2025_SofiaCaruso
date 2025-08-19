@@ -1,0 +1,39 @@
+{
+  "data": "2025-07-31",
+  "ora": "12:34:00",
+  "negozio": "DOPPIOZERO di AZIMOO SRL",
+  "indirizzo": "Via V. Veneto 77",
+  "città": "Gabicce Mare - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Adriatica",
+      "quantità": 2,
+      "prezzo": 8.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Catalana",
+      "quantità": 1,
+      "prezzo": 8.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Calamara",
+      "quantità": 1,
+      "prezzo": 8.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 34.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

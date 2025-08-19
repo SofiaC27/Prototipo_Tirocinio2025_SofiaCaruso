@@ -1,0 +1,79 @@
+{
+  "data": "2025-07-28",
+  "ora": "20:43:00",
+  "negozio": "AL MAZZINI LEONE S.R.L.S. UNIPERSONALE",
+  "indirizzo": "VIA DELLA REPUBBLICA 9",
+  "città": "GABICCE MARE - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "RAVIOLI DI PESCE",
+      "quantità": 1,
+      "prezzo": 15.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BUSIATA TRAPANESE",
+      "quantità": 2,
+      "prezzo": 18.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "STROZZAPRETI GAMBERI E ZUCCHIN",
+      "quantità": 1,
+      "prezzo": 13.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INSALATA VERDE",
+      "quantità": 1,
+      "prezzo": 4.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA NATURALE 1L",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CALICE FRIZZANTE",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COPERTO",
+      "quantità": 4,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SORBETTO CAFFE",
+      "quantità": 1,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 87.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

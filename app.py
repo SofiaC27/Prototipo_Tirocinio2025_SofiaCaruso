@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-from utils import init_session_state
+from utils import init_session_state, render_sidebar_menu, set_custom_style
 from config import DATABASE_NAME
 
 from Database.db_manager import read_data, init_database
@@ -31,20 +31,23 @@ init_session_state({
     "json_file_exists": False
 })
 
+set_custom_style()
 
 # Titolo dell'applicazione
-st.markdown("<h1 style='text-align: center; color: blue; font-size: 60px;'>Smart Receipts</h1>", unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: center; color: black; font-size: 25px;'>"
+st.title("Smart Receipts")
+st.markdown("<p style='text-align: center; font-size:20px;'>"
             "Un'applicazione web avanzata per caricare scontrini, estrarre dati tramite OCR e organizzarli in "
             "un database ricercabile. Potenziata con AI/LLM per interazioni in linguaggio naturale "
-            "e con ML per analisi avanzate</h2>", unsafe_allow_html=True)
+            "e con ML per analisi avanzate</p>", unsafe_allow_html=True)
+
+render_sidebar_menu()
 
 
 # Upload dei file
 st.divider()
-st.subheader("Caricamento File")
+st.header("Caricamento File")
 
-uploaded_files = st.file_uploader("Upload files (JPG, JPEG, PNG)", type=["jpg", "jpeg", "png"],
+uploaded_files = st.file_uploader("Carica file (JPG, JPEG, PNG)", type=["jpg", "jpeg", "png"],
                                   accept_multiple_files=True)
 
 if uploaded_files:
@@ -57,28 +60,28 @@ process_uploaded_file(st.session_state.uploaded_files)
 
 # Gestione del database
 st.divider()
-st.subheader("Gestione del Database")
+st.header("Gestione del database")
 
 display_data_with_pagination(st.session_state.database_data)
 
 
 # OCR e JSON
 st.divider()
-st.subheader("Elabora i file con OCR e genera JSON")
+st.header("Elabora i file con OCR e genera JSON")
 
 process_receipt(st.session_state.database_data, api_key)
 
 
 # Visualizzazione dati degli scontrini
 st.divider()
-st.subheader("Visualizzazione dei dati degli scontrini")
+st.header("Visualizzazione dei dati degli scontrini")
 
 display_receipts_data_with_expanders(st.session_state.receipts_data)
 
 
 # LLM
 st.divider()
-st.subheader("Domande in linguaggio naturale con LLM")
+st.header("Domande in linguaggio naturale con LLM")
 
 st.markdown(
     "Se vuoi avviare l'interfaccia conversazionale con il modello LLM per interrogare il database"
@@ -89,7 +92,7 @@ st.markdown(
 
 # ML
 st.divider()
-st.subheader("Machine Learning")
+st.header("Machine Learning")
 
 df = pd.read_csv("Modules/ML/ML_Objects/dataset.csv")
 st.dataframe(df)
@@ -99,5 +102,5 @@ show_receipt_predictions()
 
 # Eliminazione file
 st.divider()
-st.subheader("Elimina i file se necessario")
+st.header("Gestione file")
 delete_file_from_database_and_folder(st.session_state.database_data)

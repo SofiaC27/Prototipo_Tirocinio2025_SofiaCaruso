@@ -1,0 +1,71 @@
+{
+  "data": "2025-08-01",
+  "ora": "21:07:00",
+  "negozio": "OSTERIA MARE'",
+  "indirizzo": "Via Della Vittoria 67",
+  "città": "Gabicce Mare - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Spaghetti Cozze",
+      "quantità": 1,
+      "prezzo": 22.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Tagliolino ragù di pesce bianco",
+      "quantità": 1,
+      "prezzo": 12.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Gnocchi gamberi e zucchine",
+      "quantità": 1,
+      "prezzo": 11.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Spiedino di calamaro",
+      "quantità": 1,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Acqua 1 Lt GAS",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Passerina Lt. 0,25",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "coperto",
+      "quantità": 4,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 57.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

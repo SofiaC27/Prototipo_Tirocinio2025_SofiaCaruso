@@ -114,3 +114,38 @@ def delete_json_from_folder(filename):
         os.remove(file_path)
         return True
     return False
+
+
+def render_sidebar_menu():
+    """
+    Funzione che visualizza il menu laterale dell'app Streamlit, fornendo un indice navigabile
+    delle principali sezioni disponibili
+    - Ogni voce del menu è collegata a un anchor interno per facilitare la navigazione tra le sezioni dell'interfaccia
+    """
+    st.sidebar.header("Menù dell'app")
+    st.sidebar.write("Vai alla sezione:")
+
+    st.sidebar.markdown("- [Caricamento File](#caricamento-file)")
+    st.sidebar.markdown("- [Gestione del database](#gestione-del-database)")
+    st.sidebar.markdown("- [Elabora i file con OCR e genera JSON](#elabora-i-file-con-ocr-e-genera-json)")
+    st.sidebar.markdown("- [Visualizzazione dei dati degli scontrini](#visualizzazione-dei-dati-degli-scontrini)")
+    st.sidebar.markdown("- [Domande in linguaggio naturale con LLM](#domande-in-linguaggio-naturale-con-llm)")
+    st.sidebar.markdown("- [Machine Learning](#machine-learning)")
+    st.sidebar.markdown("- [Gestione file](#gestione-file)")
+
+
+def set_custom_style():
+    """
+    Funzione per applicare uno stile CSS personalizzato agli elementi dell'interfaccia Streamlit
+    """
+    st.markdown("""
+        <style>
+            h1 {
+                text-align: center;
+                color: #3C4F3D !important; 
+            }
+            h2, h3, h4, h5, h6 {
+                color: #3C4F3D !important;
+            }
+        </style>
+    """, unsafe_allow_html=True)

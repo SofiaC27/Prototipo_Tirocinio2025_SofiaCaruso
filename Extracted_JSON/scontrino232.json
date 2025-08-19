@@ -1,0 +1,47 @@
+{
+  "data": "2025-07-30",
+  "ora": "12:47:00",
+  "negozio": "DOPPIOZERO",
+  "indirizzo": "Via V. Veneto 77",
+  "città": "Gabicce Mare - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ins. mediterranea",
+      "quantità": 1,
+      "prezzo": 7.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Cas. Rustico",
+      "quantità": 1,
+      "prezzo": 6.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Catalana",
+      "quantità": 2,
+      "prezzo": 8.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Birra 33cl",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 33.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

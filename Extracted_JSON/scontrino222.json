@@ -1,0 +1,71 @@
+{
+  "data": "2025-08-02",
+  "ora": "13:47:00",
+  "negozio": "OSTERIA MARE'",
+  "indirizzo": "Via Della Vittoria 67",
+  "città": "Gabicce Mare - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Spaghetto cozze e vongole",
+      "quantità": 2,
+      "prezzo": 11.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Acqua 0,50 NAT",
+      "quantità": 1,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Pignoletto Lt.0,25",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "coperto",
+      "quantità": 2,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Spiedino di calamaro",
+      "quantità": 1,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Spiedino di cozza",
+      "quantità": 1,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Insalata verde",
+      "quantità": 1,
+      "prezzo": 4.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 39.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

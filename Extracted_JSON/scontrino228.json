@@ -1,0 +1,63 @@
+{
+  "data": "2025-07-29",
+  "ora": null,
+  "negozio": "Ristorante Trattoria Ritrovo Dei Lavoratori XXVIII Luglio",
+  "indirizzo": "Via Androne dei Bastioni,4",
+  "città": "San Marino - SM",
+  "paese": "San Marino",
+  "lista_articoli": [
+    {
+      "nome": "Menù Fisso 1 insala",
+      "quantità": 2,
+      "prezzo": 20.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Menù Fisso 1 Patate",
+      "quantità": 1,
+      "prezzo": 20.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Menù Fisso del gg",
+      "quantità": 1,
+      "prezzo": 24.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Acqua Nat. lt",
+      "quantità": 2,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Rosso 1/4 lt",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Caffè",
+      "quantità": 2,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 94.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contanti"
+}

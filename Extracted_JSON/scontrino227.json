@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-28",
+  "ora": "14:45:00",
+  "negozio": "COFFEE BREAK DI BARTOLUCCI MAURA",
+  "indirizzo": "PIAZZA MATTEOTTI 3",
+  "città": "GABICCE MARE - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "VARIE CASSA",
+      "quantità": 1,
+      "prezzo": 2.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 2.8,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTE"
+}

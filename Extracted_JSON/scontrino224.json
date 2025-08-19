@@ -1,0 +1,95 @@
+{
+  "data": "2025-07-31",
+  "ora": "21:25:00",
+  "negozio": "AL MAZZINI LEONE S.R.L.S. UNIPERSONALE",
+  "indirizzo": "VIA DELLA REPUBBLICA 9",
+  "città": "GABICCE MARE - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "TAGLIATELLE PORCINI",
+      "quantità": 1,
+      "prezzo": 14.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PIZZA SALSICCIA E PATATE",
+      "quantità": 1,
+      "prezzo": 10.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TAGLIATA DI TONNO",
+      "quantità": 1,
+      "prezzo": 19.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FRITTO MISTO",
+      "quantità": 1,
+      "prezzo": 16.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA NATURALE 1L",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA CHIARA MEDIA",
+      "quantità": 1,
+      "prezzo": 5.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "COPERTO *4",
+      "quantità": 1,
+      "prezzo": 10.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROFITEROL PISTACCHIO",
+      "quantità": 1,
+      "prezzo": 5.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOUFLE PIS",
+      "quantità": 1,
+      "prezzo": 5.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOUFLE CIOCCOLATO",
+      "quantità": 1,
+      "prezzo": 5.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 93.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

@@ -1,0 +1,71 @@
+{
+  "data": "2025-08-01",
+  "ora": "14:16:00",
+  "negozio": "OSTERIA MARE'",
+  "indirizzo": "Via Della Vittoria 67",
+  "città": "Gabicce Mare - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Insalata verde tonno",
+      "quantità": 1,
+      "prezzo": 7.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Salsiccia",
+      "quantità": 1,
+      "prezzo": 7.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Tonno e cipolla",
+      "quantità": 1,
+      "prezzo": 8.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Funghi e Salsiccia",
+      "quantità": 1,
+      "prezzo": 8.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Acqua 1 Lt GAS",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "coperto",
+      "quantità": 4,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Caffe",
+      "quantità": 2,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 39.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

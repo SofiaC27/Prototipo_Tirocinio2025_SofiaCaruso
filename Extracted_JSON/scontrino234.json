@@ -1,0 +1,79 @@
+{
+  "data": "2025-07-30",
+  "ora": "21:13:00",
+  "negozio": "Osteria Mare'",
+  "indirizzo": "Via Della Vittoria 67",
+  "città": "Gabicce Mare - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Degustazione di Antipasti",
+      "quantità": 1,
+      "prezzo": 14.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Mazzancolla alla Catalana",
+      "quantità": 1,
+      "prezzo": 12.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Spaghetto Vongole",
+      "quantità": 1,
+      "prezzo": 10.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Tagliolino scoglio bianco",
+      "quantità": 1,
+      "prezzo": 12.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Tagliolino ragu' di pesce",
+      "quantità": 1,
+      "prezzo": 11.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Fritto Misto",
+      "quantità": 1,
+      "prezzo": 13.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Acqua 1Lt NAT",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Pignoletto Lt. 0,25",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 77.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

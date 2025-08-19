@@ -246,7 +246,7 @@ def show_receipt_predictions():
     - Usa un sistema di impaginazione per visualizzare gli scontrini in modo ordinato
     - Mostra l'elenco dei nomi degli scontrini classificati nella categoria selezionata
     """
-    st.write("Visualizzazione delle previsioni sugli scontrini")
+    st.subheader("Visualizzazione delle previsioni sugli scontrini")
 
     # Radio Button per scegliere il tipo di scontrino
     filter_option = st.radio(
@@ -284,7 +284,7 @@ def show_receipt_predictions():
         paginated_receipts = paginate(file_paths, page_key=f"predictions_{filter_option}")
 
         # visualizza i nomi degli scontrini
-        st.subheader(f"Elenco scontrini classificati come: {filter_option}")
+        st.write(f"Elenco scontrini classificati come: {filter_option}")
         for name in paginated_receipts:
             st.write(f"- {name}")
     else:
@@ -302,6 +302,8 @@ def delete_file_from_database_and_folder(data):
     - Cancella il file dal database e dalla cartella immagini, eliminando anche il file JSON associato, se presente
     :param: data: dati presenti nel database
     """
+    st.write("Se necessario, qui puoi eliminare le immagini degli scontrini")
+
     admin_password = st.secrets["admin"]["ADMIN_PASSWORD"]
 
     # Campo password

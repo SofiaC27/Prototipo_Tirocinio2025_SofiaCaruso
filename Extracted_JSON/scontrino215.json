@@ -1,0 +1,23 @@
+{
+  "data": "2023-08-02",
+  "ora": "13:00:00",
+  "negozio": "SAPORTITO B.L. SAS",
+  "indirizzo": "Viale della Vittoria 17",
+  "città": "Gabicce Mare - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PUKE' MINI",
+      "quantità": 2,
+      "prezzo": 12.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 25.8,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

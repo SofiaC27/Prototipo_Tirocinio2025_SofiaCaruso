@@ -1,5 +1,10 @@
+# Ignora tutti i file .env ovunque
 **/*.env
-.streamlit/secrets.toml
-*.chainlit
-*.files
+# Ignora la cartella .streamlit e tutto il contenuto
+.streamlit/
+# Ignora la cartella .chainlit e tutto il contenuto
+.chainlit/
+# Ignora la cartella .files e tutto il contenuto
+.files/
+# Ignora il file avvia_apps.bat ovunque
 **/avvia_apps.bat

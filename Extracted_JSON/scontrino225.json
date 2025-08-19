@@ -1,0 +1,71 @@
+{
+  "data": "2025-07-27",
+  "ora": "20:46:00",
+  "negozio": "LA CAMBUSA",
+  "indirizzo": "VIA DEL PORTO 37",
+  "città": "GABICCE MARE - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "COPERTO",
+      "quantità": 4,
+      "prezzo": 2.5,
+      "prezzo_scontato": 9.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Antipasto della Cambusa",
+      "quantità": 1,
+      "prezzo": 22.0,
+      "prezzo_scontato": 19.8,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Acqua NAT",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": 2.7,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "1/2 Vino Frizzante",
+      "quantità": 1,
+      "prezzo": 6.5,
+      "prezzo_scontato": 5.85,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Risotto i Pesce",
+      "quantità": 2,
+      "prezzo": 14.0,
+      "prezzo_scontato": 12.6,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Tagliata di Tonno",
+      "quantità": 1,
+      "prezzo": 18.0,
+      "prezzo_scontato": 16.2,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Tartar di tonno rosso",
+      "quantità": 1,
+      "prezzo": 22.0,
+      "prezzo_scontato": 19.8,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 98.55,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

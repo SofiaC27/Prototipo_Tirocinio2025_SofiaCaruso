@@ -11,12 +11,12 @@ L'app è potenziata con AI/LLM per interrogazioni in linguaggio naturale e con M
 - Analisi con ML per rilevamento e classificazione automatica di outlier nei dati
 
 ## Requisiti e dipendenze
-Tutte le librerie necessarie sono elencate nel file `requirements.txt`
-Per installarle, esegui il comando:
+Tutte le librerie necessarie sono elencate nel file `requirements.txt`  
+Per installarle, esegui il comando:  
 pip install -r requirements.txt
 
 ## Esecuzione
-Per avviare l'applicazione, è necessario eseguire due comandi in parallelo, uno per Streamlit e uno per Chainlit.
-Apri due terminali separati e lancia:
-streamlit run app.py
+Per avviare l'applicazione, è necessario eseguire due comandi in parallelo, uno per Streamlit e uno per Chainlit.  
+Apri due terminali separati e lancia:  
+streamlit run app.py  
 chainlit run chainlit_app.py -w --headless

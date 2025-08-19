@@ -1,0 +1,31 @@
+{
+  "data": "2025-07-27",
+  "ora": "15:38:00",
+  "negozio": "YIF MARKET SRL",
+  "indirizzo": "VIA G. MONTANELLI,31",
+  "città": "CURTATONE - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "LUCChetto30MM VARIE",
+      "quantità": 1,
+      "prezzo": 1.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LUCChetto30MM VARIE",
+      "quantità": 1,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 2.7,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "BANCOMAT"
+}

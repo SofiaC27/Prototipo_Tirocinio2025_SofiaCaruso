@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-30",
+  "ora": "17:00:00",
+  "negozio": "44 CAFFE' DI TRENTI CHIARA & C. SNC",
+  "indirizzo": "VIA CESARE BATTISTI,31-37",
+  "città": "GABICCE MARE - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Caffe'",
+      "quantità": 1,
+      "prezzo": 1.4,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 1.4,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTE"
+}

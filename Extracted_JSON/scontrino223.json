@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-27",
+  "ora": "13:35:00",
+  "negozio": "AUTOGRILL ITALIA S.P.A.",
+  "indirizzo": "A14 BO-TA, 47039 SAVIGNANO",
+  "città": "Savignano - Forlì-Cesena (FC)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ESPRESSO5 ORIGINI",
+      "quantità": 1,
+      "prezzo": 3.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.6,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-01",
+  "ora": "22:55:00",
+  "negozio": "LE CREAZIONI DI LINDA PAZZAGLIA",
+  "indirizzo": "VIA PARROCCHIALE 52",
+  "città": "BELVEDERE FOGLIENSE - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "VARIE NS",
+      "quantità": 3,
+      "prezzo": 9.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 27.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

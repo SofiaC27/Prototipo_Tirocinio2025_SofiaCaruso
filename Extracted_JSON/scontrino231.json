@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-29",
+  "ora": "20:05:00",
+  "negozio": "INSIEME DI GAMBINI G. & C.SAS",
+  "indirizzo": "DARSENA MARINAI D'ITALIA",
+  "città": "Cattolica - RN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "GELATO",
+      "quantità": 1,
+      "prezzo": 15.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 15.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

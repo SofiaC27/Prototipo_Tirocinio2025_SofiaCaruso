@@ -1,0 +1,31 @@
+{
+  "data": "2025-08-03",
+  "ora": "11:45:00",
+  "negozio": "SFORNIAMO LAB GENNARI ANNA MARIA",
+  "indirizzo": "VIA UMBERTO I , N°18",
+  "città": "GRADARA - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "LIQUORE",
+      "quantità": 1,
+      "prezzo": 9.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BISCOTTI 5",
+      "quantità": 5,
+      "prezzo": 5.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 14.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

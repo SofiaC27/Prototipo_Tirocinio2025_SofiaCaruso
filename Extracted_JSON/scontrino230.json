@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-29",
+  "ora": "17:00:00",
+  "negozio": "Chiosco delle Streghe",
+  "indirizzo": "Passo delle Streghe",
+  "città": "San Marino Città - San Marino",
+  "paese": "San Marino",
+  "lista_articoli": [
+    {
+      "nome": "PROFUMI",
+      "quantità": 1,
+      "prezzo": 17.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 17.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

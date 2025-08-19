@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-28",
+  "ora": "14:27:00",
+  "negozio": "LA PIADAZA DI VORFAJ HAJRIJE",
+  "indirizzo": "VIA CESARE BATTISTI 19",
+  "città": "GABICCE MARE - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "VARIE",
+      "quantità": 2,
+      "prezzo": 13.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 26.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

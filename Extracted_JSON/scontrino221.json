@@ -1,0 +1,23 @@
+{
+  "data": "2025-07-30",
+  "ora": "13:45:00",
+  "negozio": "44 CAFFE' DI TRENTI CHIARA & C. SNC",
+  "indirizzo": "VIA CESARE BATTISTI,31-37",
+  "città": "GABICCE MARE - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Cremosito *4",
+      "quantità": 3,
+      "prezzo": 4.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 12.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}
