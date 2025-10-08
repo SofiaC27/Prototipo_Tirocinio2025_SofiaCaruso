@@ -1,0 +1,39 @@
+{
+  "data": "2025-08-20",
+  "ora": "11:55:00",
+  "negozio": "MIROGLIO FASHION S.R.L.",
+  "indirizzo": "PIAZZALE CESARE BECCARIA",
+  "città": "MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PANTALONE TESSUTO P1880004206N03503",
+      "quantità": 1,
+      "prezzo": 69.9,
+      "prezzo_scontato": 58.5,
+      "valuta": "EUR",
+      "percentuale_sconto": 22
+    },
+    {
+      "nome": "GIACCA TESSUTO 0741Q000964N03501",
+      "quantità": 1,
+      "prezzo": 119.0,
+      "prezzo_scontato": 79.0,
+      "valuta": "EUR",
+      "percentuale_sconto": 22
+    },
+    {
+      "nome": "TOP TESSUTO D7600000488N03501",
+      "quantità": 1,
+      "prezzo": 69.9,
+      "prezzo_scontato": 58.5,
+      "valuta": "EUR",
+      "percentuale_sconto": 22
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 196.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Mastercard Carta di Credito"
+}

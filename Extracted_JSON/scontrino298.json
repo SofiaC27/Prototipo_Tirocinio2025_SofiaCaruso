@@ -1,0 +1,231 @@
+{
+  "data": "2025-08-22",
+  "ora": "18:35:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "V. COMMERCIO, 1",
+  "città": "S.G. MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MORTAD. STELLA C/PISI",
+      "quantità": 1,
+      "prezzo": 1.24,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROSC. COTTO A.Q. VALB",
+      "quantità": 1,
+      "prezzo": 1.91,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROSC. CRUDO 130G SAL",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJASUN YOG. BIFID. 25",
+      "quantità": 4,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRANAROLO STRACCH. BE",
+      "quantità": 1,
+      "prezzo": 2.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJASUN YOG. BIFID. 25",
+      "quantità": 5,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GRANA PADANO GRATTUG",
+      "quantità": 3,
+      "prezzo": 1.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAMEO G.FESTA COCKT.",
+      "quantità": 1,
+      "prezzo": 2.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ALPRO SOYA DRINK ILT",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PHARMA.CEROTTI GOMIT",
+      "quantità": 1,
+      "prezzo": 0.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FRUMENTA SEM. RIMAC. 1",
+      "quantità": 2,
+      "prezzo": 1.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "WASA ORIGINAL 275G",
+      "quantità": 1,
+      "prezzo": 2.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TERRA & VITA INSALAT",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "I SICILIANI BURRO AR",
+      "quantità": 1,
+      "prezzo": 2.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NATURELLE 4 UOVA RUS",
+      "quantità": 2,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CETRIOLI",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ZUCCHINE",
+      "quantità": 1,
+      "prezzo": 1.51,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LIMONI SICILIA 750G",
+      "quantità": 1,
+      "prezzo": 1.98,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DATTERINO VASCHETTA",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FINOCCHIO",
+      "quantità": 1,
+      "prezzo": 2.17,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INSALATA ROMANA",
+      "quantità": 1,
+      "prezzo": 1.11,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SAIWA CIPSER 6X22G",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PESCHE GIALLE CESTIN",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOLE LANA 2LT",
+      "quantità": 1,
+      "prezzo": 2.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PURA TOV.LI 33X33 X2",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DAYLY CARTA IGIEN.6",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FRUTTA E VERDURA",
+      "quantità": 1,
+      "prezzo": 3.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 63.32,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

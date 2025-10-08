@@ -1,0 +1,23 @@
+{
+  "data": "2025-09-20",
+  "ora": "21:22:00",
+  "negozio": "Gelateria Latte e Cacao",
+  "indirizzo": "Via Matteotti -3 Sant Antonio",
+  "città": "Porto Mantovano - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CONO /COPPAX CIALDA",
+      "quantità": 2,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

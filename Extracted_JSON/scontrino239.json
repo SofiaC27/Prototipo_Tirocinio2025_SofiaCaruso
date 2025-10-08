@@ -1,0 +1,151 @@
+{
+  "data": "2025-08-07",
+  "ora": "11:19:00",
+  "negozio": "ESSSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNOLDO MONDADORI N.2",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SOJAS. BIFID. BIAN. CALC",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SEMOLA INTEGR MOLISAN",
+      "quantità": 1,
+      "prezzo": 1.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJAS. BIFID. BIAN. CALC",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BOC. GIOIA COLLE 250G",
+      "quantità": 1,
+      "prezzo": 3.99,
+      "prezzo_scontato": 2.79,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "BOC. GIOIA COLLE 250G",
+      "quantità": 1,
+      "prezzo": 3.99,
+      "prezzo_scontato": 2.79,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "SEMOLA RIMACIN MOLISA",
+      "quantità": 1,
+      "prezzo": 1.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SARDINE INTERE",
+      "quantità": 1,
+      "prezzo": 2.47,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SARDINE INTERE",
+      "quantità": 1,
+      "prezzo": 2.56,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SOJAS. BIFID. BIAN. CALC",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FICHI 300 G",
+      "quantità": 1,
+      "prezzo": 2.98,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "UVA VITTORIA",
+      "quantità": 1,
+      "prezzo": 1.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INS. ROMANA",
+      "quantità": 1,
+      "prezzo": 0.67,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INS. ROMANA",
+      "quantità": 1,
+      "prezzo": 1.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INS. ROMANA",
+      "quantità": 1,
+      "prezzo": 0.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PESCHE BIANCHE",
+      "quantità": 1,
+      "prezzo": 3.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NPSACCHETTO COMPOST.LE",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOZ. SPINOSA BUFALA TR",
+      "quantità": 1,
+      "prezzo": 5.65,
+      "prezzo_scontato": 2.83,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 31.48,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO e BUONO PASTO ELETTRON"
+}

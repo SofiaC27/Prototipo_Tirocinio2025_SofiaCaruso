@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-25",
+  "ora": "11:07:00",
+  "negozio": "NUOVA FARMACIA BARONE SCALA S.R.L.",
+  "indirizzo": "Via Villagrazia, 303/1",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FARMACO",
+      "quantità": 1,
+      "prezzo": 3.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.7,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "BANCOMAT"
+}

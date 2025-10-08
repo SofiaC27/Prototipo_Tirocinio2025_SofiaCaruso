@@ -1,0 +1,271 @@
+{
+  "data": "2025-08-08",
+  "ora": "12:16:00",
+  "negozio": "Martinetti SUPERMERCATI",
+  "indirizzo": "V. COMMERCIO, 1",
+  "città": "S. G. MantoVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "RUMMO INTEGR.500G ME",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO500G",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO500G",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "RUMMO INTEGR.500G ME",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "RUMMO INTEGR.500G ME",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LATICINI",
+      "quantità": 3,
+      "prezzo": 0.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GIGLIO PANNA FRESCHI",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "GIGLIO PANNA FRESCHI",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PINO SILV.BAGNO SCH.",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ARTEBIANCA BISC.FIOR",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "WASA ORIGINAL275G",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO 500G",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO 500G",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO 500G",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BARILLA BRONZO 500G",
+      "quantità": 1,
+      "prezzo": 0.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FONDI SALUMI",
+      "quantità": 1,
+      "prezzo": 0.56,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FONDI SALUMI",
+      "quantità": 1,
+      "prezzo": 0.61,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ZANETTI PARM.REGG.GR",
+      "quantità": 1,
+      "prezzo": 1.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ZANETTI PARM.REGG.GR",
+      "quantità": 1,
+      "prezzo": 1.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ZANETTI PARM.REGG.GR",
+      "quantità": 1,
+      "prezzo": 1.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROSC.COTTO A.Q.NATU",
+      "quantità": 1,
+      "prezzo": 1.92,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROSC.COTTO A.Q.NATU",
+      "quantità": 1,
+      "prezzo": 1.86,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROSC.COTTO A.Q. LIB",
+      "quantità": 1,
+      "prezzo": 1.62,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PESCHIERA",
+      "quantità": 1,
+      "prezzo": 31.53,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "AIA UDOVA X4 BIOVITA",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ROBERTI 4 UOVA FR.BI",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ROBERTI 4 UOVA FR.BI",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PURA TOV.LI 33X33 X2",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PURA TOV.LI 33X33 X2",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DAYLY CARTA IGIEN.G",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DAYLY CARTA IGIEN.G",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BUFFOLI BRIQUETTE 3K",
+      "quantità": 1,
+      "prezzo": 2.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 75.58,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

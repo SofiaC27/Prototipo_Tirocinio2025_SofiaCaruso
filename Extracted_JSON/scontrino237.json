@@ -1,0 +1,31 @@
+{
+  "data": "2025-08-03",
+  "ora": "11:39:00",
+  "negozio": "SFORNIAMO LAB",
+  "indirizzo": "VIA UMBERTO I, N°18",
+  "città": "GRADARA - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PIADINA1 FARCITURA",
+      "quantità": 3,
+      "prezzo": 6.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SPIANATA2 FARCITURE",
+      "quantità": 1,
+      "prezzo": 7.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 25.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

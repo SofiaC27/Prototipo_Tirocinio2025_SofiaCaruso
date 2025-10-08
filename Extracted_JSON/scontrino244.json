@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-18",
+  "ora": "10:06:00",
+  "negozio": "CONAD CITY",
+  "indirizzo": "VIA VILLAGRAZIA, 303/B",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BANCO SALUMERIA",
+      "quantità": 1,
+      "prezzo": 6.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 6.89,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

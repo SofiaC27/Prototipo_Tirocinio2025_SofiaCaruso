@@ -1,0 +1,47 @@
+{
+  "data": "2025-09-18",
+  "ora": "15:08:00",
+  "negozio": "Maxi Di s.r.l.",
+  "indirizzo": "Via Piave, 98",
+  "città": "Modena - MO",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "POMOD .CILIEGINI500 GR",
+      "quantità": 1,
+      "prezzo": 1.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "4 UOVA FRESCHE BIOLOGICHE",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CUORI DI ICEBERG C.D.S.",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ARR. TACHHINO SNELLO",
+      "quantità": 1,
+      "prezzo": 2.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 6.46,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

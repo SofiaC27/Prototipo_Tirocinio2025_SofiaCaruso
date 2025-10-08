@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-19",
+  "ora": "11:11:00",
+  "negozio": "PANIFICIO PASTICCERIA PIZZERIA",
+  "indirizzo": "VIALE R. SICILIANA 2207 SUD/EST",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PANIFICIO BILANCIA",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 2.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

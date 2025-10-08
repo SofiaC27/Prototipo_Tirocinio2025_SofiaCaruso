@@ -1,0 +1,47 @@
+{
+  "data": "2025-08-15",
+  "ora": "15:24:00",
+  "negozio": "LA BOTTEGA DEL GELATO DI SILVESTRO CARLA",
+  "indirizzo": "PIAZZA DELLA RESISTENZA,31",
+  "città": "BANCOLE DI PORTO MANTOVANO (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "REPARTO",
+      "quantità": 1,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "REPARTO",
+      "quantità": 1,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "REPARTO",
+      "quantità": 1,
+      "prezzo": 3.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "REPARTO",
+      "quantità": 1,
+      "prezzo": 8.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 18.5,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

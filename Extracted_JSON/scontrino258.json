@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-23",
+  "ora": "08:32:00",
+  "negozio": "PASTICCERIA CARLI SNC",
+  "indirizzo": "P. ZZA II RISORGIMENTO ,30",
+  "città": "ASIAGO - VI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BAR",
+      "quantità": 1,
+      "prezzo": 13.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA CREDITO"
+}

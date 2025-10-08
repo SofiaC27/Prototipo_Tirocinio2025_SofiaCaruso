@@ -1,0 +1,39 @@
+{
+  "data": "2025-07-18",
+  "ora": "18:10:00",
+  "negozio": "VALIGERIA RONCATO S.P.A.",
+  "indirizzo": "Via M.Biagi,105",
+  "città": "Bagnolo San Vito - Mantova (MN)",
+  "paese": "ITALY",
+  "lista_articoli": [
+    {
+      "nome": "PORTAF. DONNA PICCOLO",
+      "quantità": 1,
+      "prezzo": 44.0,
+      "prezzo_scontato": 30.8,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "PORTAF. DONNA PICCOLO",
+      "quantità": 1,
+      "prezzo": 44.0,
+      "prezzo_scontato": 30.8,
+      "valuta": "EUR",
+      "percentuale_sconto": 30
+    },
+    {
+      "nome": "ZAINETTO PORTA TABLET",
+      "quantità": 1,
+      "prezzo": 219.0,
+      "prezzo_scontato": 85.85,
+      "valuta": "EUR",
+      "percentuale_sconto": 60
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 147.45,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

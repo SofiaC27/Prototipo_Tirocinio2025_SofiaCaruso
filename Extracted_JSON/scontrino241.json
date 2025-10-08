@@ -1,0 +1,39 @@
+{
+  "data": "2025-08-07",
+  "ora": "18:06:00",
+  "negozio": "ALDI S.r.l.",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Pomodoro datt 400g",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Limoni 750g",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Pangrattato 1kg",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 5.67,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}

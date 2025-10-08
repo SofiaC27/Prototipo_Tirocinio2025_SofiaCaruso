@@ -1,0 +1,63 @@
+{
+  "data": "null",
+  "ora": "null",
+  "negozio": "Ica Market s.r.l.",
+  "indirizzo": "V.le Placido Rizzotto,2",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T Melanzane violette",
+      "quantità": 1,
+      "prezzo": 2.37,
+      "prezzo_scontato": 2.13,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "T Zucchine verde",
+      "quantità": 1,
+      "prezzo": 1.75,
+      "prezzo_scontato": 1.57,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "FIL SGOMBRO Gr1250.0 SELEX",
+      "quantità": 2,
+      "prezzo": 1.99,
+      "prezzo_scontato": 1.79,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Pelati gr400 Divella",
+      "quantità": 3,
+      "prezzo": 0.79,
+      "prezzo_scontato": 0.5,
+      "valuta": "EUR",
+      "percentuale_sconto": 37
+    },
+    {
+      "nome": "X INSALATA PER RISO GR350 PEPE",
+      "quantità": 1,
+      "prezzo": 2.49,
+      "prezzo_scontato": 1.69,
+      "valuta": "EUR",
+      "percentuale_sconto": 32
+    },
+    {
+      "nome": "YOGURT BIO BIANCO Gr150 INTER",
+      "quantità": 4,
+      "prezzo": 0.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.23,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

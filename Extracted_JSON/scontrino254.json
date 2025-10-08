@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-20",
+  "ora": "18:56:00",
+  "negozio": "FARMACIA DR. GAMBA SNC",
+  "indirizzo": "VIA LEOPARDI,27",
+  "città": "PORTO MANTOVANO - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FARMACO",
+      "quantità": 1,
+      "prezzo": 39.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 39.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "BANCOMAT"
+}

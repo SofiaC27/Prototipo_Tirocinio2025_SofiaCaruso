@@ -1,0 +1,55 @@
+{
+  "data": "2025-08-17",
+  "ora": "10:38:00",
+  "negozio": "ipenStore Deco",
+  "indirizzo": "VIA FILIPPO PECORAINO C/O CENTRO COMM. FORUM",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MELE IMPERATORE PADELL",
+      "quantità": 1,
+      "prezzo": 2.8,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPERS ORTOFRUTTA ROT.2",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POIATTI RUSTICHELLI KG.1 N.4A",
+      "quantità": 1,
+      "prezzo": 3.27,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SALE SICILIA IODATO FINO KG.1",
+      "quantità": 1,
+      "prezzo": 0.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "APOTEKE CEROT. TRASP. GARZA X25",
+      "quantità": 1,
+      "prezzo": 2.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 9.27,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-23",
+  "ora": "09:48:00",
+  "negozio": "CONAD SUPERSTORE",
+  "indirizzo": "VIA VILLAGRAZIA,77",
+  "città": "PALERMO - (PA)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CAFFE' MORETTINO FORTE",
+      "quantità": 1,
+      "prezzo": 18.99,
+      "prezzo_scontato": 13.9,
+      "valuta": "EUR",
+      "percentuale_sconto": 27
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.9,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

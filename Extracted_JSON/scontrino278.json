@@ -1,0 +1,39 @@
+{
+  "data": "2025-01-19",
+  "ora": "12:16:00",
+  "negozio": "VALIGERIA RONCATO S.P.A.",
+  "indirizzo": "Via M.Biagi, loc. Bagnolo San Vito",
+  "città": "Mantova - MN",
+  "paese": "ITALY",
+  "lista_articoli": [
+    {
+      "nome": "10400515 HOBO SF ODERATA IN PELLE",
+      "quantità": 1,
+      "prezzo": 72.52,
+      "prezzo_scontato": 51.8,
+      "valuta": "EUR",
+      "percentuale_sconto": 29
+    },
+    {
+      "nome": "10400888 PIATTINA LARGE DONNA IN",
+      "quantità": 1,
+      "prezzo": 38.71,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "10400829 PIATTINA LARGE DONNA IN",
+      "quantità": 1,
+      "prezzo": 38.71,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 129.22,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

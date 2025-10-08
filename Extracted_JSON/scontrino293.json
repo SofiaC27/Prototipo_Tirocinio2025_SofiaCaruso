@@ -1,0 +1,39 @@
+{
+  "data": "2025-08-19",
+  "ora": "10:43:00",
+  "negozio": "MIROGLIO FASHION S.R.L.",
+  "indirizzo": "PIAZZALE CESARE BECCARIA",
+  "città": "MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "GIACCA FELPA/MAGLIA1 x39,90",
+      "quantità": 1,
+      "prezzo": 39.9,
+      "prezzo_scontato": 22.0,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PANTALONE FELPA/MAGLIA1 x26,90",
+      "quantità": 1,
+      "prezzo": 26.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T-SHIRT MAGLIA1 x16,40",
+      "quantità": 1,
+      "prezzo": 16.4,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 83.2,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Mastercard Carta di Credito"
+}

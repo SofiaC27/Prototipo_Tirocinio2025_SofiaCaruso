@@ -1,0 +1,31 @@
+{
+  "data": null,
+  "ora": null,
+  "negozio": "Happy Casa Store",
+  "indirizzo": "Via Maestri del Lavoro 2",
+  "città": "S. Giorgio di Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SET 5 APPENDINI IN METALLO",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SECCHIO RICHIUDIBILE C/MANICO",
+      "quantità": 1,
+      "prezzo": 4.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 5.98,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat"
+}

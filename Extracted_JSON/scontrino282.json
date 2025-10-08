@@ -1,0 +1,95 @@
+{
+  "data": "2025-08-09",
+  "ora": "11:58:00",
+  "negozio": "P.LE ARNLDO MONDADORI",
+  "indirizzo": "N.2 - MANTOVA",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SMART BEV.DI SOIA S/Z IVA",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV.DI SOIA S/Z IVA",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SMART BEV.DI SOIA S/Z",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MELONI GIALLI",
+      "quantità": 1,
+      "prezzo": 2.45,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INSALATA LATTUGA",
+      "quantità": 1,
+      "prezzo": 1.32,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FETTINE SOTT.POLLO",
+      "quantità": 1,
+      "prezzo": 3.37,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FETTINE SOTT.POLLO",
+      "quantità": 1,
+      "prezzo": 3.37,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POLLO NATURAMA PETTI",
+      "quantità": 1,
+      "prezzo": 7.62,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CETRIOLI",
+      "quantità": 1,
+      "prezzo": 1.92,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NPSACCHETTO COMPOST.LE",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 23.33,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTI, BUONO PASTO ELETTRON"
+}

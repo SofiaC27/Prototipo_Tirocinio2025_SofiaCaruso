@@ -1,0 +1,71 @@
+{
+  "data": "2025-08-29",
+  "ora": "10:59:00",
+  "negozio": "GIALGI S.R.L",
+  "indirizzo": "Via Regione Siciliana 20/31",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "DAYLY TOVAGLIOLI X180",
+      "quantità": 1,
+      "prezzo": 2.97,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "RUGOLINO AMM.LAVANDA LT4 Art.99927",
+      "quantità": 1,
+      "prezzo": 2.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NEUTRODERMA SAP.LIQ.M.BIAN.LT1 Art.",
+      "quantità": 1,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ALE SACCO55X65 GIALLOX15",
+      "quantità": 1,
+      "prezzo": 1.58,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DEALO SALV. X72 TALCO Art.7500432",
+      "quantità": 1,
+      "prezzo": 1.58,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DOVE DEOD.SPRAY ORIGINAL ML150 ART.",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "RIO AZZURRO750 ML",
+      "quantità": 1,
+      "prezzo": 1.98,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.7,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

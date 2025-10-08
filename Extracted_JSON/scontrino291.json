@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-18",
+  "ora": "16:39:00",
+  "negozio": "Gelateria Latte e Cacao",
+  "indirizzo": "Via Matteotti 3",
+  "città": "Sant Antonio - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "TORTE",
+      "quantità": 1,
+      "prezzo": 18.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 18.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "PAGAMENTO ELETTRONICO"
+}

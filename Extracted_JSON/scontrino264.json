@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-25",
+  "ora": "10:45:00",
+  "negozio": "PANIFIFICIO BISCOTTERIA di FABRIZIO DI MICELI",
+  "indirizzo": "Via VILLAGRAZIA n.181",
+  "città": "PALERMO",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "TOTALE COMPLESSIVO",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 2.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTE"
+}

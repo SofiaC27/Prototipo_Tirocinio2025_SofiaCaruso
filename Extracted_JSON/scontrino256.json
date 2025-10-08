@@ -1,0 +1,71 @@
+{
+  "data": "2025-08-21",
+  "ora": "10:23:00",
+  "negozio": "EUROSPIN SICILIA S.",
+  "indirizzo": "Via Placido Rizzo, 16-17",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ANGURIA BABY",
+      "quantità": 1,
+      "prezzo": 2.26,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPER ORTOFR.BIO",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BEVANDA SOIA BIO1",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BEVANDA SOIA BIO1",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "RUCOLA 125g FV",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PISELLI FINISS. 600",
+      "quantità": 1,
+      "prezzo": 1.45,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FAVE 600g",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.85,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

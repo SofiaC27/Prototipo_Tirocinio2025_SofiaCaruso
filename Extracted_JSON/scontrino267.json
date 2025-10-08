@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-25",
+  "ora": "10:03:00",
+  "negozio": "NUOVA FARMACIA BARONE SCALA S.R.L.",
+  "indirizzo": "Via Villagrazia, 303/1",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "TICKET",
+      "quantità": 1,
+      "prezzo": 4.85,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 4.85,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CONTANTE"
+}

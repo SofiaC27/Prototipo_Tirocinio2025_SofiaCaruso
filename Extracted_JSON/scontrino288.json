@@ -1,0 +1,31 @@
+{
+  "data": "2025-08-15",
+  "ora": "18:41:00",
+  "negozio": "O.S. MANTOVA SRL",
+  "indirizzo": "VIA PIETRO BOTTONI 2/6",
+  "città": "MANTOVA - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "CONT PRANZOPOSAT PLAS C",
+      "quantità": 2,
+      "prezzo": 4.99,
+      "prezzo_scontato": 3.15,
+      "valuta": "EUR",
+      "percentuale_sconto": 37
+    },
+    {
+      "nome": "CO2 INSALATIERE EMPILABL",
+      "quantità": 3,
+      "prezzo": 1.55,
+      "prezzo_scontato": 0.34,
+      "valuta": "EUR",
+      "percentuale_sconto": 78
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.32,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "BANCOMAT"
+}

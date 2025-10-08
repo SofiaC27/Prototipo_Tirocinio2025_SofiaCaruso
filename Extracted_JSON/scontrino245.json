@@ -1,0 +1,71 @@
+{
+  "data": "2025-08-18",
+  "ora": "10:40:00",
+  "negozio": "EUROSPIN SICILIA S.P.A.",
+  "indirizzo": "Via Placido Rizzo, 90/52",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FAGIOLINI 500g FV",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ANGURIA BABY",
+      "quantità": 1,
+      "prezzo": 2.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "POMODORO GRAPPOLO",
+      "quantità": 1,
+      "prezzo": 1.36,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PETTO DI POLLO FET",
+      "quantità": 1,
+      "prezzo": 3.76,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PETTO DI POLLO FET",
+      "quantità": 1,
+      "prezzo": 5.54,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOZZARELLA 3X100g",
+      "quantità": 2,
+      "prezzo": 2.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPER ORTOFR.BIO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 17.05,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

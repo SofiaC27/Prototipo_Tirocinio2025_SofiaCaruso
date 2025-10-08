@@ -1,0 +1,103 @@
+{
+  "data": "2025-08-17",
+  "ora": "11:58:00",
+  "negozio": "Lidl Italia S.r.l.",
+  "indirizzo": "Via Verona, 83",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "TOFU XXL AFF",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "TOFU XXL AFF",
+      "quantità": 1,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PECORINO SARDO MATUR",
+      "quantità": 1,
+      "prezzo": 5.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROVOLONE VALPADANA",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "HIGH PROTEIN FET.FOR",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SPIED.POLLO YAKITORI",
+      "quantità": 1,
+      "prezzo": 2.49,
+      "prezzo_scontato": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 20
+    },
+    {
+      "nome": "POMODORO CILIEGINO",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": 1.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 25
+    },
+    {
+      "nome": "POMODORO CILIEGINO",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": 1.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 25
+    },
+    {
+      "nome": "MOZZARELLA HIGH PROT",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOZZARELLA HIGH PROT",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPER BIODEGRAD.",
+      "quantità": 2,
+      "prezzo": 0.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 18.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat, Mastercard"
+}

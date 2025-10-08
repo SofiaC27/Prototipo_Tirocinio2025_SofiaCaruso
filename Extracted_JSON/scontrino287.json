@@ -1,0 +1,47 @@
+{
+  "data": "2025-08-14",
+  "ora": "16:54:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop.",
+  "indirizzo": "P.le Cesare Beccaria,1/1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T ALALUNGA TRANCIO",
+      "quantità": 1,
+      "prezzo": 10.88,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T SUI PANC S/C FET S",
+      "quantità": 1,
+      "prezzo": 3.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T SUI PANC S/C FET S",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA BAP7 LUPPOL",
+      "quantità": 1,
+      "prezzo": 1.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 19.26,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

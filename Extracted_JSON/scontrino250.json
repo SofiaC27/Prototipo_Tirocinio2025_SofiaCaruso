@@ -1,0 +1,55 @@
+{
+  "data": "2025-08-20",
+  "ora": "13:49:00",
+  "negozio": "EUROSPIN SICILIA S.P.A.",
+  "indirizzo": "Via Placido Rizzotto, 30-32",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "UOVA GRANDI 5PZ",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "UOVA GRANDI 5PZ",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CAROTE 1kg",
+      "quantità": 1,
+      "prezzo": 1.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "AVOCADO 200g",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INDIVIA BELGA 500g",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.25,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

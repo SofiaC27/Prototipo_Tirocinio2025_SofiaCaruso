@@ -1,0 +1,79 @@
+{
+  "data": null,
+  "ora": null,
+  "negozio": "Ica Market s.r.l.",
+  "indirizzo": "V.le Placido Rizzotto,2",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "TONNO ALLOLIO DI OLIVA Gr70x3",
+      "quantità": 4,
+      "prezzo": 2.99,
+      "prezzo_scontato": 1.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 34
+    },
+    {
+      "nome": "YOGURT BIO BIANCO Gr150 INTER",
+      "quantità": 6,
+      "prezzo": 0.95,
+      "prezzo_scontato": 0.85,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "PERE COSCIA",
+      "quantità": 1,
+      "prezzo": 1.63,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Melone retato",
+      "quantità": 1,
+      "prezzo": 1.14,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Melanzane violette",
+      "quantità": 1,
+      "prezzo": 2.31,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BANANE PREM.",
+      "quantità": 1,
+      "prezzo": 0.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Lattuga romana",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": 0.89,
+      "valuta": "EUR",
+      "percentuale_sconto": 10
+    },
+    {
+      "nome": "Patate kg2 PICC.ORTOLANI",
+      "quantità": 1,
+      "prezzo": 2.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 21.41,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

@@ -1,0 +1,95 @@
+{
+  "data": "2025-08-20",
+  "ora": "16:39:00",
+  "negozio": "ESSELUNGA S.P.A.",
+  "indirizzo": "P.LE ARNALDO MONDADORI N.2",
+  "città": "Mantova",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "EVO 100 ITA CORICELLI",
+      "quantità": 1,
+      "prezzo": 11.65,
+      "prezzo_scontato": 6.99,
+      "valuta": "EUR",
+      "percentuale_sconto": 40
+    },
+    {
+      "nome": "PIEM. POLPA IRITA ATP",
+      "quantità": 1,
+      "prezzo": 7.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INS. ROMANA",
+      "quantità": 1,
+      "prezzo": 0.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MUTTI POLPA X2 GR420",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": 0.89,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "MUTTI POLPA X2 GR420",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": 0.89,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "PESCHE BIANCHE",
+      "quantità": 1,
+      "prezzo": 2.73,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "NPSACCHETTO COMPOST. LE",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FICHI300 G",
+      "quantità": 1,
+      "prezzo": 2.98,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MUTTI POLPA X2 GR420",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": 0.89,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "MUTTI POLPA X2 GR420",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": 0.89,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 24.95,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

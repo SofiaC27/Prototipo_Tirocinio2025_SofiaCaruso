@@ -1,0 +1,79 @@
+{
+  "data": "2025-08-26",
+  "ora": "09:50:00",
+  "negozio": "EUROSPIN SICILIA S.P.A.",
+  "indirizzo": "Via Placido Rizzo,32",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "UOVA A TERRA XL 6P",
+      "quantità": 1,
+      "prezzo": 1.89,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MELONE RETATO MANT",
+      "quantità": 1,
+      "prezzo": 3.58,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BANANE",
+      "quantità": 1,
+      "prezzo": 1.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MACINATO SCELTISSI",
+      "quantità": 1,
+      "prezzo": 5.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ANGURIA BABY",
+      "quantità": 1,
+      "prezzo": 3.31,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "EMMENT FRANCESE",
+      "quantità": 1,
+      "prezzo": 2.35,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MELE GRANNY SMITH",
+      "quantità": 1,
+      "prezzo": 2.86,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPER ORTOFR.BIO",
+      "quantità": 4,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 20.75,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

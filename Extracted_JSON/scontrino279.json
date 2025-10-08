@@ -1,0 +1,23 @@
+{
+  "data": "2025-09-17",
+  "ora": "12:23:00",
+  "negozio": "COOP ALLEANZA3.0 Soc. Coop.",
+  "indirizzo": "Via Vignolese, 835",
+  "città": "MODENA - MO",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T FOCACCIA OLIVE",
+      "quantità": 1,
+      "prezzo": 2.3,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 2.3,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

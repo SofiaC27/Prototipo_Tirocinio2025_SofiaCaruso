@@ -1,0 +1,63 @@
+{
+  "data": "2025-08-19",
+  "ora": "11:03:00",
+  "negozio": "IPER FAVORITA",
+  "indirizzo": "P.LE CESARE BECCARIA N.1",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T MARGHERITE",
+      "quantità": 1,
+      "prezzo": 2.54,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T VELLUTATA DI ZUCCA",
+      "quantità": 1,
+      "prezzo": 2.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "M-T LATTUGA ROMANA COO",
+      "quantità": 1,
+      "prezzo": 0.98,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "I. FINOCCHI SE",
+      "quantità": 1,
+      "prezzo": 2.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACCHETTO ORTO",
+      "quantità": 1,
+      "prezzo": 0.02,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOP. COMP. COOP PIC",
+      "quantità": 1,
+      "prezzo": 0.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.32,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "CARTA DI CREDITO"
+}

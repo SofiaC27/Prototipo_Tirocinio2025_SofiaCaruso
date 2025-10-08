@@ -1,0 +1,55 @@
+{
+  "data": "2025-08-23",
+  "ora": "09:49:00",
+  "negozio": "CONAD SUPERSTORE",
+  "indirizzo": "Via Villagrazi, 77",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MANDORLE SGUSC.23/25",
+      "quantità": 1,
+      "prezzo": 5.36,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "CANDEGGINA ACE CLASSICA",
+      "quantità": 1,
+      "prezzo": 4.29,
+      "prezzo_scontato": 2.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 42
+    },
+    {
+      "nome": "PASTA BARILLA FARFALLE N",
+      "quantità": 1,
+      "prezzo": 1.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BANANE DOLE OR. ECUADOR/C",
+      "quantità": 1,
+      "prezzo": 0.71,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PASTA DE CECCO RIGATONI",
+      "quantità": 1,
+      "prezzo": 2.19,
+      "prezzo_scontato": 1.49,
+      "valuta": "EUR",
+      "percentuale_sconto": 32
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 11.15,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

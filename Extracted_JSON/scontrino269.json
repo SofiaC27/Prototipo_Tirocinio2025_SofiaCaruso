@@ -1,0 +1,39 @@
+{
+  "data": "2023-08-21",
+  "ora": null,
+  "negozio": "Ica Market s.r.l.",
+  "indirizzo": "V.le Placido Rizzotto, 2",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FORMAGGIO STAGIONATO GRATTUGI",
+      "quantità": 1,
+      "prezzo": 3.83,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA MESSINA cl66 BOTT. 4,7",
+      "quantità": 2,
+      "prezzo": 1.49,
+      "prezzo_scontato": 1.29,
+      "valuta": "EUR",
+      "percentuale_sconto": 14
+    },
+    {
+      "nome": "T PEPSI cl33 LATTINA",
+      "quantità": 1,
+      "prezzo": 0.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 7.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

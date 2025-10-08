@@ -1,0 +1,31 @@
+{
+  "data": "2025-08-09",
+  "ora": "12:25:00",
+  "negozio": "Lidl Italia S.r.l.",
+  "indirizzo": "Via Verona, 83",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "SAVIOLA FORMAG. OLBET MOZZARELLA HIGH PROT",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BOCONCINI DI POLLO",
+      "quantità": 1,
+      "prezzo": 6.77,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.76,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Bancomat, Mastercard"
+}

@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-19",
+  "ora": "10:18:00",
+  "negozio": "PALERMO RETAIL S.R.L.",
+  "indirizzo": "VIA PIETRATAGLIA,19/29",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ORATE ALLEVATA(sparus aurata)",
+      "quantità": 1,
+      "prezzo": 5.82,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 5.82,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}

@@ -1,0 +1,95 @@
+{
+  "data": "2025-08-11",
+  "ora": "18:34:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "VIA M. MARX,1",
+  "città": "BANCOLE - Mantova (MN)",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "S.BENEDETTO THE ZERO",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PESCA P.BIANCA BIVON",
+      "quantità": 1,
+      "prezzo": 2.68,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PESCA P.BIANCA BIVON",
+      "quantità": 1,
+      "prezzo": 2.68,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BOLCATO PANUZZO",
+      "quantità": 1,
+      "prezzo": 2.6,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LATTUGA",
+      "quantità": 1,
+      "prezzo": 1.07,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "LATTUGA",
+      "quantità": 1,
+      "prezzo": 0.98,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "AIA KEB'S KEBAB DI P",
+      "quantità": 2,
+      "prezzo": 3.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MISURA CORNETTO DOLC",
+      "quantità": 1,
+      "prezzo": 2.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ROBERTI 4 UOVA ALL.A",
+      "quantità": 2,
+      "prezzo": 1.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ROBERTI 4 UOVA FR.BI",
+      "quantità": 2,
+      "prezzo": 1.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 27.11,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

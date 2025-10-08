@@ -1,0 +1,55 @@
+{
+  "data": "2025-08-24",
+  "ora": "08:24:00",
+  "negozio": "PASTICCERIA GIOS",
+  "indirizzo": "Via Dalla Zuanna,7",
+  "città": "Asiago - VI",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "PASTICCERIA",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Brioches",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Cappuccino Soia",
+      "quantità": 1,
+      "prezzo": 2.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Succhi di frutta",
+      "quantità": 1,
+      "prezzo": 3.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Acqua minerale 1/2 asporto",
+      "quantità": 1,
+      "prezzo": 1.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 10.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

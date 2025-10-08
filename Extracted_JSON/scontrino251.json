@@ -1,0 +1,23 @@
+{
+  "data": "2025-08-15",
+  "ora": null,
+  "negozio": "Ica Market s.p.l.",
+  "indirizzo": "V.le Placido Rizzotto,2",
+  "città": "Palermo",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "ACQUA NAT.LT.2X6 SANTA MARIA",
+      "quantità": 4,
+      "prezzo": 2.16,
+      "prezzo_scontato": 6.36,
+      "valuta": "EUR",
+      "percentuale_sconto": 26
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 6.36,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

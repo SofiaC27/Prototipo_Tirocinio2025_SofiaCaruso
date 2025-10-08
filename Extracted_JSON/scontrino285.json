@@ -1,0 +1,119 @@
+{
+  "data": "2025-08-13",
+  "ora": "11:52:00",
+  "negozio": "ALDI",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Shopper Bio",
+      "quantità": 3,
+      "prezzo": 0.1,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Pomodoro datt 400g",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Insalat. BIO 125g",
+      "quantità": 1,
+      "prezzo": 1.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Uva B. s.s. 400g",
+      "quantità": 1,
+      "prezzo": 2.39,
+      "prezzo_scontato": 1.19,
+      "valuta": "EUR",
+      "percentuale_sconto": 50
+    },
+    {
+      "nome": "Veg. Nugget/Cotol.",
+      "quantità": 3,
+      "prezzo": 2.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Gyros/Kebab",
+      "quantità": 1,
+      "prezzo": 4.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Gnoc. pat. fr 400g",
+      "quantità": 2,
+      "prezzo": 1.65,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Ficodind. DOP 800g",
+      "quantità": 1,
+      "prezzo": 2.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Zucchine",
+      "quantità": 1,
+      "prezzo": 1.7,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Sacch. ortofrutta",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Melanzane",
+      "quantità": 1,
+      "prezzo": 2.04,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Sacch. ortofrutta",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Cipol. Tr IGP 800g",
+      "quantità": 1,
+      "prezzo": 2.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 28.67,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Pagamento elettronico"
+}

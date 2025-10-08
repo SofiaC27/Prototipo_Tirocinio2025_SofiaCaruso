@@ -1,0 +1,55 @@
+{
+  "data": "2025-08-13",
+  "ora": "17:39:00",
+  "negozio": "SUPERMERCATI MARTINELLI S.R.L.",
+  "indirizzo": "VIA K.MARX,1",
+  "città": "BANC OLE - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "FRUTTA E VERDURA",
+      "quantità": 1,
+      "prezzo": 3.9,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA MESSINA CRIST.",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PANCEITA AFF.MARION",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA MESSINA CRIST.",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA MESSINA CRIST.",
+      "quantità": 1,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 9.86,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}

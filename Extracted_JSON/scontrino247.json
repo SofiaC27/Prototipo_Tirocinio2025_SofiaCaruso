@@ -1,0 +1,39 @@
+{
+  "data": "2025-08-19",
+  "ora": "10:47:00",
+  "negozio": "Lidl Italia S.r.l.",
+  "indirizzo": "Viale Regione Siciliana SE N°777",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BANANE",
+      "quantità": 0.522,
+      "prezzo": 1.39,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SACCH. ORYOF R. BIOGRAD",
+      "quantità": 1,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MANDORLE INTERE",
+      "quantità": 1,
+      "prezzo": 2.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 3.23,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

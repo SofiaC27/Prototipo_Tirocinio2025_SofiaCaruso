@@ -1,0 +1,31 @@
+{
+  "data": "2025-08-28",
+  "ora": "10:52:00",
+  "negozio": "Ica.Market s.r.l.",
+  "indirizzo": "V.le Placido Rizzotto,2",
+  "città": "Palermo - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "T Pasta - farfalle n.265 gr500",
+      "quantità": 1,
+      "prezzo": 0.95,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "T BISC.OTTIMI MANDORLE Gr350 DI",
+      "quantità": 1,
+      "prezzo": 1.69,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 2.64,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

@@ -1,0 +1,79 @@
+{
+  "data": "2025-08-19",
+  "ora": "16:48:00",
+  "negozio": "Martinelli SUPERMERCATI",
+  "indirizzo": "VIA K.MARX,1",
+  "città": "BANCOLE - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "BIRRA PERONI CRUDA5",
+      "quantità": 1,
+      "prezzo": 1.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "BIRRA PERONI CRUDA5",
+      "quantità": 1,
+      "prezzo": 1.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PATATE STICK1KG SAC",
+      "quantità": 1,
+      "prezzo": 2.2,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "INSALATA ROMANA",
+      "quantità": 1,
+      "prezzo": 1.16,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PATATE2KG",
+      "quantità": 1,
+      "prezzo": 1.98,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "AIA UOVA X4 BIOVITA",
+      "quantità": 1,
+      "prezzo": 4.17,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PROSC. COTTO GRAN NUG",
+      "quantità": 1,
+      "prezzo": 1.26,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "3 pz x1,39 Eu/pz",
+      "quantità": null,
+      "prezzo": null,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 13.17,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Carta Credito"
+}

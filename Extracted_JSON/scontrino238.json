@@ -1,0 +1,79 @@
+{
+  "data": "2025-08-02",
+  "ora": "20:59:00",
+  "negozio": "OSTERIA MARE'",
+  "indirizzo": "Via Della Vittoria 67",
+  "città": "Gabicce Mare - PU",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Patatine fritte",
+      "quantità": 2,
+      "prezzo": 4.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Salsiccia",
+      "quantità": 1,
+      "prezzo": 7.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Calzone",
+      "quantità": 1,
+      "prezzo": 9.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Capricciosa",
+      "quantità": 1,
+      "prezzo": 9.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Campana",
+      "quantità": 1,
+      "prezzo": 9.5,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Acqua 1 Lt GAS",
+      "quantità": 1,
+      "prezzo": 2.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Birra spina media",
+      "quantità": 1,
+      "prezzo": 5.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "coperto",
+      "quantità": 4,
+      "prezzo": 1.0,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 54.0,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "Contante"
+}

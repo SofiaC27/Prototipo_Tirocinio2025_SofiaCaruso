@@ -1,0 +1,55 @@
+{
+  "data": "2025-08-27",
+  "ora": "16:34:00",
+  "negozio": "ALDI S.r.l.",
+  "indirizzo": "Via Legnago 15/d",
+  "città": "Mantova - MN",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "Lattughino 125g",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Lattuga gentile",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Gran Ris ass3",
+      "quantità": 1,
+      "prezzo": 0.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Pesche gialle 1kg",
+      "quantità": 1,
+      "prezzo": 2.49,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "Ficodi ind. DOP 800g",
+      "quantità": 1,
+      "prezzo": 2.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 8.45,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "MASTERCARD"
+}

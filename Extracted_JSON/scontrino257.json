@@ -1,0 +1,167 @@
+{
+  "data": "2025-08-22",
+  "ora": "11:34:00",
+  "negozio": "EUROSPIN SICILIA S.P.A.",
+  "indirizzo": "Via Placido Rizziotto n37",
+  "città": "PALERMO - PA",
+  "paese": "Italia",
+  "lista_articoli": [
+    {
+      "nome": "MACINATO SCELTISSI",
+      "quantità": 1,
+      "prezzo": 4.87,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA NATURALE",
+      "quantità": 6,
+      "prezzo": 0.31,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACQUA NATURALE",
+      "quantità": 6,
+      "prezzo": 0.31,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SPINACI 500g FV",
+      "quantità": 1,
+      "prezzo": 1.99,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "FETTINE DI COSCIA",
+      "quantità": 1,
+      "prezzo": 6.04,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "REALE A FETTE",
+      "quantità": 1,
+      "prezzo": 8.24,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SPINACI CUBETTI 600",
+      "quantità": 1,
+      "prezzo": 1.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SCAMORZA BIANCA 30",
+      "quantità": 1,
+      "prezzo": 2.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "EMMENTAL E FETTE 2",
+      "quantità": 1,
+      "prezzo": 2.09,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PRO. COTTO AQ FF 15",
+      "quantità": 1,
+      "prezzo": 1.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "MOZZAREL. PIZZA 400",
+      "quantità": 1,
+      "prezzo": 3.15,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PIADINA OL. EXTR. 36",
+      "quantità": 2,
+      "prezzo": 1.19,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "DETERGENTE PIATTI",
+      "quantità": 1,
+      "prezzo": 1.79,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "AMMORBIDENTE ASS. T",
+      "quantità": 1,
+      "prezzo": 1.29,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ACETO BIANCO PET 1",
+      "quantità": 1,
+      "prezzo": 0.59,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "PEPERONI ROSSI",
+      "quantità": 1,
+      "prezzo": 2.63,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "ZUCCHINE",
+      "quantità": 1,
+      "prezzo": 1.96,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "KIWI",
+      "quantità": 1,
+      "prezzo": 1.96,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    },
+    {
+      "nome": "SHOPPER ORTOFR. BIO",
+      "quantità": 3,
+      "prezzo": 0.01,
+      "prezzo_scontato": null,
+      "valuta": "EUR",
+      "percentuale_sconto": null
+    }
+  ],
+  "prezzo_totale": {
+    "valore": 48.1,
+    "valuta": "EUR"
+  },
+  "metodo_pagamento": "contante"
+}
